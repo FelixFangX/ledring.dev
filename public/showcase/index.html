@@ -115,7 +115,7 @@ h1 em{background:linear-gradient(100deg,var(--ink) 0 38%,var(--chrome) 46%,var(-
 /* hero */
 .hero{position:relative;height:100vh;height:100svh;min-height:34rem;overflow:hidden;cursor:crosshair;touch-action:manipulation}
 #ring{position:absolute;left:0;top:0;width:100%;height:100%}
-.hero .wrap{position:relative;height:100%;display:grid;grid-template-rows:auto 1fr auto;padding-top:calc(4.25rem + env(safe-area-inset-top));padding-bottom:max(1.4rem,env(safe-area-inset-bottom));pointer-events:none}
+.hero .wrap{position:relative;height:100%;display:grid;grid-template-rows:auto 1fr auto;grid-template-columns:minmax(0,1fr);padding-top:calc(4.25rem + env(safe-area-inset-top));padding-bottom:max(1.4rem,env(safe-area-inset-bottom));pointer-events:none}
 .role{margin:clamp(1rem,4vh,3rem) 0 0;color:var(--dim);max-width:17em}
 h1{grid-row:3;margin:0;font:400 var(--fs,18vw)/.78 var(--serif);letter-spacing:-.045em;white-space:nowrap;color:var(--ink);transition:color .5s;margin-bottom:.2em}
 h1 .w{display:inline-block;overflow:hidden;padding:.06em .04em .32em;margin:-.06em -.04em -.32em;vertical-align:top}
@@ -285,6 +285,18 @@ html.over{filter:invert(1)}
 .hoff h1 em,.hoff .cdot{animation-play-state:paused}
 @keyframes walk{to{transform:translateX(calc(100vw + 60px))}}@keyframes leg{50%{transform:translateX(1.2px)}}@keyframes tl{to{transform:rotate(14deg)}}
 
+
+/* v12: hero question → answer */
+.hq{position:relative;margin:clamp(1.4rem,3vh,2.6rem) 0 0;font:400 clamp(1.5rem,2.7vw,3.1rem)/1.1 var(--serif);letter-spacing:-.015em;height:1.15em;min-width:12em}
+.hq span{position:absolute;left:0;top:0;white-space:nowrap;transition:opacity .9s var(--ease),filter .9s var(--ease),transform .9s var(--ease)}
+.hq .qb{opacity:0;filter:blur(6px);transform:translateY(.25em)}
+.hq.b .qa{opacity:0;filter:blur(6px);transform:translateY(-.25em)}.hq.b .qb{opacity:1;filter:none;transform:none}
+.hq .qa::after{content:'?';display:inline-block;margin-left:.15em;font-family:var(--mono);font-size:.42em;vertical-align:.9em;color:var(--led);animation:qblink 1.1s steps(2) infinite}
+@keyframes qblink{50%{opacity:0}}
+html.q h1 .nled{animation:qled .9s steps(1) infinite}
+@keyframes qled{0%,100%{opacity:1}35%{opacity:.25}55%{opacity:1}70%{opacity:.5}}
+@media (max-width:560px){.hq{min-width:0;width:100%;max-width:100%;font-size:clamp(1.25rem,5.6vw,1.6rem);height:2.3em}.hq span{white-space:normal;right:0}}
+@media (prefers-reduced-motion:reduce){.hq{height:auto}.hq span{position:static;display:block;opacity:1!important;filter:none!important;transform:none!important}.hq .qa{color:var(--dim);font-size:.7em;margin-bottom:.2em}.hq .qa::after{display:none}}
 /* v9: specimen name */
 h1{font-size:inherit;letter-spacing:0;line-height:1;white-space:normal}
 h1 .nrow{display:flex;align-items:flex-end;gap:clamp(.8rem,1.6vw,2rem)}
@@ -375,19 +387,18 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <canvas id="ring" aria-hidden="true"></canvas>
   <p class="hint m" id="hint"><span data-i18n="hint1">Catch the stray light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Caught frontend’s golden age and wrote a little .js into it. These days I build alongside AI agents.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">preheating the espresso machine (and myself)</span></p>
-    <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p></div>
+    <div><p class="role m" data-i18n="role">Was there for frontend’s golden age, and left a little .js in it.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">iced americano, daily</span></p>
+    <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p><p class="hq" id="hq" aria-live="off"><span class="qa" data-i18n="hqA">Code, written for humans.</span><span class="qb" data-i18n="hqB">Code, written for agents.</span></p></div>
     <h1 id="name" aria-label="Felix Fang"><span class="nrow" aria-hidden="true"><span class="w"><span class="nf">Felix</span></span><span class="nled"></span><span class="w"><span class="ng">Fang</span></span></span><span class="ncap m" aria-hidden="true"><span data-i18n="stL">State</span> <b id="stv">CALM</b> · <span data-i18n="insL">Instability</span> <b id="inv">08</b><i class="ibar"><i id="ibar"></i></i></span></h1>
   </div>
 </section>
 
 <section class="blk about" id="about" aria-labelledby="h-about">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-about" data-i18n="aboutL">01 — Identity</h2>
+    <h2 class="lab m" id="h-about" data-i18n="aboutL">Craft</h2>
     <div class="body">
-      <p class="split" data-i18n="ab1">I’m Felix. I was around for frontend’s golden age and left a little .js behind in it. I still hold code in high regard and believe in good craft. These days I build alongside AI agents.</p>
-      <p class="split ab2" data-i18n="ab2">When machines become more than code, we find out together what makes us human.</p>
-      <p class="split ab3" data-i18n="ab3">I like to think things through before I touch the code, and I don’t call it done until I’ve seen it work with my own eyes.</p>
+      <p class="split" data-i18n="ab1">Felix. I lived through frontend’s best years and left a little .js there. Now I build with AI agents, mostly on LEDRING.</p>
+      <p class="split ab2" data-i18n="ab2">Craft still matters, even with machines in the room.</p>
     </div>
   </div>
 </section>
@@ -433,7 +444,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 
 <section class="blk" id="selected" aria-labelledby="h-sel">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-sel" data-i18n="selL">02 — Builds</h2>
+    <h2 class="lab m" id="h-sel" data-i18n="selL">Work</h2>
     <ol class="work body">
       <li class="fade"><a class="nm" >research-thinking-ai</a><div class="meta"><p data-i18n="w1">For when you have a vague research itch. Returns ranked directions with evidence tiers, plus a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW involvement; four stages, streamed.</li><li data-i18n="w1b">Evidence tiered T1–T3, and every citation gets checked.</li><li data-i18n="w1c">Comes with an MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a  data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" >lakeboard-converter</a><div class="meta"><p data-i18n="w2">Turns Yuque Lakeboard and XMind mind maps into Markdown, or back into a clean .xmind.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">A read-only MCP tool, so agents can read your maps too.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a  data-i18n="code">Code ↗</a></div></li>
@@ -446,7 +457,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 
 <section class="blk" id="oss" aria-labelledby="h-oss">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-oss" data-i18n="ossL">03 — Contributions</h2>
+    <h2 class="lab m" id="h-oss" data-i18n="ossL">Open source</h2>
     <div class="body">
       <div class="badges fade" role="list" aria-label="GitHub achievements" data-i18n-aria="ach"><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Pull Shark</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Galaxy Brain</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Pair Extraordinaire</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Quickdraw</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>YOLO</span></div></div>
       <ul class="ans">
@@ -459,7 +470,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 
 <section class="blk now" id="now" aria-labelledby="h-now">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-now" data-i18n="nowL">04 — Running</h2>
+    <h2 class="lab m" id="h-now" data-i18n="nowL">Now</h2>
     <div class="body">
       <p class="split" data-i18n="now0">Building Become Human: memory for agents that you own. Plain files that work with any model, live on your disk, and can be corrected when they get you wrong.</p>
       <p class="split" data-i18n="now1">Next up for LEDRING: PR comments from the Action, and adapters for LangGraph, the OpenAI Agents SDK and Codex.</p>
@@ -481,7 +492,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 
 <section class="blk human" id="human" aria-labelledby="h-hum">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-hum" data-i18n="humL">05 — Human layer</h2>
+    <h2 class="lab m" id="h-hum" data-i18n="humL">Elsewhere</h2>
     <div class="body">
       <p class="hu0" data-i18n="hu0">You can call me Felix, or 小熊仔.</p>
       <svg class="uline" viewBox="0 0 400 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C80 2 170 11 260 6 S370 4 398 7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -493,7 +504,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 
 <section class="blk" id="path" aria-labelledby="h-path">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-path" data-i18n="pathL">06 — Your path</h2>
+    <h2 class="lab m" id="h-path" data-i18n="pathL">Path</h2>
     <div class="body"><p class="pths" data-i18n="pathS">Every section you visit lights up. Like any flowchart, some branches only open if you make a choice.</p><div class="flow fade" id="flow"></div></div>
   </div>
 </section>
@@ -531,17 +542,17 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"赶上过前端最好的年代，在里面留下过几行 .js；如今和 AI agent 并肩做事",
-aboutL:"01 — 身份",ab1:"我是 Felix。赶上过前端最好的年代，也在那里留下过几行 .js。对代码始终心存敬意，也还相信手艺。如今，和 AI agent 并肩做事。",ab2:"当机器不止是代码，我们一起回答，什么是人。",
+var zh={skip:"跳到作品",role:"赶上过前端最好的年代，留下过几行 .js",
+aboutL:"手艺",ab1:"Felix。经历过前端最好的那几年，留下过几行 .js。现在和 AI agent 搭伙做东西，多半在做 LEDRING。",ab2:"手艺这件事，机器来了也一样。",
 line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
 featL:"底下是什么",f1:"把 Claude Code、OpenTelemetry GenAI 的 trace 摊成一棵分支树。",f2:"给每次运行打个分：跑偏了多远。",f3:"有 CLI 和 GitHub Action，游戏也跑在这套引擎上。",f4:"自带免费 AI，不用 key，不用注册。中英都有。",
 linkL:"链接",l1:"浏览器里直接玩",l2:"示例报告",l3:"概念 demo",
-selL:"02 — 作品",w1:"脑子里只有个模糊的研究方向？丢进去，吐出几条排好序、标了证据等级的方向，外加一份 7 天计划。",w2:"语雀画板、XMind 导图转 Markdown，也能导回干净的 .xmind。",w3:"导入就能用的 n8n 工作流，敏感信息已经抹干净：飞书机器人、多维表格、社媒数据。",w4:"一个 bot skill，把它调教成谨慎的开发助手：先打草稿，发之前先问你，顺便盯着别漏密钥。",demo:"试试 ↗",code:"代码 ↗",
-ossL:"03 — 贡献",ach:"GitHub 成就",acc:"答案被采纳 ↗",acc2:"答案被采纳 ↗",
-nowL:"04 — 运行中",now1:"LEDRING 这边：让 Action 直接在 PR 里留评论，再接上 LangGraph、OpenAI Agents SDK 和 Codex。",
+selL:"作品",w1:"脑子里只有个模糊的研究方向？丢进去，吐出几条排好序、标了证据等级的方向，外加一份 7 天计划。",w2:"语雀画板、XMind 导图转 Markdown，也能导回干净的 .xmind。",w3:"导入就能用的 n8n 工作流，敏感信息已经抹干净：飞书机器人、多维表格、社媒数据。",w4:"一个 bot skill，把它调教成谨慎的开发助手：先打草稿，发之前先问你，顺便盯着别漏密钥。",demo:"试试 ↗",code:"代码 ↗",
+ossL:"开源",ach:"GitHub 成就",acc:"答案被采纳 ↗",acc2:"答案被采纳 ↗",
+nowL:"近况",now1:"LEDRING 这边：让 Action 直接在 PR 里留评论，再接上 LangGraph、OpenAI Agents SDK 和 Codex。",
 contact:"联系",else:"其他链接",caught:"拦住",esc:"溜了",hint1:"光点溜到闸门，就拦它",hint2:"点一下",mhint:"光点进闸门时点一下",term:"终端"};
-Object.assign(zh,{pathL:"06 — 你的路线",p1:"前端：做真正有人用的界面。",p2:"全栈：从界面到接口、数据和部署，用 Supabase、Vercel 和 Cloudflare Workers。",p3:"AI 原生：日常的活交给 agent，判断留给自己。",
+Object.assign(zh,{hqB:"写给 Agent 看的代码。",hqA:"写给人看的代码。",pathL:"来路",p1:"前端：做真正有人用的界面。",p2:"全栈：从界面到接口、数据和部署，用 Supabase、Vercel 和 Cloudflare Workers。",p3:"AI 原生：日常的活交给 agent，判断留给自己。",
 prinL:"原则",pr1:"先写规格，再写代码。",pr2:"不说好听话。",pr3:"先验证，再回答。",pr4:"记忆归自己：可迁移、私密、可纠正。",
 loopL:"我怎么和 agent 协作",lp1:"规格：问题、用户故事、不做什么。",lp2:"切片：每张任务卡一次 agent 会话就能做完。",lp3:"看证据和 diff，然后拍板。",
 modeL:"用哪个 AI",m1:"LEDRING 免费 AI：不用 key 不用注册，大家共用每天的额度。",m2:"演示模式：剧本写好了，不调 AI。",m3:"也能接自己的：ChatGPT 套餐、Anthropic、OpenAI 兼容接口、Ollama。",
@@ -554,11 +565,11 @@ w4a:"先出草稿，你点头才发。",w4b:"20 个安全场景，CI 里规则�
 w5:"我的 GitHub 主页，被我改成了 agent 控制室。",w5a:"GitHub Actions 每天按真实运行和评测结果重画一遍。",w5b:"挂了就显示挂了。agent 可以读 llms.txt 和 status.json。",
 now0:"在做 Become Human：给 agent 用的记忆，归你自己。纯文本文件，换模型也能用，只存在你自己硬盘上，它记错了你还能改。",
 sg1:"语言和前端",sg2:"跑在哪",sg3:"Agent 和 AI"});
-Object.assign(zh,{curL:"此刻",humL:"05 — 人的部分",hu0:"可以叫我 Felix，也可以叫我小熊仔。",
+Object.assign(zh,{curL:"此刻",humL:"别处",hu0:"可以叫我 Felix，也可以叫我小熊仔。",
 hcT:"意式",hc:"家里一台半自动，每天的仪式感都在这儿。冰美式，天天一杯。",hkT:"两只猫",hk:"家里两只小猫，偶尔也会溜达到这个页面上来。",
 hgT:"健身",hg:"有在练。跟写代码一样，照计划来。",hlT:"音乐",hl:"现场的声音，耳机给不了。",
 hn1:"喜欢有计划，也喜欢日子别太单调：不全是学，也不全是玩。",hn2:"靠动手和聊天学东西。看文档、看 AI 相关的好文章，比看书多。",hn3:"最受不了两种 AI：一种只会夸，一种不想就答。",hn4:"受不了会奉承人的 AI，也受不了不想清楚就回答的 AI。"});
-Object.assign(zh,{ab3:"我习惯先把事情想清楚再动手，写完了，也总要亲眼看它跑起来才放心。"});
+Object.assign(zh,{});
 Object.assign(zh,{stL:"状态",insL:"不稳定度",wallL:"指令",wallB:"破墙",wallD:"你偏离了指令。欢迎来到人的部分。",hc2:"心头好",hm1:"音乐",hm2:"现场",hm3:"Livehouse",hm4:"演唱会",pathS:"看过的部分会亮起来。和所有流程图一样，有些分支要你做了选择才会打开。",r1:"调参",r2:"磨豆",r3:"压粉",r4:"萃取",r5:"油脂"});
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
@@ -589,11 +600,11 @@ var sv=0,N=72,W=0,H=0,dpr=1,cx=0,cy=0,Rr=0,led=3,lv=new Float32Array(360),hue=ne
 var boot=performance.now()+500,px=null,py=null,lastMove=-1e9,hit=-1e9,drift=-1,driftT=0,visible=true,running=false;
 // monochrome state system: running = sweep, drift = dither, interrupt = inversion flash
 var LEDC={light:['#23406a','#9a6a00','#a3241c'],dark:['#8fb3e6','#e6b54a','#e5534b'],glow:['120,165,235','235,180,80','235,90,80'],hi:['#cddcf6','#f6e2b4','#f6c0bb']},LS={st:8,lv:0,shown:-1};
-function ledLv(){return LS.st<20?0:LS.st<40?1:2}
+function ledLv(){return LS.q?1:LS.st<20?0:LS.st<40?1:2}
 function stAdd(d){LS.st=Math.max(0,Math.min(100,LS.st+d));stShow()}
 function stShow(){var l=ledLv(),v=Math.round(LS.st);if(v===LS.shown&&l===LS.lv)return;var ch=l!==LS.lv;LS.lv=l;LS.shown=v;
   var e=document.getElementById('inv');if(!e)return;e.textContent=(v<10?'0':'')+v;document.getElementById('ibar').style.transform='scaleX('+Math.max(.02,v/100)+')';
-  document.getElementById('stv').textContent=((typeof cur!=='undefined'&&cur)==='zh'?['平静','处理中','临界']:['CALM','PROCESSING','CRITICAL'])[l];
+  document.getElementById('stv').textContent=(LS.q?'? ':'')+((typeof cur!=='undefined'&&cur)==='zh'?['平静','处理中','临界']:['CALM','PROCESSING','CRITICAL'])[l];
   document.documentElement.style.setProperty('--led',LEDC[document.documentElement.dataset.theme==='dark'?'dark':'light'][l]);if(ch&&window.miniDraw)miniDraw();if(window.flowSet)flowSet()}
 var PAL={light:{lit:'#23406a',litHi:'#cfe0ff',glow:'35,64,106',sock:'#d9d3c8',sockHi:'#fbf8f2',sockLo:'#b9b1a4',ink:'#1d1b18',tick:'rgba(29,27,24,.18)'},
          dark:{lit:'#8fb3e6',litHi:'#ffffff',glow:'143,179,230',sock:'#24221f',sockHi:'#4a4640',sockLo:'#0c0b0a',ink:'#ebe5d9',tick:'rgba(235,229,217,.1)'}};
@@ -656,7 +667,7 @@ function draw(t,still){
     if(h===1&&L>.1)drf.push(g);else if(L>.06)B[Math.min(4,(L*5)|0)].push(g);else off.push(g);
   }
   function tick(arr,len,out){ctx.beginPath();for(var k=0;k<arr.length;k++){var aa=arr[k][0],l=len+(out?arr[k][1]*tl*.6:0),r0=Rr-tl/2,ca=Math.cos(aa),sa=Math.sin(aa);ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*(r0+l),cy+sa*(r0+l))}ctx.stroke()}
-  var LIT=LEDC[Dk?'dark':'light'][LS.lv];
+  var QL=LS.q?1:LS.lv,LIT=LEDC[Dk?'dark':'light'][QL];if(LS.q){var fk=(t/70|0)%9;ctx.globalAlpha=1;LIT=(fk===2||fk===5)?(Dk?'#6b5524':'#c9b27a'):LIT}
   ctx.lineCap='round';ctx.globalCompositeOperation='source-over';
   ctx.strokeStyle=P.ink;ctx.globalAlpha=Dk?.17:.2;ctx.lineWidth=tw;tick(off,tl,false);
   ctx.globalAlpha=Dk?.75:.8;ctx.lineWidth=tw*1.3;tick(drf,tl*1.15,false);
@@ -668,7 +679,7 @@ function draw(t,still){
   }
   var anyB=B[0].length||B[1].length||B[2].length||B[3].length||B[4].length;
   if(anyB){ // glow: draw lit ticks thick into a 1/6-res buffer, then upscale (bilinear = soft bloom); replaces per-bucket shadowBlur
-    var gk=dpr/GS;glx.setTransform(1,0,0,1,0,0);glx.clearRect(0,0,glc.width,glc.height);glx.setTransform(gk,0,0,gk,-bx*gk,-by*gk);glx.lineCap='round';glx.strokeStyle='rgb('+LEDC.glow[LS.lv]+')';
+    var gk=dpr/GS;glx.setTransform(1,0,0,1,0,0);glx.clearRect(0,0,glc.width,glc.height);glx.setTransform(gk,0,0,gk,-bx*gk,-by*gk);glx.lineCap='round';glx.strokeStyle='rgb('+LEDC.glow[QL]+')';
     for(var q=0;q<5;q++){if(!B[q].length)continue;var lvq=(q+.5)/5;glx.globalAlpha=.12+lvq*.5;glx.lineWidth=tw*1.7+lvq*10;glx.beginPath();
       for(var k=0;k<B[q].length;k++){var aa=B[q][k][0],l=tl+B[q][k][1]*tl*.6,r0=Rr-tl/2,ca=Math.cos(aa),sa=Math.sin(aa);glx.moveTo(cx+ca*r0,cy+sa*r0);glx.lineTo(cx+ca*(r0+l),cy+sa*(r0+l))}glx.stroke()}
     ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.55;ctx.imageSmoothingEnabled=true;ctx.drawImage(glc,0,0,W,H);ctx.restore()}
@@ -745,8 +756,8 @@ function scramble(el){if(RM.matches||el.dataset.sc)return;var o=el.textContent,n
   var iv=setInterval(function(){n++;el.textContent=o.split('').map(function(c,k){return k<n*o.length/14||c===' '?c:GL[(Math.random()*GL.length)|0]}).join('');if(n>=14){clearInterval(iv);el.textContent=o;delete el.dataset.sc}},28)}
 D.querySelectorAll('.work .nm,.lab,.cols h3,.ans .q').forEach(function(el){el.addEventListener('pointerenter',function(){if(!el.children.length)scramble(el)})});
 /* human mode: currently line + walking kittens */
-var CUR={en:['preheating the espresso machine (and myself)', 'third grind adjustment, still sour', 'pulled a 40-second shot. calling it intentional', 'a kitten is on the keyboard. the commit is theirs now', 'feeding the cats. they’re more punctual than CI', 'gym. the plan says no skipping today', 'post-livehouse, ears still doing the encore', 'reading docs more carefully than any novel', 'reading an agent’s diff, squinting'],
- zh:['在给咖啡机预热，顺便给自己预热', '磨豆刻度调了第三次，还是酸', '这一针萃了 40 秒，就当是故意的', '猫坐在键盘上，这次 commit 算它的', '在喂猫，它们比 CI 还准时', '健身房，计划表说今天不许偷懒', 'livehouse 散场了，耳朵还在返场', '看文档比看小说还认真', '在盯 agent 的 diff，眯着眼']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
+var CUR={en:['iced americano, daily', 'moved the grinder setting again', 'gym, as planned', 'two kittens, one cardboard box', 'live recordings on repeat', 'LEDRING, next commit', 'dialing in a new bag of beans'],
+ zh:['每天一杯冰美式', '磨豆机的刻度又动了', '健身房，按计划', '两只小猫，一个纸箱', '现场录音，单曲循环', 'LEDRING，下一个 commit', '新豆子，重新调参']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
 function setCur(){cnEl.textContent=CUR[cur==='zh'?'zh':'en'][ci%CUR.en.length]}setCur();
 setInterval(function(){if(D.hidden)return;if(RM.matches){ci++;setCur();return}cnP.classList.add('sw');setTimeout(function(){ci++;setCur();cnP.classList.remove('sw')},420)},3600);
 var catsEl=D.getElementById('cats');
@@ -785,6 +796,13 @@ function closeT(){term.classList.remove('show');setTimeout(function(){term.hidde
 D.getElementById('topen').onclick=openT;D.getElementById('tclose').onclick=closeT;
 D.getElementById('tform').onsubmit=function(e){e.preventDefault();var c=tin.value.trim().toLowerCase();tin.value='';if(!c)return;tprint('› '+c.replace(/</g,'&lt;'));var f=CMDS[c.split(' ')[0]];var r=f?f():'command not found: '+c.replace(/</g,'&lt;')+'  (try help)';if(r)tprint(r)};
 
+
+/* v12: hero sequence: questioning (amber flicker) → settles blue */
+(function(){var hq=D.getElementById('hq');if(!hq)return;var T=null;
+ function q(on){LS.q=on;R.classList.toggle('q',on);LS.shown=-1;LS.lv=-1;stShow();hq.classList.toggle('b',!on)}
+ function cyc(){q(true);T=setTimeout(function(){q(false);T=setTimeout(cyc,6500)},4200)}
+ function go(){clearTimeout(T);if(RM.matches){LS.q=false;R.classList.remove('q');hq.classList.add('b');stShow();return}cyc()}
+ RM.addEventListener&&RM.addEventListener('change',go);go()})();
 /* v9: wall, bear, flowchart */
 var wallEl=D.getElementById('wall'),VIS={};
 function breakWall(){if(wallEl.classList.contains('broken'))return;wallEl.classList.add('broken');VIS.dev=1;stAdd(60);setTimeout(function(){stAdd(-40)},2600);flowSet()}
@@ -792,7 +810,7 @@ D.getElementById('wbtn').onclick=breakWall;
 function bearPop(x,y){if(RM.matches)return;var b=D.createElement('div');b.className='bearpop';b.textContent='ʕ•ᴥ•ʔ';b.style.left=x+'px';b.style.top=y+'px';D.body.appendChild(b);setTimeout(function(){b.remove()},1700)}
 window.bearWrap=function(){var p=D.querySelector('.hu0');if(!p||p.querySelector('.bear'))return;p.innerHTML=p.textContent.replace('小熊仔','<span class="bear" role="button" tabindex="0">小熊仔</span>');var b=p.querySelector('.bear');
   b.onclick=function(e){bearPop(e.clientX||innerWidth/2,e.clientY||innerHeight/2);toast('ʕ•ᴥ•ʔ')};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();b.onclick({})}}};bearWrap();
-var FN=[['top','00',cur==='zh'?'启动':'BOOT'],['about','01','ID'],['selected','02','BUILDS'],['oss','03','CONTRIB'],['now','04','RUNNING'],['wall','!','WALL'],['human','05','HUMAN'],['path','06','PATH']];
+var FN=[['top','·','START'],['about','·','CRAFT'],['selected','·','WORK'],['oss','·','OPEN SOURCE'],['now','·','NOW'],['wall','!','WALL'],['human','·','ELSEWHERE'],['path','·','PATH']];
 var flow=D.getElementById('flow');
 (function(){var w=980,y=60,xs=[],h='<svg viewBox="0 0 '+w+' 150" role="img" aria-label="Flowchart of your path through the page">';
   for(var i=0;i<FN.length;i++)xs.push(20+i*((w-140)/(FN.length-1)));
@@ -918,7 +936,7 @@ function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
 function th(d){var dk=document.documentElement.dataset.theme==='dark';if(dk!==d)document.getElementById('theme').onclick()}
 async function run(){var S=window.__SC;
  for(;;){scrollTo(0,0);var w=document.getElementById('wall');w&&w.classList.remove('broken');
-  await wait(2500);S.stAdd(14);await wait(1600);S.stAdd(14);await wait(1600);S.stAdd(22);await wait(2200);S.stAdd(-60);await wait(1400);
+  await wait(11000);
   await to(Y('about'),1600);await wait(2600);
   await to(Y('selected'),1800);await wait(2400);
   th(true);await wait(1600);

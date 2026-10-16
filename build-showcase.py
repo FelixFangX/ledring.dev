@@ -15,7 +15,7 @@ function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
 function th(d){var dk=document.documentElement.dataset.theme==='dark';if(dk!==d)document.getElementById('theme').onclick()}
 async function run(){var S=window.__SC;
  for(;;){scrollTo(0,0);var w=document.getElementById('wall');w&&w.classList.remove('broken');
-  await wait(2500);S.stAdd(14);await wait(1600);S.stAdd(14);await wait(1600);S.stAdd(22);await wait(2200);S.stAdd(-60);await wait(1400);
+  await wait(11000);
   await to(Y('about'),1600);await wait(2600);
   await to(Y('selected'),1800);await wait(2400);
   th(true);await wait(1600);
