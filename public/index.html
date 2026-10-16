@@ -261,6 +261,25 @@ html.over{filter:invert(1)}
   .row:hover .dots::after{clip-path:inset(0 0 0 0)}
   .work a.nm:hover{font-style:italic}
 }
+
+.cnow{margin:.9rem 0 0;color:var(--dim);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.cnow #cnow{color:var(--ink);transition:opacity .4s,filter .4s}.cnow.sw #cnow{opacity:0;filter:blur(4px)}
+.hero .role,.cnow{max-width:min(28rem,calc(100vw - 2.5rem - env(safe-area-inset-left) - env(safe-area-inset-right)))}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--acc);display:inline-block;animation:cd 2.4s ease-in-out infinite}@keyframes cd{50%{opacity:.25}}
+.human .body>p{margin:0;font:400 clamp(1.4rem,2.2vw,2.3rem)/1.15 var(--serif);max-width:22em}
+.hgrid{list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));border-top:1px solid var(--ink)}
+.hgrid li{padding:1.4rem 1.2rem 1.6rem 0;border-bottom:1px solid var(--rule)}
+@media (min-width:48rem){.hgrid li{padding-right:1.6rem}.hgrid li+li{padding-left:1.4rem;border-left:1px solid var(--rule)}}
+.hgrid .icw{display:block;color:var(--acc);margin-bottom:1rem}.hgrid .ic{display:block;transition:transform .6s var(--spring)}
+@media (hover:hover){.hgrid li:hover .ic{transform:rotate(-6deg) translateY(-3px)}}
+.hgrid h3{margin:0 0 .5rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}.hgrid p{margin:0;font-size:.95rem;line-height:1.5;color:var(--dim)}
+.hnotes{list-style:none;margin:2rem 0 0;padding:0;columns:2 18rem;column-gap:3rem}.hnotes li{break-inside:avoid;padding:.6rem 0 .6rem 1.4rem;position:relative;font:400 clamp(1.1rem,1.4vw,1.45rem)/1.25 var(--serif)}
+.hnotes li::before{content:'';position:absolute;left:0;top:1.05em;width:.8rem;height:1px;background:var(--acc)}
+.cats{position:fixed;left:0;bottom:calc(10px + env(safe-area-inset-bottom));width:100%;height:32px;pointer-events:none;z-index:30;color:var(--ink);overflow:hidden;visibility:hidden}
+.cats.go{visibility:visible}.cats .cw{position:absolute;bottom:0;left:0;transform:translateX(-60px)}
+.cats.go .cw{animation:walk 13s linear forwards}.cats.go .c2{animation-delay:.9s}
+.cats .leg path{animation:leg .32s steps(2) infinite}.cats .tail{transform-origin:7px 15px;animation:tl 1.4s ease-in-out infinite alternate}
+@keyframes walk{to{transform:translateX(calc(100vw + 60px))}}@keyframes leg{50%{transform:translateX(1.2px)}}@keyframes tl{to{transform:rotate(14deg)}}
+@media (prefers-reduced-motion:reduce){.cats{display:none}.cdot{animation:none}.cnow.sw #cnow{opacity:1;filter:none}}
 @media (prefers-reduced-motion:reduce){
   body::after{animation:none}h1 em{animation:none}.js .split .sw{opacity:1;filter:none;transform:none}
   .pin .pinwrap{height:auto}.pin .stick{position:static;min-height:0}.pin .word,.pin .screen,.pin .fside{transform:none!important;clip-path:none!important;opacity:1!important}
@@ -288,7 +307,7 @@ html.over{filter:invert(1)}
   <canvas id="ring" aria-hidden="true"></canvas>
   <p class="hint m" id="hint"><span data-i18n="hint1">Stop the rogue light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Frontend &amp; full-stack engineer, building with AI agents</p>
+    <div><p class="role m" data-i18n="role">Frontend &amp; full-stack engineer, building with AI agents</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">pulling an espresso shot</span></p>
     <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Escaped</span> <b id="se">0</b></span></p></div>
     <h1 id="name" class="fit" data-max=".46"><span class="w"><span>Felix</span></span><span class="w"><span><em>Fang</em></span></span></h1>
   </div>
@@ -389,6 +408,17 @@ html.over{filter:invert(1)}
   </div>
 </section>
 
+<section class="blk human" id="human" aria-labelledby="h-hum">
+  <div class="wrap g12">
+    <h2 class="lab m" id="h-hum" data-i18n="humL">Off the clock</h2>
+    <div class="body">
+      <p class="split" data-i18n="hu0">Call me Felix. I haven’t pinned myself to a job title.</p>
+      <ul class="hgrid"><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9h20l-2.6 27a2 2 0 0 1-2 1.8H16.6a2 2 0 0 1-2-1.8z"/><path d="M13 17h18" stroke-dasharray="1 2.2"/><rect x="16" y="21" width="5" height="5" rx=".8"/><rect x="22.5" y="25" width="5" height="5" rx=".8"/><path d="M25 4l-3 21"/></g></svg></span><h3 class="m" data-i18n="hcT">Coffee</h3><p data-i18n="hc">Espresso at home, an iced americano every day, and always on the hunt for a genuinely good coffee shop.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 37c0-5 1.6-8 4-9l-.8-5 2.6 2.4h3l2.6-2.4-.8 5c2.4 1 4 4 4 9zM20 35.5c2.6 0 4-1 4-3.4"/><path d="M23 37c0-6 2-9.5 5-10.5l-1-6 3.2 3h3.6l3.2-3-1 6c3 1 5 4.5 5 10.5z"/><path d="M5 40h36" stroke-dasharray="1 2.2"/></g></svg></span><h3 class="m" data-i18n="hkT">Two kittens</h3><p data-i18n="hk">Two kittens at home. Every so often they wander across this page, too.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22h16"/><rect x="9" y="14" width="5" height="16" rx="1"/><rect x="30" y="14" width="5" height="16" rx="1"/><path d="M6 18v8M38 18v8"/></g></svg></span><h3 class="m" data-i18n="hgT">Gym</h3><p data-i18n="hg">Regular at the gym. Same rule as the code: follow the plan.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13h34v6a3 3 0 0 0 0 6v6H5v-6a3 3 0 0 0 0-6z"/><path d="M30 14v16" stroke-dasharray="1.5 2"/><path d="M11 19h12M11 22h9M11 25h11"/></g></svg></span><h3 class="m" data-i18n="hlT">Live</h3><p data-i18n="hl">Concerts, livehouses, IMAX and Dolby cinema. Things that are better in the room.</p></li></ul>
+      <ul class="hnotes fade"><li data-i18n="hn1">Rigorous, objective, and I like a plan.</li><li data-i18n="hn2">I learn by doing and by talking things through. Docs and sharp essays on the AI era, more than books.</li><li data-i18n="hn3">Good days have variety: not all study, not all play.</li><li data-i18n="hn4">Allergic to AI that flatters, or answers before it has thought.</li></ul>
+    </div>
+  </div>
+</section>
+
 <section class="contact" aria-label="Contact" data-i18n-aria="contact">
   <div class="wrap">
     <a class="mail fit rv" data-max=".3" href="mailto:felix@ledring.dev">felix<b>@</b>ledring.dev</a>
@@ -402,6 +432,7 @@ html.over{filter:invert(1)}
 
 <div class="cur" id="cur" aria-hidden="true"></div>
 <div class="toast m" id="toast" role="status"></div>
+<div class="cats" id="cats" aria-hidden="true"><span class="cw c1"><svg viewBox="0 0 40 26" width="44" height="28"><g class="leg"><path d="M9 20v5M13 20v5M25 20v5M29 20v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></g><path d="M6 21c-1-6 3-10 10-10h10c2 0 3-1 4-3l1-4 2 3h2l2-3 .5 5c1 2 1 5-1 7-1 1-3 1.5-4 2.5v3.5z" fill="currentColor"/><path class="tail" d="M7 15c-4-1-6-4-5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="cw c2"><svg viewBox="0 0 40 26" width="34" height="22"><g class="leg"><path d="M9 20v5M13 20v5M25 20v5M29 20v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></g><path d="M6 21c-1-6 3-10 10-10h10c2 0 3-1 4-3l1-4 2 3h2l2-3 .5 5c1 2 1 5-1 7-1 1-3 1.5-4 2.5v3.5z" fill="currentColor"/><path class="tail" d="M7 15c-4-1-6-4-5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
 <section class="term" id="term" role="dialog" aria-modal="false" aria-label="Terminal" hidden>
   <div class="th"><span>felix@ledring.dev — sh</span><button type="button" id="tclose" aria-label="Close terminal">✕</button></div>
   <div class="out" id="tout" aria-live="polite"></div>
@@ -434,6 +465,10 @@ w4a:"先出草稿，你确认后才发。",w4b:"20 个安全场景，CI 里规�
 w5:"我的 GitHub 主页：一个实时的 agent 工具控制室。",w5a:"每天由 GitHub Actions 根据真实运行和评测结果重新生成。",w5b:"失败就显示失败；agent 可以读 llms.txt 和 status.json。",
 now0:"在做 Become Human：给 agent 用的记忆层。可迁移（纯文本文件，换模型也能用），私密（只存在你自己的硬盘上），可纠正（能看到并修改它对你的认知）。",
 sg1:"语言与界面",sg2:"平台",sg3:"Agent 与 AI"});
+Object.assign(zh,{curL:"此刻",humL:"下班以后",hu0:"叫我 Felix 就好。我没给自己定一个职位名。",
+hcT:"咖啡",hc:"在家自己做浓缩，每天一杯冰美式，也一直在找真正好喝的咖啡店。",hkT:"两只小猫",hk:"家里养着两只小猫。它们偶尔也会从这个页面上走过。",
+hgT:"健身",hg:"常去健身房。和写代码一个道理：按计划来。",hlT:"现场",hl:"演唱会、livehouse、IMAX 和杜比影院。在现场才最好。",
+hn1:"严谨、客观，喜欢按计划来。",hn2:"边做边学，也靠和人聊。比起读书，更常读技术文档和讲 AI 时代的好文章。",hn3:"好的日子要有变化：不全是学习，也不全是玩。",hn4:"受不了会奉承人的 AI，也受不了不想清楚就回答的 AI。"});
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
@@ -447,7 +482,7 @@ function set(l){
   D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});
   R.lang=l==='zh'?'zh-CN':'en';
   lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
-  D.getElementById('play').href=D.getElementById('play3').href=playURL(l);tlabel();
+  D.getElementById('play').href=D.getElementById('play3').href=playURL(l);tlabel();if(typeof CUR!=='undefined'&&CUR)setCur();
 }
 
 /* fit display type to the column, capped by viewport height */
@@ -595,11 +630,19 @@ var GL='!<>-_/[]{}=+*^?#01';
 function scramble(el){if(RM.matches||el.dataset.sc)return;var o=el.textContent,n=0;el.dataset.sc=1;
   var iv=setInterval(function(){n++;el.textContent=o.split('').map(function(c,k){return k<n*o.length/14||c===' '?c:GL[(Math.random()*GL.length)|0]}).join('');if(n>=14){clearInterval(iv);el.textContent=o;delete el.dataset.sc}},28)}
 D.querySelectorAll('.work .nm,.lab,.cols h3,.ans .q').forEach(function(el){el.addEventListener('pointerenter',function(){if(!el.children.length)scramble(el)})});
+/* human mode: currently line + walking kittens */
+var CUR={en:['pulling an espresso shot','on an iced americano','looking for a good coffee shop','feeding the cats','at the gym','at a livehouse','in an IMAX seat','reading the docs','reviewing an agent’s diff'],
+ zh:['在萃一杯浓缩','喝着冰美式','在找一家好咖啡店','在喂猫','在健身房','在 livehouse','坐在 IMAX 影厅','在读文档','在看 agent 交的 diff']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
+function setCur(){cnEl.textContent=CUR[cur==='zh'?'zh':'en'][ci%CUR.en.length]}setCur();
+setInterval(function(){if(D.hidden)return;if(RM.matches){ci++;setCur();return}cnP.classList.add('sw');setTimeout(function(){ci++;setCur();cnP.classList.remove('sw')},420)},3600);
+var catsEl=D.getElementById('cats');
+function walkCats(){if(RM.matches)return;catsEl.classList.remove('go');void catsEl.offsetWidth;catsEl.classList.add('go');clearTimeout(walkCats.t);walkCats.t=setTimeout(function(){catsEl.classList.remove('go')},15000)}
+setTimeout(function cw(){if(!D.hidden)walkCats();setTimeout(cw,45000+Math.random()*30000)},9000);
 /* terminal */
 var term=D.getElementById('term'),tout=D.getElementById('tout'),tin=D.getElementById('tin'),opener=null;
 function tprint(h){tout.insertAdjacentHTML('beforeend',h+'\n');tout.scrollTop=1e9}
 var CMDS={
- help:function(){return 'about  projects  play  oss  stack  email  github  x  theme  lang  score  clear  exit'},
+ help:function(){return 'about  projects  play  oss  stack  email  github  x  theme  lang  score\ncoffee  cats  gym  live  whoami  clear  exit'},
  about:function(){return cur==='zh'?zh.ab1+zh.ab2:en.ab1+' '+en.ab2},
  projects:function(){return ['ledring','research-thinking-ai','lakeboard-converter','n8n-workflow-collection','dev-work-grok-bot-skill'].map(function(p){return '<a href="https://github.com/FelixFangX/'+p+'">'+p+'</a>'}).join('\n')},
  play:function(){setTimeout(function(){location.href=playURL(cur)},500);return 'opening LEDRING Play…'},
@@ -614,6 +657,11 @@ var CMDS={
  clear:function(){tout.innerHTML='';return ''},
  exit:function(){closeT();return ''},
  sudo:function(){return 'nice try.'},
+ coffee:function(){return '<pre style="margin:0;font:inherit">   ( (\n    ) )\n  ........\n  |  ▢ ▢ |]\n  | ▢    |\n  \\______/</pre>'+(cur==='zh'?'冰美式好了。不加糖。':'Iced americano, ready. No sugar.')},
+ cats:function(){walkCats();return cur==='zh'?'两只小猫出门巡逻了 ↓':'Two kittens, on patrol ↓'},
+ gym:function(){return cur==='zh'?'按计划来。今天的训练已经排好了。':'Following the plan. Today\'s session is on the list.'},
+ live:function(){return cur==='zh'?'演唱会、livehouse、IMAX、杜比影院。在现场最好。':'Concerts, livehouses, IMAX, Dolby. Better in the room.'},
+ whoami:function(){return cur==='zh'?'Felix。还没给自己定一个职位名。':'Felix. Not a job title (yet).'},
  ls:function(){return CMDS.projects()}
 };
 function openT(){if(!term.hidden)return;opener=D.activeElement;term.hidden=false;requestAnimationFrame(function(){term.classList.add('show')});if(!tout.innerHTML)tprint('felix@ledring.dev — type <b>help</b>');tin.focus()}
