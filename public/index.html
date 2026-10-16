@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://ledring.dev/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@ColeFangX">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23000' stroke-width='2.5' stroke-dasharray='2 1.45'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%2323406a' stroke-width='3' stroke-dasharray='.7 .5'/></svg>">
 <link rel="preload" href="/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -132,7 +132,7 @@ h1 em{font-style:italic}
 :lang(zh) .line{letter-spacing:0;line-height:1.3}
 .acts{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:.9rem;min-height:52px;padding:0 1.5rem 0 1.25rem;border-radius:999px;background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 88%,#fff),var(--ink));box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 10px 30px -12px var(--acc);color:var(--bg);text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.06em;transition:background-color .35s,color .35s}
-.btn .led{width:.55rem;height:.55rem;border-radius:50%;background:var(--acc);box-shadow:0 0 .6rem var(--acc);transition:transform .4s var(--ease)}
+.btn .led{width:2px;height:.9rem;border-radius:2px;background:var(--acc);box-shadow:0 0 .6rem var(--acc);transition:transform .4s var(--ease)}
 .lnk{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.06em}
 .screen{position:relative;margin:0;border-radius:clamp(10px,1.2vw,20px);overflow:hidden;background:var(--soft);box-shadow:0 0 0 1px var(--rule)}
 .screen video{display:block;width:100%;height:auto;aspect-ratio:720/404;filter:grayscale(1) sepia(.12) contrast(1.04)}
@@ -209,7 +209,7 @@ h1 em{font-style:italic}
 :lang(zh) .now p{line-height:1.4}
 /* fun: score, cursor, terminal, toast */
 .score{margin-top:.9rem;color:var(--dim);display:flex;gap:1.2rem;font-variant-numeric:tabular-nums}
-.mhint{display:none;width:100%}@media (max-width:40rem){.score{flex-wrap:wrap;row-gap:.3rem}.mhint{display:block}}
+.mhint{display:none;width:100%}@media (max-width:40rem){.hero .role,.hero .score{position:relative;z-index:1;width:max-content;max-width:100%;padding:.35rem .55rem;margin-left:-.55rem;border-radius:8px;background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.score{flex-wrap:wrap;row-gap:.3rem}.mhint{display:block}}
 .score b{color:var(--ink);font-weight:500}
 .hint{position:absolute;left:var(--pl);right:var(--pr);top:calc(4.25rem + env(safe-area-inset-top) + clamp(1rem,4vh,3rem));margin:0;color:var(--dim);text-align:right;pointer-events:none}
 @media (max-width:40rem){.hint{display:none}}
@@ -251,7 +251,7 @@ html.over{filter:invert(1)}
 
 @media (hover:hover) and (pointer:fine){
   .tools button:hover{border-color:var(--ink)}
-  .btn:hover .led{transform:scale(1.8)}
+  .btn:hover .led{transform:scaleY(1.4)}
   .lnk:hover,.links a:hover{color:var(--ink)}
   .wl a:hover{text-decoration-color:var(--ink)}
   .row:hover .t{transform:translateX(.4rem);font-style:italic}
@@ -351,7 +351,7 @@ html.over{filter:invert(1)}
   <div class="wrap g12">
     <h2 class="lab m" id="h-oss" data-i18n="ossL">Open source</h2>
     <div class="body">
-      <div class="badges fade" role="list" aria-label="GitHub achievements" data-i18n-aria="ach"><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Pull Shark</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Galaxy Brain</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Pair Extraordinaire</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Quickdraw</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>YOLO</span></div></div>
+      <div class="badges fade" role="list" aria-label="GitHub achievements" data-i18n-aria="ach"><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Pull Shark</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Galaxy Brain</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Pair Extraordinaire</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>Quickdraw</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g stroke="currentColor" stroke-linecap="round" stroke-width="1.2"><line x1="23.00" y1="14.00" x2="27.00" y2="14.00"/><line x1="22.86" y1="15.56" x2="26.80" y2="16.26"/><line x1="22.46" y1="17.08" x2="26.22" y2="18.45"/><line x1="21.79" y1="18.50" x2="25.26" y2="20.50"/><line x1="20.89" y1="19.79" x2="23.96" y2="22.36"/><line x1="19.79" y1="20.89" x2="22.36" y2="23.96"/><line x1="18.50" y1="21.79" x2="20.50" y2="25.26"/><line x1="17.08" y1="22.46" x2="18.45" y2="26.22"/><line x1="15.56" y1="22.86" x2="16.26" y2="26.80"/><line x1="14.00" y1="23.00" x2="14.00" y2="27.00"/><line x1="12.44" y1="22.86" x2="11.74" y2="26.80"/><line x1="10.92" y1="22.46" x2="9.55" y2="26.22"/><line x1="9.50" y1="21.79" x2="7.50" y2="25.26"/><line x1="8.21" y1="20.89" x2="5.64" y2="23.96"/><line x1="7.11" y1="19.79" x2="4.04" y2="22.36"/><line x1="6.21" y1="18.50" x2="2.74" y2="20.50"/><line x1="5.54" y1="17.08" x2="1.78" y2="18.45"/><line x1="5.14" y1="15.56" x2="1.20" y2="16.26"/><line x1="5.00" y1="14.00" x2="1.00" y2="14.00"/><line x1="5.14" y1="12.44" x2="1.20" y2="11.74"/><line x1="5.54" y1="10.92" x2="1.78" y2="9.55"/><line x1="6.21" y1="9.50" x2="2.74" y2="7.50"/><line x1="7.11" y1="8.21" x2="4.04" y2="5.64"/><line x1="8.21" y1="7.11" x2="5.64" y2="4.04"/><line x1="9.50" y1="6.21" x2="7.50" y2="2.74"/><line x1="10.92" y1="5.54" x2="9.55" y2="1.78"/><line x1="12.44" y1="5.14" x2="11.74" y2="1.20"/><line x1="14.00" y1="5.00" x2="14.00" y2="1.00"/><line x1="15.56" y1="5.14" x2="16.26" y2="1.20"/><line x1="17.08" y1="5.54" x2="18.45" y2="1.78"/><line x1="18.50" y1="6.21" x2="20.50" y2="2.74"/><line x1="19.79" y1="7.11" x2="22.36" y2="4.04"/><line x1="20.89" y1="8.21" x2="23.96" y2="5.64"/><line x1="21.79" y1="9.50" x2="25.26" y2="7.50"/><line x1="22.46" y1="10.92" x2="26.22" y2="9.55"/><line x1="22.86" y1="12.44" x2="26.80" y2="11.74"/></g></svg><span>YOLO</span></div></div>
       <ul class="ans">
         <li class="fade"><a href="https://github.com/PrefectHQ/fastmcp/discussions/3209"><span class="r m">PrefectHQ/fastmcp</span><span class="q">FastMCP from OpenAPI: is the httpx.AsyncClient shared?</span><span class="m r" data-i18n="acc">Accepted answer ↗</span></a></li>
         <li class="fade"><a href="https://github.com/withastro/community-support/discussions/12"><span class="r m">withastro</span><span class="q">Really high-quality image resize pipeline</span><span class="m r" data-i18n="acc2">Accepted answer ↗</span></a></li>
@@ -427,7 +427,7 @@ function fit(){D.querySelectorAll('.fit').forEach(function(e){
 
 /* ---------- ring ---------- */
 var hero=D.getElementById('hero'),cv=D.getElementById('ring'),ctx=cv.getContext('2d');
-var sv=0,N=72,W=0,H=0,dpr=1,cx=0,cy=0,Rr=0,led=3,lv=new Float32Array(N),hue=new Float32Array(N);
+var sv=0,N=72,W=0,H=0,dpr=1,cx=0,cy=0,Rr=0,led=3,lv=new Float32Array(360),hue=new Float32Array(N);
 var boot=performance.now()+500,px=null,py=null,lastMove=-1e9,hit=-1e9,drift=-1,driftT=0,visible=true,running=false;
 // monochrome state system: running = sweep, drift = dither, interrupt = inversion flash
 var PAL={light:{lit:'#23406a',litHi:'#cfe0ff',glow:'35,64,106',sock:'#d9d3c8',sockHi:'#fbf8f2',sockLo:'#b9b1a4',ink:'#1d1b18',tick:'rgba(29,27,24,.18)'},
@@ -438,7 +438,7 @@ function mkGlow(c,a){var z=256,s=D.createElement('canvas');s.width=s.height=z;va
   for(var k=0;k<=16;k++){var u=k/16;gr.addColorStop(u,'rgba('+c+','+(a*Math.exp(-u*u*5.5)*(1-u)).toFixed(4)+')')}g.fillStyle=gr;g.fillRect(0,0,z,z);return s}
 function geo(){
   var w=innerWidth,h=hero.clientHeight,asp=w/h;
-  if(asp<.8){Rr=w*.62;cx=w*.66;cy=h*.36}           // portrait: bleeds off the right edge
+  if(asp<.8){Rr=w*.6;cx=w*.7;cy=h*.47}           // portrait: bleeds off the right edge
   else if(asp>2){Rr=h*.5;cx=w*.6;cy=h*.47}           // ultrawide: whole ring, off-centre
   else {Rr=Math.min(h*.56,w*.36);cx=w*.66;cy=h*.44}   // desktop: crops top and bottom
   led=Math.max(2.6,Math.min(9,Rr/48));
@@ -458,46 +458,48 @@ function draw(t,still){
   var since=t-lastMove,pa=null,hs=(t-hit)/1000,head=(t/1000*.42)%1;
   if(px!==null&&since<2400){pa=Math.atan2(py-cy,px-cx)}
   // gate brackets at 12 o'clock
-  ctx.strokeStyle=P.ink;ctx.lineWidth=2;ctx.globalAlpha=.85;
-  for(var sgn=-1;sgn<=1;sgn+=2){var ga=Math.PI+sgn*(gateHalf+.5)/N*Math.PI*2;ctx.beginPath();ctx.moveTo(cx+Math.cos(ga)*Rr*.9,cy+Math.sin(ga)*Rr*.9);ctx.lineTo(cx+Math.cos(ga)*Rr*1.1,cy+Math.sin(ga)*Rr*1.1);ctx.stroke()}
+  ctx.strokeStyle=P.ink;ctx.lineWidth=1.5;ctx.globalAlpha=.9;var gw=(gateHalf+.5)/N*Math.PI*2;
+  for(var sgn=-1;sgn<=1;sgn+=2){var ga=Math.PI+sgn*gw;ctx.beginPath();ctx.moveTo(cx+Math.cos(ga)*Rr*.88,cy+Math.sin(ga)*Rr*.88);ctx.lineTo(cx+Math.cos(ga)*Rr*1.12,cy+Math.sin(ga)*Rr*1.12);ctx.stroke()}
+  ctx.globalAlpha=.35;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,Rr*1.12,Math.PI-gw,Math.PI+gw);ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,Rr*.88,Math.PI-gw,Math.PI+gw);ctx.stroke()
   ctx.globalAlpha=1;
-  var ri=Math.round(rogue)%N;
-  for(var i=0;i<N;i++){
-    var a=i/N*Math.PI*2-Math.PI/2,v=0,h=0; // h: 0 lit, 1 ash (drift), 2 deep (interrupt)
-    if(still){v=i%6===0?1:0}
-    else if(hs<2){ // interrupt: inversion flash, every LED at full, then fade to dark
-      v=hs<.35?1:Math.max(0,1-(hs-.35)/1.2);h=2;
-    } else {
+  // Micro-tick glyph ring: hundreds of hairline ticks, light flows through them.
+  var M=Rr>260?240:180,tl=Math.max(9,Rr*.075),tw=Math.max(1,Rr/300),Dk=P===PAL.dark,rogA=null;
+  var B=[[],[],[],[],[]],drf=[],off=[];
+  for(var j=0;j<M;j++){
+    var i=j*N/M,a=j/M*Math.PI*2-Math.PI/2,v=0,h=0;
+    if(still){v=(j%(M/12))<M/60?.9:0}
+    else if(hs<2){v=hs<.35?1:Math.max(0,1-(hs-.35)/1.2);h=2}
+    else{
       var d=((i/N-head)%1+1)%1,d2=((i/N-head*.6-.5)%1+1)%1;v=Math.max(Math.pow(1-d,5),Math.pow(1-d2,9)*.55);
       if(pa!==null){var f=Math.pow(Math.max(0,Math.cos(a-pa)),16)*(1-since/2400);v=Math.max(v*.35,f)}
-      if(drift>=0){var dd2=Math.abs(((i-drift)%N+N+N/2)%N-N/2);if(dd2<5){var fl=(Math.sin(t/47+i)*Math.sin(t/83))>0?.85:.15;if(dd2<5){v=Math.random()<.5?.9:0;h=1}}}
+      if(drift>=0){var dd2=Math.abs(((i-drift)%N+N+N/2)%N-N/2);if(dd2<5){v=Math.random()<.45?.9:0;h=1}}
       var bt=(t-boot)/1600*N-i;v=bt<0?0:bt<1.5?Math.max(v,1-bt/1.5):v;
+      var rd=Math.abs(((i-rogue)%N+N+N/2)%N-N/2);if(rd<.5)rogA=a;
     }
-    if(!still&&hs>=2){var rd=Math.abs(((i-rogue)%N+N+N/2)%N-N/2);if(rd<1.2){v=1;h=3}else if(rd<4&&((i-rogue+N)%N>N/2)){v=Math.max(v,.5*(1-rd/4))}}
-    lv[i]+=(v-lv[i])*(still?1:h===3?1:.25);hue[i]=h;
-    var x=cx+Math.cos(a)*Rr,y=cy+Math.sin(a)*Rr,L=lv[i];
-    // socket: a small sphere with a specular top-left highlight
-    ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
-    var sg=ctx.createRadialGradient(x-led*.4,y-led*.45,led*.1,x,y,led*1.05);sg.addColorStop(0,P.sockHi);sg.addColorStop(.55,P.sock);sg.addColorStop(1,P.sockLo);
-    ctx.fillStyle=sg;ctx.beginPath();ctx.arc(x,y,led,0,7);ctx.fill();
-    if(L>.03){
-      if(h===1){ // drift: dithered graphite pixels
-        ctx.fillStyle=P.ink;var q=led*.62;
-        for(var dx=-1;dx<=1;dx++)for(var dy=-1;dy<=1;dy++)if(((dx+dy+i+(t/90|0))&1)===0)ctx.fillRect(x+dx*q-q/2,y+dy*q-q/2,q*.9,q*.9);
-      } else {
-        var rr=led*(h===3?1.6:1+L*.18),s2=led*(5+L*(h===2?14:h===3?20:10));
-        var Dk=P===PAL.dark,A=Math.min(1,L);
-        ctx.globalCompositeOperation=Dk?'lighter':'source-over';
-        ctx.globalAlpha=A*(Dk?.2:.18);ctx.drawImage(G,x-s2*1.25,y-s2*1.25,s2*2.5,s2*2.5);   // wide, faint bloom
-        ctx.globalAlpha=A*(Dk?.55:.32);ctx.drawImage(G,x-s2*.45,y-s2*.45,s2*.9,s2*.9);       // tight core bloom
-        ctx.globalCompositeOperation='source-over';ctx.globalAlpha=Math.min(1,L*1.5);
-        var lg=ctx.createRadialGradient(x-rr*.35,y-rr*.4,rr*.05,x,y,rr);lg.addColorStop(0,P.litHi);lg.addColorStop(.35,P.lit);lg.addColorStop(1,P===PAL.dark?'#3c5f93':'#0f2038');
-        ctx.fillStyle=lg;ctx.beginPath();ctx.arc(x,y,rr,0,7);ctx.fill();
-        if(h===3){ctx.globalCompositeOperation=P===PAL.dark?'lighter':'source-over';ctx.globalAlpha=P===PAL.dark?.32:.3;ctx.drawImage(G,x-rr*2.6,y-rr*2.6,rr*5.2,rr*5.2)}
-      }
-    }
+    lv[j]+=(v-lv[j])*(still||h===1?1:.22);var L=lv[j];
+    var g=[a,L];
+    if(h===1&&L>.1)drf.push(g);else if(L>.06)B[Math.min(4,(L*5)|0)].push(g);else off.push(g);
   }
-  ctx.globalAlpha=1;
+  function tick(arr,len,out){ctx.beginPath();for(var k=0;k<arr.length;k++){var aa=arr[k][0],l=len+(out?arr[k][1]*tl*.6:0),r0=Rr-tl/2,ca=Math.cos(aa),sa=Math.sin(aa);ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*(r0+l),cy+sa*(r0+l))}ctx.stroke()}
+  ctx.lineCap='round';ctx.globalCompositeOperation='source-over';
+  ctx.strokeStyle=P.ink;ctx.globalAlpha=Dk?.17:.2;ctx.lineWidth=tw;tick(off,tl,false);
+  ctx.globalAlpha=Dk?.75:.8;ctx.lineWidth=tw*1.3;tick(drf,tl*1.15,false);
+  // inner hairline track
+  ctx.globalAlpha=Dk?.1:.14;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,Rr-tl*1.1,0,7);ctx.stroke();
+  for(var q=0;q<5;q++){if(!B[q].length)continue;var lvq=(q+.5)/5;
+    ctx.globalCompositeOperation=Dk?'lighter':'source-over';
+    ctx.shadowColor=Dk?'rgba(120,165,235,.9)':'rgba(35,64,106,.45)';ctx.shadowBlur=(Dk?16:6)*lvq*dpr;
+    ctx.strokeStyle=P.lit;ctx.globalAlpha=Dk?.25+lvq*.6:.3+lvq*.7;ctx.lineWidth=tw*1.7;tick(B[q],tl,true);
+    ctx.shadowBlur=0;
+    if(lvq>.55){ctx.strokeStyle=P.litHi;ctx.globalAlpha=(lvq-.5)*(Dk?1.2:.6);ctx.lineWidth=tw*.8;tick(B[q],tl*.7,true)}
+  }
+  ctx.globalCompositeOperation='source-over';ctx.shadowBlur=0;
+  // rogue light: a longer luminous bar with soft bloom
+  if(rogA!==null){var ca=Math.cos(rogA),sa=Math.sin(rogA),r0=Rr-tl*.9,r1=Rr+tl*1.1,mx=cx+ca*Rr,my=cy+sa*Rr,gs=tl*4.5;
+    ctx.globalCompositeOperation=Dk?'lighter':'source-over';ctx.globalAlpha=Dk?.55:.35;ctx.drawImage(G,mx-gs/2,my-gs/2,gs,gs);
+    ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.shadowColor=Dk?'rgba(170,200,255,1)':'rgba(35,64,106,.6)';ctx.shadowBlur=(Dk?18:8)*dpr;
+    ctx.strokeStyle=Dk?P.litHi:P.lit;ctx.lineWidth=tw*3.2;ctx.beginPath();ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*r1,cy+sa*r1);ctx.stroke();ctx.shadowBlur=0}
+  ctx.globalAlpha=1;ctx.lineCap='butt';
 }
 function loop(t){
   if(!visible||D.hidden||RM.matches){running=false;return}
@@ -530,8 +532,8 @@ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(funct
 
 /* mini ring: scroll progress */
 var mini=D.getElementById('mini'),mc=mini.getContext('2d');
-function miniDraw(){var P=dark?PAL.dark:PAL.light,p=Math.min(1,scrollY/Math.max(1,R.scrollHeight-innerHeight)),n=16;mc.clearRect(0,0,44,44);
-  for(var i=0;i<n;i++){var a=i/n*Math.PI*2-Math.PI/2,on=i<=Math.round(p*(n-1));mc.fillStyle=on?P.lit:P.sockLo;mc.beginPath();mc.arc(22+Math.cos(a)*16,22+Math.sin(a)*16,on?3.2:2.6,0,7);mc.fill()}}
+function miniDraw(){var P=dark?PAL.dark:PAL.light,p=Math.min(1,scrollY/Math.max(1,R.scrollHeight-innerHeight)),n=36;mc.clearRect(0,0,44,44);mc.lineCap='round';
+  for(var i=0;i<n;i++){var a=i/n*Math.PI*2-Math.PI/2,on=i<=Math.round(p*(n-1));mc.strokeStyle=on?P.lit:P.ink;mc.globalAlpha=on?1:.25;mc.lineWidth=on?2.2:1.4;mc.beginPath();mc.moveTo(22+Math.cos(a)*14,22+Math.sin(a)*14);mc.lineTo(22+Math.cos(a)*(on?20:19),22+Math.sin(a)*(on?20:19));mc.stroke()}mc.globalAlpha=1}
 addEventListener('scroll',function(){requestAnimationFrame(miniDraw)},{passive:true});
 
 /* reveals */
