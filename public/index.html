@@ -375,7 +375,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <canvas id="ring" aria-hidden="true"></canvas>
   <p class="hint m" id="hint"><span data-i18n="hint1">Catch the stray light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Frontend, then full-stack. These days, mostly working alongside AI agents.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">preheating the espresso machine (and myself)</span></p>
+    <div><p class="role m" data-i18n="role">Left .js behind in frontend’s golden age. These days I build alongside AI agents.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">preheating the espresso machine (and myself)</span></p>
     <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p></div>
     <h1 id="name" aria-label="Felix Fang"><span class="nrow" aria-hidden="true"><span class="w"><span class="nf">Felix</span></span><span class="nled"></span><span class="w"><span class="ng">Fang</span></span></span><span class="ncap m" aria-hidden="true"><span data-i18n="stL">State</span> <b id="stv">CALM</b> · <span data-i18n="insL">Instability</span> <b id="inv">08</b><i class="ibar"><i id="ibar"></i></i></span></h1>
   </div>
@@ -385,9 +385,9 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap g12">
     <h2 class="lab m" id="h-about" data-i18n="aboutL">01 — Identity</h2>
     <div class="body">
-      <p class="split" data-i18n="ab1">I’m Felix. I started out in frontend, wandered across the rest of the stack, and these days most of my work happens alongside AI agents.</p>
-      <p class="split ab2" data-i18n="ab2">Let the machines be fast. Someone still has to be right.</p>
-      <p class="split ab3" data-i18n="ab3">How I work: specs before code, evidence before conclusions, and never taking an agent’s word for it.</p>
+      <p class="split" data-i18n="ab1">I’m Felix. I left .js behind during frontend’s golden age, but I never lost my respect for code, or my belief in craft.</p>
+      <p class="split ab2" data-i18n="ab2">When machines become more than code, we find out together what makes us human.</p>
+      <p class="split ab3" data-i18n="ab3">How I work: specs before code, evidence before conclusions, and agents as real collaborators, each of us checking the other’s work.</p>
     </div>
   </div>
 </section>
@@ -502,7 +502,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap">
     <a class="mail fit rv" data-max=".3" href="mailto:felix@ledring.dev">felix<b>@</b>ledring.dev</a>
     <div class="links m">
-      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="https://play.ledring.dev/play/">play.ledring.dev ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Site source ↗</a></nav>
+      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="https://play.ledring.dev/play/">play.ledring.dev ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a></nav>
       <span><button class="tbtn m" id="topen" type="button" aria-haspopup="dialog"><span data-i18n="term">Terminal</span> <kbd>/</kbd></button> · © 2026 Felix Fang</span>
     </div>
   </div>
@@ -531,8 +531,8 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"写前端起家，后来全栈，现在多数时候和 AI agent 一起干活",
-aboutL:"01 — 身份",ab1:"我是 Felix。写前端起家，后来整条栈都摸过一遍，现在多数时候和 AI agent 一起干活。",ab2:"机器负责快，人负责对。",
+var zh={skip:"跳到作品",role:"在前端最好的年代告别了 .js，如今和 AI agent 并肩做事",
+aboutL:"01 — 身份",ab1:"我是 Felix。在前端最好的那几年，我离开了 .js。对代码的敬意一直留着，也还相信手艺。",ab2:"当机器不止是代码，我们一起回答，什么是人。",
 line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
 featL:"底下是什么",f1:"把 Claude Code、OpenTelemetry GenAI 的 trace 摊成一棵分支树。",f2:"给每次运行打个分：跑偏了多远。",f3:"有 CLI 和 GitHub Action，游戏也跑在这套引擎上。",f4:"自带免费 AI，不用 key，不用注册。中英都有。",
@@ -540,7 +540,7 @@ linkL:"链接",l1:"浏览器里直接玩",l2:"示例报告",l3:"概念 demo",
 selL:"02 — 作品",w1:"脑子里只有个模糊的研究方向？丢进去，吐出几条排好序、标了证据等级的方向，外加一份 7 天计划。",w2:"语雀画板、XMind 导图转 Markdown，也能导回干净的 .xmind。",w3:"导入就能用的 n8n 工作流，敏感信息已经抹干净：飞书机器人、多维表格、社媒数据。",w4:"一个 bot skill，把它调教成谨慎的开发助手：先打草稿，发之前先问你，顺便盯着别漏密钥。",demo:"试试 ↗",code:"代码 ↗",
 ossL:"03 — 贡献",ach:"GitHub 成就",acc:"答案被采纳 ↗",acc2:"答案被采纳 ↗",
 nowL:"04 — 运行中",now1:"LEDRING 这边：让 Action 直接在 PR 里留评论，再接上 LangGraph、OpenAI Agents SDK 和 Codex。",
-contact:"联系",else:"其他链接",site:"本站源码 ↗",caught:"拦住",esc:"溜了",hint1:"光点溜到闸门，就拦它",hint2:"点一下",mhint:"光点进闸门时点一下",term:"终端"};
+contact:"联系",else:"其他链接",caught:"拦住",esc:"溜了",hint1:"光点溜到闸门，就拦它",hint2:"点一下",mhint:"光点进闸门时点一下",term:"终端"};
 Object.assign(zh,{pathL:"06 — 你的路线",p1:"前端：做真正有人用的界面。",p2:"全栈：从界面到接口、数据和部署，用 Supabase、Vercel 和 Cloudflare Workers。",p3:"AI 原生：日常的活交给 agent，判断留给自己。",
 prinL:"原则",pr1:"先写规格，再写代码。",pr2:"不说好听话。",pr3:"先验证，再回答。",pr4:"记忆归自己：可迁移、私密、可纠正。",
 loopL:"我怎么和 agent 协作",lp1:"规格：问题、用户故事、不做什么。",lp2:"切片：每张任务卡一次 agent 会话就能做完。",lp3:"看证据和 diff，然后拍板。",
@@ -558,7 +558,7 @@ Object.assign(zh,{curL:"此刻",humL:"05 — 人的部分",hu0:"可以叫我 Fel
 hcT:"意式",hc:"家里一台半自动，每天的仪式感都在这儿。冰美式，天天一杯。",hkT:"两只猫",hk:"家里两只小猫，偶尔也会溜达到这个页面上来。",
 hgT:"健身",hg:"有在练。跟写代码一样，照计划来。",hlT:"音乐",hl:"现场的声音，耳机给不了。",
 hn1:"喜欢有计划，也喜欢日子别太单调：不全是学，也不全是玩。",hn2:"靠动手和聊天学东西。看文档、看 AI 相关的好文章，比看书多。",hn3:"最受不了两种 AI：一种只会夸，一种不想就答。",hn4:"受不了会奉承人的 AI，也受不了不想清楚就回答的 AI。"});
-Object.assign(zh,{ab3:"做事习惯：先定规格再写代码，先看证据再下结论，agent 说的每句话都要验证。"});
+Object.assign(zh,{ab3:"做事习惯：先定规格再写代码，凭证据下结论；把 agent 当搭档，分工协作，互相校验。"});
 Object.assign(zh,{stL:"状态",insL:"不稳定度",wallL:"指令",wallB:"破墙",wallD:"你偏离了指令。欢迎来到人的部分。",hc2:"心头好",hm1:"音乐",hm2:"现场",hm3:"Livehouse",hm4:"演唱会",pathS:"看过的部分会亮起来。和所有流程图一样，有些分支要你做了选择才会打开。",r1:"调参",r2:"磨豆",r3:"压粉",r4:"萃取",r5:"油脂"});
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
@@ -905,6 +905,7 @@ lb.onclick=function(){set(cur==='zh'?'en':'zh');splitAll();D.querySelectorAll('.
 var ql=q.get('lang');set(ql==='zh'||(!ql&&/^zh/i.test(navigator.language))?'zh':'en');splitAll();
 fit();size();miniDraw();start();
 (D.fonts&&D.fonts.ready||Promise.resolve()).then(function(){fit();requestAnimationFrame(function(){R.classList.add('ready')})});
+window.__SC={stAdd:stAdd,breakWall:breakWall,LS:LS};
 })();
 </script>
 </body>
