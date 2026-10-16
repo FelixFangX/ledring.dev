@@ -10,6 +10,7 @@ Source for **https://ledring.dev**, Felix Fang's personal site and the home of [
 - **Selected work**: research-thinking-ai, lakeboard-converter, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
 - **Open source**: GitHub achievements and accepted answers.
 - **Now / Stack**: Become Human, the LEDRING roadmap, and the tools I use.
+- **Off the clock**: coffee, two kittens, the gym and live shows, as hairline icons. There's also a rotating "Currently" line in the hero, and two kittens occasionally walk across the page (type `cats` in the terminal to call them).
 - **Contact**: felix@ledring.dev, [GitHub](https://github.com/FelixFangX), [X @ColeFangX](https://x.com/ColeFangX).
 
 Everything on it comes from the public repos and the profile README.
@@ -22,7 +23,7 @@ Everything on it comes from the public repos and the profile README.
 - WebGL paper/silk background at half resolution. It pauses when the tab is hidden.
 - Respects `prefers-reduced-motion`: no shader animation, no reveals, no game.
 - Responsive from 375 px phones to 5K displays, with safe-area insets and 44 px touch targets. Hover effects apply only on hover-capable pointers.
-- Extras: press `/` for a terminal, the Konami code turns on overdrive, and there's a magnetic cursor.
+- Extras: press `/` for a terminal (try `coffee`, `cats`, `gym`, `live`, `whoami`), the Konami code turns on overdrive, and there's a magnetic cursor.
 
 ## Routes (`src/index.js`)
 
