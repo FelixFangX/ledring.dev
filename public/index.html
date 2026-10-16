@@ -387,7 +387,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <canvas id="ring" aria-hidden="true"></canvas>
   <p class="hint m" id="hint"><span data-i18n="hint1">Catch the stray light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Into fast software, carefully made UI, open source, and agents in the terminal.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">iced americano, daily</span></p>
+    <div><p class="role m" data-i18n="role">Fast software, careful UI, open source, and an iced americano.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">waiting on the espresso machine to heat up</span></p>
     <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p><p class="hq" id="hq" aria-live="off"><span class="qa" data-i18n="hqA">Code, written for humans.</span><span class="qb" data-i18n="hqB">Code, written for agents.</span></p></div>
     <h1 id="name" aria-label="Felix Fang"><span class="nrow" aria-hidden="true"><span class="w"><span class="nf">Felix</span></span><span class="nled"></span><span class="w"><span class="ng">Fang</span></span></span><span class="ncap m" aria-hidden="true"><span data-i18n="stL">State</span> <b id="stv">CALM</b> · <span data-i18n="insL">Instability</span> <b id="inv">08</b><i class="ibar"><i id="ibar"></i></i></span></h1>
   </div>
@@ -541,7 +541,7 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"偏爱快的软件、做得细的界面、开源，和终端里的 agent",
+var zh={skip:"跳到作品",role:"快的软件，细的界面，开源，和一杯冰美式",
 aboutL:"手艺",ab1:"Felix。和 AI agent 一起做东西，也爱做点好玩的。LEDRING 本来是给 agent 装的状态灯，后来做成了一个拦住 AI 的小游戏。",ab2:"手艺这件事，机器来了也一样。",
 line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",vid:"LEDRING Play 游戏画面",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
@@ -764,8 +764,8 @@ function scramble(el){if(RM.matches||el.dataset.sc)return;var o=el.textContent,n
   var iv=setInterval(function(){n++;el.textContent=o.split('').map(function(c,k){return k<n*o.length/14||c===' '?c:GL[(Math.random()*GL.length)|0]}).join('');if(n>=14){clearInterval(iv);el.textContent=o;delete el.dataset.sc}},28)}
 D.querySelectorAll('.work .nm,.lab,.cols h3,.ans .q').forEach(function(el){el.addEventListener('pointerenter',function(){if(!el.children.length)scramble(el)})});
 /* human mode: currently line + walking kittens */
-var CUR={en:['iced americano, daily', 'moved the grinder setting again', 'gym, as planned', 'two kittens, one cardboard box', 'live recordings on repeat', 'LEDRING, next commit', 'dialing in a new bag of beans'],
- zh:['每天一杯冰美式', '磨豆机的刻度又动了', '健身房，按计划', '两只小猫，一个纸箱', '现场录音，单曲循环', 'LEDRING，下一个 commit', '新豆子，重新调参']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
+var CUR={en:['waiting on the espresso machine to heat up', 'moved the grinder setting again', 'gym, as planned', 'two kittens, one cardboard box', 'live recordings on repeat', 'LEDRING, next commit', 'dialing in a new bag of beans'],
+ zh:['等咖啡机升温', '磨豆机的刻度又动了', '健身房，按计划', '两只小猫，一个纸箱', '现场录音，单曲循环', 'LEDRING，下一个 commit', '新豆子，重新调参']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
 function setCur(){cnEl.textContent=CUR[cur==='zh'?'zh':'en'][ci%CUR.en.length]}setCur();
 setInterval(function(){if(D.hidden)return;if(RM.matches){ci++;setCur();return}cnP.classList.add('sw');setTimeout(function(){ci++;setCur();cnP.classList.remove('sw')},420)},3600);
 var catsEl=D.getElementById('cats');
