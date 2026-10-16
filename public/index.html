@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEDRING: status lights for AI agents</title>
+<meta name="description" content="LEDRING Play: watch an AI builder turn your idea into a web page, and decide what gets through. Free, in your browser, no sign-up.">
+<meta property="og:title" content="LEDRING Play: you decide what the AI ships">
+<meta property="og:description" content="Watch CX-417 build one page in real time. Approve, push back, or stop it when it drifts. 7 endings.">
+<meta property="og:image" content="https://ledring.dev/og.png">
+<meta property="og:url" content="https://ledring.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='none' stroke='%232F5BEA' stroke-width='2'/></svg>">
+<style>
+:root{--bg:#F3F2EE;--panel:#FBFAF7;--line:#CFCDC6;--ink:#16181A;--ink2:#6B6E70;--calm:#2F5BEA;--sans:'Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+.wrap{max-width:920px;margin:0 auto;padding:24px}
+nav{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:14px}
+nav a{color:var(--ink2);text-decoration:none;margin-left:16px}
+button.lang{font:inherit;background:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer;margin-left:16px}
+.logo{letter-spacing:.3em;font-weight:600}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.15;margin:56px 0 16px}
+.sub{font-size:19px;color:var(--ink2);max-width:640px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+.btn{display:inline-block;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid var(--ink)}
+.btn.primary{background:var(--calm);border-color:var(--calm);color:#fff}
+.btn.ghost{color:var(--ink);background:var(--panel)}
+img.demo{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:40px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--ink2);font-size:15px}
+code{font-family:var(--mono);background:var(--panel);border:1px solid var(--line);padding:1px 6px;border-radius:4px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-top:20px;color:var(--ink2);font-size:14px}
+footer a{color:var(--ink);margin-right:16px}
+[data-zh]{}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><span class="logo">◯ LEDRING</span><span><a href="https://github.com/FelixFangX/ledring">GitHub</a><a href="https://play.ledring.dev/" data-i18n="docs">Docs</a><button class="lang" id="lang" type="button">中文</button></span></nav>
+
+<h1 data-i18n="h1">Your AI is building. You decide what ships.</h1>
+<p class="sub" data-i18n="sub">LEDRING Play is a browser game about watching an AI agent work. CX-417 turns your idea into one web page in real time. It may take shortcuts. Approve, push back, or stop it when it drifts.</p>
+<div class="cta">
+<a class="btn primary" id="play" href="https://play.ledring.dev/play/" data-i18n="play">▶ Play free in your browser</a>
+<a class="btn ghost" href="https://github.com/FelixFangX/ledring" data-i18n="star">★ Star on GitHub</a>
+</div>
+<a href="https://play.ledring.dev/play/" class="playlink"><img class="demo" src="/play.gif" alt="LEDRING Play: CX-417 building a page" loading="lazy"></a>
+
+<div class="grid">
+<div class="card"><h3 data-i18n="c1h">No key, no sign-up</h3><p data-i18n="c1p">The default free AI runs on a shared daily quota. Or bring your own Anthropic or OpenAI-compatible key.</p></div>
+<div class="card"><h3 data-i18n="c2h">7 endings</h3><p data-i18n="c2p">Every choice is a branch. The end screen shows your path next to the paths other builds took.</p></div>
+<div class="card"><h3 data-i18n="c3h">Judged on what shipped</h3><p data-i18n="c3p">Endings are scored on the files the agent actually delivered, not on its own summary.</p></div>
+<div class="card"><h3 data-i18n="c4h">A real trace toolkit</h3><p data-i18n="c4p">The game runs on LEDRING's open-source engine: branch-tree replay and drift scoring for Claude Code and OpenTelemetry GenAI traces.</p></div>
+</div>
+
+<footer>
+<p data-i18n="by">Made by Felix Fang, a frontend and full-stack engineer building AI-native tools.</p>
+<a href="https://github.com/FelixFangX">GitHub</a><a href="https://x.com/FelixFangX">X</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="src">Site source</a>
+</footer>
+</div>
+<script>
+var zh={docs:"文档",h1:"AI 在干活，你决定什么能上线。",sub:"LEDRING Play 是一个看 AI 干活的网页游戏。CX-417 会把你的想法实时做成一个网页，中途可能偷工减料。你可以放行、打回，或者在它跑偏时叫停。",play:"▶ 免费在线玩",star:"★ 在 GitHub 上点星",c1h:"不用密钥，不用注册",c1p:"默认的免费 AI 每天有共享额度。也可以用自己的 Anthropic 或 OpenAI 兼容密钥。",c2h:"7 个结局",c2p:"每个选择都是一条分支。结局页会把你的路线和别人的路线放在一起。",c3h:"看交付，不看自述",c3p:"结局按 AI 实际交出的文件来判，不看它自己的总结。",c4h:"背后是真的工具",c4p:"游戏跑在 LEDRING 的开源引擎上：给 Claude Code 和 OpenTelemetry GenAI 记录做分支回放和跑偏评分。",by:"作者 Felix Fang，前端 / 全栈工程师，现在专做 AI 原生工具。",src:"网站源码"};
+var en={};document.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
+var q=new URLSearchParams(location.search),src=q.get('src');
+function set(l){var d=l==='zh'?zh:en;document.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});document.documentElement.lang=l==='zh'?'zh-CN':'en';document.getElementById('lang').textContent=l==='zh'?'EN':'中文';
+var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);document.querySelectorAll('#play,.playlink').forEach(function(a){a.href=p.toString()});window._l=l}
+set(q.get('lang')==='zh'||(!q.get('lang')&&/^zh/i.test(navigator.language))?'zh':'en');
+document.getElementById('lang').onclick=function(){set(window._l==='zh'?'en':'zh')};
+</script>
+</body>
+</html>

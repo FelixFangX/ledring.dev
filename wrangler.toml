@@ -1,0 +1,18 @@
+name = "ledring-landing"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+account_id = "debc68dfc6d9c7ea2a10c426ca02087d"
+workers_dev = false
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[[routes]]
+pattern = "ledring.dev"
+custom_domain = true
+
+[[routes]]
+pattern = "www.ledring.dev"
+custom_domain = true
