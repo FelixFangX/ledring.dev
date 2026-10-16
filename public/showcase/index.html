@@ -138,8 +138,8 @@ h1 em{font-style:italic}
 .btn .led{width:2px;height:.9rem;border-radius:2px;background:var(--acc);box-shadow:0 0 .6rem var(--acc);transition:transform .4s var(--ease)}
 .lnk{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.06em}
 .screen{position:relative;margin:0;border-radius:clamp(10px,1.2vw,20px);overflow:hidden;background:var(--soft);box-shadow:0 0 0 1px var(--rule)}
-.screen video{display:block;width:100%;height:auto;aspect-ratio:720/404;filter:grayscale(1) sepia(.12) contrast(1.04)}
-[data-theme=dark] .screen video{filter:grayscale(1) contrast(1.05) brightness(.8)}
+.screen.live{aspect-ratio:16/9}.screen .lpo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.12)}.screen .lvw{position:absolute;inset:0;overflow:hidden;pointer-events:none}.screen iframe{position:absolute;left:0;top:0;width:1280px;height:720px;border:0;transform-origin:0 0;transform:scale(var(--ls,.5));opacity:0;transition:opacity .8s var(--ease);background:#fff}.screen iframe.on{opacity:1}
+
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 -60px 80px -40px rgba(20,18,16,.25)}
 .screen{box-shadow:0 0 0 1px var(--rule),0 40px 80px -40px rgba(20,18,16,.45)}
 @media (min-width:56rem){
@@ -387,7 +387,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <canvas id="ring" aria-hidden="true"></canvas>
   <p class="hint m" id="hint"><span data-i18n="hint1">Catch the stray light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Was there for frontend’s golden age, and left a little .js in it.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">iced americano, daily</span></p>
+    <div><p class="role m" data-i18n="role">Into fast software, carefully made UI, open source, and agents in the terminal.</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">iced americano, daily</span></p>
     <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p><p class="hq" id="hq" aria-live="off"><span class="qa" data-i18n="hqA">Code, written for humans.</span><span class="qb" data-i18n="hqB">Code, written for agents.</span></p></div>
     <h1 id="name" aria-label="Felix Fang"><span class="nrow" aria-hidden="true"><span class="w"><span class="nf">Felix</span></span><span class="nled"></span><span class="w"><span class="ng">Fang</span></span></span><span class="ncap m" aria-hidden="true"><span data-i18n="stL">State</span> <b id="stv">CALM</b> · <span data-i18n="insL">Instability</span> <b id="inv">08</b><i class="ibar"><i id="ibar"></i></i></span></h1>
   </div>
@@ -397,7 +397,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap g12">
     <h2 class="lab m" id="h-about" data-i18n="aboutL">Craft</h2>
     <div class="body">
-      <p class="split" data-i18n="ab1">Felix. I lived through frontend’s best years and left a little .js there. Now I build with AI agents, mostly on LEDRING.</p>
+      <p class="split" data-i18n="ab1">Felix. I build with AI agents and like making things that are fun to use. LEDRING started as status lights for agents and turned into a game where you try to stop one.</p>
       <p class="split ab2" data-i18n="ab2">Craft still matters, even with machines in the room.</p>
     </div>
   </div>
@@ -411,10 +411,9 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
         <p class="line split" data-i18n="line">Status lights for AI agents. Plus a browser game where you try to stop one.</p>
         <div class="acts">
           <a class="btn mag" id="play" ><span class="led" aria-hidden="true"></span><span data-i18n="play">Play</span></a>
-          <a class="lnk"  data-i18n="src">Source ↗</a>
         </div>
       </div>
-      <figure class="screen"><video src="/play.mp4" poster="/play-poster.jpg" width="720" height="404" autoplay muted loop playsinline preload="metadata" aria-label="LEDRING Play gameplay" data-i18n-aria="vid"></video></figure>
+      <figure class="screen live" id="live"><img src="/play-poster.jpg" width="720" height="404" alt="" aria-hidden="true" class="lpo"><div class="lvw"><iframe id="liveF" title="LEDRING Play first screen, live" tabindex="-1" aria-hidden="true" scrolling="no" sandbox="allow-scripts allow-same-origin" referrerpolicy="strict-origin"></iframe></div></figure>
     </div>
     </div></div></div>
     <div class="wrap"><div class="cols">
@@ -542,9 +541,9 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"赶上过前端最好的年代，留下过几行 .js",
-aboutL:"手艺",ab1:"Felix。经历过前端最好的那几年，留下过几行 .js。现在和 AI agent 搭伙做东西，多半在做 LEDRING。",ab2:"手艺这件事，机器来了也一样。",
-line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
+var zh={skip:"跳到作品",role:"偏爱快的软件、做得细的界面、开源，和终端里的 agent",
+aboutL:"手艺",ab1:"Felix。和 AI agent 一起做东西，也爱做点好玩的。LEDRING 本来是给 agent 装的状态灯，后来做成了一个拦住 AI 的小游戏。",ab2:"手艺这件事，机器来了也一样。",
+line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",vid:"LEDRING Play 游戏画面",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
 featL:"底下是什么",f1:"把 Claude Code、OpenTelemetry GenAI 的 trace 摊成一棵分支树。",f2:"给每次运行打个分：跑偏了多远。",f3:"有 CLI 和 GitHub Action，游戏也跑在这套引擎上。",f4:"自带免费 AI，不用 key，不用注册。中英都有。",
 linkL:"链接",l1:"浏览器里直接玩",l2:"示例报告",l3:"概念 demo",
@@ -584,7 +583,7 @@ function set(l){
   D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});
   R.lang=l==='zh'?'zh-CN':'en';
   lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
-  D.getElementById('play').href=D.getElementById('play3').href=playURL(l);tlabel();if(typeof CUR!=='undefined'&&CUR)setCur();LS.shown=-1;stShow();if(window.bearWrap)bearWrap();
+  D.getElementById('play').href=D.getElementById('play3').href=playURL(l);tlabel();if(typeof CUR!=='undefined'&&CUR)setCur();if(window.liveLang)liveLang();LS.shown=-1;stShow();if(window.bearWrap)bearWrap();
 }
 
 /* fit display type to the column, capped by viewport height */
@@ -739,7 +738,16 @@ var mdq=false;function mdRun(){mdq=false;miniDraw()}addEventListener('scroll',fu
 /* reveals */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
 D.querySelectorAll('.rv,.fade').forEach(function(e){io.observe(e)});
-var v=D.querySelector('video');if(RM.matches){v.removeAttribute('autoplay');v.setAttribute('controls','');v.pause()}
+/* live LEDRING Play first screen: lazy iframe, scaled from 1280x720, non-interactive; browsers throttle it offscreen; unloaded when far away */
+(function(){var box=D.getElementById('live'),f=D.getElementById('liveF');if(!box||!f)return;var want='';
+ function url(){return 'https://play.ledring.dev/play/'+(cur==='zh'?'?lang=zh':'')}
+ function fit(){box.style.setProperty('--ls',box.clientWidth/1280)}
+ new ResizeObserver(fit).observe(box);fit();
+ f.onload=function(){if(f.src)f.classList.add('on')};
+ function load(){if(RM.matches)return;var u=url();if(want!==u){want=u;f.classList.remove('on');f.src=u}}
+ function unload(){if(want){want='';f.classList.remove('on');f.removeAttribute('src')}}
+ new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?load():unload()})},{rootMargin:'300px 0px'}).observe(box);
+ window.liveLang=function(){if(want)load()}})();
 
 var tt;function toast(m){var e=D.getElementById('toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},1400)}
 var lastY=scrollY;addEventListener('scroll',function(){sv+=scrollY-lastY;lastY=scrollY},{passive:true});
