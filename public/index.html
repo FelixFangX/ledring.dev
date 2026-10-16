@@ -204,6 +204,8 @@ h1 em{font-style:italic}
 .ans .r{color:var(--dim)}
 .ans .q{font:400 clamp(1.25rem,1.8vw,1.9rem)/1.15 var(--serif)}
 @media (max-width:40rem){.ans a{grid-template-columns:1fr}}
+.kf{list-style:none;margin:.2rem 0 1rem;padding:0;font-size:.9rem;line-height:1.45;color:var(--dim)}.kf li{padding:.15rem 0 .15rem 1.1rem;position:relative}.kf li::before{content:'';position:absolute;left:0;top:.75em;width:.6rem;height:1px;background:var(--acc)}
+.sg{margin-top:2rem}.sg .stack li{display:inline-block;border-bottom:1px solid var(--rule);line-height:1.2;white-space:nowrap;font-size:clamp(1rem,1.1vw,1.35rem);padding:.4rem .8rem}
 .stack{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
 .stack li{font:400 clamp(1.3rem,2vw,2rem)/1 var(--serif);padding:.5rem 1rem;border:1px solid var(--rule);border-radius:999px}
 .now p{margin:0 0 1.2rem;font:400 clamp(1.4rem,2.2vw,2.3rem)/1.15 var(--serif);max-width:22em}
@@ -300,6 +302,11 @@ html.over{filter:invert(1)}
       <p class="split" data-i18n="ab2">So I build the tools I want for that: ways to see what an agent actually did, and to stay the one who decides what ships. Everything here is open source.</p>
     </div>
   </div>
+  <div class="wrap"><div class="cols">
+    <div class="fade"><h3 class="m" data-i18n="pathL">Path</h3><ol><li><b>01</b><span data-i18n="p1">Frontend: interfaces people actually use.</span></li><li><b>02</b><span data-i18n="p2">Full-stack: UI to APIs, data and deploys on Supabase, Vercel and Cloudflare Workers.</span></li><li><b>03</b><span data-i18n="p3">AI-native: agents run the ops, I keep the judgment.</span></li></ol></div>
+    <div class="fade"><h3 class="m" data-i18n="prinL">Principles</h3><ol><li><b>01</b><span data-i18n="pr1">Spec before code.</span></li><li><b>02</b><span data-i18n="pr2">No flattery.</span></li><li><b>03</b><span data-i18n="pr3">Verify, then answer.</span></li><li><b>04</b><span data-i18n="pr4">Memory you own: portable, private, correctable.</span></li></ol></div>
+    <div class="fade"><h3 class="m" data-i18n="loopL">How I build with agents</h3><ol><li><b>→</b><span data-i18n="lp1">Spec: problem, user stories, out of scope.</span></li><li><b>→</b><span data-i18n="lp2">Slice: tickets small enough for one agent session.</span></li><li><b>→</b><span data-i18n="lp3">Review the evidence and the diff, then decide.</span></li></ol></div>
+  </div></div>
 </section>
 
 <section class="feat pin" id="work" aria-labelledby="h-led">
@@ -332,6 +339,11 @@ html.over{filter:invert(1)}
         <li><a href="https://play.ledring.dev/demo/"><span data-i18n="l3">Concept demo</span><span>↗</span></a></li>
         <li><a href="https://github.com/FelixFangX/ledring"><span>GitHub</span><span>↗</span></a></li></ul></div>
     </div>
+    <div class="cols">
+      <div class="fade"><h3 class="m" data-i18n="modeL">AI modes</h3><ul><li><b>—</b><span data-i18n="m1">LEDRING Free AI: no key, no sign-up, shared daily quota.</span></li><li><b>—</b><span data-i18n="m2">Built-in demo: scripted, no AI calls.</span></li><li><b>—</b><span data-i18n="m3">Bring your own: ChatGPT plan, Anthropic, OpenAI-compatible or Ollama.</span></li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="packL">Content packs</h3><ul><li><b>EN</b><span data-i18n="k1">Dev pack (EN): snake, pomodoro, paint and more.</span></li><li><b>中</b><span data-i18n="k2">中文 pack: 已读不回, 摸鱼被抓, AI 删库, with a share card at the end.</span></li><li><b>—</b><span data-i18n="k3">Builds can be published to a shared build network at api.ledring.dev.</span></li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="kitL">Toolkit</h3><ul><li><b>—</b><span data-i18n="t1">flowchart: N runs as one branch tree, as a single offline HTML report.</span></li><li><b>—</b><span data-i18n="t2">instability: 0–100 drift score; --fail-above gates CI.</span></li><li><b>—</b><span data-i18n="t3">trust, card and Red Wall: permission rules, A2A cards, guardrail tests.</span></li></ul><ul class="tags" style="margin-top:1rem"><li>TypeScript</li><li>pnpm monorepo</li><li>Zod</li><li>Vitest</li><li>OpenTelemetry</li><li>Cloudflare Workers</li></ul></div>
+    </div>
   </div>
 </div>
 </section>
@@ -340,10 +352,11 @@ html.over{filter:invert(1)}
   <div class="wrap g12">
     <h2 class="lab m" id="h-sel" data-i18n="selL">Selected work</h2>
     <ol class="work body">
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">Turns a vague research interest into ranked, evidence-tagged research directions and a 7-day plan.</p><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Converts Yuque Lakeboard and XMind mind maps to Markdown, or back to a clean .xmind.</p><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready, redacted n8n workflows for Lark/Feishu bots, Bitable records and social metrics.</p><ul class="tags"><li>n8n</li><li>Feishu / Lark</li><li>Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">A skill that makes a bot a careful dev assistant: drafts first, asks before sending, checks for leaked secrets.</p><ul class="tags"><li>Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">Turns a vague research interest into ranked, evidence-tagged research directions and a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW participation; four streamed stages.</li><li data-i18n="w1b">Evidence tiered T1–T3, every citation checked.</li><li data-i18n="w1c">MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Converts Yuque Lakeboard and XMind mind maps to Markdown, or back to a clean .xmind.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI and drag-and-drop web UI.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Read-only MCP tool for agents.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready, redacted n8n workflows for Lark/Feishu bots, Bitable records and social metrics.</p><ul class="kf"><li data-i18n="w3a">Global (Lark + OpenAI) and China (Feishu + DeepSeek) editions.</li><li data-i18n="w3b">Manifests so agents can run them via n8n MCP.</li><li data-i18n="w3c">Redaction checks before every commit.</li></ul><ul class="tags"><li>n8n</li><li>Feishu / Lark</li><li>Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">A skill that makes a bot a careful dev assistant: drafts first, asks before sending, checks for leaked secrets.</p><ul class="kf"><li data-i18n="w4a">Draft first, send only after you confirm.</li><li data-i18n="w4b">20 safety scenarios, 20/20 rule coverage in CI.</li><li data-i18n="w4c">Secret and PII checker that never prints the match.</li></ul><ul class="tags"><li>Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/FelixFangX">control-room</a><div class="meta"><p data-i18n="w5">My GitHub profile as a live control room for my agent tooling.</p><ul class="kf"><li data-i18n="w5a">Rebuilt daily by GitHub Actions from real runs and evals.</li><li data-i18n="w5b">Failing runs show as failing; agents read llms.txt and status.json.</li></ul><ul class="tags"><li>GitHub Actions</li><li>SVG</li><li>JavaScript</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX" data-i18n="code">Code ↗</a></div></li>
     </ol>
   </div>
 </section>
@@ -365,8 +378,13 @@ html.over{filter:invert(1)}
   <div class="wrap g12">
     <h2 class="lab m" id="h-now" data-i18n="nowL">Now / Stack</h2>
     <div class="body">
+      <p class="split" data-i18n="now0">Building Become Human: a memory layer for agents that is portable (plain files, any model), private (stays on your disk) and correctable (you can see and fix what it believes).</p>
       <p class="split" data-i18n="now1">Next for LEDRING: pull request comments from the GitHub Action, and adapters for LangGraph, the OpenAI Agents SDK and Codex.</p>
-      <ul class="stack fade"><li>TypeScript</li><li>React</li><li>Node.js</li><li>Vite</li><li>Supabase</li><li>OpenTelemetry</li><li>Cloudflare Workers</li><li>n8n</li><li>MCP</li></ul>
+      <div class="cols sg">
+        <div class="fade"><h3 class="m" data-i18n="sg1">Languages &amp; UI</h3><ul class="stack"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>React</li><li>Next.js</li><li>Astro</li><li>Vite</li></ul></div>
+        <div class="fade"><h3 class="m" data-i18n="sg2">Platform</h3><ul class="stack"><li>Node.js</li><li>Supabase</li><li>Cloudflare Workers</li><li>Vercel</li><li>GitHub Actions</li></ul></div>
+        <div class="fade"><h3 class="m" data-i18n="sg3">Agents &amp; AI</h3><ul class="stack"><li>MCP</li><li>OpenTelemetry GenAI</li><li>Claude Code</li><li>OpenAI / Anthropic</li><li>n8n</li></ul></div>
+      </div>
     </div>
   </div>
 </section>
@@ -375,7 +393,7 @@ html.over{filter:invert(1)}
   <div class="wrap">
     <a class="mail fit rv" data-max=".3" href="mailto:felix@ledring.dev">felix<b>@</b>ledring.dev</a>
     <div class="links m">
-      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Site source ↗</a></nav>
+      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="https://play.ledring.dev/play/">play.ledring.dev ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Site source ↗</a></nav>
       <span><button class="tbtn m" id="topen" type="button" aria-haspopup="dialog"><span data-i18n="term">Terminal</span> <kbd>/</kbd></button> · © 2026 Felix Fang</span>
     </div>
   </div>
@@ -403,6 +421,19 @@ selL:"其他作品",w1:"把模糊的研究兴趣变成几条排好序、标明�
 ossL:"开源",ach:"GitHub 成就",acc:"回答被采纳 ↗",acc2:"回答被采纳 ↗",
 nowL:"在做 / 技术栈",now1:"LEDRING 接下来要做：GitHub Action 在 PR 里自动评论，以及 LangGraph、OpenAI Agents SDK 和 Codex 的适配器。",
 contact:"联系",else:"其他链接",site:"网站源码 ↗",caught:"拦下",esc:"逃走",hint1:"光点经过闸门时拦下它",hint2:"点一下",mhint:"光点到闸门时点一下",term:"终端"};
+Object.assign(zh,{pathL:"经历",p1:"前端：做真正有人用的界面。",p2:"全栈：从界面到接口、数据和部署，用 Supabase、Vercel 和 Cloudflare Workers。",p3:"AI 原生：日常的活交给 agent，判断留给自己。",
+prinL:"原则",pr1:"先写规格，再写代码。",pr2:"不说好听话。",pr3:"先验证，再回答。",pr4:"记忆归自己：可迁移、私密、可纠正。",
+loopL:"我怎么和 agent 协作",lp1:"规格：问题、用户故事、不做什么。",lp2:"切片：每张任务卡一次 agent 会话就能做完。",lp3:"看证据和 diff，然后拍板。",
+modeL:"AI 模式",m1:"LEDRING 免费 AI：不用密钥、不用注册，共享每日额度。",m2:"内置演示：预设脚本，不调用 AI。",m3:"也可以用自己的：ChatGPT 套餐、Anthropic、OpenAI 兼容接口或 Ollama。",
+packL:"内容包",k1:"开发者包（英文）：贪吃蛇、番茄钟、画板等。",k2:"中文包：已读不回、摸鱼被抓、AI 删库，结尾有分享卡片。",k3:"做好的作品可以发布到 api.ledring.dev 上的作品网络。",
+kitL:"工具集",t1:"flowchart：把多次运行合成一棵分支树，输出一个离线 HTML 报告。",t2:"instability：0–100 的偏离分，--fail-above 可以卡住 CI。",t3:"trust、card 和 Red Wall：权限规则、A2A 卡片、护栏测试。",
+w1a:"HIGH / LOW 两种参与模式，四个阶段流式输出。",w1b:"证据分 T1–T3 三级，每条引用都会核对。",w1c:"自带 MCP 服务和每周 OpenAlex 追踪。",
+w2a:"命令行、交互式 TUI 和拖拽网页三种用法。",w2b:"保留文字、层级、备注和链接。",w2c:"给 agent 用的只读 MCP 工具。",
+w3a:"国际版（Lark + OpenAI）和国内版（飞书 + DeepSeek）。",w3b:"每个工作流配清单，agent 能通过 n8n MCP 调用。",w3c:"每次提交前都做脱敏检查。",
+w4a:"先出草稿，你确认后才发。",w4b:"20 个安全场景，CI 里规则覆盖 20/20。",w4c:"密钥和隐私信息检查，从不打印命中的内容。",
+w5:"我的 GitHub 主页：一个实时的 agent 工具控制室。",w5a:"每天由 GitHub Actions 根据真实运行和评测结果重新生成。",w5b:"失败就显示失败；agent 可以读 llms.txt 和 status.json。",
+now0:"在做 Become Human：给 agent 用的记忆层。可迁移（纯文本文件，换模型也能用），私密（只存在你自己的硬盘上），可纠正（能看到并修改它对你的认知）。",
+sg1:"语言与界面",sg2:"平台",sg3:"Agent 与 AI"});
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
@@ -639,7 +670,7 @@ addEventListener('scroll',function(){if(RM.matches||!bgRun)bgDraw(performance.no
 bgSize();bgDraw(8000);bgStart();addEventListener('resize',function(){bgSize();bgDraw(performance.now())});D.addEventListener('visibilitychange',bgStart);
 
 /* ---- split text into words for blur reveal ---- */
-function splitEl(el){if(el.dataset.done===el.textContent)return;var w=el.textContent.split(/(\s+)/),h='',k=0;
+function splitEl(el){if(el.dataset.done===el.textContent)return;var w=/[\u3400-\u9fff]/.test(el.textContent)?(el.textContent.match(/[\u3400-\u9fff\u3000-\u303f\uff00-\uffef][，。、：；！？）」]*|[^\u3400-\u9fff\u3000-\u303f\uff00-\uffef]+/g)||[]):el.textContent.split(/(\s+)/),h='',k=0;
   w.forEach(function(x){if(!x)return;if(/^\s+$/.test(x)){h+=' ';return}h+='<span class="sw" style="--i:'+(k++)+'">'+x.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</span>'});
   if(/[\u4e00-\u9fff]/.test(el.textContent)&&k<4){h='';Array.from(el.textContent).forEach(function(ch,ix){h+='<span class="sw" style="--i:'+ix+'">'+ch+'</span>'})}
   el.innerHTML=h;el.dataset.done=el.textContent}
