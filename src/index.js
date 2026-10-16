@@ -10,6 +10,8 @@ export default {
       target.search = url.search;
       return Response.redirect(target.toString(), 302);
     }
+    const short = { "/x": "https://x.com/ColeFangX", "/github": "https://github.com/FelixFangX", "/gh": "https://github.com/FelixFangX" };
+    if (short[url.pathname]) return Response.redirect(short[url.pathname], 302);
     return env.ASSETS.fetch(request);
   },
 };

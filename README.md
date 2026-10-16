@@ -1,20 +1,48 @@
 # ledring.dev
 
-Source for the landing page at **https://ledring.dev**, the home of [LEDRING](https://github.com/FelixFangX/ledring): status lights for AI agents, and LEDRING Play, a browser game where you decide what an AI builder ships.
+Source for **https://ledring.dev**, Felix Fang's personal site and the home of [LEDRING](https://github.com/FelixFangX/ledring): status lights for AI agents, and LEDRING Play, a browser game where you decide what an AI builder ships.
 
-- `public/` static site (one HTML file, no external CDNs, English with a 中文 toggle; `?lang=zh` forces Chinese)
-- `src/index.js` tiny Worker: redirects `www.ledring.dev` to the apex and `/play` to https://play.ledring.dev/play/, otherwise serves `public/`
-- `?src=<channel>` on the landing page is forwarded to the Play link, so content-pack tracking keeps working
+## What's on the site
 
-## Deploy
+- **Hero**: a live tick ring (canvas). The travelling segment is the "light". Press Space or tap to catch the rogue light at the gate.
+- **About**: path (frontend → full-stack → AI-native), principles, and how I build with agents.
+- **LEDRING**: how to play, AI modes, content packs (EN dev pack and 中文 pack), the trace toolkit, and live links (Play, sample reports, concept demo).
+- **Selected work**: research-thinking-ai, lakeboard-converter, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
+- **Open source**: GitHub achievements and accepted answers.
+- **Now / Stack**: Become Human, the LEDRING roadmap, and the tools I use.
+- **Contact**: felix@ledring.dev, [GitHub](https://github.com/FelixFangX), [X @ColeFangX](https://x.com/ColeFangX).
 
-Hosted on Cloudflare Workers static assets (free plan).
+Everything on it comes from the public repos and the profile README.
+
+## Design and build
+
+- One file, `public/index.html`, with inline CSS and JS. No framework and no CDN. Fonts (Instrument Serif, JetBrains Mono, OFL) are self-hosted in `public/fonts/`, so the site loads fine from mainland China.
+- Light ink-on-paper theme by default. A dark theme is available from the toggle and remembered in `localStorage` with no flash on load.
+- English by default, with a 中文 toggle. `?lang=zh` or `?lang=en` forces a language.
+- WebGL paper/silk background at half resolution. It pauses when the tab is hidden.
+- Respects `prefers-reduced-motion`: no shader animation, no reveals, no game.
+- Responsive from 375 px phones to 5K displays, with safe-area insets and 44 px touch targets. Hover effects apply only on hover-capable pointers.
+- Extras: press `/` for a terminal, the Konami code turns on overdrive, and there's a magnetic cursor.
+
+## Routes (`src/index.js`)
+
+| Path | Behaviour |
+|---|---|
+| `www.ledring.dev/*` | 301 redirect to the apex |
+| `/play` | Redirects to https://play.ledring.dev/play/ and keeps the query string (`?src=` content-pack tracking) |
+| `/x`, `/github` (`/gh`) | Redirect to X @ColeFangX and GitHub FelixFangX |
+| everything else | Static assets from `public/` (including `og.png`) |
+
+## Develop and deploy
 
 ```sh
-export CLOUDFLARE_API_TOKEN=...   # needs Workers Scripts:Edit and zone Workers Routes:Edit
-npx wrangler@3 deploy
+python3 -m http.server 8787 -d public            # local preview
+
+export CLOUDFLARE_API_TOKEN=...                   # Workers Scripts:Edit + zone Workers Routes:Edit
+npx wrangler@3 deploy -c wrangler.preview.toml    # preview: ledring-landing-preview.ledring.workers.dev
+npx wrangler@3 deploy                             # production: ledring.dev (worker "ledring-landing")
 ```
 
 ## License
 
-MIT
+MIT. The fonts are under the SIL Open Font License; see `public/fonts/`.
