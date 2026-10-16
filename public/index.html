@@ -6,8 +6,8 @@
 <title>Felix Fang</title>
 <meta name="description" content="Felix Fang, engineer building with AI agents. Maker of LEDRING.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f2ede4">
-<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#0c0b0a":"#f2ede4"})()</script>
+<meta name="theme-color" content="#f7f7f5">
+<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#080808":"#f7f7f5"})()</script>
 <link rel="canonical" href="https://ledring.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ledring.dev/">
@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://ledring.dev/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@ColeFangX">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23e2560e' stroke-width='2.5' stroke-dasharray='2 1.45'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23000' stroke-width='2.5' stroke-dasharray='2 1.45'/></svg>">
 <link rel="preload" href="/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -24,11 +24,9 @@
 @font-face{font-family:"Instrument Serif";font-style:italic;src:url(/fonts/instrument-serif-latin-400-italic.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url(/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"JetBrains Mono";font-weight:500;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-display:swap}
-/* Palette: paper, ink, and one ember hue at three values. */
+/* Palette: monochrome. States differ by luminance, size, bloom, pattern and motion. */
 :root{
-  --bg:#f2ede4;--ink:#16130f;--dim:#5e554b;--rule:#d9d0c2;--soft:#e9e2d6;
-  --ember:#e2560e;--ember-ink:#a83a06;--ember-deep:#8f2a04;--ember-ash:#c99a78;
-  --on-ember:#fff7ef;--halo:rgba(226,86,14,.09);--grain:.07;
+  --bg:#f7f7f5;--ink:#0a0a0a;--dim:#555;--rule:#dcdcd8;--soft:#ececea;--hi:#0a0a0a;--grain:.06;
   --serif:"Instrument Serif","Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace;
@@ -37,14 +35,17 @@
   --ease:cubic-bezier(.16,.84,.24,1);
   color-scheme:light;
 }
-:root[data-theme=dark]{--bg:#0c0b0a;--ink:#ede7dd;--dim:#968c80;--rule:#25211d;--soft:#151311;
-  --ember:#ff6b1f;--ember-ink:#ff8a4a;--ember-deep:#ff4f12;--ember-ash:#8c6347;--on-ember:#160800;--halo:rgba(255,107,31,.08);--grain:.05;color-scheme:dark}
+:root[data-theme=dark]{--bg:#080808;--ink:#f2f2f0;--dim:#9a9a96;--rule:#262626;--soft:#141414;--grain:.05;color-scheme:dark}
+.hero.inv{--bg:#0a0a0a;--ink:#f7f7f5;--dim:#aaa;background:var(--bg)}
+[data-theme=dark] .hero.inv{--bg:#f2f2f0;--ink:#080808;--dim:#444}
+.hero{background:var(--bg)}
+.hero.inv,.hero.inv *{transition:none!important}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:clamp(15px,.66rem + .45vmin + .08vw,22px);background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background-color .5s,color .5s}
-::selection{background:var(--ember);color:var(--on-ember)}
+::selection{background:var(--ink);color:var(--bg)}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--ember);outline-offset:4px;border-radius:2px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px;z-index:9}.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.6rem .9rem}
 .wrap{width:min(100%,180rem);margin:0 auto;padding-left:var(--pl);padding-right:var(--pr)}
 .m{font:500 .75rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
@@ -60,7 +61,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opa
 .mark canvas{width:22px;height:22px}
 .tools{display:flex;gap:.5rem}
 .tools button{display:inline-grid;place-items:center;min-width:44px;height:44px;padding:0 .8rem;border:1px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--ink);font:500 .75rem/1 var(--mono);letter-spacing:.06em;cursor:pointer;transition:border-color .3s,background-color .5s}
-#theme{padding:0;width:44px}
+#theme{display:inline-flex;gap:.5rem;padding:0 .9rem 0 .7rem}
 #theme svg{transition:transform .7s var(--ease)}
 [data-theme=dark] #theme svg{transform:rotate(180deg)}
 
@@ -73,24 +74,24 @@ h1{grid-row:3;margin:0;font:400 var(--fs,18vw)/.78 var(--serif);letter-spacing:-
 h1 .w{display:inline-block;overflow:hidden;padding:.06em .04em .32em;margin:-.06em -.04em -.32em;vertical-align:top}
 h1 .w>span{display:inline-block}
 h1 .w+.w{margin-left:.18em}
-h1 em{font-style:italic;color:var(--ember)}
+h1 em{font-style:italic}
 :lang(zh) h1{letter-spacing:-.03em}
 .coord{position:absolute;right:var(--pr);top:calc(4.25rem + env(safe-area-inset-top) + clamp(1rem,4vh,3rem));color:var(--dim);text-align:right}
 
 /* LEDRING */
 .feat{padding:clamp(5rem,16vh,12rem) 0 clamp(4rem,12vh,9rem)}
 .word{display:block;margin:0 0 clamp(2rem,5vw,5rem);font:400 var(--fs,22vw)/.8 var(--serif);letter-spacing:-.05em;white-space:nowrap}
-.word i{color:var(--ember)}
+.word i{font-style:italic}
 .fgrid{display:grid;gap:2.5rem}
 .fside{display:flex;flex-direction:column;gap:1.8rem;align-items:flex-start}
 .line{font:400 clamp(1.6rem,2.4vw,2.6rem)/1.08 var(--serif);letter-spacing:-.01em;margin:0;max-width:11em}
 :lang(zh) .line{letter-spacing:0;line-height:1.3}
 .acts{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:.9rem;min-height:52px;padding:0 1.5rem 0 1.25rem;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.06em;transition:background-color .35s,color .35s}
-.btn .led{width:.55rem;height:.55rem;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 var(--ember);transition:box-shadow .4s}
+.btn .led{width:.55rem;height:.55rem;border-radius:50%;background:var(--bg);transition:transform .4s var(--ease)}
 .lnk{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.06em}
 .screen{position:relative;margin:0;border-radius:clamp(10px,1.2vw,20px);overflow:hidden;background:var(--soft);box-shadow:0 0 0 1px var(--rule)}
-.screen video{display:block;width:100%;height:auto;aspect-ratio:720/404;filter:grayscale(.9) sepia(.18) contrast(1.04);transition:filter .8s var(--ease)}
+.screen video{display:block;width:100%;height:auto;aspect-ratio:720/404;filter:grayscale(1) contrast(1.06)}
 @media (min-width:56rem){
   .fgrid{grid-template-columns:repeat(12,minmax(0,1fr));gap:0 clamp(1rem,2vw,2.5rem);align-items:end}
   .fside{grid-column:1/span 4;padding-bottom:.4rem}
@@ -105,7 +106,7 @@ h1 em{font-style:italic;color:var(--ember)}
 .row{display:grid;grid-template-columns:minmax(0,auto) minmax(1.5rem,1fr) auto;align-items:baseline;gap:0 1rem;padding:clamp(1rem,2.2vw,1.8rem) 0;text-decoration:none;min-height:44px}
 .row .t{font:400 clamp(1.9rem,4.6vw,5.4rem)/1 var(--serif);letter-spacing:-.025em;overflow-wrap:anywhere;transition:color .4s,transform .6s var(--ease)}
 .row .dots{align-self:end;margin-bottom:.55em;height:3px;background:radial-gradient(circle,var(--rule) 1.2px,transparent 1.6px) 0 50%/9px 3px repeat-x;position:relative;overflow:hidden}
-.row .dots::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,var(--ember) 1.4px,transparent 1.8px) 0 50%/9px 3px repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path .7s var(--ease)}
+.row .dots::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,var(--ink) 1.4px,transparent 1.8px) 0 50%/9px 3px repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path .7s var(--ease)}
 .row .d{color:var(--dim);text-align:right;white-space:nowrap}
 .row .n{font:400 1.1rem/1 var(--serif);font-style:italic;color:var(--dim);min-width:2.2rem;text-align:right}
 .row .r{display:flex;gap:1.2rem;align-items:baseline}
@@ -116,10 +117,77 @@ h1 em{font-style:italic;color:var(--ember)}
   .row .d{text-align:left;white-space:normal}
 }
 
+/* editorial blocks */
+.blk{padding:clamp(4rem,12vh,9rem) 0;border-top:1px solid var(--rule)}
+.g12{display:grid;gap:1.6rem 0}
+.lab{color:var(--dim)}
+@media (min-width:56rem){.g12{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(1rem,2vw,2.5rem)}.g12>.lab{grid-column:1/span 3}.g12>.body{grid-column:4/-1}}
+.about p{margin:0;font:400 clamp(1.7rem,3.3vw,3.6rem)/1.08 var(--serif);letter-spacing:-.015em;max-width:24em}
+.about p+p{margin-top:.6em;color:var(--dim)}
+:lang(zh) .about p{letter-spacing:0;line-height:1.35;font-size:clamp(1.4rem,2.6vw,2.8rem)}
+.cols{display:grid;gap:2.5rem;margin-top:clamp(3rem,7vh,5rem)}
+@media (min-width:48rem){.cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,3vw,4rem)}}
+.cols h3{margin:0 0 1rem;padding-bottom:.8rem;border-bottom:1px solid var(--ink)}
+.cols ol,.cols ul{list-style:none;margin:0;padding:0}
+.cols li{padding:.7rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:2rem 1fr;gap:.6rem;font-size:.95rem;line-height:1.45}
+.cols li b{font:500 .75rem/1.8 var(--mono);font-weight:500}
+.cols a{min-height:44px;display:flex;align-items:center;justify-content:space-between;text-decoration:none}
+.cols .links2 li{grid-template-columns:1fr;padding:0}
+/* work table */
+.work{list-style:none;margin:0;padding:0}
+.work>li{display:grid;gap:.5rem 2rem;padding:clamp(1.3rem,2.4vw,2rem) 0;border-top:1px solid var(--rule)}
+.work>li:last-child{border-bottom:1px solid var(--rule)}
+.work .nm{font:400 clamp(1.6rem,2.5vw,3.2rem)/1.05 var(--serif);letter-spacing:-.02em;text-decoration:none;overflow-wrap:anywhere;min-height:44px;display:inline-flex;align-items:center;justify-self:start}
+.work p{margin:0;color:var(--dim);max-width:34rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.tags li{font:500 .6875rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border:1px solid var(--rule);border-radius:999px;color:var(--dim);display:inline-block}
+.wl a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:.35em;font:500 .75rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.wl{display:flex;gap:1.2rem}
+@media (min-width:68rem){.work li{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) 9rem;align-items:start}.work .meta{grid-column:2;padding-top:.5rem}.work .wl{grid-column:3;grid-row:1;justify-content:flex-end;padding-top:.1rem}}
+/* open source */
+
+.badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.badge{padding:1.4rem .8rem 1.4rem 0;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:.9rem;font:400 clamp(1.15rem,1.45vw,1.8rem)/1.1 var(--serif)}
+.badge svg{flex:none}
+@media (min-width:68rem){.badges{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.ans{margin-top:2.5rem;list-style:none;padding:0}
+.ans a{display:grid;grid-template-columns:minmax(0,12rem) minmax(0,1fr) auto;gap:.3rem 1.5rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--rule);text-decoration:none;min-height:44px}
+.ans .r{color:var(--dim)}
+.ans .q{font:400 clamp(1.25rem,1.8vw,1.9rem)/1.15 var(--serif)}
+@media (max-width:40rem){.ans a{grid-template-columns:1fr}}
+.stack{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.stack li{font:400 clamp(1.3rem,2vw,2rem)/1 var(--serif);padding:.5rem 1rem;border:1px solid var(--rule);border-radius:999px}
+.now p{margin:0 0 1.2rem;font:400 clamp(1.4rem,2.2vw,2.3rem)/1.15 var(--serif);max-width:22em}
+:lang(zh) .now p{line-height:1.4}
+/* fun: score, cursor, terminal, toast */
+.score{margin-top:.9rem;color:var(--dim);display:flex;gap:1.2rem;font-variant-numeric:tabular-nums}
+.mhint{display:none;width:100%}@media (max-width:40rem){.score{flex-wrap:wrap;row-gap:.3rem}.mhint{display:block}}
+.score b{color:var(--ink);font-weight:500}
+.hint{position:absolute;left:var(--pl);right:var(--pr);top:calc(4.25rem + env(safe-area-inset-top) + clamp(1rem,4vh,3rem));margin:0;color:var(--dim);text-align:right;pointer-events:none}
+@media (max-width:40rem){.hint{display:none}}
+
+.cur{position:fixed;left:0;top:0;z-index:30;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid #fff;border-radius:50%;pointer-events:none;mix-blend-mode:difference;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background-color .25s,opacity .3s;opacity:0}
+.cur.on{opacity:1}.cur.big{width:72px;height:72px;margin:-36px 0 0 -36px;background:#fff}
+.cur.down{width:14px;height:14px;margin:-7px 0 0 -7px;background:#fff}
+@media (hover:hover) and (pointer:fine){.has-cur,.has-cur a,.has-cur button,.has-cur .hero{cursor:none}}
+.term{position:fixed;inset:auto 0 0 0;z-index:40;margin:0 auto;width:min(100% - 2rem,44rem);max-height:min(70vh,30rem);display:flex;flex-direction:column;background:#0a0a0a;color:#f2f2f0;border:1px solid #333;border-radius:14px 14px 0 0;font:.875rem/1.55 var(--mono);padding:0;box-shadow:0 -20px 60px rgba(0,0,0,.25);transform:translateY(105%);transition:transform .5s var(--ease);margin-bottom:env(safe-area-inset-bottom)}
+.term[open],.term.show{transform:none}
+.term .th{display:flex;justify-content:space-between;align-items:center;padding:.2rem .4rem .2rem 1rem;border-bottom:1px solid #262626;color:#9a9a96;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.term .th button{min-width:44px;min-height:44px;background:none;border:0;color:#f2f2f0;font:inherit;cursor:pointer}
+.term .out{flex:1;overflow:auto;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.term .out a{color:#fff}
+.term form{display:flex;gap:.6rem;align-items:center;padding:.4rem 1rem 1rem;border-top:1px solid #1c1c1c}
+.term input{flex:1;min-height:44px;background:none;border:0;color:#fff;font:inherit;outline:none;caret-color:#fff}
+.term:focus-within{outline:none}
+.tbtn{background:none;border:0;color:var(--dim);font:inherit;cursor:pointer;min-height:44px;padding:0;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:.35em}
+kbd{font:inherit;border:1px solid var(--rule);border-radius:4px;padding:.05em .4em}
+.toast{position:fixed;left:50%;top:5rem;z-index:41;transform:translate(-50%,-1rem);opacity:0;background:var(--ink);color:var(--bg);padding:.7rem 1.1rem;border-radius:999px;transition:opacity .3s,transform .4s var(--ease);pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+html.over{filter:invert(1)}
 /* contact */
 .contact{padding:clamp(6rem,20vh,16rem) 0 0}
 .mail{display:block;font:400 var(--fs,11vw)/.9 var(--serif);font-style:italic;letter-spacing:-.04em;text-decoration:none;white-space:nowrap;padding:.05em 0 .12em}
-.mail b{font-weight:400;color:var(--ember)}
+.mail b{font-weight:400;font-style:normal}
 .links{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem 2rem;margin-top:clamp(2rem,6vh,4rem);border-top:1px solid var(--rule);padding:1rem 0 max(1.4rem,env(safe-area-inset-bottom))}
 .links nav{display:flex;flex-wrap:wrap;gap:0 2rem}
 .links a,.links span{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-decoration:none}
@@ -134,15 +202,15 @@ h1 em{font-style:italic;color:var(--ember)}
 
 @media (hover:hover) and (pointer:fine){
   .tools button:hover{border-color:var(--ink)}
-  .btn:hover{background:var(--ember);color:var(--on-ember)}
-  .btn:hover .led{background:var(--on-ember);box-shadow:0 0 0 .3rem rgba(255,255,255,.18)}
+  .btn:hover .led{transform:scale(1.8)}
   .lnk:hover,.links a:hover{color:var(--ink)}
-  .row:hover .t{color:var(--ember-ink);transform:translateX(.4rem)}
+  .wl a:hover{text-decoration-color:var(--ink)}
+  .row:hover .t{transform:translateX(.4rem);font-style:italic}
   .row:hover .dots::after{clip-path:inset(0 0 0 0)}
-  .mail:hover b{color:var(--ink)}
-  .screen:hover video{filter:none}
+  .work a.nm:hover{font-style:italic}
 }
 @media (prefers-reduced-motion:reduce){
+  .hint,.score{display:none}
   *,*::before,*::after{transition:none!important;animation:none!important}
   .js h1 .w>span,.js .rv{transform:none;clip-path:none}.js .fade{opacity:1}
 }
@@ -154,7 +222,7 @@ h1 em{font-style:italic;color:var(--ember)}
   <div class="wrap">
     <a class="mark m" href="/" aria-label="ledring.dev"><canvas id="mini" width="44" height="44" aria-hidden="true"></canvas>ledring.dev</a>
     <div class="tools">
-      <button id="theme" type="button" aria-label="Switch to dark theme"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+      <button id="theme" type="button" aria-label="Switch to dark theme"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg><span id="tlab">Dark</span></button>
       <button id="lang" type="button" lang="zh-CN" aria-label="切换到中文">中文</button>
     </div>
   </div>
@@ -163,9 +231,21 @@ h1 em{font-style:italic;color:var(--ember)}
 <main>
 <section class="hero" id="hero" aria-labelledby="name">
   <canvas id="ring" aria-hidden="true"></canvas>
+  <p class="hint m" id="hint"><span data-i18n="hint1">Stop the rogue light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <p class="role m" data-i18n="role">Engineer, building with AI agents</p>
+    <div><p class="role m" data-i18n="role">Frontend &amp; full-stack engineer, building with AI agents</p>
+    <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Escaped</span> <b id="se">0</b></span></p></div>
     <h1 id="name" class="fit" data-max=".46"><span class="w"><span>Felix</span></span><span class="w"><span><em>Fang</em></span></span></h1>
+  </div>
+</section>
+
+<section class="blk about" id="about" aria-labelledby="h-about">
+  <div class="wrap g12">
+    <h2 class="lab m" id="h-about" data-i18n="aboutL">About</h2>
+    <div class="body rv">
+      <p data-i18n="ab1">I’m a frontend and full-stack engineer. Most of my work now happens alongside AI agents.</p>
+      <p data-i18n="ab2">So I build the tools I want for that: ways to see what an agent actually did, and to stay the one who decides what ships. Everything here is open source.</p>
+    </div>
   </div>
 </section>
 
@@ -174,7 +254,7 @@ h1 em{font-style:italic;color:var(--ember)}
     <h2 id="h-led" class="word fit rv" data-max=".42">LED<i>RING</i></h2>
     <div class="fgrid">
       <div class="fside fade">
-        <p class="line" data-i18n="line">A browser game about stopping a rogue AI.</p>
+        <p class="line" data-i18n="line">Status lights for AI agents, and a browser game about stopping one.</p>
         <div class="acts">
           <a class="btn" id="play" href="https://play.ledring.dev/play/"><span class="led" aria-hidden="true"></span><span data-i18n="play">Play now</span></a>
           <a class="lnk" href="https://github.com/FelixFangX/ledring" data-i18n="src">Source ↗</a>
@@ -182,18 +262,57 @@ h1 em{font-style:italic;color:var(--ember)}
       </div>
       <figure class="screen fade"><video src="/play.mp4" poster="/play-poster.jpg" width="720" height="404" autoplay muted loop playsinline preload="metadata" aria-label="LEDRING Play gameplay" data-i18n-aria="vid"></video></figure>
     </div>
+    <div class="cols">
+      <div class="fade"><h3 class="m" data-i18n="howL">How to play</h3><ol>
+        <li><b>01</b><span data-i18n="h1">Press Start and give CX-417, an AI builder, an idea.</span></li>
+        <li><b>02</b><span data-i18n="h2">Watch it build one web page in real time. It may cut corners.</span></li>
+        <li><b>03</b><span data-i18n="h3">Approve, push back, or stop it. Reach one of 7 endings.</span></li></ol></div>
+      <div class="fade"><h3 class="m" data-i18n="featL">Under the hood</h3><ul>
+        <li><b>—</b><span data-i18n="f1">Replays Claude Code and OpenTelemetry GenAI traces as one branch tree.</span></li>
+        <li><b>—</b><span data-i18n="f2">Scores how far a run drifted from its instruction.</span></li>
+        <li><b>—</b><span data-i18n="f3">CLI and GitHub Action. The game runs on the same engine.</span></li>
+        <li><b>—</b><span data-i18n="f4">Free built-in AI, no key or sign-up. English and 中文.</span></li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="linkL">Links</h3><ul class="links2">
+        <li><a id="play3" href="https://play.ledring.dev/play/"><span data-i18n="l1">Play in your browser</span><span>↗</span></a></li>
+        <li><a href="https://play.ledring.dev/"><span data-i18n="l2">Sample reports</span><span>↗</span></a></li>
+        <li><a href="https://play.ledring.dev/demo/"><span data-i18n="l3">Concept demo</span><span>↗</span></a></li>
+        <li><a href="https://github.com/FelixFangX/ledring"><span>GitHub</span><span>↗</span></a></li></ul></div>
+    </div>
   </div>
 </section>
 
-<section class="idx" aria-label="Projects" data-i18n-aria="proj">
-  <div class="wrap">
-    <ol>
-      <li><a class="row" href="https://github.com/FelixFangX/ledring"><span class="t">ledring</span><span class="dots"></span><span class="r"><span class="d m" data-i18n="d0">Agent run replay</span><span class="n">i</span></span></a></li>
-      <li><a class="row" href="https://github.com/FelixFangX/research-thinking-ai"><span class="t">research-thinking-ai</span><span class="dots"></span><span class="r"><span class="d m" data-i18n="d1">Interest → research plan</span><span class="n">ii</span></span></a></li>
-      <li><a class="row" href="https://github.com/FelixFangX/lakeboard-converter"><span class="t">lakeboard-converter</span><span class="dots"></span><span class="r"><span class="d m" data-i18n="d2">Mind maps → Markdown</span><span class="n">iii</span></span></a></li>
-      <li><a class="row" href="https://github.com/FelixFangX/n8n-workflow-collection"><span class="t">n8n-workflow-collection</span><span class="dots"></span><span class="r"><span class="d m" data-i18n="d3">Feishu automations</span><span class="n">iv</span></span></a></li>
-      <li><a class="row" href="https://github.com/FelixFangX/dev-work-grok-bot-skill"><span class="t">dev-work-grok-bot-skill</span><span class="dots"></span><span class="r"><span class="d m" data-i18n="d4">A careful dev bot</span><span class="n">v</span></span></a></li>
+<section class="blk" id="selected" aria-labelledby="h-sel">
+  <div class="wrap g12">
+    <h2 class="lab m" id="h-sel" data-i18n="selL">Selected work</h2>
+    <ol class="work body">
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">Turns a vague research interest into ranked, evidence-tagged research directions and a 7-day plan.</p><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Converts Yuque Lakeboard and XMind mind maps to Markdown, or back to a clean .xmind.</p><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready, redacted n8n workflows for Lark/Feishu bots, Bitable records and social metrics.</p><ul class="tags"><li>n8n</li><li>Feishu / Lark</li><li>Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">A skill that makes a bot a careful dev assistant: drafts first, asks before sending, checks for leaked secrets.</p><ul class="tags"><li>Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
     </ol>
+  </div>
+</section>
+
+<section class="blk" id="oss" aria-labelledby="h-oss">
+  <div class="wrap g12">
+    <h2 class="lab m" id="h-oss" data-i18n="ossL">Open source</h2>
+    <div class="body">
+      <div class="badges fade" role="list" aria-label="GitHub achievements" data-i18n-aria="ach"><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Pull Shark</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Galaxy Brain</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Pair Extraordinaire</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>Quickdraw</span></div><div class="badge"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="currentColor"><circle cx="14.0" cy="3.0" r="1.6" opacity="1"/><circle cx="19.5" cy="4.5" r="1.6" opacity="1"/><circle cx="23.5" cy="8.5" r="1.6" opacity="1"/><circle cx="25.0" cy="14.0" r="1.6" opacity="1"/><circle cx="23.5" cy="19.5" r="1.6" opacity="1"/><circle cx="19.5" cy="23.5" r="1.6" opacity="1"/><circle cx="14.0" cy="25.0" r="1.6" opacity="1"/><circle cx="8.5" cy="23.5" r="1.6" opacity="1"/><circle cx="4.5" cy="19.5" r="1.6" opacity="1"/><circle cx="3.0" cy="14.0" r="1.6" opacity="1"/><circle cx="4.5" cy="8.5" r="1.6" opacity="1"/><circle cx="8.5" cy="4.5" r="1.6" opacity="1"/></g></svg><span>YOLO</span></div></div>
+      <ul class="ans">
+        <li class="fade"><a href="https://github.com/PrefectHQ/fastmcp/discussions/3209"><span class="r m">PrefectHQ/fastmcp</span><span class="q">FastMCP from OpenAPI: is the httpx.AsyncClient shared?</span><span class="m r" data-i18n="acc">Accepted answer ↗</span></a></li>
+        <li class="fade"><a href="https://github.com/withastro/community-support/discussions/12"><span class="r m">withastro</span><span class="q">Really high-quality image resize pipeline</span><span class="m r" data-i18n="acc2">Accepted answer ↗</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="blk now" id="now" aria-labelledby="h-now">
+  <div class="wrap g12">
+    <h2 class="lab m" id="h-now" data-i18n="nowL">Now / Stack</h2>
+    <div class="body">
+      <p class="fade" data-i18n="now1">Next for LEDRING: pull request comments from the GitHub Action, and adapters for LangGraph, the OpenAI Agents SDK and Codex.</p>
+      <ul class="stack fade"><li>TypeScript</li><li>React</li><li>Node.js</li><li>Vite</li><li>Supabase</li><li>OpenTelemetry</li><li>Cloudflare Workers</li><li>n8n</li><li>MCP</li></ul>
+    </div>
   </div>
 </section>
 
@@ -202,32 +321,47 @@ h1 em{font-style:italic;color:var(--ember)}
     <a class="mail fit rv" data-max=".3" href="mailto:felix@ledring.dev">felix<b>@</b>ledring.dev</a>
     <div class="links m">
       <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Site source ↗</a></nav>
-      <span>© 2026 Felix Fang</span>
+      <span><button class="tbtn m" id="topen" type="button" aria-haspopup="dialog"><span data-i18n="term">Terminal</span> <kbd>/</kbd></button> · © 2026 Felix Fang</span>
     </div>
   </div>
 </section>
 </main>
 
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="toast m" id="toast" role="status"></div>
+<section class="term" id="term" role="dialog" aria-modal="false" aria-label="Terminal" hidden>
+  <div class="th"><span>felix@ledring.dev — sh</span><button type="button" id="tclose" aria-label="Close terminal">✕</button></div>
+  <div class="out" id="tout" aria-live="polite"></div>
+  <form id="tform" autocomplete="off"><span aria-hidden="true">›</span><label for="tin" class="skip">Command</label><input id="tin" spellcheck="false" autocapitalize="off" enterkeyhint="send"></form>
+</section>
 <script>
 (function(){
 var D=document,R=D.documentElement;R.classList.add('js');
 var RM=matchMedia('(prefers-reduced-motion: reduce)');
-var zh={skip:"跳到作品",role:"工程师，和 AI agent 一起做东西",line:"一个关于拦下失控 AI 的网页游戏。",play:"开始玩",src:"源码 ↗",vid:"LEDRING Play 游戏画面",proj:"项目",
-d0:"回放 agent 的运行过程",d1:"从兴趣到研究计划",d2:"思维导图转 Markdown",d3:"飞书自动化",d4:"谨慎的开发助手",contact:"联系",else:"其他链接",site:"网站源码 ↗"};
+var zh={skip:"跳到作品",role:"前端 / 全栈工程师，和 AI agent 一起做东西",
+aboutL:"关于",ab1:"我是前端 / 全栈工程师，现在大部分工作都是和 AI agent 一起完成的。",ab2:"所以我做自己想用的工具：看清 agent 到底做了什么，并且让人来决定什么能上线。这里的东西都开源。",
+line:"给 AI agent 用的状态灯，以及一个关于拦下失控 AI 的网页游戏。",play:"开始玩",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
+howL:"怎么玩",h1:"点开始，给 AI 构建者 CX-417 一个想法。",h2:"看它实时做出一个网页。它可能会偷工减料。",h3:"放行、打回，或者叫停。走向 7 个结局之一。",
+featL:"背后的东西",f1:"把 Claude Code 和 OpenTelemetry GenAI 的运行记录回放成一棵分支树。",f2:"给每次运行打分，看它偏离指令有多远。",f3:"有命令行和 GitHub Action，游戏用的是同一套引擎。",f4:"内置免费 AI，不需要密钥，也不用注册。支持中英文。",
+linkL:"链接",l1:"在浏览器里玩",l2:"示例报告",l3:"概念演示",
+selL:"其他作品",w1:"把模糊的研究兴趣变成几条排好序、标明证据强弱的研究方向，再给一份 7 天计划。",w2:"把语雀画板和 XMind 思维导图转成 Markdown，或者重新导出干净的 .xmind。",w3:"可直接导入、已脱敏的 n8n 工作流：飞书机器人、多维表格记录和社媒数据。",w4:"把机器人配置成谨慎的开发助手：先起草，发送前先确认，并检查有没有泄露密钥。",demo:"在线体验 ↗",code:"代码 ↗",
+ossL:"开源",ach:"GitHub 成就",acc:"回答被采纳 ↗",acc2:"回答被采纳 ↗",
+nowL:"在做 / 技术栈",now1:"LEDRING 接下来要做：GitHub Action 在 PR 里自动评论，以及 LangGraph、OpenAI Agents SDK 和 Codex 的适配器。",
+contact:"联系",else:"其他链接",site:"网站源码 ↗",caught:"拦下",esc:"逃走",hint1:"光点经过闸门时拦下它",hint2:"点一下",mhint:"光点到闸门时点一下",term:"终端"};
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
 var q=new URLSearchParams(location.search),src=q.get('src'),cur,dark=R.dataset.theme==='dark';
 function playURL(l){var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);return p.toString()}
 var tb=D.getElementById('theme'),lb=D.getElementById('lang');
-function tlabel(){var z=cur==='zh';tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
+function tlabel(){var z=cur==='zh';D.getElementById('tlab').textContent=dark?(z?'浅色':'Light'):(z?'深色':'Dark');tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
 function set(l){
   var d=l==='zh'?zh:en;cur=l;
   D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});
   D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});
   R.lang=l==='zh'?'zh-CN':'en';
   lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
-  D.getElementById('play').href=playURL(l);tlabel();
+  D.getElementById('play').href=D.getElementById('play3').href=playURL(l);tlabel();
 }
 
 /* fit display type to the column, capped by viewport height */
@@ -239,11 +373,12 @@ function fit(){D.querySelectorAll('.fit').forEach(function(e){
 
 /* ---------- ring ---------- */
 var hero=D.getElementById('hero'),cv=D.getElementById('ring'),ctx=cv.getContext('2d');
-var N=72,W=0,H=0,dpr=1,cx=0,cy=0,Rr=0,led=3,lv=new Float32Array(N),hue=new Float32Array(N);
+var sv=0,N=72,W=0,H=0,dpr=1,cx=0,cy=0,Rr=0,led=3,lv=new Float32Array(N),hue=new Float32Array(N);
 var boot=performance.now()+500,px=null,py=null,lastMove=-1e9,hit=-1e9,drift=-1,driftT=0,visible=true,running=false;
-// state palette: one ember hue at three values
-var PAL={light:{lit:[226,86,14],ash:[201,154,120],deep:[143,42,4],sock:'#ddd3c4',hi:'rgba(255,255,255,.9)',lo:'rgba(70,50,30,.2)',tick:'rgba(22,19,15,.16)'},
-         dark:{lit:[255,107,31],ash:[140,99,71],deep:[255,79,18],sock:'#2a241f',hi:'rgba(255,255,255,.04)',lo:'rgba(0,0,0,.5)',tick:'rgba(237,231,221,.08)'}};
+// monochrome state system: running = sweep, drift = dither, interrupt = inversion flash
+var PAL={light:{lit:'#0a0a0a',glow:'10,10,10',sock:'#e4e4e0',hi:'rgba(255,255,255,1)',lo:'rgba(0,0,0,.12)',tick:'rgba(10,10,10,.18)'},
+         dark:{lit:'#ffffff',glow:'255,255,255',sock:'#1e1e1e',hi:'rgba(255,255,255,.05)',lo:'rgba(0,0,0,.6)',tick:'rgba(242,242,240,.1)'}};
+var GI=54,inv=false,rogue=20,rspd=.012,score=0,esc=0,gateHalf=2.2,flashT=-1e9,lastLap=0;function pal(){return (dark!==inv)?PAL.dark:PAL.light}
 var glow={};
 function mkGlow(c,a){var z=128,s=D.createElement('canvas');s.width=s.height=z;var g=s.getContext('2d'),gr=g.createRadialGradient(z/2,z/2,0,z/2,z/2,z/2);
   gr.addColorStop(0,'rgba('+c+','+a+')');gr.addColorStop(.25,'rgba('+c+','+(a*.45)+')');gr.addColorStop(1,'rgba('+c+',0)');g.fillStyle=gr;g.fillRect(0,0,z,z);return s}
@@ -256,12 +391,11 @@ function geo(){
 }
 function size(){
   dpr=Math.min(devicePixelRatio||1,2);W=cv.width=Math.round(hero.clientWidth*dpr);H=cv.height=Math.round(hero.clientHeight*dpr);geo();
-  var P=dark?PAL.dark:PAL.light;glow.lit=mkGlow(P.lit.join(','),dark?1:.8);glow.deep=mkGlow(P.deep.join(','),1);
+  glow.light=mkGlow(PAL.light.glow,.5);glow.dark=mkGlow(PAL.dark.glow,.9);
   draw(performance.now(),RM.matches);
 }
-function mix(a,b,t){return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]}
 function draw(t,still){
-  var P=dark?PAL.dark:PAL.light;
+  var P=pal(),G=P===PAL.dark?glow.dark:glow.light;
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='source-over';
   // instrument ticks
   ctx.strokeStyle=P.tick;ctx.lineWidth=1;
@@ -269,19 +403,24 @@ function draw(t,still){
   ctx.beginPath();ctx.arc(cx,cy,Rr*.86,0,7);ctx.stroke();
   var since=t-lastMove,pa=null,hs=(t-hit)/1000,head=(t/1000*.42)%1;
   if(px!==null&&since<2400){pa=Math.atan2(py-cy,px-cx)}
+  // gate brackets at 12 o'clock
+  ctx.strokeStyle=P.lit;ctx.lineWidth=2;ctx.globalAlpha=.9;
+  for(var sgn=-1;sgn<=1;sgn+=2){var ga=Math.PI+sgn*(gateHalf+.5)/N*Math.PI*2;ctx.beginPath();ctx.moveTo(cx+Math.cos(ga)*Rr*.9,cy+Math.sin(ga)*Rr*.9);ctx.lineTo(cx+Math.cos(ga)*Rr*1.1,cy+Math.sin(ga)*Rr*1.1);ctx.stroke()}
+  ctx.globalAlpha=1;
+  var ri=Math.round(rogue)%N;
   for(var i=0;i<N;i++){
     var a=i/N*Math.PI*2-Math.PI/2,v=0,h=0; // h: 0 lit, 1 ash (drift), 2 deep (interrupt)
     if(still){v=i%6===0?1:0}
-    else if(hs<2.2){ // interrupt: ripple outward from tap angle, deep ember, then dark hold
-      var ta=Math.atan2(py-cy,px-cx),dd=Math.acos(Math.cos(a-ta))/Math.PI,front=hs/.45;
-      v=dd<front?Math.max(0,1-(hs-dd*.45)/1.5):0;h=2;
+    else if(hs<2){ // interrupt: inversion flash, every LED at full, then fade to dark
+      v=hs<.35?1:Math.max(0,1-(hs-.35)/1.2);h=2;
     } else {
       var d=((i/N-head)%1+1)%1,d2=((i/N-head*.6-.5)%1+1)%1;v=Math.max(Math.pow(1-d,5),Math.pow(1-d2,9)*.55);
       if(pa!==null){var f=Math.pow(Math.max(0,Math.cos(a-pa)),16)*(1-since/2400);v=Math.max(v*.35,f)}
-      if(drift>=0){var dd2=Math.abs(((i-drift)%N+N+N/2)%N-N/2);if(dd2<5){var fl=(Math.sin(t/47+i)*Math.sin(t/83))>0?.85:.15;if(fl*(1-dd2/5)>v*.6){v=fl*(1-dd2/5);h=1}}}
+      if(drift>=0){var dd2=Math.abs(((i-drift)%N+N+N/2)%N-N/2);if(dd2<5){var fl=(Math.sin(t/47+i)*Math.sin(t/83))>0?.85:.15;if(dd2<5){v=Math.random()<.5?.9:0;h=1}}}
       var bt=(t-boot)/1600*N-i;v=bt<0?0:bt<1.5?Math.max(v,1-bt/1.5):v;
     }
-    lv[i]+=(v-lv[i])*(still?1:.25);hue[i]=h;
+    if(!still&&hs>=2){var rd=Math.abs(((i-rogue)%N+N+N/2)%N-N/2);if(rd<1.2){v=1;h=3}else if(rd<4&&((i-rogue+N)%N>N/2)){v=Math.max(v,.5*(1-rd/4))}}
+    lv[i]+=(v-lv[i])*(still?1:h===3?1:.25);hue[i]=h;
     var x=cx+Math.cos(a)*Rr,y=cy+Math.sin(a)*Rr,L=lv[i];
     // socket
     ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
@@ -289,12 +428,16 @@ function draw(t,still){
     ctx.fillStyle=P.sock;ctx.beginPath();ctx.arc(x,y,led,0,7);ctx.fill();
     ctx.fillStyle=P.lo;ctx.beginPath();ctx.arc(x-led*.16,y-led*.16,led*.8,0,7);ctx.fill();
     if(L>.03){
-      var c=h===2?P.deep:h===1?P.ash:P.lit,g=h===2?glow.deep:glow.lit,s=led*(6+L*(h===2?16:11));
-      ctx.globalCompositeOperation=dark?'lighter':'multiply';ctx.globalAlpha=Math.min(1,L)*(h===1?.35:dark?.9:.7);
-      ctx.drawImage(g,x-s/2,y-s/2,s,s);
-      ctx.globalCompositeOperation='source-over';ctx.globalAlpha=Math.min(1,L*1.4);
-      ctx.fillStyle='rgb('+c.map(Math.round).join(',')+')';ctx.beginPath();ctx.arc(x,y,led,0,7);ctx.fill();
-      if(h!==1){ctx.globalAlpha=Math.min(1,L);var cc=mix(c,[255,240,225],.75);ctx.fillStyle='rgb('+cc.map(Math.round).join(',')+')';ctx.beginPath();ctx.arc(x-led*.22,y-led*.22,led*.36,0,7);ctx.fill()}
+      if(h===1){ // drift: dithered square pixels instead of a round lit LED
+        ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.fillStyle=P.lit;var q=led*.62;
+        for(var dx=-1;dx<=1;dx++)for(var dy=-1;dy<=1;dy++)if(((dx+dy+i+(t/90|0))&1)===0)ctx.fillRect(x+dx*q-q/2,y+dy*q-q/2,q*.9,q*.9);
+      } else {
+        var s2=led*(5+L*(h===2?14:h===3?18:10));
+        ctx.globalCompositeOperation=P===PAL.dark?'lighter':'source-over';ctx.globalAlpha=Math.min(1,L)*(P===PAL.dark?.75:.4);
+        ctx.drawImage(G,x-s2/2,y-s2/2,s2,s2);
+        ctx.globalCompositeOperation='source-over';ctx.globalAlpha=Math.min(1,L*1.5);
+        ctx.fillStyle=P.lit;ctx.beginPath();ctx.arc(x,y,led*(h===3?1.55:1+L*.18),0,7);ctx.fill();
+      }
     }
   }
   ctx.globalAlpha=1;
@@ -302,11 +445,27 @@ function draw(t,still){
 function loop(t){
   if(!visible||D.hidden||RM.matches){running=false;return}
   if(t>driftT){if(drift<0&&Math.random()<.55){drift=Math.floor(Math.random()*N);driftT=t+1800}else{drift=-1;driftT=t+5000+Math.random()*5000}}
+  var dt=Math.min(50,t-(loop.l||t));loop.l=t;sv*=.92;
+  var prev=rogue;rogue=(rogue+dt*(rspd+Math.min(.03,Math.abs(sv)*.0004)))%N;
+  var pr=(prev-GI+N)%N,nr=(rogue-GI+N)%N,ed=gateHalf+1;
+  if(nr<pr&&nr<N/2)loop.c=false;
+  if(pr<ed&&nr>=ed&&!loop.c){esc++;upd()}
   draw(t,false);requestAnimationFrame(loop);
 }
 function start(){if(!running&&visible&&!D.hidden&&!RM.matches){running=true;requestAnimationFrame(loop)}}
 hero.addEventListener('pointermove',function(e){if(e.pointerType==='mouse'){var r=hero.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;lastMove=performance.now()}},{passive:true});
-hero.addEventListener('pointerdown',function(e){var r=hero.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;hit=performance.now();lastMove=-1e9});
+var invT;
+function upd(){D.getElementById('sc').textContent=score;D.getElementById('se').textContent=esc}
+function flash(){inv=true;hero.classList.add('inv');clearTimeout(invT);invT=setTimeout(function(){inv=false;hero.classList.remove('inv');if(RM.matches)draw(performance.now(),true)},RM.matches?200:300);if(RM.matches)draw(performance.now(),true)}
+function attempt(){
+  if(RM.matches){flash();return}
+  var d=Math.abs(((rogue-GI)%N+N+N/2)%N-N/2);
+  if(d<=gateHalf+.6&&!loop.c){score++;loop.c=true;hit=performance.now();lastMove=-1e9;flash();rspd=Math.min(.03,rspd*1.15);
+    loop.c=true;rogue=(GI+N/2)%N;toast(cur==='zh'?['拦下了','又一次','干得好'][score%3]:['Caught','Stopped it','Nice'][score%3]+' · '+score)}
+  else{hit=-1e9;drift=Math.round(rogue);driftT=performance.now()+700}
+  upd();
+}
+hero.addEventListener('pointerdown',function(e){if(e.target.closest('a,button'))return;var r=hero.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;attempt()});
 new IntersectionObserver(function(es){visible=es[0].isIntersecting;start()}).observe(hero);
 D.addEventListener('visibilitychange',start);
 RM.addEventListener&&RM.addEventListener('change',function(){size();start()});
@@ -315,7 +474,7 @@ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(funct
 /* mini ring: scroll progress */
 var mini=D.getElementById('mini'),mc=mini.getContext('2d');
 function miniDraw(){var P=dark?PAL.dark:PAL.light,p=Math.min(1,scrollY/Math.max(1,R.scrollHeight-innerHeight)),n=16;mc.clearRect(0,0,44,44);
-  for(var i=0;i<n;i++){var a=i/n*Math.PI*2-Math.PI/2,on=i<=Math.round(p*(n-1));mc.fillStyle=on?'rgb('+P.lit.join(',')+')':P.sock;mc.beginPath();mc.arc(22+Math.cos(a)*16,22+Math.sin(a)*16,on?3.2:2.6,0,7);mc.fill()}}
+  for(var i=0;i<n;i++){var a=i/n*Math.PI*2-Math.PI/2,on=i<=Math.round(p*(n-1));mc.fillStyle=on?P.lit:P.sock;mc.beginPath();mc.arc(22+Math.cos(a)*16,22+Math.sin(a)*16,on?3.2:2.6,0,7);mc.fill()}}
 addEventListener('scroll',function(){requestAnimationFrame(miniDraw)},{passive:true});
 
 /* reveals */
@@ -323,8 +482,58 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 D.querySelectorAll('.rv,.fade').forEach(function(e){io.observe(e)});
 var v=D.querySelector('video');if(RM.matches){v.removeAttribute('autoplay');v.setAttribute('controls','');v.pause()}
 
+var tt;function toast(m){var e=D.getElementById('toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},1400)}
+var lastY=scrollY;addEventListener('scroll',function(){sv+=scrollY-lastY;lastY=scrollY},{passive:true});
+/* custom cursor (fine pointers only, not with reduced motion) */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!RM.matches){
+  var cu=D.getElementById('cur');R.classList.add('has-cur');
+  addEventListener('pointermove',function(e){cu.classList.add('on');cu.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)';cu.classList.toggle('big',!!e.target.closest('a,button'))},{passive:true});
+  addEventListener('pointerdown',function(){cu.classList.add('down')});addEventListener('pointerup',function(){cu.classList.remove('down')});
+  D.addEventListener('mouseleave',function(){cu.classList.remove('on')});
+}
+/* decode/scramble on hover for mono labels and project names */
+var GL='!<>-_/[]{}=+*^?#01';
+function scramble(el){if(RM.matches||el.dataset.sc)return;var o=el.textContent,n=0;el.dataset.sc=1;
+  var iv=setInterval(function(){n++;el.textContent=o.split('').map(function(c,k){return k<n*o.length/14||c===' '?c:GL[(Math.random()*GL.length)|0]}).join('');if(n>=14){clearInterval(iv);el.textContent=o;delete el.dataset.sc}},28)}
+D.querySelectorAll('.work .nm,.lab,.cols h3,.ans .q').forEach(function(el){el.addEventListener('pointerenter',function(){if(!el.children.length)scramble(el)})});
+/* terminal */
+var term=D.getElementById('term'),tout=D.getElementById('tout'),tin=D.getElementById('tin'),opener=null;
+function tprint(h){tout.insertAdjacentHTML('beforeend',h+'\n');tout.scrollTop=1e9}
+var CMDS={
+ help:function(){return 'about  projects  play  oss  stack  email  github  x  theme  lang  score  clear  exit'},
+ about:function(){return cur==='zh'?zh.ab1+zh.ab2:en.ab1+' '+en.ab2},
+ projects:function(){return ['ledring','research-thinking-ai','lakeboard-converter','n8n-workflow-collection','dev-work-grok-bot-skill'].map(function(p){return '<a href="https://github.com/FelixFangX/'+p+'">'+p+'</a>'}).join('\n')},
+ play:function(){setTimeout(function(){location.href=playURL(cur)},500);return 'opening LEDRING Play…'},
+ oss:function(){return 'Pull Shark · Galaxy Brain · Pair Extraordinaire · Quickdraw · YOLO\naccepted: PrefectHQ/fastmcp#3209, withastro/community-support#12'},
+ stack:function(){return 'TypeScript React Node.js Vite Supabase OpenTelemetry Cloudflare-Workers n8n MCP'},
+ email:function(){return '<a href="mailto:felix@ledring.dev">felix@ledring.dev</a>'},
+ github:function(){return '<a href="https://github.com/FelixFangX">github.com/FelixFangX</a>'},
+ x:function(){return '<a href="https://x.com/ColeFangX">x.com/ColeFangX</a>'},
+ theme:function(){tb.click();return dark?'dark':'light'},
+ lang:function(){lb.click();return cur},
+ score:function(){return 'caught '+score+' · escaped '+esc},
+ clear:function(){tout.innerHTML='';return ''},
+ exit:function(){closeT();return ''},
+ sudo:function(){return 'nice try.'},
+ ls:function(){return CMDS.projects()}
+};
+function openT(){if(!term.hidden)return;opener=D.activeElement;term.hidden=false;requestAnimationFrame(function(){term.classList.add('show')});if(!tout.innerHTML)tprint('felix@ledring.dev — type <b>help</b>');tin.focus()}
+function closeT(){term.classList.remove('show');setTimeout(function(){term.hidden=true},RM.matches?0:450);if(opener&&opener.focus)opener.focus()}
+D.getElementById('topen').onclick=openT;D.getElementById('tclose').onclick=closeT;
+D.getElementById('tform').onsubmit=function(e){e.preventDefault();var c=tin.value.trim().toLowerCase();tin.value='';if(!c)return;tprint('› '+c.replace(/</g,'&lt;'));var f=CMDS[c.split(' ')[0]];var r=f?f():'command not found: '+c.replace(/</g,'&lt;')+'  (try help)';if(r)tprint(r)};
+/* keyboard: / terminal, Esc close, Space catch, konami */
+var K='ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a'.split(','),kp=0;
+addEventListener('keydown',function(e){
+  var typing=/INPUT|TEXTAREA/.test((e.target||{}).tagName);
+  if(e.key==='Escape'&&!term.hidden){closeT();return}
+  if(typing)return;
+  if(e.key==='/'){e.preventDefault();openT();return}
+  if((e.key===' '||e.code==='Space')&&scrollY<hero.clientHeight*.6&&!e.target.closest('a,button')){e.preventDefault();attempt()}
+  kp=(e.key===K[kp]||e.key.toLowerCase()===K[kp])?kp+1:(e.key===K[0]?1:0);
+  if(kp===K.length){kp=0;R.classList.add('over');rspd*=3;toast('LEDRING OVERDRIVE');setTimeout(function(){R.classList.remove('over');rspd/=3},3000)}
+});
 tb.onclick=function(){dark=!dark;var t=dark?'dark':'light';R.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}
-  D.querySelector('meta[name=theme-color]').content=dark?'#0c0b0a':'#f2ede4';tlabel();size();miniDraw()};
+  D.querySelector('meta[name=theme-color]').content=dark?'#080808':'#f7f7f5';tlabel();size();miniDraw()};
 lb.onclick=function(){set(cur==='zh'?'en':'zh');var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
 var ql=q.get('lang');set(ql==='zh'||(!ql&&/^zh/i.test(navigator.language))?'zh':'en');
 fit();size();miniDraw();start();
