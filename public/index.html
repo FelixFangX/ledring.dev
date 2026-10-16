@@ -3,70 +3,180 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LEDRING: status lights for AI agents</title>
-<meta name="description" content="LEDRING Play: watch an AI builder turn your idea into a web page, and decide what gets through. Free, in your browser, no sign-up.">
-<meta property="og:title" content="LEDRING Play: you decide what the AI ships">
-<meta property="og:description" content="Watch CX-417 build one page in real time. Approve, push back, or stop it when it drifts. 7 endings.">
-<meta property="og:image" content="https://ledring.dev/og.png">
+<title>Felix Fang</title>
+<meta name="description" content="Felix Fang, frontend and full-stack engineer. I build tools for working with AI agents, including LEDRING.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ledring.dev/">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://ledring.dev/">
+<meta property="og:title" content="Felix Fang">
+<meta property="og:description" content="Frontend and full-stack engineer. I build tools for working with AI agents, including LEDRING.">
+<meta property="og:image" content="https://ledring.dev/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='none' stroke='%232F5BEA' stroke-width='2'/></svg>">
+<meta name="twitter:site" content="@ColeFangX">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23d9480f' stroke-width='2.5'/></svg>">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})()</script>
 <style>
-:root{--bg:#F3F2EE;--panel:#FBFAF7;--line:#CFCDC6;--ink:#16181A;--ink2:#6B6E70;--calm:#2F5BEA;--sans:'Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
-.wrap{max-width:920px;margin:0 auto;padding:24px}
-nav{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:14px}
-nav a{color:var(--ink2);text-decoration:none;margin-left:16px}
-button.lang{font:inherit;background:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer;margin-left:16px}
-.logo{letter-spacing:.3em;font-weight:600}
-h1{font-size:clamp(32px,6vw,52px);line-height:1.15;margin:56px 0 16px}
-.sub{font-size:19px;color:var(--ink2);max-width:640px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
-.btn{display:inline-block;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid var(--ink)}
-.btn.primary{background:var(--calm);border-color:var(--calm);color:#fff}
-.btn.ghost{color:var(--ink);background:var(--panel)}
-img.demo{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:40px 0}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
-.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--ink2);font-size:15px}
-code{font-family:var(--mono);background:var(--panel);border:1px solid var(--line);padding:1px 6px;border-radius:4px}
-footer{border-top:1px solid var(--line);margin-top:48px;padding-top:20px;color:var(--ink2);font-size:14px}
-footer a{color:var(--ink);margin-right:16px}
-[data-zh]{}
+:root{
+  --bg:#f7f6f3;--fg:#1b1b19;--muted:#6b6a64;--line:#e3e1db;--accent:#c2410c;--sel:#fde3d3;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121211;--fg:#e8e6e1;--muted:#94928b;--line:#2a2a27;--accent:#fb8a4c;--sel:#4a2a18;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#121211;--fg:#e8e6e1;--muted:#94928b;--line:#2a2a27;--accent:#fb8a4c;--sel:#4a2a18;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--sel)}
+main,header,footer{max-width:38rem;margin:0 auto;padding:0 1.5rem}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .15s,color .15s}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.25rem .5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;font:13px/1 var(--mono);color:var(--muted)}
+header .mark{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none}
+.ring{width:10px;height:10px;border:2.5px solid var(--accent);border-radius:50%;display:inline-block}
+.tools{display:flex;gap:1rem}
+.tools button{font:inherit;color:inherit;background:none;border:0;padding:.25rem 0;cursor:pointer}
+.tools button:hover{color:var(--fg)}
+h1{font-size:1.5rem;line-height:1.3;font-weight:600;letter-spacing:-.01em;margin:5rem 0 1rem}
+.intro p{margin:0 0 1rem;max-width:34rem}
+.intro .muted{color:var(--muted)}
+section{margin-top:4.5rem}
+h2{font:500 13px/1 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 1.5rem}
+.feature h3{font-size:1.125rem;font-weight:600;margin:0 0 .5rem}
+.feature p{margin:0 0 1rem}
+figure{margin:1.75rem 0 1.25rem}
+video{display:block;width:100%;height:auto;aspect-ratio:720/404;border:1px solid var(--line);border-radius:6px;background:var(--line)}
+figcaption{font:13px/1.5 var(--mono);color:var(--muted);margin-top:.6rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center}
+.btn{display:inline-block;background:var(--fg);color:var(--bg);text-decoration:none;padding:.55rem 1rem;border-radius:6px;font-weight:500}
+.btn:hover{background:var(--accent);color:#fff}
+ul.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+ul.list li{padding:1rem 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem}
+ul.list .name{font-weight:600}
+ul.list .meta{font:13px/1.65 var(--mono);color:var(--muted);text-align:right;white-space:nowrap}
+ul.list .meta a{color:var(--muted)}ul.list .meta a:hover{color:var(--fg)}
+ul.list p{grid-column:1/-1;margin:0;color:var(--muted)}
+.contact p{margin:0 0 1rem}
+.contact ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+footer{margin-top:5rem;padding-bottom:3rem;font:13px/1.6 var(--mono);color:var(--muted)}
+footer a{color:var(--muted)}
+@media (max-width:480px){h1{margin-top:3.5rem}section{margin-top:3.5rem}ul.list li{grid-template-columns:1fr}ul.list .meta{text-align:left}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav><span class="logo">◯ LEDRING</span><span><a href="https://github.com/FelixFangX/ledring">GitHub</a><a href="https://play.ledring.dev/" data-i18n="docs">Docs</a><button class="lang" id="lang" type="button">中文</button></span></nav>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<header>
+  <a class="mark" href="/"><span class="ring" aria-hidden="true"></span>ledring.dev</a>
+  <div class="tools">
+    <button id="lang" type="button" lang="zh-CN" aria-label="切换到中文">中文</button>
+    <button id="theme" type="button" aria-label="Toggle dark mode" data-i18n-aria="themeLabel"><span data-i18n="theme">Theme</span></button>
+  </div>
+</header>
 
-<h1 data-i18n="h1">Your AI is building. You decide what ships.</h1>
-<p class="sub" data-i18n="sub">LEDRING Play is a browser game about watching an AI agent work. CX-417 turns your idea into one web page in real time. It may take shortcuts. Approve, push back, or stop it when it drifts.</p>
-<div class="cta">
-<a class="btn primary" id="play" href="https://play.ledring.dev/play/" data-i18n="play">▶ Play free in your browser</a>
-<a class="btn ghost" href="https://github.com/FelixFangX/ledring" data-i18n="star">★ Star on GitHub</a>
-</div>
-<a href="https://play.ledring.dev/play/" class="playlink"><img class="demo" src="/play.gif" alt="LEDRING Play: CX-417 building a page" loading="lazy"></a>
+<main id="main">
+  <div class="intro">
+    <h1 data-i18n="name">Felix Fang</h1>
+    <p data-i18n="p1">I'm a frontend and full-stack engineer. These days most of my work happens alongside AI agents, so I build the tools I want for that: ways to see what an agent actually did, and to stay the one who decides what ships.</p>
+    <p class="muted" data-i18n="p2">Everything below is open source and on GitHub.</p>
+  </div>
 
-<div class="grid">
-<div class="card"><h3 data-i18n="c1h">No key, no sign-up</h3><p data-i18n="c1p">The default free AI runs on a shared daily quota. Or bring your own Anthropic or OpenAI-compatible key.</p></div>
-<div class="card"><h3 data-i18n="c2h">7 endings</h3><p data-i18n="c2p">Every choice is a branch. The end screen shows your path next to the paths other builds took.</p></div>
-<div class="card"><h3 data-i18n="c3h">Judged on what shipped</h3><p data-i18n="c3p">Endings are scored on the files the agent actually delivered, not on its own summary.</p></div>
-<div class="card"><h3 data-i18n="c4h">A real trace toolkit</h3><p data-i18n="c4p">The game runs on LEDRING's open-source engine: branch-tree replay and drift scoring for Claude Code and OpenTelemetry GenAI traces.</p></div>
-</div>
+  <section class="feature" aria-labelledby="h-work">
+    <h2 id="h-work" data-i18n="work">Selected work</h2>
+    <h3>LEDRING</h3>
+    <p data-i18n="led1">Status lights for AI agents. It replays agent traces from Claude Code or OpenTelemetry GenAI as one branch tree, and scores how far a run drifted from what it was asked to do.</p>
+    <p data-i18n="led2">LEDRING Play is a browser game built on top of it. You watch CX-417, an AI builder, turn your idea into a web page in real time. It may cut corners. You approve, push back, or stop it, and every choice branches toward one of seven endings. The built-in AI needs no key or sign-up, and the game is in English and Chinese.</p>
+    <figure>
+      <video src="/play.mp4" poster="/play-poster.jpg" width="720" height="404" autoplay muted loop playsinline preload="metadata" aria-describedby="cap"></video>
+      <figcaption id="cap" data-i18n="cap">A run of LEDRING Play, recorded in the browser.</figcaption>
+    </figure>
+    <div class="actions">
+      <a class="btn" id="play" href="https://play.ledring.dev/play/" data-i18n="play">Play in your browser</a>
+      <a href="https://github.com/FelixFangX/ledring" data-i18n="src">Source on GitHub</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-proj">
+    <h2 id="h-proj" data-i18n="proj">Other projects</h2>
+    <ul class="list">
+      <li><a class="name" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><span class="meta"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">live demo</a> · TypeScript</span>
+        <p data-i18n="rta">Turns a vague research interest into ranked research directions, each tagged by how strong its evidence is, plus a 7-day plan. A four-stage LLM pipeline in React and Supabase.</p></li>
+      <li><a class="name" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><span class="meta">TypeScript</span>
+        <p data-i18n="lk">Converts Yuque Lakeboard and XMind mind maps into Markdown, or back into a clean .xmind. CLI, terminal UI, or drag-and-drop web page.</p></li>
+      <li><a class="name" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><span class="meta">n8n</span>
+        <p data-i18n="n8n">Import-ready, redacted n8n workflows: Lark/Feishu bot messages into Bitable records and PRD drafts, and social media metrics tracking. Global and China editions.</p></li>
+      <li><a class="name" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><span class="meta">Markdown · JS</span>
+        <p data-i18n="gb">A skill that sets up a bot as a careful developer assistant across repos, trackers and team chat. It drafts first, asks before sending, and checks for leaked secrets.</p></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-now">
+    <h2 id="h-now" data-i18n="now">Now</h2>
+    <p data-i18n="nowp">Working on Become Human, a memory layer for agents that stays in plain files on your own disk, works with any model, and lets you see and correct what it believes about you. Not released yet.</p>
+  </section>
+
+  <section class="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact" data-i18n="contact">Contact</h2>
+    <p data-i18n="cp">Email is the best way to reach me. I read everything.</p>
+    <ul>
+      <li><a href="mailto:felix@ledring.dev">felix@ledring.dev</a></li>
+      <li><a href="https://github.com/FelixFangX">GitHub</a></li>
+      <li><a href="https://x.com/ColeFangX">X @ColeFangX</a></li>
+    </ul>
+  </section>
+</main>
 
 <footer>
-<p data-i18n="by">Made by Felix Fang, a frontend and full-stack engineer building AI-native tools.</p>
-<a href="https://github.com/FelixFangX">GitHub</a><a href="https://x.com/ColeFangX">X</a><a href="https://github.com/FelixFangX/ledring.dev" data-i18n="src">Site source</a>
+  <span data-i18n="foot">Plain HTML and CSS, no trackers.</span> <a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Source</a>
 </footer>
-</div>
+
 <script>
-var zh={docs:"文档",h1:"AI 在干活，你决定什么能上线。",sub:"LEDRING Play 是一个看 AI 干活的网页游戏。CX-417 会把你的想法实时做成一个网页，中途可能偷工减料。你可以放行、打回，或者在它跑偏时叫停。",play:"▶ 免费在线玩",star:"★ 在 GitHub 上点星",c1h:"不用密钥，不用注册",c1p:"默认的免费 AI 每天有共享额度。也可以用自己的 Anthropic 或 OpenAI 兼容密钥。",c2h:"7 个结局",c2p:"每个选择都是一条分支。结局页会把你的路线和别人的路线放在一起。",c3h:"看交付，不看自述",c3p:"结局按 AI 实际交出的文件来判，不看它自己的总结。",c4h:"背后是真的工具",c4p:"游戏跑在 LEDRING 的开源引擎上：给 Claude Code 和 OpenTelemetry GenAI 记录做分支回放和跑偏评分。",by:"作者 Felix Fang，前端 / 全栈工程师，现在专做 AI 原生工具。",src:"网站源码"};
+(function(){
+var zh={skip:"跳到正文",theme:"主题",themeLabel:"切换深色模式",
+p1:"我是前端 / 全栈工程师。现在大部分工作都是和 AI agent 一起做，所以我在做自己想用的工具：看清 agent 到底做了什么，并且让人来决定什么能上线。",
+p2:"下面的项目都开源在 GitHub 上。",
+work:"代表作品",
+led1:"给 AI agent 用的状态灯。它把 Claude Code 或 OpenTelemetry GenAI 的运行记录回放成一棵分支树，并给每次运行打分，看它偏离指令有多远。",
+led2:"LEDRING Play 是基于它做的网页游戏。你看着 AI 构建者 CX-417 把你的想法实时做成一个网页，它可能会偷工减料。你可以放行、打回，或者叫停，每个选择都会走向 7 个结局之一。内置的 AI 不需要密钥，也不用注册，游戏支持中英文。",
+cap:"LEDRING Play 的一局，浏览器内录制。",play:"在浏览器里玩",src:"GitHub 源码",
+proj:"其他项目",demo:"在线体验",
+rta:"把模糊的研究兴趣变成几条排好序的研究方向，每条都标明证据强弱，再给一份 7 天计划。四阶段 LLM 流程，React + Supabase。",
+lk:"把语雀画板（Lakeboard）和 XMind 思维导图转成 Markdown，或者重新导出干净的 .xmind。有命令行、终端界面和拖拽网页三种用法。",
+n8n:"可直接导入、已脱敏的 n8n 工作流：把飞书机器人消息写进多维表格并生成 PRD 草稿，以及社媒数据追踪。分国际版和国内版。",
+gb:"一个 skill，把机器人配置成谨慎的开发助手，覆盖代码仓库、任务系统和团队聊天。先起草、发送前先确认，并检查有没有泄露密钥。",
+now:"在做",nowp:"Become Human：给 agent 用的记忆层。数据以普通文件存在你自己的硬盘上，不绑定模型，你能看到并修改它对你的认识。还没发布。",
+contact:"联系",cp:"发邮件最方便，每封我都会看。",
+foot:"纯 HTML 和 CSS，没有追踪脚本。",site:"网站源码"};
 var en={};document.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
-var q=new URLSearchParams(location.search),src=q.get('src');
-function set(l){var d=l==='zh'?zh:en;document.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});document.documentElement.lang=l==='zh'?'zh-CN':'en';document.getElementById('lang').textContent=l==='zh'?'EN':'中文';
-var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);document.querySelectorAll('#play,.playlink').forEach(function(a){a.href=p.toString()});window._l=l}
-set(q.get('lang')==='zh'||(!q.get('lang')&&/^zh/i.test(navigator.language))?'zh':'en');
-document.getElementById('lang').onclick=function(){set(window._l==='zh'?'en':'zh')};
+en.themeLabel="Toggle dark mode";zh.name="Felix Fang";
+var q=new URLSearchParams(location.search),src=q.get('src'),cur;
+function set(l){
+  var d=l==='zh'?zh:en;cur=l;
+  document.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});
+  document.documentElement.lang=l==='zh'?'zh-CN':'en';
+  var b=document.getElementById('lang');b.textContent=l==='zh'?'EN':'中文';b.lang=l==='zh'?'en':'zh-CN';b.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
+  document.getElementById('theme').setAttribute('aria-label',d.themeLabel);
+  
+  var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);
+  document.getElementById('play').href=p.toString();
+}
+var ql=q.get('lang');
+set(ql==='zh'||(!ql&&/^zh/i.test(navigator.language))?'zh':'en');
+document.getElementById('lang').onclick=function(){
+  set(cur==='zh'?'en':'zh');
+  var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u);
+};
+document.getElementById('theme').onclick=function(){
+  var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('theme',r.dataset.theme)}catch(e){}
+};
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){var v=document.querySelector('video');v.removeAttribute('autoplay');v.setAttribute('controls','');v.pause()}
+})();
 </script>
 </body>
 </html>

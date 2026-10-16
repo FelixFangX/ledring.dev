@@ -1,0 +1,11 @@
+# Preview build on workers.dev only. No custom domains.
+name = "ledring-landing-preview"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+account_id = "debc68dfc6d9c7ea2a10c426ca02087d"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
