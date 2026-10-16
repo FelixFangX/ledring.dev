@@ -73,6 +73,7 @@ body::after{inset:-50%;animation:grain .9s steps(6) infinite}
 .btn .led{background:var(--acc)}
 /* shiny chrome sweep on the italic surname */
 h1 em{background:linear-gradient(100deg,var(--ink) 0 38%,var(--chrome) 46%,var(--acc) 50%,var(--chrome) 54%,var(--ink) 62% 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s var(--ease) 2.2s infinite}
+[data-theme=light] h1 em,:root:not([data-theme=dark]) h1 em{animation:none;background:none;color:var(--ink)}
 @keyframes shine{0%{background-position:100% 0}45%,100%{background-position:-50% 0}}
 /* split + blur reveal */
 .sw{display:inline-block;white-space:pre}
@@ -486,19 +487,27 @@ function draw(t,still){
   ctx.globalAlpha=Dk?.75:.8;ctx.lineWidth=tw*1.3;tick(drf,tl*1.15,false);
   // inner hairline track
   ctx.globalAlpha=Dk?.1:.14;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,Rr-tl*1.1,0,7);ctx.stroke();
+  if(!Dk){ // ink on paper: lit = longer, heavier ink-blue ticks; no glow, no sheen
+    ctx.lineCap='butt';
+    for(var q=0;q<5;q++){if(!B[q].length)continue;var lvq=(q+.5)/5;ctx.strokeStyle=P.lit;ctx.globalAlpha=.45+lvq*.55;ctx.lineWidth=tw*(1+lvq*1.8);
+      ctx.beginPath();for(var k=0;k<B[q].length;k++){var aa=B[q][k][0],r0=Rr-tl/2,l=tl*(1+B[q][k][1]*1.2),ca=Math.cos(aa),sa=Math.sin(aa);ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*(r0+l),cy+sa*(r0+l))}ctx.stroke()}
+    B=[[],[],[],[],[]];
+  }
   for(var q=0;q<5;q++){if(!B[q].length)continue;var lvq=(q+.5)/5;
     ctx.globalCompositeOperation=Dk?'lighter':'source-over';
     ctx.shadowColor=Dk?'rgba(120,165,235,.9)':'rgba(35,64,106,.45)';ctx.shadowBlur=(Dk?16:6)*lvq*dpr;
     ctx.strokeStyle=P.lit;ctx.globalAlpha=Dk?.25+lvq*.6:.3+lvq*.7;ctx.lineWidth=tw*1.7;tick(B[q],tl,true);
     ctx.shadowBlur=0;
-    if(lvq>.55){ctx.strokeStyle=P.litHi;ctx.globalAlpha=(lvq-.5)*(Dk?1.2:.6);ctx.lineWidth=tw*.8;tick(B[q],tl*.7,true)}
+    if(lvq>.55){ctx.strokeStyle='#cddcf6';ctx.globalAlpha=(lvq-.5)*.9;ctx.lineWidth=tw*.8;tick(B[q],tl*.7,true)}
   }
   ctx.globalCompositeOperation='source-over';ctx.shadowBlur=0;
   // rogue light: a longer luminous bar with soft bloom
+  if(rogA!==null&&!Dk){var ca=Math.cos(rogA),sa=Math.sin(rogA);ctx.lineCap='butt';ctx.globalAlpha=1;ctx.strokeStyle=P.ink;ctx.lineWidth=tw*4;
+    ctx.beginPath();ctx.moveTo(cx+ca*(Rr-tl*.9),cy+sa*(Rr-tl*.9));ctx.lineTo(cx+ca*(Rr+tl*1.5),cy+sa*(Rr+tl*1.5));ctx.stroke();rogA=null}
   if(rogA!==null){var ca=Math.cos(rogA),sa=Math.sin(rogA),r0=Rr-tl*.9,r1=Rr+tl*1.1,mx=cx+ca*Rr,my=cy+sa*Rr,gs=tl*4.5;
     ctx.globalCompositeOperation=Dk?'lighter':'source-over';ctx.globalAlpha=Dk?.55:.35;ctx.drawImage(G,mx-gs/2,my-gs/2,gs,gs);
-    ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.shadowColor=Dk?'rgba(170,200,255,1)':'rgba(35,64,106,.6)';ctx.shadowBlur=(Dk?18:8)*dpr;
-    ctx.strokeStyle=Dk?P.litHi:P.lit;ctx.lineWidth=tw*3.2;ctx.beginPath();ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*r1,cy+sa*r1);ctx.stroke();ctx.shadowBlur=0}
+    ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.shadowColor=Dk?'rgba(140,180,240,.85)':'rgba(35,64,106,.6)';ctx.shadowBlur=(Dk?14:8)*dpr;
+    ctx.strokeStyle=Dk?'#d6e4fb':P.lit;ctx.lineWidth=tw*2.8;ctx.beginPath();ctx.moveTo(cx+ca*r0,cy+sa*r0);ctx.lineTo(cx+ca*r1,cy+sa*r1);ctx.stroke();ctx.shadowBlur=0}
   ctx.globalAlpha=1;ctx.lineCap='butt';
 }
 function loop(t){
@@ -609,6 +618,7 @@ if(gl){
    'col+=c*exp(-length((uv-m)*vec2(asp,1.))*2.6)*(dk>.5?.06:.025);'+
    'vec2 v=uv-.5;float vg=1.-dot(v*vec2(1.,1.25),v*vec2(1.,1.25))*(dk>.5?1.05:.45);col*=mix(1.,vg,dk>.5?1.:.6);'+
    'col+=(h(gl_FragCoord.xy+fract(t)*91.)+h(gl_FragCoord.xy*1.7-t)-1.)/255.*2.;'+
+   'if(dk<.5){float fib=fb(q*6.)*.6+fb(vec2(q.x*40.,q.y*3.))*.4;col=a*(1.-(fib-.5)*.035)-vec3(.012)*smoothstep(.3,.9,fb(q*.8+T*.2));col+=(h(gl_FragCoord.xy+fract(t)*91.)+h(gl_FragCoord.xy*1.7-t)-1.)/255.*2.;}'+
    'gl_FragColor=vec4(col,1.);}';
   function sh(tp,src){var o=gl.createShader(tp);gl.shaderSource(o,src);gl.compileShader(o);return o}
   var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
