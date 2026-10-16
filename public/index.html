@@ -4,214 +4,398 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Felix Fang</title>
-<meta name="description" content="Felix Fang, frontend and full-stack engineer. I build tools for working with AI agents, including LEDRING.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Felix Fang, frontend and full-stack engineer. I build tools for working alongside AI agents, and LEDRING, a browser game about stopping one.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0a09">
 <link rel="canonical" href="https://ledring.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ledring.dev/">
 <meta property="og:title" content="Felix Fang">
-<meta property="og:description" content="Frontend and full-stack engineer. I build tools for working with AI agents, including LEDRING.">
+<meta property="og:description" content="Frontend and full-stack engineer. I build tools for working alongside AI agents, including LEDRING.">
 <meta property="og:image" content="https://ledring.dev/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@ColeFangX">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23d9480f' stroke-width='2.5'/></svg>">
-<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})()</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5.5' fill='none' stroke='%23ff6a1a' stroke-width='2.5' stroke-dasharray='2 1.45'/></svg>">
+<link rel="preload" href="/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:"Instrument Serif";src:url(/fonts/instrument-serif-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url(/fonts/instrument-serif-latin-400-italic.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"JetBrains Mono";font-weight:500;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-display:swap}
 :root{
-  --bg:#f7f6f3;--fg:#1b1b19;--muted:#6b6a64;--line:#e3e1db;--accent:#c2410c;--sel:#fde3d3;
+  --bg:#0b0a09;--ink:#ece6dc;--dim:#8a8279;--faint:#3a342e;--line:#221e1a;
+  --led:#ff6a1a;--hot:#ffb27a;--red:#ff3b2f;
+  --serif:"Instrument Serif","Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
-  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
-  --gutter:clamp(1.25rem,4vw,3rem);
-  color-scheme:light;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace;
+  --padL:max(clamp(1.25rem,4vw,4rem),env(safe-area-inset-left));
+  --padR:max(clamp(1.25rem,4vw,4rem),env(safe-area-inset-right));
+  --max:min(100%,150rem);
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121211;--fg:#e8e6e1;--muted:#94928b;--line:#2a2a27;--accent:#fb8a4c;--sel:#4a2a18;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#121211;--fg:#e8e6e1;--muted:#94928b;--line:#2a2a27;--accent:#fb8a4c;--sel:#4a2a18;color-scheme:dark}
 *{box-sizing:border-box}
-/* Fluid root size. vmin keeps 32:9 screens close to 16:9 at the same height. */
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:clamp(16px,.75rem + .45vmin + .1vw,22px)}
-body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
-::selection{background:var(--sel)}
-.shell{max-width:40rem;margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
-a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .15s,color .15s,background .15s}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.5rem .75rem;z-index:2}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:clamp(16px,.7rem + .5vmin + .08vw,22px);background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--led);color:#120800}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--led);outline-offset:4px;border-radius:2px}
+.skip{position:absolute;left:-999px;z-index:9}.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.6rem .9rem}
+.wrap{width:var(--max);margin:0 auto;padding-left:var(--padL);padding-right:var(--padR)}
 .mono{font-family:var(--mono)}
-header{display:flex;justify-content:space-between;align-items:center;padding-top:max(1.25rem,env(safe-area-inset-top));font:.8125rem/1 var(--mono);color:var(--muted)}
-header .mark,.tools button{display:inline-flex;align-items:center;min-height:44px}
-header .mark{gap:.5rem;text-decoration:none}
-.ring{width:.65rem;height:.65rem;border:.16rem solid var(--accent);border-radius:50%}
-.tools{display:flex;gap:.25rem}
-.tools button{font:inherit;color:inherit;background:none;border:0;padding:0 .6rem;cursor:pointer;border-radius:6px}
-.tools button:last-child{margin-right:-.6rem}
-h1{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);line-height:1.25;font-weight:600;letter-spacing:-.015em;margin:clamp(2.5rem,8vh,6rem) 0 1rem}
-.intro p{margin:0 0 1rem;max-width:36rem}
-.muted{color:var(--muted)}
-section{margin-top:clamp(3rem,7vh,5rem)}
-h2{font:500 .8125rem/1 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 1.5rem}
-:lang(zh) h2{letter-spacing:.12em}
-h3{font-size:1.125rem;font-weight:600;margin:0 0 .5rem}
-.feature p{margin:0 0 1rem;max-width:38rem}
-figure{margin:1.75rem 0 1.25rem}
-video{display:block;width:100%;height:auto;aspect-ratio:720/404;border:1px solid var(--line);border-radius:6px;background:var(--line)}
-figcaption{font:.8125rem/1.5 var(--mono);color:var(--muted);margin-top:.6rem}
-.actions{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center}
-.actions a{display:inline-flex;align-items:center;min-height:44px}
-.btn{background:var(--fg);color:var(--bg);text-decoration:none;padding:0 1.1rem;border-radius:6px;font-weight:500}
-ul.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-ul.list li{padding:.6rem 0 1rem;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:0 1rem;align-items:center}
-ul.list .name{font-weight:600;display:inline-flex;align-items:center;min-height:44px;justify-self:start}
-ul.list .meta{font:.8125rem/1.65 var(--mono);color:var(--muted);text-align:right;white-space:nowrap}
-ul.list .meta a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px}
-ul.list p{grid-column:1/-1;margin:0;color:var(--muted)}
-.contact p{margin:0 0 .5rem}
-.contact ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0 1.5rem}
-.contact a{display:inline-flex;align-items:center;min-height:44px}
-footer{margin-top:clamp(3.5rem,9vh,6rem);padding-bottom:max(2.5rem,env(safe-area-inset-bottom));font:.8125rem/1.6 var(--mono);color:var(--muted)}
-footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px}
-/* Hover only where a real pointer exists */
+.label{font:500 .75rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+:lang(zh) .label{letter-spacing:.2em}
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:6;padding-top:env(safe-area-inset-top);mix-blend-mode:normal}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:4rem}
+.mark{display:inline-flex;align-items:center;gap:.65rem;min-height:44px;text-decoration:none;font:500 .8125rem/1 var(--mono);letter-spacing:.04em}
+.mark canvas{width:22px;height:22px}
+.nav{display:flex;align-items:center;gap:.25rem;font:500 .8125rem/1 var(--mono)}
+.nav a,.nav button{display:inline-flex;align-items:center;min-height:44px;min-width:44px;justify-content:center;padding:0 .7rem;color:var(--dim);text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;letter-spacing:.04em}
+.nav button{color:var(--ink);border:1px solid var(--faint);border-radius:999px;margin-left:.4rem}
+@media (max-width:40rem){.nav .opt{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;padding-top:calc(4rem + env(safe-area-inset-top));padding-bottom:2rem;overflow:hidden}
+.stage{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:center}
+.ringbox{position:relative;justify-self:center;background:radial-gradient(closest-side,rgba(255,106,26,.07),transparent 70%);width:min(86vw,58svh,40rem);aspect-ratio:1;touch-action:manipulation;cursor:crosshair}
+#ring{position:absolute;inset:-12%;width:124%;height:124%}
+.readout{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:.35rem;pointer-events:none}
+.readout .id{font:500 .75rem/1 var(--mono);letter-spacing:.2em;color:var(--dim)}
+.readout .st{font:500 clamp(.8rem,.6rem + .6vmin,1.05rem)/1 var(--mono);letter-spacing:.14em;color:var(--led);text-transform:uppercase;min-height:1em}
+:lang(zh) .readout .st{letter-spacing:.3em}
+.readout .hint{font:.6875rem/1 var(--mono);color:#6b6259;letter-spacing:.1em;margin-top:.4rem}
+h1{font:400 clamp(4.2rem,15vw,7rem)/.82 var(--serif);letter-spacing:-.035em;margin:0}
+h1 em{font-style:italic;color:var(--led);display:block;padding-left:.5em}
+:lang(zh) h1{letter-spacing:.02em;line-height:1}
+.lede{max-width:30rem;font-size:clamp(1.02rem,.9rem + .35vw,1.25rem);line-height:1.5;color:var(--ink);margin:1.4rem 0 0}
+.lede b{font-weight:inherit;color:var(--hot)}
+.meta{display:none}
+.scroll{position:absolute;left:50%;bottom:max(1.2rem,env(safe-area-inset-bottom));transform:translateX(-50%);font:.6875rem/1 var(--mono);letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+
+/* mobile order: ring, then name */
+.namebox{order:2}.ringbox{order:1}
+@media (min-width:48rem) and (min-aspect-ratio:1/1){
+  .stage{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,4vw,6rem)}
+  .namebox{order:1}.ringbox{order:2;width:min(44vw,74svh,58rem)}
+  h1{font-size:clamp(5.5rem,12vw,15rem)}
+}
+@media (min-width:48rem) and (max-aspect-ratio:1/1){
+  .ringbox{width:min(70vw,52svh)}
+  h1{font-size:clamp(5rem,13vw,9rem)}
+  .namebox{padding-left:4vw}
+}
+/* ultrawide: name | ring | readout column */
+@media (min-aspect-ratio:2/1) and (min-width:100rem){
+  .stage{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(3rem,4vw,8rem)}
+  .ringbox{width:min(72svh,60rem)}
+  h1{font-size:clamp(6rem,8.5vw,17rem)}
+  .meta{display:block;order:3;justify-self:end;max-width:22rem}
+}
+.meta dl{margin:0;display:grid;gap:1.4rem}
+.meta dt{font:500 .6875rem/1 var(--mono);letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-bottom:.45rem}
+.meta dd{margin:0;font:1.5rem/1.2 var(--serif)}
+
+/* sections */
+section.blk{padding:clamp(5rem,14vh,11rem) 0;border-top:1px solid var(--line)}
+.blkgrid{display:grid;gap:2rem}
+@media (min-width:68rem){.blkgrid{grid-template-columns:minmax(10rem,1fr) minmax(0,3.2fr);gap:clamp(3rem,5vw,8rem)}.side{position:sticky;top:6rem;align-self:start}}
+.num{font:500 .75rem/1 var(--mono);color:var(--led);letter-spacing:.14em;display:block;margin-bottom:.8rem}
+h2{font:400 clamp(2.6rem,6vw,6.5rem)/.92 var(--serif);letter-spacing:-.025em;margin:0 0 2rem}
+h2 i{color:var(--led)}
+:lang(zh) h2{letter-spacing:0;line-height:1.05}
+.copy{max-width:40rem;color:#cfc7bb;font-size:clamp(1rem,.95rem + .2vw,1.15rem)}
+.copy p{margin:0 0 1.1rem}
+
+/* LEDRING feature */
+.feat{display:grid;gap:clamp(2rem,4vw,5rem)}
+@media (min-width:80rem){.feat{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:start}}
+.screen{position:relative;margin:0;padding:clamp(.6rem,1.2vw,1rem);border:1px solid var(--faint);border-radius:clamp(14px,1.6vw,26px);background:#100e0c}
+.screen::before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:conic-gradient(from var(--a,0deg),transparent 0 82%,var(--led) 92%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);padding:1px;opacity:.9}
+.screen video{display:block;width:100%;height:auto;aspect-ratio:720/404;border-radius:clamp(8px,1vw,16px);background:#000}
+.screen figcaption{display:flex;justify-content:space-between;gap:1rem;font:.75rem/1.4 var(--mono);color:var(--dim);padding:.8rem .2rem 0;letter-spacing:.04em}
+.choices{list-style:none;margin:1.6rem 0 2rem;padding:0;display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:.5rem 1.6rem;font:500 .8125rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.choices li{display:flex;align-items:center;gap:.55rem}
+.choices i{width:.6rem;height:.6rem;border-radius:50%;background:var(--c);box-shadow:0 0 .8rem var(--c)}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem 1.6rem;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.7rem;min-height:52px;padding:0 1.5rem;border-radius:999px;background:var(--led);color:#140700;text-decoration:none;font:500 .875rem/1 var(--mono);letter-spacing:.06em;transition:background .2s,transform .2s}
+.btn span{display:inline-block;transition:transform .2s}
+.lnk{display:inline-flex;align-items:center;min-height:44px;font:500 .875rem/1 var(--mono);color:var(--ink);text-decoration:underline;text-decoration-color:var(--faint);text-underline-offset:.35em;letter-spacing:.04em}
+
+/* index */
+ol.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+ol.idx li{border-bottom:1px solid var(--line)}
+ol.idx a.row{position:relative;display:grid;grid-template-columns:2.6rem minmax(0,1fr) auto;gap:.2rem 1rem;align-items:baseline;padding:1.6rem 0 1.7rem;text-decoration:none;color:inherit}
+.row .n{font:500 .75rem/1 var(--mono);color:var(--dim)}
+.row .t{font:400 clamp(1.8rem,3.6vw,3.6rem)/1 var(--serif);letter-spacing:-.02em;overflow-wrap:anywhere;transition:color .25s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.row .k{font:.75rem/1 var(--mono);color:var(--dim);letter-spacing:.06em;white-space:nowrap}
+.row .d{grid-column:2/-1;color:#b9b0a4;max-width:46rem;margin-top:.6rem}
+.row::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--led);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.extra{display:inline-flex;align-items:center;min-height:44px;margin:.4rem 0 0 3.6rem;font:.8125rem/1 var(--mono);color:var(--dim)}
+@media (max-width:36rem){ol.idx a.row{grid-template-columns:2rem minmax(0,1fr)}.row .k{grid-column:2;margin-top:.5rem}.extra{margin-left:3rem}}
+
+/* contact */
+.contact{padding:clamp(6rem,18vh,14rem) 0 clamp(3rem,8vh,6rem);border-top:1px solid var(--line);text-align:left}
+.mail{display:inline-block;font:400 clamp(2.3rem,9vw,10rem)/1 var(--serif);font-style:italic;letter-spacing:-.03em;text-decoration:none;color:var(--ink);overflow-wrap:anywhere;padding:.1em 0}
+.mail .at{color:var(--led)}
+.links{display:flex;flex-wrap:wrap;gap:.2rem 2rem;margin-top:2.4rem}
+.links a{display:inline-flex;align-items:center;min-height:44px;font:500 .875rem/1 var(--mono);color:var(--dim);text-decoration:none;letter-spacing:.06em}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:2rem 0 max(2rem,env(safe-area-inset-bottom));font:.75rem/1.6 var(--mono);color:var(--faint);letter-spacing:.04em}
+footer a{color:var(--dim);display:inline-flex;align-items:center;min-height:44px}
+
+/* reveal (JS adds .js) */
+.js .rv{opacity:0;transform:translateY(1.2rem);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
 @media (hover:hover) and (pointer:fine){
-  a:hover{text-decoration-color:currentColor}
-  .btn:hover{background:var(--accent);color:#fff}
-  .tools button:hover,ul.list .meta a:hover{color:var(--fg)}
-  footer a:hover{color:var(--fg)}
+  .nav a:hover{color:var(--ink)}
+  .nav button:hover{border-color:var(--led)}
+  .btn:hover{background:var(--hot)}.btn:hover span{transform:translateX(.3rem)}
+  .lnk:hover{text-decoration-color:var(--led)}
+  a.row:hover .t{color:var(--led);transform:translateX(.6rem)}
+  a.row:hover::before{transform:scaleX(1)}
+  .mail:hover{color:var(--hot)}
+  .links a:hover,footer a:hover,.extra:hover{color:var(--ink)}
 }
-@media (max-width:30rem){ul.list li{grid-template-columns:1fr}ul.list .meta{text-align:left}}
-.page{display:flex;flex-direction:column}.side{display:contents}.intro{order:0}main{order:1}.side .contact{order:2}
-/* Tablet portrait and up: a little more room for the list */
-@media (min-width:48rem){.shell{max-width:44rem}}
-/* Wide: sticky intro on the left, work on the right */
-@media (min-width:68rem){
-  .shell{max-width:76rem}
-  .page{display:grid;grid-template-columns:minmax(16rem,1fr) minmax(0,40rem);gap:0 clamp(3rem,7vw,8rem);align-items:start}
-  .side{display:block;position:sticky;top:0;padding-bottom:2rem}
-  .side .contact{margin-top:3rem}
-  main section:first-child{margin-top:clamp(2.5rem,8vh,6rem)}
-  main h2:first-child{margin-top:.6rem}
+@media (prefers-reduced-motion:reduce){
+  *,*::before{transition:none!important;animation:none!important}
+  .js .rv{opacity:1;transform:none}
 }
-/* Ultrawide (21:9, 32:9): three columns so nothing sits alone in the middle */
-@media (min-width:150rem) and (min-aspect-ratio:2/1){
-  .shell{max-width:min(132rem,94vw)}
-  .page{grid-template-columns:minmax(18rem,26rem) minmax(0,1fr);gap:0 clamp(4rem,5vw,9rem)}
-  main{display:grid;grid-template-columns:minmax(0,44rem) minmax(0,36rem);gap:0 clamp(4rem,5vw,9rem);justify-content:start}
-  main .feature{grid-row:1/span 3}
-  main section:nth-child(2){margin-top:clamp(2.5rem,8vh,6rem)}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
-<div class="shell">
-<header>
-  <a class="mark" href="/"><span class="ring" aria-hidden="true"></span>ledring.dev</a>
-  <div class="tools">
-    <button id="lang" type="button" lang="zh-CN" aria-label="切换到中文">中文</button>
-    <button id="theme" type="button" aria-label="Toggle dark mode" data-i18n-aria="themeLabel"><span data-i18n="theme">Theme</span></button>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="ledring.dev"><canvas id="mini" width="44" height="44" aria-hidden="true"></canvas>ledring.dev</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="opt" href="#work" data-i18n="nWork">Work</a>
+      <a class="opt" href="#index" data-i18n="nIdx">Index</a>
+      <a class="opt" href="#contact" data-i18n="nContact">Contact</a>
+      <button id="lang" type="button" lang="zh-CN" aria-label="切换到中文">中文</button>
+    </nav>
   </div>
 </header>
-<div class="page">
-<div class="side">
-  <div class="intro">
-    <h1 data-i18n="name">Felix Fang</h1>
-    <p data-i18n="p1">I'm a frontend and full-stack engineer. These days most of my work happens alongside AI agents, so I build the tools I want for that: ways to see what an agent actually did, and to stay the one who decides what ships.</p>
-    <p class="muted" data-i18n="p2">Everything below is open source and on GitHub.</p>
-  </div>
-  <section class="contact" aria-labelledby="h-contact">
-    <h2 id="h-contact" data-i18n="contact">Contact</h2>
-    <p data-i18n="cp">Email is the best way to reach me. I read everything.</p>
-    <ul>
-      <li><a href="mailto:felix@ledring.dev">felix@ledring.dev</a></li>
-      <li><a href="https://github.com/FelixFangX">GitHub</a></li>
-      <li><a href="https://x.com/ColeFangX">X @ColeFangX</a></li>
-    </ul>
-  </section>
-</div>
+
 <main id="main">
-
-  <section class="feature" aria-labelledby="h-work">
-    <h2 id="h-work" data-i18n="work">Selected work</h2>
-    <h3>LEDRING</h3>
-    <p data-i18n="led1">Status lights for AI agents. It replays agent traces from Claude Code or OpenTelemetry GenAI as one branch tree, and scores how far a run drifted from what it was asked to do.</p>
-    <p data-i18n="led2">LEDRING Play is a browser game built on top of it. You watch CX-417, an AI builder, turn your idea into a web page in real time. It may cut corners. You approve, push back, or stop it, and every choice branches toward one of seven endings. The built-in AI needs no key or sign-up, and the game is in English and Chinese.</p>
-    <figure>
-      <video src="/play.mp4" poster="/play-poster.jpg" width="720" height="404" autoplay muted loop playsinline preload="metadata" aria-describedby="cap"></video>
-      <figcaption id="cap" data-i18n="cap">A run of LEDRING Play, recorded in the browser.</figcaption>
-    </figure>
-    <div class="actions">
-      <a class="btn" id="play" href="https://play.ledring.dev/play/" data-i18n="play">Play in your browser</a>
-      <a href="https://github.com/FelixFangX/ledring" data-i18n="src">Source on GitHub</a>
+<section class="hero" aria-labelledby="name">
+  <div class="wrap stage">
+    <div class="namebox">
+      <h1 id="name"><span data-i18n="h1a">Felix</span><em data-i18n="h1b">Fang</em></h1>
+      <p class="lede" data-i18n-html="lede">Frontend and full-stack engineer. I build tools for working <b>alongside AI agents</b>, and a game about stopping one.</p>
     </div>
-  </section>
+    <div class="ringbox" id="ringbox" role="img" aria-label="An interactive ring of sixty LEDs. It follows your pointer; tap to interrupt it." data-i18n-aria="ringAria">
+      <canvas id="ring"></canvas>
+      <div class="readout" aria-hidden="true">
+        <span class="id">CX-417</span>
+        <span class="st" id="st">running</span>
+        <span class="hint" id="hint" data-i18n="hint">tap to interrupt</span>
+      </div>
+    </div>
+    <aside class="meta" aria-label="At a glance" data-i18n-aria="glance">
+      <dl>
+        <div><dt data-i18n="mRole">Role</dt><dd data-i18n="mRoleV">Frontend &amp; full-stack engineer</dd></div>
+        <div><dt data-i18n="mNow">Building</dt><dd data-i18n="mNowV">Tools for working with AI agents</dd></div>
+        <div><dt data-i18n="mFlag">Flagship</dt><dd>LEDRING</dd></div>
+        <div><dt data-i18n="mWhere">Reach</dt><dd>felix@ledring.dev</dd></div>
+      </dl>
+    </aside>
+  </div>
+  <span class="scroll" aria-hidden="true" data-i18n="scroll">Scroll</span>
+</section>
 
-  <section aria-labelledby="h-proj">
-    <h2 id="h-proj" data-i18n="proj">Other projects</h2>
-    <ul class="list">
-      <li><a class="name" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><span class="meta"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">live demo</a> · TypeScript</span>
-        <p data-i18n="rta">Turns a vague research interest into ranked research directions, each tagged by how strong its evidence is, plus a 7-day plan. A four-stage LLM pipeline in React and Supabase.</p></li>
-      <li><a class="name" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><span class="meta">TypeScript</span>
-        <p data-i18n="lk">Converts Yuque Lakeboard and XMind mind maps into Markdown, or back into a clean .xmind. CLI, terminal UI, or drag-and-drop web page.</p></li>
-      <li><a class="name" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><span class="meta">n8n</span>
-        <p data-i18n="n8n">Import-ready, redacted n8n workflows: Lark/Feishu bot messages into Bitable records and PRD drafts, and social media metrics tracking. Global and China editions.</p></li>
-      <li><a class="name" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><span class="meta">Markdown · JS</span>
-        <p data-i18n="gb">A skill that sets up a bot as a careful developer assistant across repos, trackers and team chat. It drafts first, asks before sending, and checks for leaked secrets.</p></li>
-    </ul>
-  </section>
+<section class="blk" id="work" aria-labelledby="h-led">
+  <div class="wrap blkgrid">
+    <div class="side rv"><span class="num">01 / <span data-i18n="flag">Flagship</span></span></div>
+    <div class="feat">
+      <div class="rv">
+        <h2 id="h-led">LED<i>RING</i></h2>
+        <div class="copy">
+          <p data-i18n="led1">Status lights for AI agents. It replays agent traces from Claude Code or OpenTelemetry GenAI as one branch tree, and scores how far a run drifted from what it was asked to do.</p>
+          <p data-i18n="led2">LEDRING Play is a browser game built on top of it. You watch CX-417, an AI builder, turn your idea into a web page in real time. It may cut corners. You approve, push back, or stop it, and every choice branches toward one of seven endings. The built-in AI needs no key or sign-up, and the game is in English and Chinese.</p>
+        </div>
+        <ul class="choices" aria-label="Your three moves" data-i18n-aria="moves">
+          <li style="--c:#7bd88f"><i></i><span data-i18n="c1">Approve</span></li>
+          <li style="--c:#ffb000"><i></i><span data-i18n="c2">Push back</span></li>
+          <li style="--c:#ff3b2f"><i></i><span data-i18n="c3">Stop</span></li>
+        </ul>
+        <div class="cta">
+          <a class="btn" id="play" href="https://play.ledring.dev/play/"><b style="font-weight:inherit" data-i18n="play">Play in your browser</b><span aria-hidden="true">→</span></a>
+          <a class="lnk" href="https://github.com/FelixFangX/ledring" data-i18n="src">Source on GitHub</a>
+        </div>
+      </div>
+      <figure class="screen rv">
+        <video src="/play.mp4" poster="/play-poster.jpg" width="720" height="404" autoplay muted loop playsinline preload="metadata" aria-describedby="cap"></video>
+        <figcaption><span id="cap" data-i18n="cap">A run of LEDRING Play, recorded in the browser.</span><span>play.ledring.dev</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
-  <section aria-labelledby="h-now">
-    <h2 id="h-now" data-i18n="now">Now</h2>
-    <p data-i18n="nowp">Working on Become Human, a memory layer for agents that stays in plain files on your own disk, works with any model, and lets you see and correct what it believes about you. Not released yet.</p>
-  </section>
+<section class="blk" id="index" aria-labelledby="h-idx">
+  <div class="wrap blkgrid">
+    <div class="side rv"><span class="num">02 / <span data-i18n="idxL">Index</span></span></div>
+    <div>
+      <h2 id="h-idx" class="rv" data-i18n-html="idxH">Other things <i>I’ve built</i></h2>
+      <ol class="idx">
+        <li class="rv"><a class="row" href="https://github.com/FelixFangX/research-thinking-ai"><span class="n">02.1</span><span class="t">research-thinking-ai</span><span class="k">TypeScript · React · Supabase</span><span class="d" data-i18n="rta">Turns a vague research interest into ranked research directions, each tagged by how strong its evidence is, plus a 7-day plan. A four-stage LLM pipeline.</span></a><a class="extra" href="https://research-thinking-ai.vercel.app" data-i18n="demo">Live demo ↗</a></li>
+        <li class="rv"><a class="row" href="https://github.com/FelixFangX/lakeboard-converter"><span class="n">02.2</span><span class="t">lakeboard-converter</span><span class="k">TypeScript · CLI · Web</span><span class="d" data-i18n="lk">Converts Yuque Lakeboard and XMind mind maps into Markdown, or back into a clean .xmind. CLI, terminal UI, or drag-and-drop web page.</span></a></li>
+        <li class="rv"><a class="row" href="https://github.com/FelixFangX/n8n-workflow-collection"><span class="n">02.3</span><span class="t">n8n-workflow-collection</span><span class="k">n8n · Lark/Feishu</span><span class="d" data-i18n="n8n">Import-ready, redacted n8n workflows: Lark/Feishu bot messages into Bitable records and PRD drafts, and social media metrics tracking. Global and China editions.</span></a></li>
+        <li class="rv"><a class="row" href="https://github.com/FelixFangX/dev-work-grok-bot-skill"><span class="n">02.4</span><span class="t">dev-work-grok-bot-skill</span><span class="k">Skill · JS</span><span class="d" data-i18n="gb">A skill that sets up a bot as a careful developer assistant across repos, trackers and team chat. It drafts first, asks before sending, and checks for leaked secrets.</span></a></li>
+      </ol>
+    </div>
+  </div>
+</section>
 
+<section class="contact" id="contact" aria-labelledby="h-c">
+  <div class="wrap">
+    <span class="num rv">03 / <span id="h-c" data-i18n="contact">Contact</span></span>
+    <p class="copy rv" data-i18n="cp">Email is the best way to reach me. I read everything.</p>
+    <a class="mail rv" href="mailto:felix@ledring.dev">felix<span class="at">@</span>ledring.dev</a>
+    <div class="links rv">
+      <a href="https://github.com/FelixFangX">GitHub ↗</a>
+      <a href="https://x.com/ColeFangX">X @ColeFangX ↗</a>
+      <a href="https://play.ledring.dev/play/" id="play2" data-i18n="play2">LEDRING Play ↗</a>
+    </div>
+  </div>
+</section>
 </main>
-</div>
-<footer>
-  <span data-i18n="foot">Plain HTML and CSS, no trackers.</span> <a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Source</a>
+<footer class="wrap">
+  <span data-i18n="foot">Hand-written HTML, CSS and one canvas. No trackers, no third-party requests.</span>
+  <a href="https://github.com/FelixFangX/ledring.dev" data-i18n="site">Site source</a>
 </footer>
-</div>
 
 <script>
 (function(){
-var zh={skip:"跳到正文",theme:"主题",themeLabel:"切换深色模式",
-p1:"我是前端 / 全栈工程师。现在大部分工作都是和 AI agent 一起做，所以我在做自己想用的工具：看清 agent 到底做了什么，并且让人来决定什么能上线。",
-p2:"下面的项目都开源在 GitHub 上。",
-work:"代表作品",
+var D=document,R=D.documentElement;R.classList.add('js');
+var RM=matchMedia('(prefers-reduced-motion: reduce)');
+var zh={skip:"跳到正文",nWork:"作品",nIdx:"项目",nContact:"联系",
+lede:"前端 / 全栈工程师。我做<b>和 AI agent 一起干活</b>的工具，还做了一个关于怎么叫停 AI 的游戏。",
+ringAria:"由六十颗 LED 组成的光环，会跟着你的指针转，点一下可以打断它。",hint:"点一下打断它",glance:"概览",
+mRole:"身份",mRoleV:"前端 / 全栈工程师",mNow:"在做",mNowV:"和 AI agent 协作的工具",mFlag:"代表作",mWhere:"联系",scroll:"向下",
+flag:"代表作",
 led1:"给 AI agent 用的状态灯。它把 Claude Code 或 OpenTelemetry GenAI 的运行记录回放成一棵分支树，并给每次运行打分，看它偏离指令有多远。",
 led2:"LEDRING Play 是基于它做的网页游戏。你看着 AI 构建者 CX-417 把你的想法实时做成一个网页，它可能会偷工减料。你可以放行、打回，或者叫停，每个选择都会走向 7 个结局之一。内置的 AI 不需要密钥，也不用注册，游戏支持中英文。",
+moves:"你能做的三件事",c1:"放行",c2:"打回",c3:"叫停",
 cap:"LEDRING Play 的一局，浏览器内录制。",play:"在浏览器里玩",src:"GitHub 源码",
-proj:"其他项目",demo:"在线体验",
-rta:"把模糊的研究兴趣变成几条排好序的研究方向，每条都标明证据强弱，再给一份 7 天计划。四阶段 LLM 流程，React + Supabase。",
+idxL:"项目",idxH:"其他<i>做过的东西</i>",demo:"在线体验 ↗",
+rta:"把模糊的研究兴趣变成几条排好序的研究方向，每条都标明证据强弱，再给一份 7 天计划。四阶段 LLM 流程。",
 lk:"把语雀画板（Lakeboard）和 XMind 思维导图转成 Markdown，或者重新导出干净的 .xmind。有命令行、终端界面和拖拽网页三种用法。",
 n8n:"可直接导入、已脱敏的 n8n 工作流：把飞书机器人消息写进多维表格并生成 PRD 草稿，以及社媒数据追踪。分国际版和国内版。",
 gb:"一个 skill，把机器人配置成谨慎的开发助手，覆盖代码仓库、任务系统和团队聊天。先起草、发送前先确认，并检查有没有泄露密钥。",
-now:"在做",nowp:"Become Human：给 agent 用的记忆层。数据以普通文件存在你自己的硬盘上，不绑定模型，你能看到并修改它对你的认识。还没发布。",
-contact:"联系",cp:"发邮件最方便，每封我都会看。",
-foot:"纯 HTML 和 CSS，没有追踪脚本。",site:"网站源码"};
-var en={};document.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
-en.themeLabel="Toggle dark mode";zh.name="Felix Fang";
-var q=new URLSearchParams(location.search),src=q.get('src'),cur;
+contact:"联系",cp:"发邮件最方便，每封我都会看。",play2:"LEDRING Play ↗",
+foot:"手写的 HTML、CSS 和一块 canvas。没有追踪脚本，也不请求任何第三方资源。",site:"网站源码"};
+var zhSt={run:"运行中",watch:"盯着你",stop:"已叫停",drift:"偏离中"},enSt={run:"running",watch:"watching you",stop:"interrupted",drift:"drifting"};
+var en={};
+D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
+D.querySelectorAll('[data-i18n-html]').forEach(function(e){en[e.dataset.i18nHtml]=e.innerHTML});
+D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
+var q=new URLSearchParams(location.search),src=q.get('src'),cur,ST=enSt;
+function playURL(l){var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);return p.toString()}
 function set(l){
-  var d=l==='zh'?zh:en;cur=l;
-  document.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});
-  document.documentElement.lang=l==='zh'?'zh-CN':'en';
-  var b=document.getElementById('lang');b.textContent=l==='zh'?'EN':'中文';b.lang=l==='zh'?'en':'zh-CN';b.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
-  document.getElementById('theme').setAttribute('aria-label',d.themeLabel);
-  
-  var p=new URL('https://play.ledring.dev/play/');if(l==='zh')p.searchParams.set('lang','zh');if(src)p.searchParams.set('src',src);
-  document.getElementById('play').href=p.toString();
+  var d=l==='zh'?zh:en;cur=l;ST=l==='zh'?zhSt:enSt;
+  D.querySelectorAll('[data-i18n]').forEach(function(e){if(d[e.dataset.i18n]!=null)e.textContent=d[e.dataset.i18n]});
+  D.querySelectorAll('[data-i18n-html]').forEach(function(e){e.innerHTML=d[e.dataset.i18nHtml]});
+  D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});
+  R.lang=l==='zh'?'zh-CN':'en';
+  var b=D.getElementById('lang');b.textContent=l==='zh'?'EN':'中文';b.lang=l==='zh'?'en':'zh-CN';b.setAttribute('aria-label',l==='zh'?'Switch to English':'切换到中文');
+  D.getElementById('play').href=D.getElementById('play2').href=playURL(l);
+  status(mode);
 }
 var ql=q.get('lang');
+
+/* ---------- the ring ---------- */
+var cv=D.getElementById('ring'),box=D.getElementById('ringbox'),ctx=cv.getContext('2d'),stEl=D.getElementById('st');
+var N=60,W=0,H=0,dpr=1,sprite,mode='run',modeT=0,last=0,visible=true,running=false;
+var boot=performance.now()+300,px=null,py=null,lastMove=-1e9,hit=-1e9,drift=-1,lv=new Float32Array(N);
+function status(m){mode=m;stEl.textContent=ST[m]}
+function mkSprite(){
+  var s=D.createElement('canvas'),z=128;s.width=s.height=z;var g=s.getContext('2d');
+  var gr=g.createRadialGradient(z/2,z/2,0,z/2,z/2,z/2);
+  gr.addColorStop(0,'rgba(255,214,170,1)');gr.addColorStop(.12,'rgba(255,140,60,.95)');gr.addColorStop(.35,'rgba(255,90,20,.28)');gr.addColorStop(1,'rgba(255,60,0,0)');
+  g.fillStyle=gr;g.fillRect(0,0,z,z);return s;
+}
+function mkRed(){var s=D.createElement('canvas'),z=128;s.width=s.height=z;var g=s.getContext('2d');var gr=g.createRadialGradient(z/2,z/2,0,z/2,z/2,z/2);gr.addColorStop(0,'rgba(255,200,190,1)');gr.addColorStop(.12,'rgba(255,60,45,.95)');gr.addColorStop(.35,'rgba(255,40,30,.28)');gr.addColorStop(1,'rgba(255,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,z,z);return s}
+var red;
+function size(){
+  var r=cv.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);
+  W=cv.width=Math.round(r.width*dpr);H=cv.height=Math.round(r.height*dpr);
+  if(!sprite){sprite=mkSprite();red=mkRed()}
+  draw(performance.now(),true);
+}
+function draw(t,still){
+  var cx=W/2,cy=H/2,Rr=W/2/1.24*.86,led=Math.max(2.5,W/150);
+  ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,W,H);
+  // instrument: ticks and hairlines
+  ctx.strokeStyle='rgba(236,230,220,.07)';ctx.lineWidth=dpr;
+  ctx.beginPath();ctx.arc(cx,cy,Rr*1.12,0,7);ctx.stroke();
+  ctx.beginPath();ctx.arc(cx,cy,Rr*.84,0,7);ctx.stroke();
+  for(var k=0;k<120;k++){var a=k/120*Math.PI*2,l=k%10?.025:.06;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*Rr*1.12,cy+Math.sin(a)*Rr*1.12);ctx.lineTo(cx+Math.cos(a)*Rr*(1.12+l),cy+Math.sin(a)*Rr*(1.12+l));ctx.stroke()}
+  for(var j=0;j<24;j++){var b2=j/24*Math.PI*2-(still?0:t/7000),on=still?.3:(.25+.25*Math.sin(t/500+j*1.3));ctx.globalAlpha=on;ctx.fillStyle='#ff6a1a';ctx.beginPath();ctx.arc(cx+Math.cos(b2)*Rr*.84,cy+Math.sin(b2)*Rr*.84,Math.max(1,led*.38),0,7);ctx.fill()}ctx.globalAlpha=1;
+  var since=t-lastMove,pa=null,pd=0;
+  if(px!==null&&since<2600){var r=cv.getBoundingClientRect(),dx=(px-r.left)*dpr-cx,dy=(py-r.top)*dpr-cy;pa=Math.atan2(dy,dx);pd=Math.min(1,Math.hypot(dx,dy)/(Rr*2.4))}
+  var hs=(t-hit)/1000,head=(t/1000*.55)%1;
+  var m=hs<1.6?'stop':pa!==null?'watch':(drift>=0?'drift':'run');
+  if(m!==mode&&!still)status(m);
+  for(var i=0;i<N;i++){
+    var a=i/N*Math.PI*2-Math.PI/2,v=.12;
+    if(still){v=.55+.35*Math.cos(a*3)}
+    else if(m==='stop'){ // shock wave then all-red hold, fading
+      v=hs<.25?1:Math.max(0,1-(hs-.25)/1.35)*(.6+.4*Math.cos(i*.9+hs*20));
+    } else {
+      var d=((i/N-head)%1+1)%1; v+=Math.pow(1-d,6)*1.1; // chaser with tail
+      v+=.08*Math.sin(t/900+i*.5)*.5+.04;
+      if(pa!==null){var df=Math.cos(a-pa);v=Math.max(v*.5,Math.pow(Math.max(0,df),10)*1.15*(1-pd*.3)*(1-since/2600)+.1)}
+      if(drift>=0){var dd=Math.abs(((i-drift)%N+N+N/2)%N-N/2);if(dd<4)v=Math.max(v,(1-dd/4)*(.6+.4*Math.sin(t/60)))}
+    }
+    if(!still){var bt=(t-boot)/1400*N*1.3-i;v*=bt<0?0:bt<1?1+2*(1-bt):1}
+    lv[i]+= (v-lv[i])*(still?1:.22);
+    var x=cx+Math.cos(a)*Rr,y=cy+Math.sin(a)*Rr,L=lv[i];
+    ctx.globalCompositeOperation='source-over';
+    ctx.fillStyle=L>.5?'#ffd9b8':'#4a3f36';ctx.beginPath();ctx.arc(x,y,led,0,7);ctx.fill();
+    if(L>.02){
+      ctx.globalCompositeOperation='lighter';ctx.globalAlpha=Math.min(1,L);
+      var isRed=(m==='stop')||(drift>=0&&Math.abs(((i-drift)%N+N+N/2)%N-N/2)<4&&m!=='watch');
+      var s=led*(8+L*14);ctx.drawImage(isRed?red:sprite,x-s/2,y-s/2,s,s);ctx.globalAlpha=1;
+    }
+  }
+  ctx.globalCompositeOperation='source-over';
+}
+function loop(t){
+  if(!visible||D.hidden||RM.matches){running=false;return}
+  // occasional drift episode, like a run going off-task
+  if(t>modeT){if(drift<0&&Math.random()<.5){drift=Math.floor(Math.random()*N);modeT=t+2200}else{drift=-1;modeT=t+4000+Math.random()*4000}}
+  draw(t,false);requestAnimationFrame(loop);
+}
+function start(){if(!running&&visible&&!D.hidden&&!RM.matches){running=true;requestAnimationFrame(loop)}}
+addEventListener('pointermove',function(e){if(e.pointerType==='mouse'){px=e.clientX;py=e.clientY;lastMove=performance.now()}},{passive:true});
+box.addEventListener('pointerdown',function(e){px=e.clientX;py=e.clientY;hit=performance.now();lastMove=hit-3000;if(RM.matches){status('stop');setTimeout(function(){status('run')},1500)}});
+new IntersectionObserver(function(es){visible=es[0].isIntersecting;start()}).observe(box);
+D.addEventListener('visibilitychange',start);
+RM.addEventListener&&RM.addEventListener('change',function(){size();start()});
+new ResizeObserver(size).observe(cv);
+
+/* header mini ring = scroll progress */
+var mini=D.getElementById('mini'),mc=mini.getContext('2d');
+function miniDraw(){
+  var p=Math.min(1,scrollY/Math.max(1,R.scrollHeight-innerHeight)),n=16;mc.clearRect(0,0,44,44);
+  for(var i=0;i<n;i++){var a=i/n*Math.PI*2-Math.PI/2,on=i<Math.round(p*n)||i===0;mc.fillStyle=on?'#ff6a1a':'#3a342e';mc.beginPath();mc.arc(22+Math.cos(a)*16,22+Math.sin(a)*16,on?3.2:2.6,0,7);mc.fill()}
+}
+addEventListener('scroll',function(){requestAnimationFrame(miniDraw)},{passive:true});
+
+/* reveals + border sweep */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+D.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+if(!RM.matches&&window.CSS&&CSS.registerProperty){try{CSS.registerProperty({name:'--a',syntax:'<angle>',inherits:false,initialValue:'0deg'})}catch(e){}
+  var scr=D.querySelector('.screen'),son=false;new IntersectionObserver(function(es){var w=son;son=es[0].isIntersecting;if(son&&!w)requestAnimationFrame(spin)}).observe(scr);
+  function spin(t){if(!son)return;scr.style.setProperty('--a',(t/16%360)+'deg');requestAnimationFrame(spin)}}
+var v=D.querySelector('video');if(RM.matches){v.removeAttribute('autoplay');v.setAttribute('controls','');v.pause()}
+
 set(ql==='zh'||(!ql&&/^zh/i.test(navigator.language))?'zh':'en');
-document.getElementById('lang').onclick=function(){
-  set(cur==='zh'?'en':'zh');
-  var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u);
-};
-document.getElementById('theme').onclick=function(){
-  var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
-  r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('theme',r.dataset.theme)}catch(e){}
-};
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){var v=document.querySelector('video');v.removeAttribute('autoplay');v.setAttribute('controls','');v.pause()}
+D.getElementById('lang').onclick=function(){set(cur==='zh'?'en':'zh');var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
+miniDraw();size();start();
 })();
 </script>
 </body>
