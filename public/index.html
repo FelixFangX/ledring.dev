@@ -267,6 +267,7 @@ html.over{filter:invert(1)}
 .cnow{margin:.9rem 0 0;color:var(--dim);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.cnow #cnow{color:var(--ink);transition:opacity .4s,filter .4s}.cnow.sw #cnow{opacity:0;filter:blur(4px)}
 .hero .role,.cnow{max-width:min(28rem,calc(100vw - 2.5rem - env(safe-area-inset-left) - env(safe-area-inset-right)))}
 .cdot{width:6px;height:6px;border-radius:50%;background:var(--acc);display:inline-block;animation:cd 2.4s ease-in-out infinite}@keyframes cd{50%{opacity:.25}}
+.ab3{color:var(--dim)}
 .human .body>p{margin:0;font:400 clamp(1.4rem,2.2vw,2.3rem)/1.15 var(--serif);max-width:22em}
 .hgrid{list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));border-top:1px solid var(--ink)}
 .hgrid li{padding:1.4rem 1.2rem 1.6rem 0;border-bottom:1px solid var(--rule)}
@@ -308,27 +309,23 @@ html.over{filter:invert(1)}
 <main>
 <section class="hero" id="hero" aria-labelledby="name">
   <canvas id="ring" aria-hidden="true"></canvas>
-  <p class="hint m" id="hint"><span data-i18n="hint1">Stop the rogue light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
+  <p class="hint m" id="hint"><span data-i18n="hint1">Catch the stray light at the gate</span> · <kbd>Space</kbd> / <span data-i18n="hint2">tap</span></p>
   <div class="wrap">
-    <div><p class="role m" data-i18n="role">Frontend &amp; full-stack engineer, building with AI agents</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">pulling an espresso shot</span></p>
-    <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Escaped</span> <b id="se">0</b></span></p></div>
+    <div><p class="role m" data-i18n="role">Frontend, then full-stack, now mostly pairing with AI agents</p><p class="cnow m" aria-live="off"><span data-i18n="curL">Currently</span> <span class="cdot" aria-hidden="true"></span> <span id="cnow">waiting for the espresso machine to heat up</span></p>
+    <p class="score m" aria-live="polite"><span class="mhint" data-i18n="mhint">Tap when the light hits the gate</span><span><span data-i18n="caught">Caught</span> <b id="sc">0</b></span><span><span data-i18n="esc">Got away</span> <b id="se">0</b></span></p></div>
     <h1 id="name" class="fit" data-max=".46"><span class="w"><span>Felix</span></span><span class="w"><span><em>Fang</em></span></span></h1>
   </div>
 </section>
 
 <section class="blk about" id="about" aria-labelledby="h-about">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-about" data-i18n="aboutL">About</h2>
+    <h2 class="lab m" id="h-about" data-i18n="aboutL">Hi</h2>
     <div class="body">
-      <p class="split" data-i18n="ab1">I’m a frontend and full-stack engineer. Most of my work now happens alongside AI agents.</p>
-      <p class="split" data-i18n="ab2">So I build the tools I want for that: ways to see what an agent actually did, and to stay the one who decides what ships. Everything here is open source.</p>
+      <p class="split" data-i18n="ab1">I’m Felix. Started in frontend, ended up touching the whole stack, and these days most of my work happens next to AI agents.</p>
+      <p class="split" data-i18n="ab2">Agents are fast and occasionally sneaky, so I keep building small tools to see what they actually did. All open source, poke around.</p>
+      <p class="split ab3" data-i18n="ab3">Two habits: write down what we’re building before anyone writes code, and don’t trust an AI that just agrees with you.</p>
     </div>
   </div>
-  <div class="wrap"><div class="cols">
-    <div class="fade"><h3 class="m" data-i18n="pathL">Path</h3><ol><li><b>01</b><span data-i18n="p1">Frontend: interfaces people actually use.</span></li><li><b>02</b><span data-i18n="p2">Full-stack: UI to APIs, data and deploys on Supabase, Vercel and Cloudflare Workers.</span></li><li><b>03</b><span data-i18n="p3">AI-native: agents run the ops, I keep the judgment.</span></li></ol></div>
-    <div class="fade"><h3 class="m" data-i18n="prinL">Principles</h3><ol><li><b>01</b><span data-i18n="pr1">Spec before code.</span></li><li><b>02</b><span data-i18n="pr2">No flattery.</span></li><li><b>03</b><span data-i18n="pr3">Verify, then answer.</span></li><li><b>04</b><span data-i18n="pr4">Memory you own: portable, private, correctable.</span></li></ol></div>
-    <div class="fade"><h3 class="m" data-i18n="loopL">How I build with agents</h3><ol><li><b>→</b><span data-i18n="lp1">Spec: problem, user stories, out of scope.</span></li><li><b>→</b><span data-i18n="lp2">Slice: tickets small enough for one agent session.</span></li><li><b>→</b><span data-i18n="lp3">Review the evidence and the diff, then decide.</span></li></ol></div>
-  </div></div>
 </section>
 
 <section class="feat pin" id="work" aria-labelledby="h-led">
@@ -336,9 +333,9 @@ html.over{filter:invert(1)}
     <h2 id="h-led" class="word fit rv" data-max=".42">LED<i>RING</i></h2>
     <div class="fgrid">
       <div class="fside">
-        <p class="line split" data-i18n="line">Status lights for AI agents, and a browser game about stopping one.</p>
+        <p class="line split" data-i18n="line">Status lights for AI agents. Also a browser game where you try to stop one.</p>
         <div class="acts">
-          <a class="btn mag" id="play" href="https://play.ledring.dev/play/"><span class="led" aria-hidden="true"></span><span data-i18n="play">Play now</span></a>
+          <a class="btn mag" id="play" href="https://play.ledring.dev/play/"><span class="led" aria-hidden="true"></span><span data-i18n="play">Play</span></a>
           <a class="lnk" href="https://github.com/FelixFangX/ledring" data-i18n="src">Source ↗</a>
         </div>
       </div>
@@ -346,25 +343,25 @@ html.over{filter:invert(1)}
     </div>
     </div></div></div>
     <div class="wrap"><div class="cols">
-      <div class="fade"><h3 class="m" data-i18n="howL">How to play</h3><ol>
-        <li><b>01</b><span data-i18n="h1">Press Start and give CX-417, an AI builder, an idea.</span></li>
-        <li><b>02</b><span data-i18n="h2">Watch it build one web page in real time. It may cut corners.</span></li>
-        <li><b>03</b><span data-i18n="h3">Approve, push back, or stop it. Reach one of 7 endings.</span></li></ol></div>
-      <div class="fade"><h3 class="m" data-i18n="featL">Under the hood</h3><ul>
+      <div class="fade"><h3 class="m" data-i18n="howL">How it goes</h3><ol>
+        <li><b>01</b><span data-i18n="h1">Hit Start and hand CX-417, an AI that builds web pages, an idea.</span></li>
+        <li><b>02</b><span data-i18n="h2">It builds the page live, right in front of you. It might cut corners.</span></li>
+        <li><b>03</b><span data-i18n="h3">Approve, push back, or pull the plug. There are 7 endings.</span></li></ol></div>
+      <div class="fade"><h3 class="m" data-i18n="featL">What’s underneath</h3><ul>
         <li><b>—</b><span data-i18n="f1">Replays Claude Code and OpenTelemetry GenAI traces as one branch tree.</span></li>
-        <li><b>—</b><span data-i18n="f2">Scores how far a run drifted from its instruction.</span></li>
-        <li><b>—</b><span data-i18n="f3">CLI and GitHub Action. The game runs on the same engine.</span></li>
-        <li><b>—</b><span data-i18n="f4">Free built-in AI, no key or sign-up. English and 中文.</span></li></ul></div>
+        <li><b>—</b><span data-i18n="f2">Scores how far a run wandered from what you asked.</span></li>
+        <li><b>—</b><span data-i18n="f3">A CLI and a GitHub Action. The game runs on the same engine.</span></li>
+        <li><b>—</b><span data-i18n="f4">Free built-in AI. No key, no sign-up. English and 中文.</span></li></ul></div>
       <div class="fade"><h3 class="m" data-i18n="linkL">Links</h3><ul class="links2">
-        <li><a id="play3" href="https://play.ledring.dev/play/"><span data-i18n="l1">Play in your browser</span><span>↗</span></a></li>
+        <li><a id="play3" href="https://play.ledring.dev/play/"><span data-i18n="l1">Play in the browser</span><span>↗</span></a></li>
         <li><a href="https://play.ledring.dev/"><span data-i18n="l2">Sample reports</span><span>↗</span></a></li>
         <li><a href="https://play.ledring.dev/demo/"><span data-i18n="l3">Concept demo</span><span>↗</span></a></li>
         <li><a href="https://github.com/FelixFangX/ledring"><span>GitHub</span><span>↗</span></a></li></ul></div>
     </div>
     <div class="cols">
-      <div class="fade"><h3 class="m" data-i18n="modeL">AI modes</h3><ul><li><b>—</b><span data-i18n="m1">LEDRING Free AI: no key, no sign-up, shared daily quota.</span></li><li><b>—</b><span data-i18n="m2">Built-in demo: scripted, no AI calls.</span></li><li><b>—</b><span data-i18n="m3">Bring your own: ChatGPT plan, Anthropic, OpenAI-compatible or Ollama.</span></li></ul></div>
-      <div class="fade"><h3 class="m" data-i18n="packL">Content packs</h3><ul><li><b>EN</b><span data-i18n="k1">Dev pack (EN): snake, pomodoro, paint and more.</span></li><li><b>中</b><span data-i18n="k2">中文 pack: 已读不回, 摸鱼被抓, AI 删库, with a share card at the end.</span></li><li><b>—</b><span data-i18n="k3">Builds can be published to a shared build network at api.ledring.dev.</span></li></ul></div>
-      <div class="fade"><h3 class="m" data-i18n="kitL">Toolkit</h3><ul><li><b>—</b><span data-i18n="t1">flowchart: N runs as one branch tree, as a single offline HTML report.</span></li><li><b>—</b><span data-i18n="t2">instability: 0–100 drift score; --fail-above gates CI.</span></li><li><b>—</b><span data-i18n="t3">trust, card and Red Wall: permission rules, A2A cards, guardrail tests.</span></li></ul><ul class="tags" style="margin-top:1rem"><li>TypeScript</li><li>pnpm monorepo</li><li>Zod</li><li>Vitest</li><li>OpenTelemetry</li><li>Cloudflare Workers</li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="modeL">Which AI</h3><ul><li><b>—</b><span data-i18n="m1">LEDRING Free AI: no key, no sign-up, one shared daily quota.</span></li><li><b>—</b><span data-i18n="m2">Demo mode: scripted, zero AI calls.</span></li><li><b>—</b><span data-i18n="m3">Or bring your own: ChatGPT plan, Anthropic, anything OpenAI-compatible, Ollama.</span></li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="packL">Content packs</h3><ul><li><b>EN</b><span data-i18n="k1">Dev pack (EN): snake, pomodoro, paint and so on.</span></li><li><b>中</b><span data-i18n="k2">中文 pack: 已读不回, 摸鱼被抓, AI 删库… with a share card at the end.</span></li><li><b>—</b><span data-i18n="k3">Finished builds can go up on a shared build network at api.ledring.dev.</span></li></ul></div>
+      <div class="fade"><h3 class="m" data-i18n="kitL">Toolkit</h3><ul><li><b>—</b><span data-i18n="t1">flowchart: N runs as one branch tree, in a single offline HTML file.</span></li><li><b>—</b><span data-i18n="t2">instability: a 0–100 drift score. --fail-above can fail your CI.</span></li><li><b>—</b><span data-i18n="t3">trust, card, Red Wall: permission rules, A2A cards, guardrail tests.</span></li></ul><ul class="tags" style="margin-top:1rem"><li>TypeScript</li><li>pnpm monorepo</li><li>Zod</li><li>Vitest</li><li>OpenTelemetry</li><li>Cloudflare Workers</li></ul></div>
     </div>
   </div>
 </div>
@@ -372,13 +369,13 @@ html.over{filter:invert(1)}
 
 <section class="blk" id="selected" aria-labelledby="h-sel">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-sel" data-i18n="selL">Selected work</h2>
+    <h2 class="lab m" id="h-sel" data-i18n="selL">Other stuff</h2>
     <ol class="work body">
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">Turns a vague research interest into ranked, evidence-tagged research directions and a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW participation; four streamed stages.</li><li data-i18n="w1b">Evidence tiered T1–T3, every citation checked.</li><li data-i18n="w1c">MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Converts Yuque Lakeboard and XMind mind maps to Markdown, or back to a clean .xmind.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI and drag-and-drop web UI.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Read-only MCP tool for agents.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready, redacted n8n workflows for Lark/Feishu bots, Bitable records and social metrics.</p><ul class="kf"><li data-i18n="w3a">Global (Lark + OpenAI) and China (Feishu + DeepSeek) editions.</li><li data-i18n="w3b">Manifests so agents can run them via n8n MCP.</li><li data-i18n="w3c">Redaction checks before every commit.</li></ul><ul class="tags"><li>n8n</li><li>Feishu / Lark</li><li>Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">A skill that makes a bot a careful dev assistant: drafts first, asks before sending, checks for leaked secrets.</p><ul class="kf"><li data-i18n="w4a">Draft first, send only after you confirm.</li><li data-i18n="w4b">20 safety scenarios, 20/20 rule coverage in CI.</li><li data-i18n="w4c">Secret and PII checker that never prints the match.</li></ul><ul class="tags"><li>Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/FelixFangX">control-room</a><div class="meta"><p data-i18n="w5">My GitHub profile as a live control room for my agent tooling.</p><ul class="kf"><li data-i18n="w5a">Rebuilt daily by GitHub Actions from real runs and evals.</li><li data-i18n="w5b">Failing runs show as failing; agents read llms.txt and status.json.</li></ul><ul class="tags"><li>GitHub Actions</li><li>SVG</li><li>JavaScript</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">Got a vague research itch? It hands back ranked directions with evidence tiers, plus a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW hand-holding; four stages, streamed.</li><li data-i18n="w1b">Evidence tiered T1–T3, every citation actually checked.</li><li data-i18n="w1c">Has an MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Supabase</li><li>LLM</li></ul></div><div class="wl"><a href="https://research-thinking-ai.vercel.app" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Yuque Lakeboard and XMind mind maps → Markdown, or back to a clean .xmind.</p><ul class="kf"><li data-i18n="w2a">CLI, a guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Read-only MCP tool, so agents can read your maps too.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li>Web</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready n8n workflows with the secrets scrubbed: Lark/Feishu bots, Bitable, social metrics.</p><ul class="kf"><li data-i18n="w3a">Global (Lark + OpenAI) and China (Feishu + DeepSeek) editions.</li><li data-i18n="w3b">Manifests, so agents can run them through n8n MCP.</li><li data-i18n="w3c">Redaction check on every commit, just in case.</li></ul><ul class="tags"><li>n8n</li><li>Feishu / Lark</li><li>Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">A bot skill that turns it into a careful dev assistant: drafts first, asks before sending, watches for leaked secrets.</p><ul class="kf"><li data-i18n="w4a">Drafts first, sends only after you say yes.</li><li data-i18n="w4b">20 safety scenarios, 20/20 rule coverage in CI.</li><li data-i18n="w4c">Secret and PII checker that never prints what it found.</li></ul><ul class="tags"><li>Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/FelixFangX">control-room</a><div class="meta"><p data-i18n="w5">My GitHub profile, except it’s a control room for my agents.</p><ul class="kf"><li data-i18n="w5a">Rebuilt every day by GitHub Actions from real runs and evals.</li><li data-i18n="w5b">If it’s failing, it says failing. Agents can read llms.txt and status.json.</li></ul><ul class="tags"><li>GitHub Actions</li><li>SVG</li><li>JavaScript</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX" data-i18n="code">Code ↗</a></div></li>
     </ol>
   </div>
 </section>
@@ -398,13 +395,13 @@ html.over{filter:invert(1)}
 
 <section class="blk now" id="now" aria-labelledby="h-now">
   <div class="wrap g12">
-    <h2 class="lab m" id="h-now" data-i18n="nowL">Now / Stack</h2>
+    <h2 class="lab m" id="h-now" data-i18n="nowL">Lately</h2>
     <div class="body">
-      <p class="split" data-i18n="now0">Building Become Human: a memory layer for agents that is portable (plain files, any model), private (stays on your disk) and correctable (you can see and fix what it believes).</p>
-      <p class="split" data-i18n="now1">Next for LEDRING: pull request comments from the GitHub Action, and adapters for LangGraph, the OpenAI Agents SDK and Codex.</p>
+      <p class="split" data-i18n="now0">Building Become Human: memory for agents that you actually own. Plain files, any model, stays on your disk, and when it remembers you wrong, you can fix it.</p>
+      <p class="split" data-i18n="now1">And on the LEDRING side: PR comments from the Action, plus LangGraph, OpenAI Agents SDK and Codex adapters.</p>
       <div class="cols sg">
         <div class="fade"><h3 class="m" data-i18n="sg1">Languages &amp; UI</h3><ul class="stack"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>React</li><li>Next.js</li><li>Astro</li><li>Vite</li></ul></div>
-        <div class="fade"><h3 class="m" data-i18n="sg2">Platform</h3><ul class="stack"><li>Node.js</li><li>Supabase</li><li>Cloudflare Workers</li><li>Vercel</li><li>GitHub Actions</li></ul></div>
+        <div class="fade"><h3 class="m" data-i18n="sg2">Runs on</h3><ul class="stack"><li>Node.js</li><li>Supabase</li><li>Cloudflare Workers</li><li>Vercel</li><li>GitHub Actions</li></ul></div>
         <div class="fade"><h3 class="m" data-i18n="sg3">Agents &amp; AI</h3><ul class="stack"><li>MCP</li><li>OpenTelemetry GenAI</li><li>Claude Code</li><li>OpenAI / Anthropic</li><li>n8n</li></ul></div>
       </div>
     </div>
@@ -415,9 +412,9 @@ html.over{filter:invert(1)}
   <div class="wrap g12">
     <h2 class="lab m" id="h-hum" data-i18n="humL">Off the clock</h2>
     <div class="body">
-      <p class="split" data-i18n="hu0">Call me Felix. I haven’t pinned myself to a job title.</p>
-      <ul class="hgrid"><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9h20l-2.6 27a2 2 0 0 1-2 1.8H16.6a2 2 0 0 1-2-1.8z"/><path d="M13 17h18" stroke-dasharray="1 2.2"/><rect x="16" y="21" width="5" height="5" rx=".8"/><rect x="22.5" y="25" width="5" height="5" rx=".8"/><path d="M25 4l-3 21"/></g></svg></span><h3 class="m" data-i18n="hcT">Coffee</h3><p data-i18n="hc">Espresso at home, an iced americano every day, and always on the hunt for a genuinely good coffee shop.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 37c0-5 1.6-8 4-9l-.8-5 2.6 2.4h3l2.6-2.4-.8 5c2.4 1 4 4 4 9zM20 35.5c2.6 0 4-1 4-3.4"/><path d="M23 37c0-6 2-9.5 5-10.5l-1-6 3.2 3h3.6l3.2-3-1 6c3 1 5 4.5 5 10.5z"/><path d="M5 40h36" stroke-dasharray="1 2.2"/></g></svg></span><h3 class="m" data-i18n="hkT">Two kittens</h3><p data-i18n="hk">Two kittens at home. Every so often they wander across this page, too.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22h16"/><rect x="9" y="14" width="5" height="16" rx="1"/><rect x="30" y="14" width="5" height="16" rx="1"/><path d="M6 18v8M38 18v8"/></g></svg></span><h3 class="m" data-i18n="hgT">Gym</h3><p data-i18n="hg">Regular at the gym. Same rule as the code: follow the plan.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13h34v6a3 3 0 0 0 0 6v6H5v-6a3 3 0 0 0 0-6z"/><path d="M30 14v16" stroke-dasharray="1.5 2"/><path d="M11 19h12M11 22h9M11 25h11"/></g></svg></span><h3 class="m" data-i18n="hlT">Live</h3><p data-i18n="hl">Concerts, livehouses, IMAX and Dolby cinema. Things that are better in the room.</p></li></ul>
-      <ul class="hnotes fade"><li data-i18n="hn1">Rigorous, objective, and I like a plan.</li><li data-i18n="hn2">I learn by doing and by talking things through. Docs and sharp essays on the AI era, more than books.</li><li data-i18n="hn3">Good days have variety: not all study, not all play.</li><li data-i18n="hn4">Allergic to AI that flatters, or answers before it has thought.</li></ul>
+      <p class="split" data-i18n="hu0">Felix is fine. Job title still pending.</p>
+      <ul class="hgrid"><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9h20l-2.6 27a2 2 0 0 1-2 1.8H16.6a2 2 0 0 1-2-1.8z"/><path d="M13 17h18" stroke-dasharray="1 2.2"/><rect x="16" y="21" width="5" height="5" rx=".8"/><rect x="22.5" y="25" width="5" height="5" rx=".8"/><path d="M25 4l-3 21"/></g></svg></span><h3 class="m" data-i18n="hcT">Coffee</h3><p data-i18n="hc">Pulls espresso at home, one iced americano a day, and will take a detour for a good coffee shop.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 37c0-5 1.6-8 4-9l-.8-5 2.6 2.4h3l2.6-2.4-.8 5c2.4 1 4 4 4 9zM20 35.5c2.6 0 4-1 4-3.4"/><path d="M23 37c0-6 2-9.5 5-10.5l-1-6 3.2 3h3.6l3.2-3-1 6c3 1 5 4.5 5 10.5z"/><path d="M5 40h36" stroke-dasharray="1 2.2"/></g></svg></span><h3 class="m" data-i18n="hkT">Two kittens</h3><p data-i18n="hk">Two kittens at home. Sometimes they wander across this page too.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22h16"/><rect x="9" y="14" width="5" height="16" rx="1"/><rect x="30" y="14" width="5" height="16" rx="1"/><path d="M6 18v8M38 18v8"/></g></svg></span><h3 class="m" data-i18n="hgT">Gym</h3><p data-i18n="hg">Goes to the gym. Same as code: stick to the plan.</p></li><li class="fade"><span class="icw"><svg class="ic" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13h34v6a3 3 0 0 0 0 6v6H5v-6a3 3 0 0 0 0-6z"/><path d="M30 14v16" stroke-dasharray="1.5 2"/><path d="M11 19h12M11 22h9M11 25h11"/></g></svg></span><h3 class="m" data-i18n="hlT">Live</h3><p data-i18n="hl">Concerts, livehouses, IMAX, Dolby. Some things need the big room and the loud speakers.</p></li></ul>
+      <ul class="hnotes fade"><li data-i18n="hn1">Likes a plan. Also likes days that aren’t all study or all play.</li><li data-i18n="hn2">Learns by building things and talking them through. Reads docs and good AI-era essays more than books.</li><li data-i18n="hn3">Can’t stand an AI that flatters, or one that answers before it thinks.</li></ul>
     </div>
   </div>
 </section>
@@ -455,33 +452,34 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"前端 / 全栈工程师，和 AI agent 一起做东西",
-aboutL:"关于",ab1:"我是前端 / 全栈工程师，现在大部分工作都是和 AI agent 一起完成的。",ab2:"所以我做自己想用的工具：看清 agent 到底做了什么，并且让人来决定什么能上线。这里的东西都开源。",
-line:"给 AI agent 用的状态灯，以及一个关于拦下失控 AI 的网页游戏。",play:"开始玩",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
-howL:"怎么玩",h1:"点开始，给 AI 构建者 CX-417 一个想法。",h2:"看它实时做出一个网页。它可能会偷工减料。",h3:"放行、打回，或者叫停。走向 7 个结局之一。",
-featL:"背后的东西",f1:"把 Claude Code 和 OpenTelemetry GenAI 的运行记录回放成一棵分支树。",f2:"给每次运行打分，看它偏离指令有多远。",f3:"有命令行和 GitHub Action，游戏用的是同一套引擎。",f4:"内置免费 AI，不需要密钥，也不用注册。支持中英文。",
-linkL:"链接",l1:"在浏览器里玩",l2:"示例报告",l3:"概念演示",
-selL:"其他作品",w1:"把模糊的研究兴趣变成几条排好序、标明证据强弱的研究方向，再给一份 7 天计划。",w2:"把语雀画板和 XMind 思维导图转成 Markdown，或者重新导出干净的 .xmind。",w3:"可直接导入、已脱敏的 n8n 工作流：飞书机器人、多维表格记录和社媒数据。",w4:"把机器人配置成谨慎的开发助手：先起草，发送前先确认，并检查有没有泄露密钥。",demo:"在线体验 ↗",code:"代码 ↗",
-ossL:"开源",ach:"GitHub 成就",acc:"回答被采纳 ↗",acc2:"回答被采纳 ↗",
-nowL:"在做 / 技术栈",now1:"LEDRING 接下来要做：GitHub Action 在 PR 里自动评论，以及 LangGraph、OpenAI Agents SDK 和 Codex 的适配器。",
-contact:"联系",else:"其他链接",site:"网站源码 ↗",caught:"拦下",esc:"逃走",hint1:"光点经过闸门时拦下它",hint2:"点一下",mhint:"光点到闸门时点一下",term:"终端"};
+var zh={skip:"跳到作品",role:"写前端起家，后来全栈，现在天天跟 AI agent 搭伙",
+aboutL:"嗨",ab1:"我是 Felix。写前端起家，后来前后端都摸，现在大部分活是跟 AI agent 一起干的。",ab2:"agent 干活快，偶尔也会自作主张。所以我顺手做了些小工具，看看它到底干了啥。都开源，随便翻。",
+line:"给 AI agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",src:"源码 ↗",vid:"LEDRING Play 游戏画面",
+howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
+featL:"底下是什么",f1:"把 Claude Code、OpenTelemetry GenAI 的 trace 摊成一棵分支树。",f2:"给每次运行打个分：跑偏了多远。",f3:"有 CLI 和 GitHub Action，游戏也跑在这套引擎上。",f4:"自带免费 AI，不用 key，不用注册。中英都有。",
+linkL:"链接",l1:"浏览器里直接玩",l2:"示例报告",l3:"概念 demo",
+selL:"别的小东西",w1:"脑子里只有个模糊的研究方向？丢进去，吐出几条排好序、标了证据等级的方向，外加一份 7 天计划。",w2:"语雀画板、XMind 导图转 Markdown，也能导回干净的 .xmind。",w3:"导入就能用的 n8n 工作流，敏感信息已经抹干净：飞书机器人、多维表格、社媒数据。",w4:"一个 bot skill，把它调教成谨慎的开发助手：先打草稿，发之前先问你，顺便盯着别漏密钥。",demo:"试试 ↗",code:"代码 ↗",
+ossL:"开源",ach:"GitHub 成就",acc:"答案被采纳 ↗",acc2:"答案被采纳 ↗",
+nowL:"最近在忙",now1:"LEDRING 这边：让 Action 直接在 PR 里留评论，再接上 LangGraph、OpenAI Agents SDK 和 Codex。",
+contact:"联系",else:"其他链接",site:"本站源码 ↗",caught:"拦住",esc:"溜了",hint1:"光点溜到闸门，就拦它",hint2:"点一下",mhint:"光点进闸门时点一下",term:"终端"};
 Object.assign(zh,{pathL:"经历",p1:"前端：做真正有人用的界面。",p2:"全栈：从界面到接口、数据和部署，用 Supabase、Vercel 和 Cloudflare Workers。",p3:"AI 原生：日常的活交给 agent，判断留给自己。",
 prinL:"原则",pr1:"先写规格，再写代码。",pr2:"不说好听话。",pr3:"先验证，再回答。",pr4:"记忆归自己：可迁移、私密、可纠正。",
 loopL:"我怎么和 agent 协作",lp1:"规格：问题、用户故事、不做什么。",lp2:"切片：每张任务卡一次 agent 会话就能做完。",lp3:"看证据和 diff，然后拍板。",
-modeL:"AI 模式",m1:"LEDRING 免费 AI：不用密钥、不用注册，共享每日额度。",m2:"内置演示：预设脚本，不调用 AI。",m3:"也可以用自己的：ChatGPT 套餐、Anthropic、OpenAI 兼容接口或 Ollama。",
-packL:"内容包",k1:"开发者包（英文）：贪吃蛇、番茄钟、画板等。",k2:"中文包：已读不回、摸鱼被抓、AI 删库，结尾有分享卡片。",k3:"做好的作品可以发布到 api.ledring.dev 上的作品网络。",
-kitL:"工具集",t1:"flowchart：把多次运行合成一棵分支树，输出一个离线 HTML 报告。",t2:"instability：0–100 的偏离分，--fail-above 可以卡住 CI。",t3:"trust、card 和 Red Wall：权限规则、A2A 卡片、护栏测试。",
-w1a:"HIGH / LOW 两种参与模式，四个阶段流式输出。",w1b:"证据分 T1–T3 三级，每条引用都会核对。",w1c:"自带 MCP 服务和每周 OpenAlex 追踪。",
-w2a:"命令行、交互式 TUI 和拖拽网页三种用法。",w2b:"保留文字、层级、备注和链接。",w2c:"给 agent 用的只读 MCP 工具。",
-w3a:"国际版（Lark + OpenAI）和国内版（飞书 + DeepSeek）。",w3b:"每个工作流配清单，agent 能通过 n8n MCP 调用。",w3c:"每次提交前都做脱敏检查。",
-w4a:"先出草稿，你确认后才发。",w4b:"20 个安全场景，CI 里规则覆盖 20/20。",w4c:"密钥和隐私信息检查，从不打印命中的内容。",
-w5:"我的 GitHub 主页：一个实时的 agent 工具控制室。",w5a:"每天由 GitHub Actions 根据真实运行和评测结果重新生成。",w5b:"失败就显示失败；agent 可以读 llms.txt 和 status.json。",
-now0:"在做 Become Human：给 agent 用的记忆层。可迁移（纯文本文件，换模型也能用），私密（只存在你自己的硬盘上），可纠正（能看到并修改它对你的认知）。",
-sg1:"语言与界面",sg2:"平台",sg3:"Agent 与 AI"});
-Object.assign(zh,{curL:"此刻",humL:"下班以后",hu0:"叫我 Felix 就好。我没给自己定一个职位名。",
-hcT:"咖啡",hc:"在家自己做浓缩，每天一杯冰美式，也一直在找真正好喝的咖啡店。",hkT:"两只小猫",hk:"家里养着两只小猫。它们偶尔也会从这个页面上走过。",
-hgT:"健身",hg:"常去健身房。和写代码一个道理：按计划来。",hlT:"现场",hl:"演唱会、livehouse、IMAX 和杜比影院。在现场才最好。",
-hn1:"严谨、客观，喜欢按计划来。",hn2:"边做边学，也靠和人聊。比起读书，更常读技术文档和讲 AI 时代的好文章。",hn3:"好的日子要有变化：不全是学习，也不全是玩。",hn4:"受不了会奉承人的 AI，也受不了不想清楚就回答的 AI。"});
+modeL:"用哪个 AI",m1:"LEDRING 免费 AI：不用 key 不用注册，大家共用每天的额度。",m2:"演示模式：剧本写好了，不调 AI。",m3:"也能接自己的：ChatGPT 套餐、Anthropic、OpenAI 兼容接口、Ollama。",
+packL:"内容包",k1:"开发者包（英文）：贪吃蛇、番茄钟、画板这些。",k2:"中文包：已读不回、摸鱼被抓、AI 删库……结尾送一张分享卡。",k3:"做完的作品能发到 api.ledring.dev，和别人的摆在一起。",
+kitL:"工具箱",t1:"flowchart：N 次运行合成一棵树，一个离线 HTML 就能看。",t2:"instability：0–100 的跑偏分，加 --fail-above 能直接卡住 CI。",t3:"trust / card / Red Wall：权限规则、A2A 卡片、护栏测试。",
+w1a:"HIGH / LOW 两档参与度，四个阶段流式出结果。",w1b:"证据分 T1–T3，引用一条条核过。",w1c:"带 MCP，每周还去 OpenAlex 看看有啥新的。",
+w2a:"命令行、TUI、浏览器拖拽，三选一。",w2b:"文字、层级、备注、链接都留着。",w2c:"附带只读 MCP，agent 也能读你的导图。",
+w3a:"国际版 Lark + OpenAI，国内版飞书 + DeepSeek。",w3b:"每个都带 manifest，agent 能通过 n8n MCP 调。",w3c:"每次提交都过一遍脱敏检查，以防万一。",
+w4a:"先出草稿，你点头才发。",w4b:"20 个安全场景，CI 里规则覆盖 20/20。",w4c:"查密钥和隐私信息，查到了也不打印出来。",
+w5:"我的 GitHub 主页，被我改成了 agent 控制室。",w5a:"GitHub Actions 每天按真实运行和评测结果重画一遍。",w5b:"挂了就显示挂了。agent 可以读 llms.txt 和 status.json。",
+now0:"在做 Become Human：给 agent 用的记忆，归你自己。纯文本文件，换模型也能用，只存在你自己硬盘上，它记错了你还能改。",
+sg1:"语言和前端",sg2:"跑在哪",sg3:"Agent 和 AI"});
+Object.assign(zh,{curL:"此刻",humL:"不写代码的时候",hu0:"叫 Felix 就行。职位？还没想好。",
+hcT:"咖啡",hc:"在家自己萃浓缩，冰美式一天一杯。听说哪家好喝，绕路也要去。",hkT:"两只猫",hk:"家里两只小猫，偶尔也会溜达到这个页面上来。",
+hgT:"健身",hg:"有在练。跟写代码一样，照计划来。",hlT:"现场",hl:"演唱会、livehouse、IMAX、杜比，能去现场就不在家看。",
+hn1:"喜欢有计划，也喜欢日子别太单调：不全是学，也不全是玩。",hn2:"靠动手和聊天学东西。看文档、看 AI 相关的好文章，比看书多。",hn3:"最受不了两种 AI：一种只会夸，一种不想就答。",hn4:"受不了会奉承人的 AI，也受不了不想清楚就回答的 AI。"});
+Object.assign(zh,{ab3:"两个小习惯：动手前先写清楚要做啥；只会说「好的」的 AI，不信。"});
 var en={};
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
@@ -658,8 +656,8 @@ function scramble(el){if(RM.matches||el.dataset.sc)return;var o=el.textContent,n
   var iv=setInterval(function(){n++;el.textContent=o.split('').map(function(c,k){return k<n*o.length/14||c===' '?c:GL[(Math.random()*GL.length)|0]}).join('');if(n>=14){clearInterval(iv);el.textContent=o;delete el.dataset.sc}},28)}
 D.querySelectorAll('.work .nm,.lab,.cols h3,.ans .q').forEach(function(el){el.addEventListener('pointerenter',function(){if(!el.children.length)scramble(el)})});
 /* human mode: currently line + walking kittens */
-var CUR={en:['pulling an espresso shot','on an iced americano','looking for a good coffee shop','feeding the cats','at the gym','at a livehouse','in an IMAX seat','reading the docs','reviewing an agent’s diff'],
- zh:['在萃一杯浓缩','喝着冰美式','在找一家好咖啡店','在喂猫','在健身房','在 livehouse','坐在 IMAX 影厅','在读文档','在看 agent 交的 diff']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
+var CUR={en:['waiting for the espresso machine to heat up', 'halfway through today’s iced americano', 'taking a detour for a coffee shop', 'a kitten just walked across my keyboard', 'feeding the cats', 'at the gym, sticking to the plan', 'at a livehouse, ears ringing', 'in an IMAX seat', 'reading docs, not a book', 'reading an agent’s diff, suspiciously'],
+ zh:['在等咖啡机预热', '冰美式喝到一半', '为了一家咖啡店在绕路', '刚被猫踩了键盘', '在喂猫', '在健身房，照计划来', '在 livehouse，耳朵还在嗡嗡响', '坐在 IMAX 里', '在看文档，不是在看书', '在盯 agent 的 diff，有点怀疑']},ci=0,cnEl=D.getElementById('cnow'),cnP=cnEl.parentNode;
 function setCur(){cnEl.textContent=CUR[cur==='zh'?'zh':'en'][ci%CUR.en.length]}setCur();
 setInterval(function(){if(D.hidden)return;if(RM.matches){ci++;setCur();return}cnP.classList.add('sw');setTimeout(function(){ci++;setCur();cnP.classList.remove('sw')},420)},3600);
 var catsEl=D.getElementById('cats');
@@ -683,12 +681,12 @@ var CMDS={
  score:function(){return 'caught '+score+' · escaped '+esc},
  clear:function(){tout.innerHTML='';return ''},
  exit:function(){closeT();return ''},
- sudo:function(){return 'nice try.'},
- coffee:function(){return '<pre style="margin:0;font:inherit">   ( (\n    ) )\n  ........\n  |  ▢ ▢ |]\n  | ▢    |\n  \\______/</pre>'+(cur==='zh'?'冰美式好了。不加糖。':'Iced americano, ready. No sugar.')},
- cats:function(){walkCats();return cur==='zh'?'两只小猫出门巡逻了 ↓':'Two kittens, on patrol ↓'},
- gym:function(){return cur==='zh'?'按计划来。今天的训练已经排好了。':'Following the plan. Today\'s session is on the list.'},
- live:function(){return cur==='zh'?'演唱会、livehouse、IMAX、杜比影院。在现场最好。':'Concerts, livehouses, IMAX, Dolby. Better in the room.'},
- whoami:function(){return cur==='zh'?'Felix。还没给自己定一个职位名。':'Felix. Not a job title (yet).'},
+ sudo:function(){return cur==='zh'?'想得美。':'nice try.'},
+ coffee:function(){return '<pre style="margin:0;font:inherit">   ( (\n    ) )\n  ........\n  |  ▢ ▢ |]\n  | ▢    |\n  \\______/</pre>'+(cur==='zh'?'冰美式一杯，不加糖，不寒暄。':'Iced americano. No sugar, no small talk.')},
+ cats:function(){walkCats();return cur==='zh'?'放猫 ↓':'Releasing the kittens ↓'},
+ gym:function(){return cur==='zh'?'今天有练，计划里写着呢。':'It’s on the plan. Going.'},
+ live:function(){return cur==='zh'?'演唱会、livehouse、IMAX、杜比。现场 > 在家看。':'Concerts, livehouses, IMAX, Dolby. Tickets > streaming.'},
+ whoami:function(){return cur==='zh'?'felix。职位：待定':'felix. title: TBD'},
  ls:function(){return CMDS.projects()}
 };
 function openT(){if(!term.hidden)return;opener=D.activeElement;term.hidden=false;requestAnimationFrame(function(){term.classList.add('show')});if(!tout.innerHTML)tprint('felix@ledring.dev — type <b>help</b>');tin.focus()}
