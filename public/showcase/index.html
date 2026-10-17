@@ -946,8 +946,8 @@ addEventListener('pointerdown',function(e){if(RM.matches||D.getElementById('term
 tb.onclick=function(){if(!dark&&!RM.matches){if(tb._l)return;tb._l=1;var lo=D.getElementById('lights');lo.classList.add('on');setTimeout(function(){thToggle();setTimeout(function(){lo.classList.remove('on');tb._l=0},200)},460)}else thToggle()};
 function thToggle(){dark=!dark;var t=dark?'dark':'light';R.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}
   D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#ebe7df';LS.shown=-1;LS.lv=-1;stShow();tlabel();size();miniDraw();bgSize();bgDraw(performance.now())}
-lb.onclick=function(){set(cur==='zh'?'en':'zh');splitAll();D.querySelectorAll('.split').forEach(function(e){e.classList.add('in')});var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
-var ql=q.get('lang');set(ql==='zh'||(!ql&&/^zh/i.test(navigator.language))?'zh':'en');splitAll();
+lb.onclick=function(){set(cur==='zh'?'en':'zh');try{localStorage.setItem('lang',cur)}catch(e){}splitAll();D.querySelectorAll('.split').forEach(function(e){e.classList.add('in')});var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
+var ql=q.get('lang'),sl;try{sl=localStorage.getItem('lang')}catch(e){}set(ql==='zh'||ql==='en'?ql:sl==='zh'||sl==='en'?sl:R.dataset.geoLang||(/^zh/i.test(navigator.language)?'zh':'en'));splitAll();
 fit();size();miniDraw();start();
 (D.fonts&&D.fonts.ready||Promise.resolve()).then(function(){fit();requestAnimationFrame(function(){R.classList.add('ready')})});
 window.__SC={stAdd:stAdd,breakWall:breakWall,LS:LS};
