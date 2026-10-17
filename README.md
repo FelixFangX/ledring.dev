@@ -7,6 +7,7 @@ Source for **https://ledring.dev**, Felix Fang's personal site and the home of [
 - **Hero**: a live tick ring (canvas). The travelling segment is the "light". Press Space or tap to catch the rogue light at the gate.
 - **About**: path (frontend → full-stack → AI-native), principles, and how I build with agents.
 - **LEDRING**: how to play, AI modes, content packs (EN dev pack and 中文 pack), the trace toolkit, and live links (Play, sample reports, concept demo).
+- **Tools page**: [/tools/](https://ledring.dev/tools/) lists Convert and Research, with live links, source and manually maintained status.
 - **Selected work**: research-thinking-ai, lakeboard-converter, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
 - **Open source**: GitHub achievements and accepted answers.
 - **Now / Stack**: Become Human, the LEDRING roadmap, and the tools I use.
@@ -30,6 +31,7 @@ Everything on it comes from the public repos and the profile README.
 | Path | Behaviour |
 |---|---|
 | `www.ledring.dev/*` | 301 redirect to the apex |
+| `/tools` | 301 to `/tools/`, preserving the query string; `/tools/` and `/tools/index.html` serve the bilingual tools directory with private, no-store, no-transform caching |
 | `/play` | Redirects to https://play.ledring.dev/play/ and keeps the query string (`?src=` content-pack tracking) |
 | `/x`, `/github` (`/gh`) | Redirect to X @ColeFangX and GitHub FelixFangX |
 | everything else | Static assets from `public/` (including `og.png`) |
