@@ -18,7 +18,7 @@ function defaultLanguage(request, url) {
   return preferred && /^zh/i.test(preferred.language) ? "zh" : "en";
 }
 
-async function localizedAsset(request, env, url, tools = false) {
+async function localizedAsset(request, env, url) {
   const asset = await env.ASSETS.fetch(request);
   if (!(asset.headers.get("Content-Type") || "").toLowerCase().includes("text/html")) return asset;
   const language = defaultLanguage(request, url);
@@ -32,7 +32,8 @@ async function localizedAsset(request, env, url, tools = false) {
   if (!vary || !vary.split(",").some(value => value.trim().toLowerCase() === "accept-language")) {
     response.headers.set("Vary", vary ? `${vary}, Accept-Language` : "Accept-Language");
   }
-  response.headers.set("Cache-Control", tools ? "private, no-store, no-transform" : "private, no-store");
+  // no-transform stops Cloudflare from injecting the zone Web Analytics beacon, so pages make no third-party requests.
+  response.headers.set("Cache-Control", "private, no-store, no-transform");
   return response;
 }
 
@@ -52,7 +53,7 @@ async function handle(request, env) {
     return Response.redirect(url.toString(), 301);
   }
   if (url.pathname === "/tools/" || url.pathname === "/tools/index.html") {
-    return localizedAsset(request, env, url, true);
+    return localizedAsset(request, env, url);
   }
   // /showcase is preview-only (auto-playing, non-interactive demo); never served on the production domain
   if (url.pathname.startsWith("/showcase") && url.hostname.endsWith("ledring.dev")) return new Response("Not found", { status: 404 });
