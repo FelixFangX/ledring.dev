@@ -18,8 +18,10 @@ function defaultLanguage(request, url) {
   return preferred && /^zh/i.test(preferred.language) ? "zh" : "en";
 }
 
-async function localizedAsset(request, env, url, tools = false) {
-  const asset = await env.ASSETS.fetch(request);
+async function localizedAsset(request, env, url, tools = false, missing = false) {
+  const source = missing ? new Request(new URL("/404", url), request) : request;
+  let asset = await env.ASSETS.fetch(source);
+  if (missing) asset = new Response(asset.body, { status: 404, headers: asset.headers });
   if (!(asset.headers.get("Content-Type") || "").toLowerCase().includes("text/html")) return asset;
   const language = defaultLanguage(request, url);
   const response = new HTMLRewriter().on("html", {
@@ -55,13 +57,14 @@ async function handle(request, env) {
     return localizedAsset(request, env, url, true);
   }
   // /showcase is preview-only (auto-playing, non-interactive demo); never served on the production domain
-  if (url.pathname.startsWith("/showcase") && url.hostname.endsWith("ledring.dev")) return new Response("Not found", { status: 404 });
+  if (url.pathname.startsWith("/showcase") && url.hostname.endsWith("ledring.dev")) return localizedAsset(request, env, url, true, true);
   const short = { "/x": "https://x.com/ColeFangX", "/github": "https://github.com/FelixFangX", "/gh": "https://github.com/FelixFangX" };
   if (short[url.pathname]) return Response.redirect(short[url.pathname], 302);
   if (url.pathname === "/" || url.pathname === "/index.html") {
     return localizedAsset(request, env, url);
   }
-  return env.ASSETS.fetch(request);
+  const asset = await env.ASSETS.fetch(request);
+  return asset.status === 404 ? localizedAsset(request, env, url, true, true) : asset;
 }
 
 export default {
