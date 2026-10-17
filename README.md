@@ -31,10 +31,9 @@ Everything on it comes from the public repos and the profile README.
 | Path | Behaviour |
 |---|---|
 | `www.ledring.dev/*` | 301 redirect to the apex |
-| `/tools` | 301 to `/tools/`, preserving the query string; `/tools/` and `/tools/index.html` serve the bilingual tools directory |
+| `/tools` | 301 to `/tools/`, preserving the query string; `/tools/` and `/tools/index.html` serve the bilingual tools directory with private, no-store, no-transform caching |
 | `/play` | Redirects to https://play.ledring.dev/play/ and keeps the query string (`?src=` content-pack tracking) |
 | `/x`, `/github` (`/gh`) | Redirect to X @ColeFangX and GitHub FelixFangX |
-| `/`, `/tools/` (HTML) | Geo-language rewrite; `Cache-Control: private, no-store, no-transform` so Cloudflare injects nothing (no Web Analytics beacon) |
 | everything else | Static assets from `public/` (including `og.png`) |
 
 ## Develop and deploy
