@@ -1,7 +1,8 @@
 # Generates public/showcase/index.html: a non-interactive, auto-playing copy of the site.
 import re,os
 s=open('public/index.html').read()
-s=re.sub(r'<a ([^>]*?)href="[^"]*"',r'<a \1',s)
+# Keep Projects/Notes destinations in the generated footer (interaction is disabled by CSS).
+s=re.sub(r'<a ([^>]*?)href="(?!/(?:projects|notes)/")[^"]*"',r'<a \1',s)
 s=s.replace('<link rel="canonical" href="https://ledring.dev/">','<meta name="robots" content="noindex">')
 s=s.replace("localStorage.getItem(\"theme\")||\"light\"","\"light\"")
 CSS='<style>html,body,body *{pointer-events:none!important;cursor:default!important;user-select:none}#cur,.term,#topen,.toast{display:none!important}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}</style>'

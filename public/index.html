@@ -389,7 +389,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 }
 .tools a{text-decoration:none}
 @media(max-width:400px){.tools{gap:.3rem}.tools button,.tools a{padding:0 .5rem}#theme{padding:0 .5rem;gap:.3rem}.mark{gap:.35rem;font-size:11px;letter-spacing:.04em}.mark canvas{width:18px;height:18px}}
-@media(max-width:48rem){.bar .wrap{height:auto;flex-wrap:wrap;padding-top:.25rem;padding-bottom:.5rem}.bar .tools{width:100%;gap:.3rem}.bar .tools a{flex:1;padding:0 .35rem}.bar .tools button{padding:0 .55rem}.bar #theme{padding:0 .55rem;gap:.3rem}.hero .wrap{padding-top:calc(7rem + env(safe-area-inset-top))}}
+@media(max-width:48rem){.bar .nav-secondary{display:none}.bar .wrap,.bar .tools{flex-wrap:nowrap;white-space:nowrap}.bar .tools{flex-shrink:0;gap:.3rem}.bar .tools a,.bar .tools button{padding:0 .5rem}.bar #theme{padding:0 .5rem;gap:.3rem}}
 </style>
 </head>
 <body>
@@ -400,7 +400,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap">
     <a class="mark m" href="/" aria-label="ledring.dev"><canvas id="mini" width="44" height="44" aria-hidden="true"></canvas>ledring.dev</a>
     <div class="tools">
-      <a href="/tools/" data-i18n="toolsN">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a>
+      <a href="/tools/" data-i18n="toolsN">Tools</a><a class="nav-secondary" href="/projects/" data-i18n="navprojects">Projects</a><a class="nav-secondary" href="/notes/" data-i18n="navnotes">Notes</a>
       <button id="theme" class="mag" type="button" aria-label="Switch to dark theme"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg><span id="tlab">Dark</span></button>
       <button id="lang" class="mag" type="button" lang="zh-CN" aria-label="Switch to Chinese">中文</button>
     </div>
