@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import vm from 'node:vm';
 const cjk = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/u;
 const decode = s => s.replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16))).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ');
-for (const file of ['public/index.html', 'public/tools/index.html', 'public/projects/index.html', 'public/notes/index.html', 'public/404.html']) {
+// Include nested pages, generated showcase output and the source for future notes.
+const pages = readdirSync('public', { recursive: true }).filter(file => file.endsWith('.html')).map(file => `public/${file}`);
+for (const file of [...pages, 'templates/note.html']) {
   const html = readFileSync(file, 'utf8');
   const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]);
   scripts.forEach((s, i) => new vm.Script(s, { filename: `${file}:script${i}` }));
@@ -16,7 +18,7 @@ for (const file of ['public/index.html', 'public/tools/index.html', 'public/proj
   const source = scripts.find(s => s.includes('var zh='));
   const end = source.includes('var q=new') ? source.indexOf('var q=new') : source.indexOf('function tlabel');
   const context = vm.createContext({ document });
-  vm.runInContext((file === 'public/index.html' ? 'var D=document;'+source.slice(source.indexOf('var zh='), end) : source.slice(source.indexOf('var D='), end)), context);
+  vm.runInContext((source.includes('var q=new') ? 'var D=document;'+source.slice(source.indexOf('var zh='), end) : source.slice(source.indexOf('var D='), end)), context);
   const { en, zh } = context;
   assert.deepEqual(Object.keys(en).sort(), Object.keys(zh).sort(), `${file}: dictionary keys differ`);
   for (const [key, value] of Object.entries(en)) assert(!cjk.test(value), `${file}: English ${key} contains CJK: ${value}`);

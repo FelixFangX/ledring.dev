@@ -80,6 +80,7 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 @keyframes arrive{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 @media(min-width:56rem){.tl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:960px){body::before{content:"";position:fixed;top:0;bottom:0;left:var(--pl);right:var(--pr);border-left:1px solid var(--rule);border-right:1px solid var(--rule);pointer-events:none;z-index:-0}main,footer{position:relative}}
+@media(max-width:48rem){.bar .wrap,.bar .tools{flex-wrap:nowrap;white-space:nowrap}.bar .tools{flex-shrink:0}}
 @media(max-width:400px){.tools button{padding:0 .55rem}#theme{padding:0 .55rem;gap:.35rem}.mark{gap:.4rem}.tools{gap:.35rem}}
 @media(hover:hover) and (pointer:fine){.tl-card{transition:border-color 120ms}.tl-card:hover,.tools button:hover{border-color:var(--ink)}.btn:hover .led{transform:scaleY(1.4)}.wl a:hover,.links a:hover{color:var(--acc)}}
 @media(hover:hover) and (pointer:fine){.btn.btn-ink:hover:not(:active),[data-theme=dark] .btn.btn-ink:hover:not(:active){transform:translateY(-1px);filter:brightness(1.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.14),0 2px 4px rgba(0,0,0,.25),0 14px 28px -14px rgba(0,0,0,.6)}}
