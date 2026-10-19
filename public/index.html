@@ -9,6 +9,9 @@
 <meta name="theme-color" content="#ebe7df">
 <script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#131211":"#ebe7df"})()</script>
 <link rel="canonical" href="https://ledring.dev/">
+<link rel="alternate" hreflang="en" href="https://ledring.dev/?lang=en">
+<link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/?lang=zh">
+<link rel="alternate" hreflang="x-default" href="https://ledring.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ledring.dev/">
 <meta property="og:title" content="Felix Fang">
@@ -386,6 +389,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 }
 .tools a{text-decoration:none}
 @media(max-width:400px){.tools{gap:.3rem}.tools button,.tools a{padding:0 .5rem}#theme{padding:0 .5rem;gap:.3rem}.mark{gap:.35rem;font-size:11px;letter-spacing:.04em}.mark canvas{width:18px;height:18px}}
+@media(max-width:48rem){.bar .wrap{height:auto;flex-wrap:wrap;padding-top:.25rem;padding-bottom:.5rem}.bar .tools{width:100%;gap:.3rem}.bar .tools a{flex:1;padding:0 .35rem}.bar .tools button{padding:0 .55rem}.bar #theme{padding:0 .55rem;gap:.3rem}.hero .wrap{padding-top:calc(7rem + env(safe-area-inset-top))}}
 </style>
 </head>
 <body>
@@ -396,7 +400,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap">
     <a class="mark m" href="/" aria-label="ledring.dev"><canvas id="mini" width="44" height="44" aria-hidden="true"></canvas>ledring.dev</a>
     <div class="tools">
-      <a href="/tools/" data-i18n="toolsN">Tools</a>
+      <a href="/tools/" data-i18n="toolsN">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a>
       <button id="theme" class="mag" type="button" aria-label="Switch to dark theme"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg><span id="tlab">Dark</span></button>
       <button id="lang" class="mag" type="button" lang="zh-CN" aria-label="Switch to Chinese">中文</button>
     </div>
@@ -533,7 +537,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap">
     <a class="mail fit rv" data-max=".3" href="mailto:felix@ledring.dev" translate="no">felix<b>@</b>ledring.dev</a>
     <div class="links m">
-      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="/tools/" data-i18n="toolsF">Tools</a><a href="https://play.ledring.dev/play/">play.ledring.dev ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a></nav>
+      <nav aria-label="Elsewhere" data-i18n-aria="else"><a href="/tools/" data-i18n="toolsF">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a><a href="https://play.ledring.dev/play/">play.ledring.dev ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a></nav>
       <span><button class="tbtn m" id="topen" type="button" aria-haspopup="dialog"><span data-i18n="term">Terminal</span> <kbd>/</kbd></button> · © 2026 Felix Fang</span>
     </div>
   </div>
@@ -562,7 +566,7 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={skip:"跳到作品",role:"快的软件，细的界面，开源，和一杯冰美式",
+var zh={navprojects:"项目",navnotes:"笔记",skip:"跳到作品",role:"快的软件，细的界面，开源，和一杯冰美式",
 aboutL:"手艺",ab1:"Felix。和 AI 智能体 一起做东西，也爱做点好玩的。LEDRING 本来是给智能体 装的状态灯，后来做成了一个拦住 AI 的小游戏。",ab2:"手艺这件事，机器来了也一样。",
 line:"给 AI 智能体 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
