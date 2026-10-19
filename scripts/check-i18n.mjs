@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 const cjk = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/u;
 const decode = s => s.replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16))).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ');
-for (const file of ['public/index.html', 'public/tools/index.html', 'public/404.html']) {
+for (const file of ['public/index.html', 'public/tools/index.html', 'public/projects/index.html', 'public/notes/index.html', 'public/404.html']) {
   const html = readFileSync(file, 'utf8');
   const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]);
   scripts.forEach((s, i) => new vm.Script(s, { filename: `${file}:script${i}` }));
@@ -97,8 +97,8 @@ HTMLRewriter.prototype.transform = function(asset) {
   } });
   return new Response(body, { status: asset.status, headers: asset.headers });
 };
-const workerContext = vm.createContext({ Request, Response, URL, HTMLRewriter });
-vm.runInContext(readFileSync('src/index.js', 'utf8').replace('export default', 'globalThis.worker ='), workerContext);
+const workerContext = vm.createContext({ Request, Response, Headers, URL, HTMLRewriter });
+vm.runInContext(readFileSync('src/index.js', 'utf8').replace('export default', 'globalThis.worker =').replace(/export \{ canonicalURL \};/, ''), workerContext);
 const assets = new Map([
   ['/', ['text/html', '<html lang="en">home</html>']],
   ['/tools/', ['text/html', '<html lang="en">tools</html>']],

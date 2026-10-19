@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url><loc>https://ledring.dev/</loc><xhtml:link rel="alternate" hreflang="en" href="https://ledring.dev/?lang=en"/><xhtml:link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/?lang=zh"/><xhtml:link rel="alternate" hreflang="x-default" href="https://ledring.dev/"/></url>
+<url><loc>https://ledring.dev/tools/</loc><xhtml:link rel="alternate" hreflang="en" href="https://ledring.dev/tools/?lang=en"/><xhtml:link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/tools/?lang=zh"/><xhtml:link rel="alternate" hreflang="x-default" href="https://ledring.dev/tools/"/></url>
+<url><loc>https://ledring.dev/projects/</loc><xhtml:link rel="alternate" hreflang="en" href="https://ledring.dev/projects/?lang=en"/><xhtml:link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/projects/?lang=zh"/><xhtml:link rel="alternate" hreflang="x-default" href="https://ledring.dev/projects/"/></url>
+<url><loc>https://ledring.dev/notes/</loc><xhtml:link rel="alternate" hreflang="en" href="https://ledring.dev/notes/?lang=en"/><xhtml:link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/notes/?lang=zh"/><xhtml:link rel="alternate" hreflang="x-default" href="https://ledring.dev/notes/"/></url>
+</urlset>

@@ -1,3 +1,11 @@
+// Keep only a supported language parameter; aliases share the clean page URL.
+function canonicalURL(url) {
+  const clean = new URL(url.pathname.replace(/index\.html$/, ""), "https://ledring.dev");
+  const language = url.searchParams.get("lang");
+  if (language === "en" || language === "zh") clean.searchParams.set("lang", language);
+  return clean.href;
+}
+
 function defaultLanguage(request, url) {
   let country = request.cf && request.cf.country;
   if (url.hostname.endsWith(".workers.dev")) {
@@ -23,13 +31,20 @@ async function localizedAsset(request, env, url, tools = false, missing = false)
   let asset = await env.ASSETS.fetch(source);
   if (missing) asset = new Response(asset.body, { status: 404, headers: asset.headers });
   if (!(asset.headers.get("Content-Type") || "").toLowerCase().includes("text/html")) return asset;
-  const language = defaultLanguage(request, url);
-  const response = new HTMLRewriter().on("html", {
+  const forced = url.searchParams.get("lang");
+  const explicit = forced === "en" || forced === "zh";
+  const language = explicit ? forced : defaultLanguage(request, url);
+  const rewriter = new HTMLRewriter().on("html", {
     element(element) {
       element.setAttribute("data-geo-lang", language);
       element.setAttribute("lang", language === "zh" ? "zh-CN" : "en");
     },
-  }).transform(asset);
+  });
+  if (explicit) {
+    rewriter.on('link[rel="canonical"]', { element(element) { element.setAttribute("href", canonicalURL(url)); } });
+    rewriter.on('meta[property="og:url"]', { element(element) { element.setAttribute("content", canonicalURL(url)); } });
+  }
+  const response = rewriter.transform(asset);
   const vary = response.headers.get("Vary");
   if (!vary || !vary.split(",").some(value => value.trim().toLowerCase() === "accept-language")) {
     response.headers.set("Vary", vary ? `${vary}, Accept-Language` : "Accept-Language");
@@ -49,11 +64,11 @@ async function handle(request, env) {
     target.search = url.search;
     return Response.redirect(target.toString(), 302);
   }
-  if (url.pathname === "/tools") {
-    url.pathname = "/tools/";
+  if (["/tools", "/projects", "/notes"].includes(url.pathname)) {
+    url.pathname += "/";
     return Response.redirect(url.toString(), 301);
   }
-  if (url.pathname === "/tools/" || url.pathname === "/tools/index.html") {
+  if (/^\/(tools|projects|notes)\/(index\.html)?$/.test(url.pathname) || /^\/notes\/[a-z0-9-]+\/(index\.html)?$/.test(url.pathname)) {
     return localizedAsset(request, env, url, true);
   }
   // /showcase is preview-only (auto-playing, non-interactive demo); never served on the production domain
@@ -69,11 +84,17 @@ async function handle(request, env) {
 
 export default {
   async fetch(request, env) {
-    // HTMLRewriter cannot transform a body-less HEAD response, so answer HEAD by running the GET path and dropping the body.
-    if (request.method === "HEAD") {
-      const response = await handle(new Request(request, { method: "GET" }), env);
-      return new Response(null, { status: response.status, statusText: response.statusText, headers: response.headers });
+    // Run HEAD through GET because HTMLRewriter needs a body.
+    const head = request.method === "HEAD";
+    const response = await handle(head ? new Request(request, { method: "GET" }) : request, env);
+    if (head || new URL(request.url).hostname.endsWith(".workers.dev")) {
+      // Redirect headers are immutable: always copy before adding preview policy.
+      const headers = new Headers(response.headers);
+      if (new URL(request.url).hostname.endsWith(".workers.dev")) headers.set("X-Robots-Tag", "noindex, nofollow");
+      return new Response(head ? null : response.body, { status: response.status, statusText: response.statusText, headers });
     }
-    return handle(request, env);
+    return response;
   },
 };
+
+export { canonicalURL };
