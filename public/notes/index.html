@@ -113,7 +113,7 @@ var D=document,R=D.documentElement,en={},cur,dark=R.dataset.theme==='dark',tb=D.
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
 var zh={"skip": "跳到正文", "else": "其他链接", "home": "← ledring.dev", "play": "LEDRING Play ↗", "navtools": "工具", "navprojects": "项目", "navnotes": "笔记", "label": "笔记", "title": "笔记。", "lead": "简短的笔记，按日期排列。", "empty": "还没有笔记。", "emptyDesc": "新笔记会按时间倒序列在这里。"};
-var NOTES=[];
+var NOTES=[{"date": "2026-10-20", "url": "/notes/mind-maps-to-markdown/", "en": {"title": "Mind maps for me, Markdown for my agents", "summary": "Why I convert XMind and Yuque Lakeboard mind maps to Markdown, what survives the conversion, what doesn't, and how to run it from the CLI or as an MCP server."}, "zh": {"title": "思维导图给我看，Markdown 给智能体读", "summary": "我为什么把 XMind 和语雀 Lakeboard 思维导图转成 Markdown：哪些内容能保留，哪些会丢，以及怎么用 CLI 或 MCP 服务器运行。"}}];
 function renderNotes(l){
  var list=D.getElementById('notes');list.replaceChildren();D.getElementById('empty').hidden=NOTES.length>0;
  NOTES.forEach(function(note){var item=D.getElementById('note-item').content.cloneNode(true),text=note[l],time=item.querySelector('time'),link=item.querySelector('a');time.dateTime=note.date;time.textContent=note.date;link.href=note.url;link.textContent=text.title;item.querySelector('p').textContent=text.summary;list.appendChild(item)});
