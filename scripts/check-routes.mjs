@@ -63,8 +63,9 @@ const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 assert.match(sitemap, /<urlset\s[^>]*xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml"[^>]*>/);
 assert(sitemap.trim().endsWith('</urlset>'));
 const urls = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
-assert.equal(urls.length, 4);
-for (const path of ['', 'tools/', 'projects/', 'notes/']) {
+const sitemapPaths = ['', 'tools/', 'projects/', 'notes/', 'notes/mind-maps-to-markdown/'];
+assert.equal(urls.length, sitemapPaths.length);
+for (const path of sitemapPaths) {
   const url = 'https://ledring.dev/'+path;
   const entry = urls.find(entry => entry.includes(`<loc>${url}</loc>`));
   assert(entry, url);
@@ -76,4 +77,4 @@ for (const path of ['', 'tools/', 'projects/', 'notes/']) {
   }
 }
 console.log('Routes: redirects, GET/HEAD, preview noindex, HTML caching and localized canonical/og:url OK');
-console.log('Sitemap: 4 URLs with en, zh-CN and x-default alternates; page SEO links OK');
+console.log(`Sitemap: ${sitemapPaths.length} URLs with en, zh-CN and x-default alternates; page SEO links OK`);
