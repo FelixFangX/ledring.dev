@@ -78,3 +78,25 @@ for (const path of sitemapPaths) {
 }
 console.log('Routes: redirects, GET/HEAD, preview noindex, HTML caching and localized canonical/og:url OK');
 console.log(`Sitemap: ${sitemapPaths.length} URLs with en, zh-CN and x-default alternates; page SEO links OK`);
+
+// Discovery files must pass through ASSETS without localization or rewriting.
+for (const path of ['/llms.txt', '/projects.json']) {
+  const body = readFileSync(`public${path}`, 'utf8');
+  for (const method of ['GET', 'HEAD']) {
+    let fetched = false;
+    const headers = { 'Content-Type': path.endsWith('.json') ? 'application/json' : 'text/plain', 'Cache-Control': 'public, max-age=3600' };
+    const assets = { ASSETS: { async fetch(request) {
+      assert.equal(new URL(request.url).pathname, path);
+      assert.equal(request.method, 'GET');
+      fetched = true;
+      return new Response(body, { status: 200, headers });
+    } } };
+    const response = await worker.fetch(new Request(`https://ledring.dev${path}`, { method, headers: { 'Accept-Language': 'zh-CN' } }), assets);
+    assert(fetched);
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), method === 'HEAD' ? '' : body);
+    for (const [key, value] of Object.entries(headers)) assert.equal(response.headers.get(key), value);
+    assert.equal(response.headers.get('Vary'), null);
+  }
+}
+console.log('Discovery assets: /llms.txt and /projects.json pass through ASSETS unchanged with 200');

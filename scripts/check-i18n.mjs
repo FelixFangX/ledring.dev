@@ -1,6 +1,32 @@
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import vm from 'node:vm';
+import { execFileSync } from 'node:child_process';
+
+execFileSync(process.execPath, ['scripts/build-projects.mjs', '--check'], { stdio: 'inherit' });
+const lowercaseAgent = value => /\b(?:agent|agents)\b/.test(value.replace(/https?:\/\/[^\s"'<>]+/g, ''));
+function checkChinese(value, location) {
+  if (typeof value === 'string') assert(!lowercaseAgent(value), `${location}: use capitalized Agent`);
+  else if (value && typeof value === 'object') for (const [key, child] of Object.entries(value)) checkChinese(child, `${location}.${key}`);
+}
+for (const root of ['public', 'templates', 'data']) {
+  for (const file of readdirSync(root, { recursive: true, withFileTypes: true })) {
+    if (!file.isFile()) continue;
+    const path = `${file.parentPath || file.path}/${file.name}`;
+    assert(!readFileSync(path, 'utf8').includes('智能体'), `${path}: use Agent`);
+  }
+}
+function checkZhFields(value, location) {
+  if (!value || typeof value !== 'object') return;
+  for (const [key, child] of Object.entries(value)) {
+    if (key === 'zh' || key === 'zhName') checkChinese(child, `${location}.${key}`);
+    else checkZhFields(child, `${location}.${key}`);
+  }
+}
+checkZhFields(JSON.parse(readFileSync('data/projects.json', 'utf8')), 'data/projects.json');
+assert(readFileSync('public/llms.txt', 'utf8').startsWith('# '));
+assert.equal(JSON.parse(readFileSync('public/projects.json', 'utf8')).projects.length, 6);
+
 const cjk = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/u;
 const decode = s => s.replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16))).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ');
 // Include nested pages, generated showcase output and the source for future notes.
@@ -20,6 +46,9 @@ for (const file of [...pages, 'templates/note.html']) {
   const context = vm.createContext({ document });
   vm.runInContext((source.includes('var q=new') ? 'var D=document;'+source.slice(source.indexOf('var zh='), end) : source.slice(source.indexOf('var D='), end)), context);
   const { en, zh } = context;
+  checkChinese(zh, file);
+  const notes = scripts.join("\n").match(/var NOTES=(\[[\s\S]*?\]);/);
+  if (notes) checkZhFields(vm.runInNewContext(notes[1]), file);
   assert.deepEqual(Object.keys(en).sort(), Object.keys(zh).sort(), `${file}: dictionary keys differ`);
   for (const [key, value] of Object.entries(en)) assert(!cjk.test(value), `${file}: English ${key} contains CJK: ${value}`);
   const staticEnglish = decode(markup.replace(/(<button\b[^>]*\bid="lang"[^>]*>)中文(<\/button>)/g, '$1$2').replace(/<!--[\s\S]*?-->/g, ''));

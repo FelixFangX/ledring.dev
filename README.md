@@ -8,11 +8,11 @@ Source for **https://ledring.dev**, Felix Fang's personal site and the home of [
 - **About**: path (frontend → full-stack → AI-native), principles, and how I build with agents.
 - **LEDRING**: how to play, AI modes, content packs (EN dev pack and 中文 pack), the trace toolkit, and live links (Play, sample reports, concept demo).
 - **Tools page**: [/tools/](https://ledring.dev/tools/) lists Convert and Research, with live links, source and manually maintained status.
-- **Projects page**: [/projects/](https://ledring.dev/projects/) collects six projects, with factual features, stack tags and source links.
+- **Projects page**: [/projects/](https://ledring.dev/projects/) presents three case studies and six projects from `data/projects.json`. `scripts/build-projects.mjs` also generates [/llms.txt](https://ledring.dev/llms.txt) and [/projects.json](https://ledring.dev/projects.json).
 - **Notes page**: [/notes/](https://ledring.dev/notes/) is a bilingual index, initially empty.
 - **Selected work**: research-thinking-ai, lakeboard-converter, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
 - **Open source**: GitHub achievements and accepted answers.
-- **Now / Stack**: Become Human, the LEDRING roadmap, and the tools I use.
+- **Now / Stack**: Become Human and the tools I use.
 - **Off the clock**: coffee, two kittens, the gym and live shows, as hairline icons. There's also a rotating "Currently" line in the hero, and two kittens occasionally walk across the page (type `cats` in the terminal to call them).
 - **Contact**: felix@ledring.dev, [GitHub](https://github.com/FelixFangX), [X @ColeFangX](https://x.com/ColeFangX).
 
@@ -44,7 +44,10 @@ All responses on `*.workers.dev`, including redirects and HEAD requests, carry `
 
 ## Develop and deploy
 
+Run the projects builder before deploying. The offline checks reject stale generated output.
+
 ```sh
+node scripts/build-projects.mjs
 node scripts/check-i18n.mjs && node scripts/check-routes.mjs  # offline validation
 python3 -m http.server 8787 -d public            # local preview
 

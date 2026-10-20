@@ -1,0 +1,196 @@
+{
+  "site": "https://ledring.dev",
+  "projects": [
+    {
+      "name": "lakeboard-converter",
+      "slug": "lakeboard-converter",
+      "url": "https://convert.ledring.dev",
+      "source": "https://github.com/FelixFangX/lakeboard-converter",
+      "links": [
+        {
+          "url": "https://convert.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://www.npmjs.com/package/lakeboard-converter",
+          "en": "npm ↗",
+          "zh": "npm ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/lakeboard-converter",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "TUI",
+        "MCP",
+        "Web",
+        "v0.4.1",
+        "MIT"
+      ],
+      "mcp": "npx -y lakeboard-converter mcp",
+      "en": {
+        "pitch": "Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.",
+        "forAgents": "A read-only MCP tool, `convert`, that returns typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama."
+      },
+      "zh": {
+        "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
+        "forAgents": "一个只读的 MCP 工具 `convert`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。"
+      }
+    },
+    {
+      "name": "Research",
+      "slug": "research-thinking-ai",
+      "url": "https://research.ledring.dev",
+      "source": "https://github.com/FelixFangX/research-thinking-ai",
+      "links": [
+        {
+          "url": "https://research.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/research-thinking-ai",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "React",
+        "Cloudflare Workers",
+        "D1",
+        "Workers AI",
+        "OpenAlex",
+        "MCP"
+      ],
+      "en": {
+        "pitch": "For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan.",
+        "forAgents": "An MCP server with `propose_directions` and `expand`, both read-only. Each citation carries its check result, so an agent can see which ones are real."
+      },
+      "zh": {
+        "pitch": "有个模模糊糊的研究念头时用。给你几条排好序、有真论文撑腰的方向，外加一份 7 天计划。",
+        "forAgents": "一个 MCP 服务，提供 `propose_directions` 和 `expand` 两个只读工具。每条引用都带着核查结果，Agent 能看出哪些是真的。"
+      }
+    },
+    {
+      "name": "LEDRING / LEDRING Play",
+      "slug": "ledring",
+      "url": "https://play.ledring.dev/play/",
+      "source": "https://github.com/FelixFangX/ledring",
+      "links": [
+        {
+          "url": "https://play.ledring.dev/play/",
+          "en": "Play ↗",
+          "zh": "Play ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/ledring",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "pnpm monorepo",
+        "Zod",
+        "OpenTelemetry",
+        "Cloudflare Workers",
+        "D1"
+      ],
+      "en": {
+        "pitch": "Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships.",
+        "forAgents": "It learns permission rules from your own allow/deny history, turns a subagent into an A2A Agent Card, and runs as a GitHub Action. The game runs on the same engine, and every generated page is sandboxed and checked before you see it."
+      },
+      "zh": {
+        "pitch": "给 Agent 装的状态灯，外加一个浏览器小游戏：AI 现场写网页，上不上线你说了算。",
+        "forAgents": "能从你自己的允许/拒绝记录里学出权限规则，能把 Claude Code 的子 Agent 转成 A2A Agent Card，也能当 GitHub Action 跑。游戏用的是同一套引擎，AI 生成的每个页面都先进沙箱检查一遍，才会给你看。"
+      }
+    },
+    {
+      "name": "dev-work-grok-bot-skill",
+      "slug": "dev-work-grok-bot-skill",
+      "url": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+      "source": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "Agent skill",
+        "GitHub",
+        "Linear",
+        "MCP",
+        "Node test"
+      ],
+      "en": {
+        "pitch": "An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.",
+        "forAgents": "20 safety scenarios (relayed approvals, pasted tokens, prompt injection in repo files and web pages). CI checks the skill still states every rule they depend on. That's 20/20 today. Whether a model actually obeys them is a separate eval, and it hasn't been run yet."
+      },
+      "zh": {
+        "pitch": "一个 Agent skill，把聊天机器人调教成谨慎的开发助手：先出草稿，什么东西要发出去都先问你。",
+        "forAgents": "20 个安全场景（转述的授权、贴进来的 token、藏在仓库文件和网页里的提示注入）。CI 会检查 skill 里是否还写着每条场景依赖的规则，目前 20/20。模型到底听不听话是另一个评测，还没跑。"
+      }
+    },
+    {
+      "name": "n8n-workflow-collection",
+      "slug": "n8n-workflow-collection",
+      "url": "https://github.com/FelixFangX/n8n-workflow-collection",
+      "source": "https://github.com/FelixFangX/n8n-workflow-collection",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/n8n-workflow-collection",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "n8n",
+        "MCP",
+        "Feishu / Lark",
+        "Bitable"
+      ],
+      "en": {
+        "pitch": "Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics.",
+        "forAgents": "Every workflow comes with a manifest: input and output schema, side effects, and the exact `execute_workflow` call for n8n's MCP server. They all say \"ask first\", because each one writes data or spends quota."
+      },
+      "zh": {
+        "pitch": "导入就能用的 n8n 工作流，敏感信息已清理：飞书/Lark 机器人消息转成多维表格记录和 PRD 草稿，外加社媒数据追踪。",
+        "forAgents": "每个工作流都带一份 manifest：输入输出 schema、会产生什么副作用，以及调用 n8n MCP 服务时现成的 `execute_workflow` 参数。全部标了“先问人”，因为每个都会写数据或者花额度。"
+      }
+    },
+    {
+      "name": "FelixFangX · control room",
+      "slug": "felixfangx",
+      "url": "https://github.com/FelixFangX/FelixFangX",
+      "source": "https://github.com/FelixFangX/FelixFangX",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/FelixFangX",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "GitHub Actions",
+        "SVG",
+        "JavaScript"
+      ],
+      "en": {
+        "pitch": "My GitHub profile, rebuilt every day from real runs and evals.",
+        "forAgents": "It publishes `llms.txt` and `status.json`. Red means red, and missing data says \"no data\" instead of making something up."
+      },
+      "zh": {
+        "pitch": "我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",
+        "forAgents": "对外提供 `llms.txt` 和 `status.json`。红就是红，没数据就写“no data”，不编。"
+      }
+    }
+  ]
+}
