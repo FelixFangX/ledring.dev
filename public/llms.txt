@@ -1,0 +1,33 @@
+# ledring.dev
+
+> Open-source projects by Felix Fang: mind maps, research, agent traces and workflows, most with a side door for agents.
+
+## Projects
+
+- [lakeboard-converter](https://convert.ledring.dev): Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
+- [Research](https://research.ledring.dev): For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan. Source: [GitHub](https://github.com/FelixFangX/research-thinking-ai)
+- [LEDRING / LEDRING Play](https://play.ledring.dev/play/): Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships. Source: [GitHub](https://github.com/FelixFangX/ledring)
+- [dev-work-grok-bot-skill](https://github.com/FelixFangX/dev-work-grok-bot-skill): An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room. Source: [GitHub](https://github.com/FelixFangX/dev-work-grok-bot-skill)
+- [n8n-workflow-collection](https://github.com/FelixFangX/n8n-workflow-collection): Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics. Source: [GitHub](https://github.com/FelixFangX/n8n-workflow-collection)
+- [FelixFangX · control room](https://github.com/FelixFangX/FelixFangX): My GitHub profile, rebuilt every day from real runs and evals. Source: [GitHub](https://github.com/FelixFangX/FelixFangX)
+
+## Pages
+
+- [Projects](https://ledring.dev/projects/)
+- [Notes](https://ledring.dev/notes/)
+- [Mind maps for me, Markdown for my agents](https://ledring.dev/notes/mind-maps-to-markdown/)
+- [Tools](https://ledring.dev/tools/)
+
+## Tools
+
+- [Convert](https://convert.ledring.dev)
+- [Research](https://research.ledring.dev)
+- [LEDRING Play](https://play.ledring.dev/play/)
+
+## Machine-readable
+
+- [Projects JSON](https://ledring.dev/projects.json)
+
+## Elsewhere
+
+- [GitHub](https://github.com/FelixFangX)

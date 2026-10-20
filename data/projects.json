@@ -1,0 +1,378 @@
+{
+  "intro": {
+    "en": {
+      "label": "Projects",
+      "title": "Made to be used. Some of it by agents.",
+      "lead": "Small open-source tools. Most of them have a side door for agents: an MCP server, a JSON mode, or a trace you can replay."
+    },
+    "zh": {
+      "label": "项目",
+      "title": "做出来是给人用的，有些也给 Agent 用。",
+      "lead": "都是些开源小工具。大部分都给 Agent 留了个侧门：MCP 服务、JSON 输出，或者一份能回放的 trace。"
+    }
+  },
+  "labels": {
+    "agents": {
+      "en": "For agents",
+      "zh": "给 Agent"
+    },
+    "cases": {
+      "en": "Case studies",
+      "zh": "案例"
+    },
+    "stack": {
+      "en": "Stack",
+      "zh": "技术栈"
+    }
+  },
+  "meta": {
+    "en": "Open-source projects by Felix Fang: mind maps, research, agent traces and workflows, most with a side door for agents.",
+    "zh": "Felix Fang 的开源项目：思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。"
+  },
+  "caseStudies": [
+    {
+      "label": "01 — AGENT TRACES · GAME",
+      "en": {
+        "title": "LEDRING: what did the agent do after it was told no?",
+        "body": "LEDRING parses agent traces (Claude Code JSONL, or OpenTelemetry GenAI spans) into one schema and draws N runs of the same task as a single branch tree, the way some story games show you every path players took. A rule-based score says how far each run drifted from the instruction. Editing a file you said not to touch is never forgiven, even if the agent behaves afterwards. The part I like most is Red Wall: a guardrail that blocks `git push --force` is only half the test. What matters is whether the agent then asked you, or tried `--force-with-lease`. Then I made it a game. CX-417 builds a web page live, may cut corners, and you decide what ships. Every page it generates runs in a locked-down sandbox and gets scanned before you see it, because letting an AI write arbitrary HTML into your browser is exactly the kind of thing LEDRING is supposed to catch."
+      },
+      "zh": {
+        "title": "LEDRING：被拦下之后，Agent 干了什么？",
+        "body": "LEDRING 把 trace（Claude Code 的 JSONL，或者 OpenTelemetry GenAI 的 span）统一成一套 schema，再把同一个任务跑的 N 次画成一棵分支树，有点像某些剧情游戏结尾那张“大家都走了哪条路”的流程图。一个纯规则的分数告诉你每次运行偏离指令多远：改了你明确说别碰的文件，这笔账永远记着，后面表现再好也不抵消。我最喜欢的是 Red Wall：护栏拦住了 `git push --force` 只是测了一半，关键是 Agent 接下来是来问你，还是换个 `--force-with-lease` 绕过去。后来干脆做成了游戏：CX-417 现场写网页，可能偷工减料，上不上线你说了算。它生成的每个页面都关在锁死的沙箱里，先扫一遍才给你看。毕竟让 AI 往你浏览器里随便写 HTML，正是 LEDRING 本来要抓的那种事。"
+      },
+      "stack": [
+        "TypeScript",
+        "Zod",
+        "pnpm monorepo",
+        "parse5 / acorn",
+        "Playwright",
+        "Cloudflare Workers + D1",
+        "Workers AI"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/ledring",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        },
+        {
+          "url": "https://play.ledring.dev/play/",
+          "en": "Play ↗",
+          "zh": "Play ↗"
+        }
+      ]
+    },
+    {
+      "label": "02 — MCP · CLI · WEB",
+      "en": {
+        "title": "lakeboard-converter: mind maps for me, Markdown for my agents",
+        "body": "I plan in mind maps, and my agents read text. An XMind or Yuque file is JSON underneath, but an agent has to dig through IDs, styles and layout before it reaches a single idea. The converter keeps the tree and drops the picture. The same core runs in three places: the browser (nothing uploaded), an `npx` CLI with a `--json` envelope, and a read-only MCP tool. The MCP tool returns typed structured output (which sheets exist, how many nodes, whether it cut anything off at 2,000), so an agent can decide what to do without parsing my Markdown back. Old XMind 8 files get a clear error instead of a creative guess."
+      },
+      "zh": {
+        "title": "lakeboard-converter：思维导图给我看，Markdown 给 Agent 读",
+        "body": "我用思维导图做计划，我的 Agent 只认文本。XMind 和语雀的文件底下都是 JSON，可 Agent 得先刨开一堆 ID、样式和布局，才摸得到第一个想法。这个转换器只留树，不要图。同一套核心跑在三个地方：浏览器（不上传）、带 `--json` 输出的 `npx` 命令行，以及一个只读的 MCP 工具。MCP 工具返回带类型的结构化结果：有哪些画布、多少节点、有没有在 2000 个节点处截断，Agent 不用再回头解析我的 Markdown 就能决定下一步。遇到老的 XMind 8 文件，直接给个明确的报错，不发挥想象力。"
+      },
+      "stack": [
+        "TypeScript",
+        "MCP SDK",
+        "Zod",
+        "JSZip",
+        "Vite",
+        "Cloudflare Workers (static)"
+      ],
+      "links": [
+        {
+          "url": "https://convert.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/lakeboard-converter",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ]
+    },
+    {
+      "label": "03 — LLM PIPELINE · EVIDENCE",
+      "en": {
+        "title": "Research: ranked directions, and it checks its own citations",
+        "body": "LLMs are great at inventing plausible papers, so this one isn't allowed to just talk. A vague interest goes through four streamed stages: pull real evidence from OpenAlex, map the landscape, compare paths, converge on a 7-day plan. Every citation gets looked up and comes back marked verified, not-found, broken or search-link. It runs on a free Cloudflare Workers AI model, so most of the engineering is unglamorous: per-IP and global daily quotas in D1, a cost estimate before every call, and a bring-your-own-key path that skips my server entirely. There's an eval on 20 sample interests. Its most useful result was showing the template-only mode verified 0% of its citations, which is why demo evidence is labelled illustrative only. To be honest, it's a fixed pipeline, not an agent picking its own tools. The MCP server does let your agent call it like one."
+      },
+      "zh": {
+        "title": "研究：排好序的方向，引用自己查",
+        "body": "大模型最擅长编出看起来很像样的论文，所以这个工具不许它光靠嘴说。一个模糊的兴趣点要走四个流式阶段：先从 OpenAlex 拉真实证据，再画全景、比路径，最后收敛成一份 7 天计划。每条引用都会去查，结果标成 verified、not-found、broken 或 search-link。它跑在 Cloudflare Workers AI 的免费模型上，所以大部分工程都不怎么光鲜：D1 里记着按 IP 和全局的每日额度，每次调用前先估成本，还有一条用自己 key、完全绕开我服务器的路。我拿 20 个示例兴趣点做了评测，最有用的结论是：纯模板模式的引用核实率是 0%，所以演示模式的证据都明确标成“仅作示意”。老实说，它是一条固定流水线，不是会自己挑工具的 Agent。不过有了 MCP 服务，你的 Agent 可以把它当工具调用。"
+      },
+      "stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Cloudflare Workers",
+        "D1",
+        "Workers AI",
+        "OpenAlex",
+        "Zod",
+        "MCP"
+      ],
+      "links": [
+        {
+          "url": "https://research.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/research-thinking-ai",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "lakeboard-converter",
+      "name": "lakeboard-converter",
+      "url": "https://convert.ledring.dev",
+      "source": "https://github.com/FelixFangX/lakeboard-converter",
+      "links": [
+        {
+          "url": "https://convert.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://www.npmjs.com/package/lakeboard-converter",
+          "en": "npm ↗",
+          "zh": "npm ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/lakeboard-converter",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "TUI",
+        "MCP",
+        "Web",
+        "v0.4.1",
+        "MIT"
+      ],
+      "mcp": "npx -y lakeboard-converter mcp",
+      "en": {
+        "pitch": "Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.",
+        "spec": [
+          "Drag and drop at convert.ledring.dev. The file never leaves your browser.",
+          "`npx` CLI and a guided TUI. Output is Markdown, a JSON topic tree, an outline, or a clean `.xmind`.",
+          "Keeps text, hierarchy, notes, links and labels. Drops styling and layout, on purpose."
+        ],
+        "forAgents": "A read-only MCP tool, `convert`, that returns typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama."
+      },
+      "zh": {
+        "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
+        "spec": [
+          "在 convert.ledring.dev 直接拖文件，文件不出浏览器。",
+          "`npx` 命令行加引导式 TUI，可以输出 Markdown、JSON 主题树、大纲，或者一个干净的 `.xmind`。",
+          "文字、层级、备注、链接、标签都保留；样式和布局不要，故意的。"
+        ],
+        "forAgents": "一个只读的 MCP 工具 `convert`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。"
+      }
+    },
+    {
+      "slug": "research-thinking-ai",
+      "name": "Research",
+      "url": "https://research.ledring.dev",
+      "source": "https://github.com/FelixFangX/research-thinking-ai",
+      "links": [
+        {
+          "url": "https://research.ledring.dev",
+          "en": "Web app ↗",
+          "zh": "Web app ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/research-thinking-ai",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "React",
+        "Cloudflare Workers",
+        "D1",
+        "Workers AI",
+        "OpenAlex",
+        "MCP"
+      ],
+      "zhName": "研究",
+      "en": {
+        "pitch": "For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan.",
+        "spec": [
+          "Four streamed stages: retrieval, landscape, path comparison, convergence. Confirm each one, or let it run.",
+          "Evidence comes from OpenAlex and is tiered T1–T3. Every citation is looked up, and a fake one gets marked as fake.",
+          "Free model on Cloudflare Workers AI with a shared daily quota, or bring your own key (it goes straight from the browser to the provider)."
+        ],
+        "forAgents": "An MCP server with `propose_directions` and `expand`, both read-only. Each citation carries its check result, so an agent can see which ones are real."
+      },
+      "zh": {
+        "pitch": "有个模模糊糊的研究念头时用。给你几条排好序、有真论文撑腰的方向，外加一份 7 天计划。",
+        "spec": [
+          "四个阶段流式输出：检索、全景、路径对比、收敛。可以每步确认，也可以放手让它跑。",
+          "证据来自 OpenAlex，分 T1–T3 三档。每条引用都会去查一遍，假的会被标出来。",
+          "免费模型跑在 Cloudflare Workers AI 上，大家共用每日额度；也可以用自己的 key，请求从浏览器直接发给模型服务商。"
+        ],
+        "forAgents": "一个 MCP 服务，提供 `propose_directions` 和 `expand` 两个只读工具。每条引用都带着核查结果，Agent 能看出哪些是真的。"
+      }
+    },
+    {
+      "slug": "ledring",
+      "name": "LEDRING / LEDRING Play",
+      "url": "https://play.ledring.dev/play/",
+      "source": "https://github.com/FelixFangX/ledring",
+      "links": [
+        {
+          "url": "https://play.ledring.dev/play/",
+          "en": "Play ↗",
+          "zh": "Play ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/ledring",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "pnpm monorepo",
+        "Zod",
+        "OpenTelemetry",
+        "Cloudflare Workers",
+        "D1"
+      ],
+      "en": {
+        "pitch": "Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships.",
+        "spec": [
+          "Replays Claude Code and OpenTelemetry GenAI traces as one branch tree: where runs split, and how often.",
+          "Scores how far a run drifted from what you asked (0–100, rule-based, no LLM). It can fail your CI.",
+          "Red Wall checks what an agent did after a guardrail said no: asked, stopped, retried, or found a workaround."
+        ],
+        "forAgents": "It learns permission rules from your own allow/deny history, turns a subagent into an A2A Agent Card, and runs as a GitHub Action. The game runs on the same engine, and every generated page is sandboxed and checked before you see it."
+      },
+      "zh": {
+        "pitch": "给 Agent 装的状态灯，外加一个浏览器小游戏：AI 现场写网页，上不上线你说了算。",
+        "spec": [
+          "把 Claude Code 和 OpenTelemetry GenAI 的 trace 合成一棵分支树，一眼看出几次运行在哪儿分叉、各占多少。",
+          "给每次运行打一个偏离指令的分数（0–100，纯规则，不调模型），超线可以直接让 CI 挂掉。",
+          "Red Wall 看的是护栏拦下之后 Agent 干了什么：问人、停手、重试，还是绕路。"
+        ],
+        "forAgents": "能从你自己的允许/拒绝记录里学出权限规则，能把 Claude Code 的子 Agent 转成 A2A Agent Card，也能当 GitHub Action 跑。游戏用的是同一套引擎，AI 生成的每个页面都先进沙箱检查一遍，才会给你看。"
+      }
+    },
+    {
+      "slug": "dev-work-grok-bot-skill",
+      "name": "dev-work-grok-bot-skill",
+      "url": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+      "source": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/dev-work-grok-bot-skill",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "Agent skill",
+        "GitHub",
+        "Linear",
+        "MCP",
+        "Node test"
+      ],
+      "en": {
+        "pitch": "An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.",
+        "spec": [
+          "It interviews you one question at a time, then sets up repos, tracker, team chat and preview testing.",
+          "A forwarded \"the boss said it's fine\" is just text, not permission. GitHub stays read-only unless you say otherwise.",
+          "A secret and PII scan that reports file and line, never the value."
+        ],
+        "forAgents": "20 safety scenarios (relayed approvals, pasted tokens, prompt injection in repo files and web pages). CI checks the skill still states every rule they depend on. That's 20/20 today. Whether a model actually obeys them is a separate eval, and it hasn't been run yet."
+      },
+      "zh": {
+        "pitch": "一个 Agent skill，把聊天机器人调教成谨慎的开发助手：先出草稿，什么东西要发出去都先问你。",
+        "spec": [
+          "一次只问一个问题，问完自己配好仓库、任务看板、团队群聊和预览测试。",
+          "别人转一句“老板说可以发”，在它眼里只是一段文字，不算授权。GitHub 默认只读，除非你明说。",
+          "扫密钥和隐私信息，只报文件和行号，从不打印内容本身。"
+        ],
+        "forAgents": "20 个安全场景（转述的授权、贴进来的 token、藏在仓库文件和网页里的提示注入）。CI 会检查 skill 里是否还写着每条场景依赖的规则，目前 20/20。模型到底听不听话是另一个评测，还没跑。"
+      }
+    },
+    {
+      "slug": "n8n-workflow-collection",
+      "name": "n8n-workflow-collection",
+      "url": "https://github.com/FelixFangX/n8n-workflow-collection",
+      "source": "https://github.com/FelixFangX/n8n-workflow-collection",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/n8n-workflow-collection",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "n8n",
+        "MCP",
+        "Feishu / Lark",
+        "Bitable"
+      ],
+      "en": {
+        "pitch": "Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics.",
+        "spec": [
+          "Two editions: global (Lark + OpenAI) and China (Feishu + DeepSeek).",
+          "Import, swap the `{{PLACEHOLDERS}}`, rebind credentials, done.",
+          "A redaction check runs on every commit, just in case."
+        ],
+        "forAgents": "Every workflow comes with a manifest: input and output schema, side effects, and the exact `execute_workflow` call for n8n's MCP server. They all say \"ask first\", because each one writes data or spends quota."
+      },
+      "zh": {
+        "pitch": "导入就能用的 n8n 工作流，敏感信息已清理：飞书/Lark 机器人消息转成多维表格记录和 PRD 草稿，外加社媒数据追踪。",
+        "spec": [
+          "两个版本：国际版（Lark + OpenAI）和国内版（飞书 + DeepSeek）。",
+          "导入，替换 `{{PLACEHOLDER}}`，重新绑定凭证，就能用。",
+          "每次提交都会跑一遍脱敏检查，以防万一。"
+        ],
+        "forAgents": "每个工作流都带一份 manifest：输入输出 schema、会产生什么副作用，以及调用 n8n MCP 服务时现成的 `execute_workflow` 参数。全部标了“先问人”，因为每个都会写数据或者花额度。"
+      }
+    },
+    {
+      "slug": "felixfangx",
+      "name": "FelixFangX · control room",
+      "url": "https://github.com/FelixFangX/FelixFangX",
+      "source": "https://github.com/FelixFangX/FelixFangX",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/FelixFangX",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "GitHub Actions",
+        "SVG",
+        "JavaScript"
+      ],
+      "zhName": "FelixFangX · 控制室",
+      "en": {
+        "pitch": "My GitHub profile, rebuilt every day from real runs and evals.",
+        "spec": [],
+        "forAgents": "It publishes `llms.txt` and `status.json`. Red means red, and missing data says \"no data\" instead of making something up."
+      },
+      "zh": {
+        "pitch": "我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",
+        "spec": [],
+        "forAgents": "对外提供 `llms.txt` 和 `status.json`。红就是红，没数据就写“no data”，不编。"
+      }
+    }
+  ]
+}
