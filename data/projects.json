@@ -181,6 +181,50 @@
       }
     },
     {
+      "slug": "dashtaste",
+      "name": "dashtaste",
+      "url": "https://github.com/FelixFangX/dashtaste",
+      "source": "https://github.com/FelixFangX/dashtaste",
+      "links": [
+        {
+          "url": "https://www.npmjs.com/package/dashtaste",
+          "en": "npm ↗",
+          "zh": "npm ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/dashtaste",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "ECharts",
+        "Agent skill",
+        "v0.0.2",
+        "MIT"
+      ],
+      "en": {
+        "pitch": "A style linter and taste rules for dashboard charts. ECharts-oriented, with global and cn packs.",
+        "spec": [
+          "`dashtaste check` scores chart configs and rendered dashboards against pack rules.",
+          "Two style packs: global (green up / red down) and cn (red up / green down, wan/yi units).",
+          "Gallery before/after boards show the same data cleaned by each pack."
+        ],
+        "forAgents": "Install `dashtaste-global` or `dashtaste-cn` as an Agent skill (`npx skills add FelixFangX/dashtaste`). The CLI returns JSON findings with rule IDs, fixes, and a 0–100 score."
+      },
+      "zh": {
+        "pitch": "仪表盘图表的风格检查和审美规则。面向 ECharts，有 global 和 cn 两套包。",
+        "spec": [
+          "`dashtaste check` 按包规则给图表配置和渲染后的看板打分。",
+          "两套风格包：global（绿涨红跌）和 cn（红涨绿跌，万/亿单位）。",
+          "画廊用同一份数据对比 before/after，看每套包怎么修。"
+        ],
+        "forAgents": "用 `npx skills add FelixFangX/dashtaste` 装 `dashtaste-global` 或 `dashtaste-cn` 作为 Agent skill。CLI 返回带规则 ID、修复建议和 0–100 分的 JSON 结果。"
+      }
+    },
+    {
       "slug": "research-thinking-ai",
       "name": "Research",
       "url": "https://research.ledring.dev",

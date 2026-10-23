@@ -5,6 +5,7 @@
 ## Projects
 
 - [lakeboard-converter](https://convert.ledring.dev): Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
+- [dashtaste](https://github.com/FelixFangX/dashtaste): A style linter and taste rules for dashboard charts. ECharts-oriented, with global and cn packs. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
 - [Research](https://research.ledring.dev): For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan. Source: [GitHub](https://github.com/FelixFangX/research-thinking-ai)
 - [LEDRING / LEDRING Play](https://play.ledring.dev/play/): Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships. Source: [GitHub](https://github.com/FelixFangX/ledring)
 - [dev-work-grok-bot-skill](https://github.com/FelixFangX/dev-work-grok-bot-skill): An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room. Source: [GitHub](https://github.com/FelixFangX/dev-work-grok-bot-skill)
