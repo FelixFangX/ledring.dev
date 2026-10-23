@@ -29,17 +29,17 @@
         "TUI",
         "MCP",
         "Web",
-        "v0.4.1",
+        "v0.5.0",
         "MIT"
       ],
       "mcp": "npx -y lakeboard-converter mcp",
       "en": {
         "pitch": "Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.",
-        "forAgents": "A read-only MCP tool, `convert`, that returns typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama."
+        "forAgents": "Four read-only MCP tools — `convert`, `from_markdown`, `convert_many`, and `inspect` — returning typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama. npm 0.5.0."
       },
       "zh": {
         "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
-        "forAgents": "一个只读的 MCP 工具 `convert`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。"
+        "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
       }
     },
     {

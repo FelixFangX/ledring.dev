@@ -157,7 +157,7 @@
         "TUI",
         "MCP",
         "Web",
-        "v0.4.1",
+        "v0.5.0",
         "MIT"
       ],
       "mcp": "npx -y lakeboard-converter mcp",
@@ -168,7 +168,7 @@
           "`npx` CLI and a guided TUI. Output is Markdown, a JSON topic tree, an outline, or a clean `.xmind`.",
           "Keeps text, hierarchy, notes, links and labels. Drops styling and layout, on purpose."
         ],
-        "forAgents": "A read-only MCP tool, `convert`, that returns typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama."
+        "forAgents": "Four read-only MCP tools — `convert`, `from_markdown`, `convert_many`, and `inspect` — returning typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama. npm 0.5.0."
       },
       "zh": {
         "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
@@ -177,7 +177,7 @@
           "`npx` 命令行加引导式 TUI，可以输出 Markdown、JSON 主题树、大纲，或者一个干净的 `.xmind`。",
           "文字、层级、备注、链接、标签都保留；样式和布局不要，故意的。"
         ],
-        "forAgents": "一个只读的 MCP 工具 `convert`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。"
+        "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
       }
     },
     {
