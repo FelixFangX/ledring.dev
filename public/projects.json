@@ -54,6 +54,11 @@
           "zh": "npm ↗"
         },
         {
+          "url": "https://github.com/FelixFangX/dashtaste#gallery",
+          "en": "Gallery ↗",
+          "zh": "Gallery ↗"
+        },
+        {
           "url": "https://github.com/FelixFangX/dashtaste",
           "en": "GitHub ↗",
           "zh": "GitHub ↗"
@@ -64,7 +69,7 @@
         "CLI",
         "ECharts",
         "Agent skill",
-        "v0.0.2",
+        "v0.0.4",
         "MIT"
       ],
       "en": {
