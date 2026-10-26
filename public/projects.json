@@ -73,12 +73,12 @@
         "MIT"
       ],
       "en": {
-        "pitch": "A style linter and taste rules for dashboard charts. ECharts-oriented, with global and cn packs.",
-        "forAgents": "Install `dashtaste-global` or `dashtaste-cn` as an Agent skill (`npx skills add FelixFangX/dashtaste`). The CLI returns JSON findings with rule IDs, fixes, and a 0–100 score."
+        "pitch": "Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise.",
+        "forAgents": "Install `dashtaste-global` or `dashtaste-cn` with `npx skills add FelixFangX/dashtaste`. Apply the skill, run the check, and revise from JSON findings with rule IDs, fixes, and a 0–100 score. Carry local rules in `--pack-file` overlays; use `docs/cases` to narrate gallery changes."
       },
       "zh": {
-        "pitch": "仪表盘图表的风格检查和审美规则。面向 ECharts，有 global 和 cn 两套包。",
-        "forAgents": "用 `npx skills add FelixFangX/dashtaste` 装 `dashtaste-global` 或 `dashtaste-cn` 作为 Agent skill。CLI 返回带规则 ID、修复建议和 0–100 分的 JSON 结果。"
+        "pitch": "把仪表盘审美做成 skill + check 闭环：用 skill 调整 ECharts 图表，检查结果，再修改。",
+        "forAgents": "用 `npx skills add FelixFangX/dashtaste` 安装 `dashtaste-global` 或 `dashtaste-cn`。先按 skill 调整，再运行检查，根据带规则 ID、修复建议和 0–100 分的 JSON 结果继续修改。用 `--pack-file` 叠加本地规则，用 `docs/cases` 讲解画廊中的变化。"
       }
     },
     {
