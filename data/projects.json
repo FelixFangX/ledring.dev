@@ -66,11 +66,11 @@
       "label": "02 — MCP · CLI · WEB",
       "en": {
         "title": "lakeboard-converter: mind maps for me, Markdown for my agents",
-        "body": "I plan in mind maps, and my agents read text. An XMind or Yuque file is JSON underneath, but an agent has to dig through IDs, styles and layout before it reaches a single idea. The converter keeps the tree and drops the picture. The same core runs in three places: the browser (nothing uploaded), an `npx` CLI with a `--json` envelope, and a read-only MCP tool. The MCP tool returns typed structured output (which sheets exist, how many nodes, whether it cut anything off at 2,000), so an agent can decide what to do without parsing my Markdown back. Old XMind 8 files get a clear error instead of a creative guess."
+        "body": "I plan in mind maps, and my agents read text. An XMind or Yuque file is JSON underneath, but an agent has to dig through IDs, styles and layout before it reaches a single idea. The converter keeps the tree and drops the picture. The same core runs in three places: the browser (nothing uploaded), an `npx` CLI with a `--json` envelope, and four read-only MCP tools (`convert`, `from_markdown`, `convert_many`, `inspect`). The tools return typed structured output (which sheets exist, how many nodes, whether it cut anything off at 2,000), so an agent can decide what to do without parsing my Markdown back. Old XMind 8 files get a clear error instead of a creative guess."
       },
       "zh": {
         "title": "lakeboard-converter：思维导图给我看，Markdown 给 Agent 读",
-        "body": "我用思维导图做计划，我的 Agent 只认文本。XMind 和语雀的文件底下都是 JSON，可 Agent 得先刨开一堆 ID、样式和布局，才摸得到第一个想法。这个转换器只留树，不要图。同一套核心跑在三个地方：浏览器（不上传）、带 `--json` 输出的 `npx` 命令行，以及一个只读的 MCP 工具。MCP 工具返回带类型的结构化结果：有哪些画布、多少节点、有没有在 2000 个节点处截断，Agent 不用再回头解析我的 Markdown 就能决定下一步。遇到老的 XMind 8 文件，直接给个明确的报错，不发挥想象力。"
+        "body": "我用思维导图做计划，我的 Agent 只认文本。XMind 和语雀的文件底下都是 JSON，可 Agent 得先刨开一堆 ID、样式和布局，才摸得到第一个想法。这个转换器只留树，不要图。同一套核心跑在三个地方：浏览器（不上传）、带 `--json` 输出的 `npx` 命令行，以及四个只读 MCP 工具（`convert`、`from_markdown`、`convert_many`、`inspect`）。这些工具返回带类型的结构化结果：有哪些画布、多少节点、有没有在 2000 个节点处截断，Agent 不用再回头解析我的 Markdown 就能决定下一步。遇到老的 XMind 8 文件，直接给个明确的报错，不发挥想象力。"
       },
       "stack": [
         "TypeScript",
