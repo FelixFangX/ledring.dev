@@ -391,6 +391,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 @media(max-width:400px){.tools{gap:.3rem}.tools button,.tools a{padding:0 .5rem}#theme{padding:0 .5rem;gap:.3rem}.mark{gap:.35rem;font-size:11px;letter-spacing:.04em}.mark canvas{width:18px;height:18px}}
 @media(max-width:48rem){.bar .nav-secondary{display:none}.bar .wrap,.bar .tools{flex-wrap:nowrap;white-space:nowrap}.bar .tools{flex-shrink:0;gap:.3rem}.bar .tools a,.bar .tools button{padding:0 .5rem}.bar #theme{padding:0 .5rem;gap:.3rem}}
 </style>
+<link rel="stylesheet" href="/atelier.css">
 </head>
 <body>
 <div class="lights" id="lights" aria-hidden="true"></div>
@@ -423,6 +424,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
     <h2 class="lab m" id="h-about" data-i18n="aboutL">Craft</h2>
     <div class="body">
       <p class="split" data-i18n="ab1">Felix. I build with AI agents and like making things that are fun to use. LEDRING started as status lights for agents and turned into a game where you try to stop one.</p>
+      <div class="craft-path"><span data-i18n="craftHuman">Human intent</span><i aria-hidden="true">→</i><span data-i18n="craftAgent">Agent code</span><i aria-hidden="true">→</i><span data-i18n="craftCare">Care in every detail</span></div>
       <p class="split ab2" data-i18n="ab2">Craft still matters, even with machines in the room.</p>
     </div>
   </div>
@@ -471,7 +473,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
     <h2 class="lab m" id="h-sel" data-i18n="selL">Work</h2>
     <ol class="work body">
       <li class="fade"><a class="nm" href="https://github.com/FelixFangX/research-thinking-ai">research-thinking-ai</a><div class="meta"><p data-i18n="w1">For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW involvement; four stages, streamed.</li><li data-i18n="w1b">Evidence tiered T1–T3, and every citation gets checked.</li><li data-i18n="w1c">Comes with an MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Cloudflare Workers</li><li>D1</li><li>Workers AI</li></ul></div><div class="wl"><a href="https://research.ledring.dev" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/research-thinking-ai" data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">A read-only MCP tool, so agents can read your maps too.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li data-i18n="webTag">Web</li></ul></div><div class="wl"><a href="https://convert.ledring.dev" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" href="https://github.com/FelixFangX/lakeboard-converter">lakeboard-converter</a><div class="meta"><p data-i18n="w2">Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Four read-only MCP tools — convert, from_markdown, convert_many, and inspect — so agents get typed structure, not a wall of text.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li data-i18n="webTag">Web</li></ul></div><div class="wl"><a href="https://convert.ledring.dev" data-i18n="demo">Demo ↗</a><a href="https://github.com/FelixFangX/lakeboard-converter" data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dashtaste">dashtaste</a><div class="meta"><p data-i18n="w6">A style linter and taste rules for dashboard charts. ECharts-oriented, with global and cn packs.</p><ul class="kf"><li data-i18n="w6a">`dashtaste check` for configs or rendered dashboards.</li><li data-i18n="w6b">Agent skills for the global and cn packs.</li><li data-i18n="w6c">Gallery before/after on the same seeded data.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>ECharts</li><li data-i18n="skillTag">Agent skill</li></ul></div><div class="wl"><a href="https://www.npmjs.com/package/dashtaste">npm ↗</a><a href="https://github.com/FelixFangX/dashtaste#gallery">Gallery ↗</a><a href="https://github.com/FelixFangX/dashtaste" data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" href="https://github.com/FelixFangX/n8n-workflow-collection">n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics.</p><ul class="kf"><li data-i18n="w3a">Global (Lark + OpenAI) and China (Feishu + DeepSeek) editions.</li><li data-i18n="w3b">Each one ships a manifest, so agents can run it through n8n MCP.</li><li data-i18n="w3c">A redaction check runs on every commit, just in case.</li></ul><ul class="tags"><li>n8n</li><li data-i18n="feishuTag">Feishu / Lark</li><li data-i18n="bitableTag">Bitable</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/n8n-workflow-collection" data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" href="https://github.com/FelixFangX/dev-work-grok-bot-skill">dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.</p><ul class="kf"><li data-i18n="w4a">Drafts first. Nothing goes out until you say so.</li><li data-i18n="w4b">20 safety scenarios, 20/20 rule coverage in CI.</li><li data-i18n="w4c">Checks for secrets and PII without ever printing what it found.</li></ul><ul class="tags"><li data-i18n="skillTag">Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a href="https://github.com/FelixFangX/dev-work-grok-bot-skill" data-i18n="code">Code ↗</a></div></li>
@@ -566,7 +568,7 @@ var RM=matchMedia('(prefers-reduced-motion: reduce)');
   im.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"})();
 /* one shared rAF: every loop queues itself here, so the browser runs a single callback per frame */
 var _Q=[],_qs=false;function _run(t){_qs=false;var a=_Q;_Q=[];for(var i=0;i<a.length;i++)a[i](t)}function raf(f){if(_Q.indexOf(f)<0)_Q.push(f);if(!_qs){_qs=true;requestAnimationFrame(_run)}}
-var zh={navprojects:"项目",navnotes:"笔记",skip:"跳到作品",role:"快的软件，细的界面，开源，和一杯冰美式",
+var zh={craftHuman:"人的想法",craftAgent:"Agent 的代码",craftCare:"每个细节都用心",navprojects:"项目",navnotes:"笔记",skip:"跳到作品",role:"快的软件，细的界面，开源，和一杯冰美式",
 aboutL:"手艺",ab1:"Felix。和 AI Agent 一起做东西，也爱做点好玩的。LEDRING 本来是给 Agent 装的状态灯，后来做成了一个拦住 AI 的小游戏。",ab2:"手艺这件事，机器来了也一样。",
 line:"给 AI Agent 装的状态灯。顺手做成了一个网页游戏：你负责拦住它。",play:"玩一把",
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
@@ -581,7 +583,7 @@ modeL:"用哪个 AI",m1:"LEDRING 免费 AI：不用 API 密钥，不用注册，
 packL:"内容包",k1:"开发者包（英文）：贪吃蛇、番茄钟、画板这些。",k2:"中文包：已读不回、摸鱼被抓、AI 删库……结尾送一张分享卡。",k3:"做完的作品能发到 api.ledring.dev，和别人的摆在一起。",
 kitL:"工具箱",t1:"flowchart：N 次运行合成一棵树，一个离线 HTML 就能看。",t2:"instability：0–100 的跑偏分，加 --fail-above 能直接卡住 CI。",t3:"trust / card / Red Wall：权限规则、A2A 卡片、护栏测试。",
 w1a:"高 / 低两档参与度，四个阶段流式出结果。",w1b:"证据分 T1–T3，引用一条条核过。",w1c:"带 MCP，每周还去 OpenAlex 看看有啥新的。",
-w2a:"命令行、TUI、浏览器拖拽，三选一。",w2b:"文字、层级、备注、链接都留着。",w2c:"附带只读 MCP，Agent 也能读你的导图。",
+w2a:"命令行、TUI、浏览器拖拽，三选一。",w2b:"文字、层级、备注、链接都留着。",w2c:"四个只读 MCP 工具：convert、from_markdown、convert_many、inspect，Agent 拿到的是带类型的结构，不是一大坨文本。",
 w3a:"国际版 Lark + OpenAI，国内版飞书 + DeepSeek。",w3b:"每个都带清单文件，Agent 能通过 n8n MCP 调。",w3c:"每次提交都过一遍脱敏检查，以防万一。",
 w4a:"先出草稿，你点头才发。",w4b:"20 个安全场景，CI 里规则覆盖 20/20。",w4c:"查密钥和隐私信息，查到了也不打印出来。",
 w5:"我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",w5a:"GitHub Actions 每天按真实运行和评测结果重画一遍。",w5b:"挂了就显示挂了。Agent 可以读 llms.txt 和 status.json。",
