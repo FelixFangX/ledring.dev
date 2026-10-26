@@ -32,3 +32,4 @@
 @media(max-width:40rem){.tl-intro::after{opacity:.45}.craft-path{gap:.6rem}.tl-intro h1{max-width:12ch}}
 @media(prefers-reduced-motion:reduce){.tl-card,#selected .work>li{transition:none}}
 #selected .work .nm{display:block}
+.craft-note{margin-top:2rem;font-size:.72rem;line-height:1.7;color:var(--acc)}
