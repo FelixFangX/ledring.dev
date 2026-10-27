@@ -532,7 +532,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 <section class="blk" id="path" aria-labelledby="h-path">
   <div class="wrap g12">
     <h2 class="lab m" id="h-path" data-i18n="pathL">Path</h2>
-    <div class="body"><p class="pths" data-i18n="pathS">Every section you visit lights up. Like any flowchart, some branches only open if you make a choice.</p><div class="flow fade" id="flow"></div></div>
+    <div class="body"><p class="pths" data-i18n="pathS">Every section you visit lights up. Like any flowchart, some branches only open if you make a choice.</p><div class="path-ruler" id="path-ruler" aria-hidden="true"></div><div class="flow fade" id="flow"></div></div>
   </div>
 </section>
 
@@ -886,6 +886,7 @@ var flow=D.getElementById('flow');
   flow.querySelectorAll('.nd').forEach(function(n){var id=n.dataset.n,go=function(){var t=id==='top'?D.body:D.getElementById(id);t&&t.scrollIntoView({behavior:RM.matches?'auto':'smooth'})};n.onclick=go;n.onkeydown=function(e){if(e.key==='Enter')go()}})})();
 window.flowSet=function(){if(!flow.firstChild)return;var c=0;flow.querySelectorAll('.nd').forEach(function(n){var on=!!VIS[n.dataset.n]||(n.dataset.n==='human'&&VIS.dev);n.classList.toggle('on',on);if(on)c++});
   flow.querySelectorAll('.ed').forEach(function(e){e.classList.toggle('on',e.dataset.b==='obey'?(VIS.human&&!VIS.dev):e.dataset.a==='wall'?!!VIS.dev:!!(VIS[e.dataset.a]&&VIS[e.dataset.b]))});
+  var pr=D.getElementById('path-ruler');if(pr)pr.style.setProperty('--progress',(c/FN.length*100)+'%');
   D.getElementById('fpct').textContent=(cur==='zh'?'已探索 ':'EXPLORED ')+Math.round(c/FN.length*100)+'%'+(VIS.dev?(cur==='zh'?' · 你偏离了指令':' · YOU DEVIATED'):'')};
 var fio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){VIS[e.target.id==='hero'||e.target.classList.contains('hero')?'top':e.target.id]=1}});flowSet()},{threshold:.15});
 fio.observe(hero);FN.forEach(function(f){var el=D.getElementById(f[0]);if(el&&f[0]!=='top')fio.observe(el)});
