@@ -2,6 +2,41 @@
   "site": "https://ledring.dev",
   "projects": [
     {
+      "name": "maptaste",
+      "slug": "maptaste",
+      "url": "https://github.com/FelixFangX/maptaste",
+      "source": "https://github.com/FelixFangX/maptaste",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/maptaste#demo",
+          "en": "Demo ↗",
+          "zh": "Demo ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/maptaste",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "MapLibre",
+        "MCP",
+        "Agent skill",
+        "MIT"
+      ],
+      "mcp": "maptaste-mcp",
+      "en": {
+        "pitch": "MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues.",
+        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
+      },
+      "zh": {
+        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载技能包，把彩虹建筑变成电影感顺序蓝。",
+        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
+      }
+    },
+    {
       "name": "lakeboard-converter",
       "slug": "lakeboard-converter",
       "url": "https://convert.ledring.dev",
@@ -40,41 +75,6 @@
       "zh": {
         "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
         "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
-      }
-    },
-    {
-      "name": "maptaste",
-      "slug": "maptaste",
-      "url": "https://github.com/FelixFangX/maptaste",
-      "source": "https://github.com/FelixFangX/maptaste",
-      "links": [
-        {
-          "url": "https://github.com/FelixFangX/maptaste#demo",
-          "en": "Demo ↗",
-          "zh": "Demo ↗"
-        },
-        {
-          "url": "https://github.com/FelixFangX/maptaste",
-          "en": "GitHub ↗",
-          "zh": "GitHub ↗"
-        }
-      ],
-      "chips": [
-        "TypeScript",
-        "CLI",
-        "MapLibre",
-        "MCP",
-        "Agent skill",
-        "MIT"
-      ],
-      "mcp": "maptaste-mcp",
-      "en": {
-        "pitch": "MapLibre style taste for coding agents: check the style, load a skill pack, and compare Before / After on a real city map.",
-        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
-      },
-      "zh": {
-        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载 skill pack，再在真实城市地图上看 Before / After。",
-        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
       }
     },
     {

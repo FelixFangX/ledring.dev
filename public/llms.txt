@@ -4,8 +4,8 @@
 
 ## Projects
 
+- [maptaste](https://github.com/FelixFangX/maptaste): MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
 - [lakeboard-converter](https://convert.ledring.dev): Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
-- [maptaste](https://github.com/FelixFangX/maptaste): MapLibre style taste for coding agents: check the style, load a skill pack, and compare Before / After on a real city map. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
 - [dashtaste](https://github.com/FelixFangX/dashtaste): Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
 - [Research](https://research.ledring.dev): For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan. Source: [GitHub](https://github.com/FelixFangX/research-thinking-ai)
 - [LEDRING / LEDRING Play](https://play.ledring.dev/play/): Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships. Source: [GitHub](https://github.com/FelixFangX/ledring)

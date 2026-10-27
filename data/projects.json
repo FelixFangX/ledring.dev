@@ -31,7 +31,36 @@
   },
   "caseStudies": [
     {
-      "label": "01 — AGENT TRACES · GAME",
+      "label": "01 — MAP STYLE · AGENTS",
+      "en": {
+        "title": "maptaste: give agents a better eye for maps",
+        "body": "Coding agents ship rainbow MapLibre styles. maptaste gives them a check + revise loop: global and cn skill packs set the rules, `maptaste check` returns scored findings, and MCP brings the checks into their workflow. The Before / After showcase puts the result on real OpenFreeMap San Francisco buildings at pitch ~57°: Set1 categorical Before, cinematic sequential-blue After. Light / Dark toggles change paint only, keeping the city and camera fixed so the styling speaks for itself."
+      },
+      "zh": {
+        "title": "maptaste：让 Agent 写地图时更有品味",
+        "body": "写代码的 Agent 常把 MapLibre 地图做成彩虹。maptaste 给它们一套检查再修改的闭环：global 和 cn 技能包定规则，`maptaste check` 返回评分和问题，MCP 把检查接进工作流。Before / After showcase 把结果放到真实的 OpenFreeMap 旧金山建筑上，俯仰约 57°：Before 是 Set1 分类色，After 是电影感顺序蓝。Light / Dark 切换只改 paint，城市和镜头保持一致，让样式自己说话。"
+      },
+      "stack": [
+        "TypeScript",
+        "MapLibre",
+        "MCP",
+        "Vite"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/maptaste#demo",
+          "en": "Demo ↗",
+          "zh": "Demo ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/maptaste",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ]
+    },
+    {
+      "label": "02 — AGENT TRACES · GAME",
       "en": {
         "title": "LEDRING: what did the agent do after it was told no?",
         "body": "LEDRING parses agent traces (Claude Code JSONL, or OpenTelemetry GenAI spans) into one schema and draws N runs of the same task as a single branch tree, the way some story games show you every path players took. A rule-based score says how far each run drifted from the instruction. Editing a file you said not to touch is never forgiven, even if the agent behaves afterwards. The part I like most is Red Wall: a guardrail that blocks `git push --force` is only half the test. What matters is whether the agent then asked you, or tried `--force-with-lease`. Then I made it a game. CX-417 builds a web page live, may cut corners, and you decide what ships. Every page it generates runs in a locked-down sandbox and gets scanned before you see it, because letting an AI write arbitrary HTML into your browser is exactly the kind of thing LEDRING is supposed to catch."
@@ -63,7 +92,7 @@
       ]
     },
     {
-      "label": "02 — MCP · CLI · WEB",
+      "label": "03 — MCP · CLI · WEB",
       "en": {
         "title": "lakeboard-converter: mind maps for me, Markdown for my agents",
         "body": "I plan in mind maps, and my agents read text. An XMind or Yuque file is JSON underneath, but an agent has to dig through IDs, styles and layout before it reaches a single idea. The converter keeps the tree and drops the picture. The same core runs in three places: the browser (nothing uploaded), an `npx` CLI with a `--json` envelope, and four read-only MCP tools (`convert`, `from_markdown`, `convert_many`, `inspect`). The tools return typed structured output (which sheets exist, how many nodes, whether it cut anything off at 2,000), so an agent can decide what to do without parsing my Markdown back. Old XMind 8 files get a clear error instead of a creative guess."
@@ -94,7 +123,7 @@
       ]
     },
     {
-      "label": "03 — LLM PIPELINE · EVIDENCE",
+      "label": "04 — LLM PIPELINE · EVIDENCE",
       "en": {
         "title": "Research: ranked directions, and it checks its own citations",
         "body": "LLMs are great at inventing plausible papers, so this one isn't allowed to just talk. A vague interest goes through four streamed stages: pull real evidence from OpenAlex, map the landscape, compare paths, converge on a 7-day plan. Every citation gets looked up and comes back marked verified, not-found, broken or search-link. It runs on a free Cloudflare Workers AI model, so most of the engineering is unglamorous: per-IP and global daily quotas in D1, a cost estimate before every call, and a bring-your-own-key path that skips my server entirely. There's an eval on 20 sample interests. Its most useful result was showing the template-only mode verified 0% of its citations, which is why demo evidence is labelled illustrative only. To be honest, it's a fixed pipeline, not an agent picking its own tools. The MCP server does let your agent call it like one."
@@ -129,6 +158,51 @@
     }
   ],
   "projects": [
+    {
+      "slug": "maptaste",
+      "name": "maptaste",
+      "url": "https://github.com/FelixFangX/maptaste",
+      "source": "https://github.com/FelixFangX/maptaste",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/maptaste#demo",
+          "en": "Demo ↗",
+          "zh": "Demo ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/maptaste",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "MapLibre",
+        "MCP",
+        "Agent skill",
+        "MIT"
+      ],
+      "mcp": "maptaste-mcp",
+      "en": {
+        "pitch": "MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues.",
+        "spec": [
+          "`maptaste check` scores MapLibre style JSON against pack rules (MT001–MT004): rainbow fills, label contrast, dark-theme metadata, and label density.",
+          "Two skill packs: global and cn (admin label hierarchy, tighter label budget).",
+          "Showcase: OpenFreeMap San Francisco buildings at pitch ~57°, Set1 Before / cinematic sequential-blue After; paint-only Light / Dark toggles."
+        ],
+        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
+      },
+      "zh": {
+        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载技能包，把彩虹建筑变成电影感顺序蓝。",
+        "spec": [
+          "`maptaste check` 按包规则给 MapLibre style JSON 打分（MT001–MT004）：彩虹填色、标注对比度、暗色主题元数据、标注密度。",
+          "两套 skill pack：global 与 cn（行政区标注层级、更紧的标注预算）。",
+          "Showcase：OpenFreeMap 旧金山建筑、俯仰约 57°，Set1 Before / 电影感顺序蓝 After；Light / Dark 切换只改 paint。"
+        ],
+        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
+      }
+    },
     {
       "slug": "lakeboard-converter",
       "name": "lakeboard-converter",
@@ -178,51 +252,6 @@
           "文字、层级、备注、链接、标签都保留；样式和布局不要，故意的。"
         ],
         "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
-      }
-    },
-    {
-      "slug": "maptaste",
-      "name": "maptaste",
-      "url": "https://github.com/FelixFangX/maptaste",
-      "source": "https://github.com/FelixFangX/maptaste",
-      "links": [
-        {
-          "url": "https://github.com/FelixFangX/maptaste#demo",
-          "en": "Demo ↗",
-          "zh": "Demo ↗"
-        },
-        {
-          "url": "https://github.com/FelixFangX/maptaste",
-          "en": "GitHub ↗",
-          "zh": "GitHub ↗"
-        }
-      ],
-      "chips": [
-        "TypeScript",
-        "CLI",
-        "MapLibre",
-        "MCP",
-        "Agent skill",
-        "MIT"
-      ],
-      "mcp": "maptaste-mcp",
-      "en": {
-        "pitch": "MapLibre style taste for coding agents: check the style, load a skill pack, and compare Before / After on a real city map.",
-        "spec": [
-          "`maptaste check` scores MapLibre style JSON against pack rules (MT001–MT004): rainbow fills, label contrast, dark-theme metadata, and label density.",
-          "Two skill packs: global and cn (admin label hierarchy, tighter label budget).",
-          "Showcase: OpenFreeMap San Francisco buildings at pitch 57°, Before (Set1 categorical) / After (cinematic sequential blues), Light / Dark."
-        ],
-        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
-      },
-      "zh": {
-        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载 skill pack，再在真实城市地图上看 Before / After。",
-        "spec": [
-          "`maptaste check` 按包规则给 MapLibre style JSON 打分（MT001–MT004）：彩虹填色、标注对比度、暗色主题元数据、标注密度。",
-          "两套 skill pack：global 与 cn（行政区标注层级、更紧的标注预算）。",
-          "Showcase：OpenFreeMap 旧金山建筑、俯仰 57°，Before（Set1 分类色）/ After（电影感顺序蓝），支持 Light / Dark。"
-        ],
-        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
       }
     },
     {
