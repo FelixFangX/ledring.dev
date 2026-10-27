@@ -1,9 +1,23 @@
-/* An ink-blue thread through the paper edition. No extra runtime. */
-.craft-path{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem 1.4rem;margin:2.5rem 0;font:400 .72rem/1.7 var(--mono);color:var(--acc)}
-.craft-path span:first-child::before{content:"";display:inline-block;width:.5rem;height:.5rem;margin-right:.8rem;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--glow)}
-.craft-path i{font-style:normal;color:var(--dim)}
-#about{position:relative;background:color-mix(in srgb,var(--bg) 87%,var(--acc) 13%)}
-#about::before{content:"";position:absolute;top:0;left:var(--pl);width:4rem;height:3px;background:var(--acc)}
+/* Forty partial borrow: local stages, one Craft serif peak, accent playhead.
+   See docs/forty-borrow.md and design-system-v1.md §12. */
+/* Static stage fields read on first paint and on scroll; no entrance dependency. */
+#hero:not(.inv){background:linear-gradient(180deg,transparent 62%,var(--bg))}
+#about{position:relative;background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 82%,#fff) 48%,var(--bg))}
+[data-theme=dark] #about{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 70%,#000) 48%,var(--bg))}
+#about::before{content:"";position:absolute;top:0;left:var(--pl);width:4rem;height:1px;background:var(--acc)}
+#about .body>p:not(.ab2){font:400 clamp(1.05rem,1.4vw,1.35rem)/1.75 var(--sans);letter-spacing:0;max-width:55ch;color:var(--ink)}
+#about .ab2{font:italic 400 clamp(2rem,3.6vw,4rem)/1.12 var(--serif);letter-spacing:-.02em;max-width:26ch;color:var(--ink);text-wrap:pretty}
+:lang(zh) #about .ab2{letter-spacing:0;line-height:1.4;max-width:20em}
+.craft-path{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(.4rem,1.5vw,1.2rem) clamp(.4rem,1.5vw,1.4rem);max-width:55ch;margin:clamp(2rem,5vw,4rem) 0;font:400 .72rem/1.7 var(--mono);color:var(--dim)}
+.craft-path span{flex:0 1 auto;min-width:0}
+.craft-path span::before{content:"";display:block;width:.3rem;height:.3rem;margin-bottom:.7rem;border:1px solid var(--acc);border-radius:50%}
+.craft-path span:last-child{color:var(--acc)}
+.craft-path span:last-child::before{background:var(--acc);box-shadow:0 0 0 3px var(--glow)}
+.craft-path i{flex:1 1 .6rem;min-width:.6rem;height:1px;align-self:center;margin-top:.15rem;background:var(--rule);font-size:0;color:transparent}
+/* Eight visited-section ticks; the needle moves without a brand-colour fill. */
+.path-ruler{position:relative;height:1rem;margin:2rem 0 .25rem;border-bottom:1px solid var(--rule);background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px calc(100% / 8));border-right:1px solid var(--rule)}
+.path-ruler::after{content:"";position:absolute;left:clamp(0px,var(--progress,0%),calc(100% - 2px));top:-.25rem;bottom:-.3rem;width:2px;background:var(--acc);transition:left .5s var(--ease)}
+@media(prefers-reduced-motion:reduce){.path-ruler::after{transition:none}}
 #selected .work{counter-reset:edition}
 #selected .work>li{counter-increment:edition;padding-top:2.4rem;padding-bottom:2.4rem;transition:background .3s}
 #selected .work .nm::before{content:counter(edition,decimal-leading-zero);display:block;font:400 .65rem/1 var(--mono);letter-spacing:.12em;color:var(--acc);margin-bottom:1.2rem}
@@ -32,7 +46,7 @@
 [data-theme=dark] .tl-intro::after{border-color:color-mix(in srgb,var(--rule) 65%,var(--acc));box-shadow:inset 0 0 0 .5rem var(--bg),inset 0 0 0 calc(.5rem + 1px) color-mix(in srgb,var(--rule) 80%,var(--acc)),0 0 1.5rem -1rem var(--acc)}
 @media(min-width:56rem){.tl-case{padding-left:25%}.tl-case>.lab{position:absolute;left:0;top:5rem;max-width:20%}.tl-grid{gap:2rem}.tl-grid>li:nth-child(even){transform:translateY(2rem)}}
 @media(hover:hover){.tl-card{transition:border-color .3s,box-shadow .3s}.tl-card:hover{border-color:var(--acc);box-shadow:0 14px 40px -28px var(--acc)}#selected .work>li:hover{background:var(--glow)}}
-@media(max-width:40rem){.tl-intro{padding-top:1.5rem;padding-bottom:2.5rem}.tl-intro::after{top:1rem;width:2rem;opacity:.45}.craft-path{gap:.6rem}.tl-intro h1{font-size:clamp(2.5rem,9vw,3.5rem);max-width:12ch}}
+@media(max-width:40rem){.tl-intro{padding-top:1.5rem;padding-bottom:2.5rem}.tl-intro::after{top:1rem;width:2rem;opacity:.45}.craft-path{gap:.5rem}.tl-intro h1{font-size:clamp(2.5rem,9vw,3.5rem);max-width:12ch}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}.tl-grid>li:nth-child(even){transform:none}}
 #selected .work .nm{display:block}
 .craft-note{margin-top:2rem;font-size:.72rem;line-height:1.7;color:var(--acc)}
