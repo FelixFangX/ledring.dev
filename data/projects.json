@@ -26,8 +26,8 @@
     }
   },
   "meta": {
-    "en": "Open-source projects by Felix Fang: mind maps, research, agent traces and workflows, most with a side door for agents.",
-    "zh": "Felix Fang 的开源项目：思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。"
+    "en": "Open-source projects by Felix Fang: maps, mind maps, research, agent traces and workflows, most with a side door for agents.",
+    "zh": "Felix Fang 的开源项目：地图、思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。"
   },
   "caseStudies": [
     {
@@ -178,6 +178,51 @@
           "文字、层级、备注、链接、标签都保留；样式和布局不要，故意的。"
         ],
         "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
+      }
+    },
+    {
+      "slug": "maptaste",
+      "name": "maptaste",
+      "url": "https://github.com/FelixFangX/maptaste",
+      "source": "https://github.com/FelixFangX/maptaste",
+      "links": [
+        {
+          "url": "https://github.com/FelixFangX/maptaste#demo",
+          "en": "Demo ↗",
+          "zh": "Demo ↗"
+        },
+        {
+          "url": "https://github.com/FelixFangX/maptaste",
+          "en": "GitHub ↗",
+          "zh": "GitHub ↗"
+        }
+      ],
+      "chips": [
+        "TypeScript",
+        "CLI",
+        "MapLibre",
+        "MCP",
+        "Agent skill",
+        "MIT"
+      ],
+      "mcp": "maptaste-mcp",
+      "en": {
+        "pitch": "MapLibre style taste for coding agents: check the style, load a skill pack, and compare Before / After on a real city map.",
+        "spec": [
+          "`maptaste check` scores MapLibre style JSON against pack rules (MT001–MT004): rainbow fills, label contrast, dark-theme metadata, and label density.",
+          "Two skill packs: global and cn (admin label hierarchy, tighter label budget).",
+          "Showcase: OpenFreeMap San Francisco buildings at pitch 57°, Before (Set1 categorical) / After (cinematic sequential blues), Light / Dark."
+        ],
+        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
+      },
+      "zh": {
+        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载 skill pack，再在真实城市地图上看 Before / After。",
+        "spec": [
+          "`maptaste check` 按包规则给 MapLibre style JSON 打分（MT001–MT004）：彩虹填色、标注对比度、暗色主题元数据、标注密度。",
+          "两套 skill pack：global 与 cn（行政区标注层级、更紧的标注预算）。",
+          "Showcase：OpenFreeMap 旧金山建筑、俯仰 57°，Before（Set1 分类色）/ After（电影感顺序蓝），支持 Light / Dark。"
+        ],
+        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
       }
     },
     {

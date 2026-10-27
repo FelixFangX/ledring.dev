@@ -10,7 +10,7 @@ Source for **https://ledring.dev**, Felix Fang's personal site and the home of [
 - **Tools page**: [/tools/](https://ledring.dev/tools/) lists Convert and Research, with live links, source and manually maintained status.
 - **Projects page**: [/projects/](https://ledring.dev/projects/) presents three case studies and seven projects from `data/projects.json`. `scripts/build-projects.mjs` also generates [/llms.txt](https://ledring.dev/llms.txt) and [/projects.json](https://ledring.dev/projects.json).
 - **Notes page**: [/notes/](https://ledring.dev/notes/) is a bilingual index, initially empty.
-- **Selected work**: research-thinking-ai, lakeboard-converter, dashtaste, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
+- **Selected work**: maptaste, research-thinking-ai, lakeboard-converter, dashtaste, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
 - **Open source**: GitHub achievements and accepted answers.
 - **Now / Stack**: Become Human and the tools I use.
 - **Off the clock**: coffee, two kittens, the gym and live shows, as hairline icons. There's also a rotating "Currently" line in the hero, and two kittens occasionally walk across the page (type `cats` in the terminal to call them).

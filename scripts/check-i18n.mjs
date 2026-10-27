@@ -25,7 +25,7 @@ function checkZhFields(value, location) {
 }
 checkZhFields(JSON.parse(readFileSync('data/projects.json', 'utf8')), 'data/projects.json');
 assert(readFileSync('public/llms.txt', 'utf8').startsWith('# '));
-assert.equal(JSON.parse(readFileSync('public/projects.json', 'utf8')).projects.length, 7);
+assert.equal(JSON.parse(readFileSync('public/projects.json', 'utf8')).projects.length, 8);
 
 const cjk = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/u;
 const decode = s => s.replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16))).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ');
