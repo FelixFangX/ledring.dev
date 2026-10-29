@@ -43,7 +43,7 @@
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:clamp(15px,.66rem + .45vmin + .08vw,22px);background:var(--bg)}
 .wrap{width:min(100%,180rem);margin:0 auto;padding-left:var(--pl);padding-right:var(--pr)}
 .m{font:500 .75rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
-:lang(zh) .m{letter-spacing:.16em}
+:lang(zh) .m{letter-spacing:.04em}
 ::selection{background:var(--acc);color:var(--bg)}
 :focus-visible{outline:2px solid var(--acc);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px;z-index:9}.skip:focus{left:1rem;top:1rem;background:var(--bg);padding:.6rem .9rem}
@@ -99,7 +99,7 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 :root[data-theme=dark]{--bg:#0b0b0b;--ink:#e5eaf0;--dim:#a0aab8;--rule:#2c333d;--soft:#161c24}
 body{background:var(--bg)}
 body::after,.tl-intro::after,.tl-card::before,.tl-card::after{display:none}
-main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-transform:none}
+main .m,:lang(zh) main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-transform:none}
 .tl-intro h1{margin-top:0;line-height:1.06}
 .tl-intro .tl-lead{max-width:56ch}
 .tl-card{background:transparent;box-shadow:none;border-radius:4px}
