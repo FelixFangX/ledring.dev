@@ -6,8 +6,8 @@
 <title>Tools · Felix Fang</title>
 <meta name="description" content="Two small tools by Felix Fang: Convert turns mind maps into Markdown, Research turns a research interest into ranked directions.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ebe7df">
-<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#131211":"#ebe7df"})()</script>
+<meta name="theme-color" content="#f4f5f7">
+<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#0b0b0b":"#f4f5f7"})()</script>
 <link rel="canonical" href="https://ledring.dev/tools/">
 <link rel="alternate" hreflang="en" href="https://ledring.dev/tools/?lang=en">
 <link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/tools/?lang=zh">
@@ -26,8 +26,8 @@
 @font-face{font-family:"JetBrains Mono";src:url(/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"JetBrains Mono";font-weight:500;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-display:swap}
 :root{
-  /* Bone paper, warm graphite ink, one ink-blue accent (LEDRING's "calm" light), chrome for highlights. */
-  --bg:#ebe7df;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
+  /* Neutral paper, cool graphite ink, one ink-blue accent (LEDRING's "calm" light), chrome for highlights. */
+  --bg:#f4f5f7;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
   --glow:rgba(35,64,106,.10);
   --serif:"Instrument Serif","Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
@@ -93,6 +93,28 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 @media(forced-colors:active){body::after,.tl-card::before,.tl-card::after{display:none}.tl-ring,.tl-state .tl-ring{background:none;mask:none;-webkit-mask:none;border:2px solid CanvasText;box-shadow:none}.btn{border:1px solid ButtonText}.btn.btn-ink,[data-theme=dark] .btn.btn-ink{forced-color-adjust:auto;border:1px solid ButtonText;background:ButtonFace;color:ButtonText;box-shadow:none;filter:none}.btn.btn-ink::before{display:none}}
 
 </style>
+<style>
+/* Subpage-only refinements; atelier.css also serves the homepage. */
+:root{--bg:#f4f5f7;--ink:#202833;--dim:#526071;--rule:#cfd6df;--soft:#eef1f4;--grain:0}
+:root[data-theme=dark]{--bg:#0b0b0b;--ink:#e5eaf0;--dim:#a0aab8;--rule:#2c333d;--soft:#161c24}
+body{background:var(--bg)}
+body::after,.tl-intro::after,.tl-card::before,.tl-card::after{display:none}
+main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-transform:none}
+.tl-intro h1{margin-top:0;line-height:1.06}
+.tl-intro .tl-lead{max-width:56ch}
+.tl-card{background:transparent;box-shadow:none;border-radius:4px}
+[data-theme=dark] .tl-card{box-shadow:none}
+.tl-grid>li:nth-child(even){transform:none}
+.tl-card h2{margin-top:0;font-size:clamp(1.75rem,2.6vw,2.5rem);line-height:1.16}
+.tl-spec,.tl-host,.tl-note{font-size:max(.8125rem,12px)}
+.tags li{font-size:max(.8125rem,12px);border:0;padding:0}
+.tags{gap:.4rem 1rem}
+
+
+.tl-top{justify-content:flex-end}
+.tl-top+h2{margin-top:1rem}
+.tl-note{font-family:var(--sans);line-height:1.6}
+</style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -107,13 +129,13 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 </header>
 
 <main id="main" class="wrap">
-<div class="tl-intro"><div class="tl-labels"><p class="lab m" data-i18n="tools">Tools</p><span class="m tl-check" data-i18n="check">2 INSTRUMENTS · STATIC STATUS · CHECKED 2026-10-17</span></div>
+<div class="tl-intro">
 <h1><span data-i18n="h1a">Small tools, </span><span class="dim" data-i18n="h1b">built to be used.</span></h1>
 <p class="tl-lead" data-i18n="lead">Two things I made and run myself on Cloudflare. Each does one job. Both are open source.</p></div>
 <ul class="tl-grid">
-<li><article class="tl-card" aria-labelledby="tool1"><div class="tl-top m"><span data-i18n="card1">01 — CONVERT</span><span class="tl-state"><span class="tl-ring" aria-hidden="true"></span><span data-i18n="live">Live</span><span class="sr-only" data-i18n="asof"> (status as of 17 Oct 2026)</span></span></div>
+<li><article class="tl-card" aria-labelledby="tool1"><div class="tl-top m"><span class="tl-state"><span class="tl-ring" aria-hidden="true"></span><span data-i18n="live">Live</span><span class="sr-only" data-i18n="asof"> (status as of 17 Oct 2026)</span></span></div>
 <h2 id="tool1" data-i18n="name1">Convert</h2><p class="tl-host">convert.ledring.dev</p><p class="tl-desc" data-i18n="desc1">Turns Lakeboard and XMind mind maps into Markdown, right in your browser. Nothing is uploaded.</p><ul class="tl-spec m"><li data-i18n="s10">.lakeboard · .xmind → .md</li><li data-i18n="s11">Runs in your browser</li><li data-i18n="s12">No upload</li></ul><div class="tl-actions"><a class="btn btn-ink" href="https://convert.ledring.dev/" aria-label="Open Convert (convert.ledring.dev)" data-i18n-aria="open1"><span class="led" aria-hidden="true"></span><span data-i18n="open">Open</span></a><span class="wl"><a href="https://github.com/FelixFangX/lakeboard-converter" aria-label="Convert source on GitHub" data-i18n-aria="source1"><span data-i18n="source">Source ↗</span></a></span></div></article></li>
-<li><article class="tl-card" aria-labelledby="tool2"><div class="tl-top m"><span data-i18n="card2">02 — RESEARCH</span><span class="tl-state"><span class="tl-ring" aria-hidden="true"></span><span data-i18n="live">Live</span><span class="sr-only" data-i18n="asof"> (status as of 17 Oct 2026)</span></span></div>
+<li><article class="tl-card" aria-labelledby="tool2"><div class="tl-top m"><span class="tl-state"><span class="tl-ring" aria-hidden="true"></span><span data-i18n="live">Live</span><span class="sr-only" data-i18n="asof"> (status as of 17 Oct 2026)</span></span></div>
 <h2 id="tool2" data-i18n="name2">Research</h2><p class="tl-host">research.ledring.dev</p><p class="tl-desc" data-i18n="desc2">Turns a research interest into three ranked directions with real Crossref and OpenAlex citations, plus a 7-day plan. Free AI on Cloudflare.</p><ul class="tl-spec m"><li data-i18n="s20">3 ranked directions</li><li data-i18n="s21">Crossref + OpenAlex citations</li><li data-i18n="s22">7-day plan · free AI</li></ul><div class="tl-actions"><a class="btn btn-ink" href="https://research.ledring.dev/" aria-label="Open Research (research.ledring.dev)" data-i18n-aria="open2"><span class="led" aria-hidden="true"></span><span data-i18n="open">Open</span></a><span class="wl"><a href="https://github.com/FelixFangX/research-thinking-ai" aria-label="Research source on GitHub" data-i18n-aria="source2"><span data-i18n="source">Source ↗</span></a></span></div></article></li>
 </ul><p class="tl-note m" data-i18n="note">Status is set by hand, not polled. This page makes no requests to the tools.</p></main>
 <footer class="wrap"><div class="links m"><nav aria-label="Elsewhere" data-i18n-aria="else"><a href="/tools/" data-i18n="navtools">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a><a href="/" data-i18n="home">← ledring.dev</a><a href="https://play.ledring.dev/play/" data-i18n="play">LEDRING Play ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a></nav><span>© 2026 Felix Fang</span></div></footer>
@@ -122,11 +144,11 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 var D=document,R=D.documentElement,en={},cur,dark=R.dataset.theme==='dark',tb=D.getElementById('theme'),lb=D.getElementById('lang');
 D.querySelectorAll('[data-i18n]').forEach(function(e){en[e.dataset.i18n]=e.textContent});
 D.querySelectorAll('[data-i18n-aria]').forEach(function(e){en[e.dataset.i18nAria]=e.getAttribute('aria-label')});
-var zh={"navtools":"工具","navprojects":"项目","navnotes":"笔记",card1:'01 — 转换',card2:'02 — 研究',name1:'转换',name2:'研究',skip:'跳到正文',tools:'工具',check:'2 件工具 · 手动状态 · 更新于 2026-10-17',h1a:'小工具，',h1b:'做来就是给人用的。',lead:'我自己做、自己运行的两件工具，都在 Cloudflare 上。每件只做一件事，源码都公开。',live:'在线',asof:'（状态截至 2026 年 10 月 17 日）',desc1:'把语雀画板和 XMind 导图转成 Markdown，全程在浏览器里完成，不上传任何文件。',desc2:'输入一个研究兴趣，给出三个排好序的方向，附真实的 Crossref 和 OpenAlex 引用，外加一份 7 天计划。Cloudflare 上的免费 AI。',s10:'.lakeboard · .xmind → .md',s11:'在浏览器里运行',s12:'不上传文件',s20:'3 个排好序的方向',s21:'Crossref + OpenAlex 引用',s22:'7 天计划 · 免费 AI',open:'打开',source:'源码 ↗',open1:'打开转换（convert.ledring.dev）',open2:'打开研究（research.ledring.dev）',source1:'转换工具在 GitHub 上的源码',source2:'研究工具在 GitHub 上的源码',note:'状态由我手动更新，不做轮询。本页不会向工具发送请求。',else:'其他链接',home:'← ledring.dev',play:'LEDRING Play ↗'};
+var zh={"navtools":"工具","navprojects":"项目","navnotes":"笔记",name1:'转换',name2:'研究',skip:'跳到正文',h1a:'小工具，',h1b:'做来就是给人用的。',lead:'我自己做、自己运行的两件工具，都在 Cloudflare 上。每件只做一件事，源码都公开。',live:'在线',asof:'（状态截至 2026 年 10 月 17 日）',desc1:'把语雀画板和 XMind 导图转成 Markdown，全程在浏览器里完成，不上传任何文件。',desc2:'输入一个研究兴趣，给出三个排好序的方向，附真实的 Crossref 和 OpenAlex 引用，外加一份 7 天计划。Cloudflare 上的免费 AI。',s10:'.lakeboard · .xmind → .md',s11:'在浏览器里运行',s12:'不上传文件',s20:'3 个排好序的方向',s21:'Crossref + OpenAlex 引用',s22:'7 天计划 · 免费 AI',open:'打开',source:'源码 ↗',open1:'打开转换（convert.ledring.dev）',open2:'打开研究（research.ledring.dev）',source1:'转换工具在 GitHub 上的源码',source2:'研究工具在 GitHub 上的源码',note:'状态由我手动更新，不做轮询。本页不会向工具发送请求。',else:'其他链接',home:'← ledring.dev',play:'LEDRING Play ↗'};
 function tlabel(){var z=cur==='zh';D.getElementById('tlab').textContent=dark?(z?'浅色':'Light'):(z?'深色':'Dark');tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
 function metadata(l){var z=l==='zh';document.title=z?'工具 · Felix Fang':'Tools · Felix Fang';D.querySelectorAll('meta[name="description"],meta[property="og:description"]').forEach(function(e){if(!e.dataset.en)e.dataset.en=e.content;e.content=z?'Felix Fang 做的两件小工具：把导图转成 Markdown，把研究兴趣变成排好序的方向。':e.dataset.en});D.querySelector('meta[property="og:title"]').content=document.title}
 function set(l){cur=l;var d=l==='zh'?zh:en;D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});R.lang=l==='zh'?'zh-CN':'en';metadata(l);lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.title=l==='zh'?'切换到英文':'Switch to Chinese';lb.setAttribute('aria-label',l==='zh'?'切换到英文':'Switch to Chinese');tlabel()}
-tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#ebe7df';tlabel()};
+tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#f4f5f7';tlabel()};
 lb.onclick=function(){set(cur==='zh'?'en':'zh');try{localStorage.setItem('lang',cur)}catch(e){}var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
 var ql=new URLSearchParams(location.search).get('lang'),sl;try{sl=localStorage.getItem('lang')}catch(e){}if(ql==='zh'||ql==='en'){try{localStorage.setItem('lang',ql)}catch(e){}}set(ql==='zh'||ql==='en'?ql:sl==='zh'||sl==='en'?sl:R.dataset.geoLang||(/^zh/i.test(navigator.language)?'zh':'en'));
 })();

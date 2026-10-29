@@ -6,8 +6,8 @@
 <title>Projects · Felix Fang</title>
 <meta name="description" content="Open-source projects by Felix Fang: maps, mind maps, research, agent traces and workflows, most with a side door for agents.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ebe7df">
-<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#131211":"#ebe7df"})()</script>
+<meta name="theme-color" content="#f4f5f7">
+<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#0b0b0b":"#f4f5f7"})()</script>
 <link rel="canonical" href="https://ledring.dev/projects/">
 <link rel="alternate" hreflang="en" href="https://ledring.dev/projects/?lang=en">
 <link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/projects/?lang=zh">
@@ -26,8 +26,8 @@
 @font-face{font-family:"JetBrains Mono";src:url(/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"JetBrains Mono";font-weight:500;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-display:swap}
 :root{
-  /* Bone paper, warm graphite ink, one ink-blue accent (LEDRING's "calm" light), chrome for highlights. */
-  --bg:#ebe7df;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
+  /* Neutral paper, cool graphite ink, one ink-blue accent (LEDRING's "calm" light), chrome for highlights. */
+  --bg:#f4f5f7;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
   --glow:rgba(35,64,106,.10);
   --serif:"Instrument Serif","Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
@@ -96,6 +96,30 @@ h2{overflow-wrap:anywhere}.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style
 .tl-case{border-top:1px solid var(--rule);padding:2rem 0;overflow-wrap:anywhere}.tl-case h3{font:400 2rem/1.1 var(--serif);margin:1rem 0}.tl-case p{max-width:65rem}.tl-case .tl-actions{margin:1.5rem 0}.tl-agents{border-top:1px solid var(--rule);padding:1rem 0;overflow-wrap:anywhere}.tl-agents .m::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--acc);margin-right:.6rem}.tl-card{box-sizing:border-box;overflow-wrap:anywhere}
 </style>
 <link rel="stylesheet" href="/atelier.css">
+<style>
+/* Subpage-only refinements; atelier.css also serves the homepage. */
+:root{--bg:#f4f5f7;--ink:#202833;--dim:#526071;--rule:#cfd6df;--soft:#eef1f4;--grain:0}
+:root[data-theme=dark]{--bg:#0b0b0b;--ink:#e5eaf0;--dim:#a0aab8;--rule:#2c333d;--soft:#161c24}
+body{background:var(--bg)}
+body::after,.tl-intro::after,.tl-card::before,.tl-card::after{display:none}
+main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-transform:none}
+.tl-intro h1{margin-top:0;line-height:1.06}
+.tl-intro .tl-lead{max-width:56ch}
+.tl-card{background:transparent;box-shadow:none;border-radius:4px}
+[data-theme=dark] .tl-card{box-shadow:none}
+.tl-grid>li:nth-child(even){transform:none}
+.tl-card h2{margin-top:0;font-size:clamp(1.75rem,2.6vw,2.5rem);line-height:1.16}
+.tl-spec,.tl-host,.tl-note{font-size:max(.8125rem,12px)}
+.tags li{font-size:max(.8125rem,12px);border:0;padding:0}
+.tags{gap:.4rem 1rem}
+
+.tl-intro>.lab,.tl-case>.lab,.tl-card>.lab{display:none}
+.tl-case{border-top:0}
+.tl-case h3{margin-top:0}
+.tl-case>p.m{color:var(--dim);line-height:1.7}
+.tl-agents .m::before{display:none}
+#case-studies{margin-bottom:clamp(3rem,6vw,6rem)}
+</style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -228,7 +252,7 @@ var zh={"skip":"跳到正文","else":"其他链接","home":"← ledring.dev","pl
 function tlabel(){var z=cur==='zh';D.getElementById('tlab').textContent=dark?(z?'浅色':'Light'):(z?'深色':'Dark');tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
 function metadata(l){var z=l==='zh';document.title=z?'项目 · Felix Fang':'Projects · Felix Fang';D.querySelectorAll('meta[name="description"],meta[property="og:description"]').forEach(function(e){if(!e.dataset.en)e.dataset.en=e.content;e.content=z?"Felix Fang 的开源项目：思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。":e.dataset.en});D.querySelector('meta[property="og:title"]').content=document.title}
 function set(l){cur=l;var d=l==='zh'?zh:en;D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});R.lang=l==='zh'?'zh-CN':'en';metadata(l);lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.title=l==='zh'?'切换到英文':'Switch to Chinese';lb.setAttribute('aria-label',l==='zh'?'切换到英文':'Switch to Chinese');tlabel()}
-tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#ebe7df';tlabel()};
+tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#f4f5f7';tlabel()};
 lb.onclick=function(){set(cur==='zh'?'en':'zh');try{localStorage.setItem('lang',cur)}catch(e){}var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
 var ql=new URLSearchParams(location.search).get('lang'),sl;try{sl=localStorage.getItem('lang')}catch(e){}if(ql==='zh'||ql==='en'){try{localStorage.setItem('lang',ql)}catch(e){}}set(ql==='zh'||ql==='en'?ql:sl==='zh'||sl==='en'?sl:R.dataset.geoLang||(/^zh/i.test(navigator.language)?'zh':'en'));
 })();
