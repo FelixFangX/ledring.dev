@@ -1,0 +1,17 @@
+@view-transition{navigation:auto}
+.bar{view-transition-name:site-bar}
+.mark{view-transition-name:site-mark}
+::view-transition-group(*){animation-duration:380ms;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(root){animation:nav-out 380ms cubic-bezier(.22,1,.36,1) both}
+::view-transition-new(root){animation:nav-in 380ms cubic-bezier(.22,1,.36,1) both}
+@keyframes nav-out{to{opacity:0;filter:blur(4px)}}
+@keyframes nav-in{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
+html.nav-leaving main,html.nav-leaving footer{opacity:0;filter:blur(3px);transition:opacity 160ms cubic-bezier(.22,1,.36,1),filter 160ms cubic-bezier(.22,1,.36,1)}
+html.nav-native .tl-grid>li{animation:none}
+html.nav-enter main{animation:nav-in 240ms cubic-bezier(.22,1,.36,1) both}
+@media(prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+  html.nav-leaving main,html.nav-leaving footer{opacity:1;filter:none;transition:none}
+  html.nav-enter main{animation:none}
+}
