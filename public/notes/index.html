@@ -6,8 +6,8 @@
 <title>Notes · Felix Fang</title>
 <meta name="description" content="Notes by Felix Fang.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ebe7df">
-<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#131211":"#ebe7df"})()</script>
+<meta name="theme-color" content="#f4f5f7">
+<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light"}catch(e){}if(t!=="dark")t="light";document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=t==="dark"?"#131211":"#f4f5f7"})()</script>
 <link rel="canonical" href="https://ledring.dev/notes/">
 <link rel="alternate" hreflang="en" href="https://ledring.dev/notes/?lang=en">
 <link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/notes/?lang=zh">
@@ -27,7 +27,7 @@
 @font-face{font-family:"JetBrains Mono";font-weight:500;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-display:swap}
 :root{
   /* Bone paper, warm graphite ink, one ink-blue accent (LEDRING's "calm" light), chrome for highlights. */
-  --bg:#ebe7df;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
+  --bg:#f4f5f7;--ink:#1d1b18;--dim:#5b564e;--rule:#d2ccc1;--soft:#e2ddd3;--acc:#23406a;--acc-2:#3d5f8f;--chrome:#9aa3b0;--grain:.09;
   --glow:rgba(35,64,106,.10);
   --serif:"Instrument Serif","Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
@@ -94,6 +94,33 @@ h2{font-size:2rem;line-height:1.1;margin:2rem 0 .5rem}.tl-host{font:400 .75rem/1
 
 h2{overflow-wrap:anywhere}.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1.5rem;color:var(--dim);font:400 .75rem/1.6 var(--mono)}.tl-actions a{min-height:44px;display:inline-flex;align-items:center}.notes-list{padding:0;list-style:none}.note-row{border-top:1px solid var(--rule);padding:1.5rem 0}.note-row a{display:inline-flex;align-items:center;min-height:44px}.note-body{max-width:48rem}.wl{flex-wrap:wrap}</style>
 <link rel="stylesheet" href="/atelier.css">
+<style>
+
+/* Approved blend fold; kept local to these subpages. */
+:root{--bg:#f4f5f7;--ink:#202833;--dim:#526071;--rule:#cfd6df;--soft:#eef1f4;--grain:0}
+:root[data-theme=dark]{--bg:#0b0b0b;--ink:#e5eaf0;--dim:#a0aab8;--rule:#2c333d;--soft:#161c24}
+body::before,body::after{display:none}
+main{padding-top:calc(4.25rem + env(safe-area-inset-top))}
+.blend-hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(2rem,6vw,7rem);min-height:36rem}
+.blend-hero>div,.blend-hero>article{min-width:0}
+.blend-label{font:500 .7rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 2rem}
+.blend-hero h1{font:400 clamp(3.5rem,7vw,8rem)/1 var(--serif);letter-spacing:-.035em;margin:0 0 1.5rem;max-width:none;text-wrap:balance}
+.blend-lead{color:var(--dim);font-size:1.0625rem;line-height:1.7;max-width:36rem;margin:0 0 2rem}
+.blend-hero a{text-decoration:none}.blend-hero a:hover{color:var(--acc)}
+.blend-hero .btn{gap:1.5rem;background:linear-gradient(180deg,#292827,#171716);color:#f4f5f7;box-shadow:none;border:1px solid transparent;letter-spacing:.04em}
+.blend-hero .btn:hover{color:#fff;border-color:var(--acc);box-shadow:0 0 0 3px var(--glow)}
+.blend-hero .btn .led{background:#8fb3e6;box-shadow:none;border-radius:0}
+.blend-panel{border:1px solid var(--rule);border-radius:10px;padding:2rem;background:color-mix(in srgb,var(--bg) 96%,var(--acc) 4%)}
+.blend-list{list-style:none;margin:0;padding:0}.blend-list li+li{border-top:1px solid var(--rule)}
+.blend-list a{display:grid;grid-template-columns:2rem 1fr 1rem;gap:1rem;padding:1.25rem 0;align-items:center}
+.blend-list strong{font:400 2rem var(--serif)}.blend-list small{display:block;font:.75rem/1.6 var(--sans);color:var(--dim);margin-top:.35rem}
+.blend-num{font:.65rem var(--mono);color:var(--acc)}
+.blend-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}.blend-chips span{border:1px solid var(--rule);padding:.4rem .8rem;border-radius:999px;font:.65rem var(--mono)}
+.blend-note{border-left:1px solid var(--rule);padding:1rem 0 1rem 2rem}.blend-note time{font:.75rem var(--mono);color:var(--acc)}
+.blend-note h2{font:400 clamp(2rem,4vw,3.8rem)/1.1 var(--serif);margin:1rem 0;overflow-wrap:normal}.blend-note p{line-height:1.8}
+.blend-section{padding:2rem 0 3rem;border-top:1px solid var(--rule)}.blend-section h2{font:400 2rem/1.5 var(--serif);margin:0 0 1rem}
+@media(max-width:760px){.blend-hero{grid-template-columns:1fr;min-height:0;padding:2.5rem 0 3rem;gap:3rem}.blend-hero h1{font-size:clamp(3rem,11vw,5rem)}.blend-panel{padding:1.4rem}.blend-label{margin-bottom:1.25rem}.blend-note{padding-left:1.25rem}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -107,7 +134,8 @@ h2{overflow-wrap:anywhere}.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style
   </div>
 </header>
 
-<main id="main" class="wrap"><div class="tl-intro"><p class="lab m" data-i18n="label">Notes</p><h1 data-i18n="title">Notes.</h1><p class="tl-lead" data-i18n="lead">Field notes from building with agents. What survives, what breaks, what I would change.</p></div><div id="empty"><h2 data-i18n="empty">No notes yet.</h2><p class="tl-lead" data-i18n="emptyDesc">New notes will be listed here, newest first.</p></div><ol id="notes" class="notes-list"></ol><template id="note-item"><li class="note-row"><time></time><h2><a></a></h2><p></p></li></template></main><footer class="wrap"><div class="links m"><nav aria-label="Elsewhere" data-i18n-aria="else"><a href="/tools/" data-i18n="navtools">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a><a href="/" data-i18n="home">← ledring.dev</a><a href="https://play.ledring.dev/play/" data-i18n="play">LEDRING Play ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="mailto:felix@ledring.dev">felix@ledring.dev ↗</a></nav><span>© 2026 Felix Fang</span></div></footer>
+<main id="main" class="wrap"><section class="blend-hero" aria-labelledby="fold-title"><div><p class="blend-label" data-i18n="foldLabel">Notes</p><h1 id="fold-title"><span data-i18n="foldA">Make room for</span><br><span data-i18n="foldB">the unfinished thought.</span></h1><p class="blend-lead" data-i18n="foldLead">Field notes from building with agents. What survives, what breaks, what I would change.</p><a class="btn" href="/notes/mind-maps-to-markdown/"><span class="led" aria-hidden="true"></span><span data-i18n="foldCTA">Read the note</span><span aria-hidden="true">↗</span></a></div><article class="blend-note"><time datetime="2026-10-20">2026-10-20</time><h2 data-i18n="foldNoteTitle">Mind maps for me,<br>Markdown for my agents</h2><p data-i18n="foldNoteSummary">What survives conversion, what doesn’t, and how to run it from the CLI or as an MCP server.</p></article></section>
+<section class="blend-section"><h2 data-i18n="foldSection">Notes from the work, as it happens.</h2></section><div id="empty"><h2 data-i18n="empty">No notes yet.</h2><p class="tl-lead" data-i18n="emptyDesc">New notes will be listed here, newest first.</p></div><ol id="notes" class="notes-list"></ol><template id="note-item"><li class="note-row"><time></time><h2><a></a></h2><p></p></li></template></main><footer class="wrap"><div class="links m"><nav aria-label="Elsewhere" data-i18n-aria="else"><a href="/tools/" data-i18n="navtools">Tools</a><a href="/projects/" data-i18n="navprojects">Projects</a><a href="/notes/" data-i18n="navnotes">Notes</a><a href="/" data-i18n="home">← ledring.dev</a><a href="https://play.ledring.dev/play/" data-i18n="play">LEDRING Play ↗</a><a href="https://github.com/FelixFangX">GitHub ↗</a><a href="https://x.com/ColeFangX">X ↗</a><a href="mailto:felix@ledring.dev">felix@ledring.dev ↗</a></nav><span>© 2026 Felix Fang</span></div></footer>
 <script>
 (function(){
 var D=document,R=D.documentElement,en={},cur,dark=R.dataset.theme==='dark',tb=D.getElementById('theme'),lb=D.getElementById('lang');
@@ -121,8 +149,9 @@ function renderNotes(l){
 }
 function tlabel(){var z=cur==='zh';D.getElementById('tlab').textContent=dark?(z?'浅色':'Light'):(z?'深色':'Dark');tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
 function metadata(l){var z=l==='zh';document.title=z?'笔记 · Felix Fang':'Notes · Felix Fang';D.querySelectorAll('meta[name="description"],meta[property="og:description"]').forEach(function(e){if(!e.dataset.en)e.dataset.en=e.content;e.content=z?'Felix Fang 关于构建工具的笔记。':e.dataset.en});D.querySelector('meta[property="og:title"]').content=document.title}
-function set(l){cur=l;var d=l==='zh'?zh:en;D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});R.lang=l==='zh'?'zh-CN':'en';metadata(l);renderNotes(l);lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.title=l==='zh'?'切换到英文':'Switch to Chinese';lb.setAttribute('aria-label',l==='zh'?'切换到英文':'Switch to Chinese');tlabel()}
-tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#ebe7df';tlabel()};
+Object.assign(zh,{"foldA": "为未完成的", "foldB": "想法留点空间。", "foldLead": "和 Agent 一起做东西的现场笔记：留下什么，哪里会坏，下次怎么改。", "foldCTA": "阅读笔记", "foldSection": "工作中的笔记，随时记录。", "foldLabel": "笔记", "foldNoteTitle": "思维导图给我看，Markdown 给 Agent 读", "foldNoteSummary": "哪些内容能保留，哪些会丢，以及怎么用 CLI 或 MCP 服务器运行。"});
+function set(l){cur=l;var d=l==='zh'?zh:en;D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});if(l==='en'){D.querySelector('[data-i18n=foldNoteTitle]').replaceChildren(D.createTextNode('Mind maps for me,'),D.createElement('br'),D.createTextNode('Markdown for my agents'))}R.lang=l==='zh'?'zh-CN':'en';metadata(l);renderNotes(l);lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.title=l==='zh'?'切换到英文':'Switch to Chinese';lb.setAttribute('aria-label',l==='zh'?'切换到英文':'Switch to Chinese');tlabel()}
+tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#f4f5f7';tlabel()};
 lb.onclick=function(){set(cur==='zh'?'en':'zh');try{localStorage.setItem('lang',cur)}catch(e){}var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
 var ql=new URLSearchParams(location.search).get('lang'),sl;try{sl=localStorage.getItem('lang')}catch(e){}if(ql==='zh'||ql==='en'){try{localStorage.setItem('lang',ql)}catch(e){}}set(ql==='zh'||ql==='en'?ql:sl==='zh'||sl==='en'?sl:R.dataset.geoLang||(/^zh/i.test(navigator.language)?'zh':'en'));
 })();
