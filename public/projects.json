@@ -80,9 +80,14 @@
     {
       "name": "dashtaste",
       "slug": "dashtaste",
-      "url": "https://github.com/FelixFangX/dashtaste",
+      "url": "https://dashtaste.ledring.dev/",
       "source": "https://github.com/FelixFangX/dashtaste",
       "links": [
+        {
+          "url": "https://dashtaste.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        },
         {
           "url": "https://www.npmjs.com/package/dashtaste",
           "en": "npm ↗",
@@ -264,6 +269,90 @@
       "zh": {
         "pitch": "我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",
         "forAgents": "对外提供 `llms.txt` 和 `status.json`。红就是红，没数据就写“no data”，不编。"
+      }
+    },
+    {
+      "name": "Keycap DIY",
+      "slug": "keycap-diy",
+      "url": "https://keycap-diy.ledring.dev/",
+      "links": [
+        {
+          "url": "https://keycap-diy.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Design your own keycaps.",
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "设计你自己的键帽。",
+        "forAgents": ""
+      }
+    },
+    {
+      "name": "News",
+      "slug": "news",
+      "url": "https://news.ledring.dev/",
+      "links": [
+        {
+          "url": "https://news.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Browse the news.",
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "浏览新闻。",
+        "forAgents": ""
+      }
+    },
+    {
+      "name": "BI Lowcode",
+      "slug": "bi-lowcode",
+      "url": "https://bi-lowcode.ledring.dev/",
+      "links": [
+        {
+          "url": "https://bi-lowcode.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Build dashboards with low-code tools.",
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "用低代码工具搭建数据看板。",
+        "forAgents": ""
+      }
+    },
+    {
+      "name": "Print Agent",
+      "slug": "print-agent",
+      "url": "https://print.ledring.dev/",
+      "links": [
+        {
+          "url": "https://print.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "A web app for print jobs.",
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "用于打印任务的网页应用。",
+        "forAgents": ""
       }
     }
   ]

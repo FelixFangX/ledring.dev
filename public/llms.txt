@@ -1,17 +1,21 @@
 # ledring.dev
 
-> Open-source projects by Felix Fang: maps, mind maps, research, agent traces and workflows, most with a side door for agents.
+> Projects by Felix Fang: news, printing, BI, keycaps, maps, mind maps, research and tools for agents.
 
 ## Projects
 
-- [maptaste](https://maptaste.ledring.dev) ([source](https://github.com/FelixFangX/maptaste)): MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
+- [maptaste](https://github.com/FelixFangX/maptaste): MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
 - [lakeboard-converter](https://convert.ledring.dev): Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
-- [dashtaste](https://github.com/FelixFangX/dashtaste): Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
+- [dashtaste](https://dashtaste.ledring.dev/): Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
 - [Research](https://research.ledring.dev): For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan. Source: [GitHub](https://github.com/FelixFangX/research-thinking-ai)
 - [LEDRING / LEDRING Play](https://play.ledring.dev/play/): Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships. Source: [GitHub](https://github.com/FelixFangX/ledring)
 - [dev-work-grok-bot-skill](https://github.com/FelixFangX/dev-work-grok-bot-skill): An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room. Source: [GitHub](https://github.com/FelixFangX/dev-work-grok-bot-skill)
 - [n8n-workflow-collection](https://github.com/FelixFangX/n8n-workflow-collection): Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics. Source: [GitHub](https://github.com/FelixFangX/n8n-workflow-collection)
 - [FelixFangX · control room](https://github.com/FelixFangX/FelixFangX): My GitHub profile, rebuilt every day from real runs and evals. Source: [GitHub](https://github.com/FelixFangX/FelixFangX)
+- [Keycap DIY](https://keycap-diy.ledring.dev/): Design your own keycaps.
+- [News](https://news.ledring.dev/): Browse the news.
+- [BI Lowcode](https://bi-lowcode.ledring.dev/): Build dashboards with low-code tools.
+- [Print Agent](https://print.ledring.dev/): A web app for print jobs.
 
 ## Pages
 
@@ -24,6 +28,11 @@
 
 - [Convert](https://convert.ledring.dev)
 - [Research](https://research.ledring.dev)
+- [dashtaste](https://dashtaste.ledring.dev/)
+- [Keycap DIY](https://keycap-diy.ledring.dev/)
+- [News](https://news.ledring.dev/)
+- [BI Lowcode](https://bi-lowcode.ledring.dev/)
+- [Print Agent](https://print.ledring.dev/)
 - [LEDRING Play](https://play.ledring.dev/play/)
 
 ## Machine-readable

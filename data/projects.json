@@ -3,12 +3,12 @@
     "en": {
       "label": "Projects",
       "title": "Made to be used. Some of it by agents.",
-      "lead": "Small open-source tools. Most of them have a side door for agents: an MCP server, a JSON mode, or a trace you can replay."
+      "lead": "Tools for news, printing, dashboards, keycaps and more. Many include an MCP server, a JSON mode, or a trace you can replay."
     },
     "zh": {
       "label": "项目",
       "title": "做出来是给人用的，有些也给 Agent 用。",
-      "lead": "都是些开源小工具。大部分都给 Agent 留了个侧门：MCP 服务、JSON 输出，或者一份能回放的 trace。"
+      "lead": "新闻、打印、数据看板、键帽等工具。许多项目提供 MCP 服务、JSON 输出，或一份能回放的 trace。"
     }
   },
   "labels": {
@@ -26,8 +26,8 @@
     }
   },
   "meta": {
-    "en": "Open-source projects by Felix Fang: maps, mind maps, research, agent traces and workflows, most with a side door for agents.",
-    "zh": "Felix Fang 的开源项目：地图、思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。"
+    "en": "Projects by Felix Fang: news, printing, BI, keycaps, maps, mind maps, research and tools for agents.",
+    "zh": "Felix Fang 的项目：新闻、打印、BI、键帽、地图、思维导图、研究和 Agent 工具。"
   },
   "caseStudies": [
     {
@@ -257,9 +257,14 @@
     {
       "slug": "dashtaste",
       "name": "dashtaste",
-      "url": "https://github.com/FelixFangX/dashtaste",
+      "url": "https://dashtaste.ledring.dev/",
       "source": "https://github.com/FelixFangX/dashtaste",
       "links": [
+        {
+          "url": "https://dashtaste.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        },
         {
           "url": "https://www.npmjs.com/package/dashtaste",
           "en": "npm ↗",
@@ -495,6 +500,102 @@
         "pitch": "我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",
         "spec": [],
         "forAgents": "对外提供 `llms.txt` 和 `status.json`。红就是红，没数据就写“no data”，不编。"
+      }
+    },
+    {
+      "slug": "keycap-diy",
+      "name": "Keycap DIY",
+      "zhName": "键帽 DIY",
+      "url": "https://keycap-diy.ledring.dev/",
+      "links": [
+        {
+          "url": "https://keycap-diy.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Design your own keycaps.",
+        "spec": [],
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "设计你自己的键帽。",
+        "spec": [],
+        "forAgents": ""
+      }
+    },
+    {
+      "slug": "news",
+      "name": "News",
+      "zhName": "新闻",
+      "url": "https://news.ledring.dev/",
+      "links": [
+        {
+          "url": "https://news.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Browse the news.",
+        "spec": [],
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "浏览新闻。",
+        "spec": [],
+        "forAgents": ""
+      }
+    },
+    {
+      "slug": "bi-lowcode",
+      "name": "BI Lowcode",
+      "zhName": "低代码 BI",
+      "url": "https://bi-lowcode.ledring.dev/",
+      "links": [
+        {
+          "url": "https://bi-lowcode.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "Build dashboards with low-code tools.",
+        "spec": [],
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "用低代码工具搭建数据看板。",
+        "spec": [],
+        "forAgents": ""
+      }
+    },
+    {
+      "slug": "print-agent",
+      "name": "Print Agent",
+      "zhName": "打印助手",
+      "url": "https://print.ledring.dev/",
+      "links": [
+        {
+          "url": "https://print.ledring.dev/",
+          "en": "Demo ↗",
+          "zh": "试试 ↗"
+        }
+      ],
+      "chips": [],
+      "en": {
+        "pitch": "A web app for print jobs.",
+        "spec": [],
+        "forAgents": ""
+      },
+      "zh": {
+        "pitch": "用于打印任务的网页应用。",
+        "spec": [],
+        "forAgents": ""
       }
     }
   ]
