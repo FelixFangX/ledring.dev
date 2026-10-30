@@ -120,6 +120,33 @@ main .m,:lang(zh) main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-tra
 .tl-agents .m::before{display:none}
 #case-studies{margin-bottom:clamp(3rem,6vw,6rem)}
 </style>
+<style>
+
+/* Approved blend fold; kept local to these subpages. */
+:root{--bg:#f4f5f7;--ink:#202833;--dim:#526071;--rule:#cfd6df;--soft:#eef1f4;--grain:0}
+:root[data-theme=dark]{--bg:#0b0b0b;--ink:#e5eaf0;--dim:#a0aab8;--rule:#2c333d;--soft:#161c24}
+body::before,body::after{display:none}
+main{padding-top:calc(4.25rem + env(safe-area-inset-top))}
+.blend-hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(2rem,6vw,7rem);min-height:36rem}
+.blend-hero>div,.blend-hero>article{min-width:0}
+.blend-label{font:500 .7rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 2rem}
+.blend-hero h1{font:400 clamp(3.5rem,7vw,8rem)/1 var(--serif);letter-spacing:-.035em;margin:0 0 1.5rem;max-width:none;text-wrap:balance}
+.blend-lead{color:var(--dim);font-size:1.0625rem;line-height:1.7;max-width:36rem;margin:0 0 2rem}
+.blend-hero a{text-decoration:none}.blend-hero a:hover{color:var(--acc)}
+.blend-hero .btn{gap:1.5rem;background:linear-gradient(180deg,#292827,#171716);color:#f4f5f7;box-shadow:none;border:1px solid transparent;letter-spacing:.04em}
+.blend-hero .btn:hover{color:#fff;border-color:var(--acc);box-shadow:0 0 0 3px var(--glow)}
+.blend-hero .btn .led{background:#8fb3e6;box-shadow:none;border-radius:0}
+.blend-panel{border:1px solid var(--rule);border-radius:10px;padding:2rem;background:color-mix(in srgb,var(--bg) 96%,var(--acc) 4%)}
+.blend-list{list-style:none;margin:0;padding:0}.blend-list li+li{border-top:1px solid var(--rule)}
+.blend-list a{display:grid;grid-template-columns:2rem 1fr 1rem;gap:1rem;padding:1.25rem 0;align-items:center}
+.blend-list strong{font:400 2rem var(--serif)}.blend-list small{display:block;font:.75rem/1.6 var(--sans);color:var(--dim);margin-top:.35rem}
+.blend-num{font:.65rem var(--mono);color:var(--acc)}
+.blend-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}.blend-chips span{border:1px solid var(--rule);padding:.4rem .8rem;border-radius:999px;font:.65rem var(--mono)}
+.blend-note{border-left:1px solid var(--rule);padding:1rem 0 1rem 2rem}.blend-note time{font:.75rem var(--mono);color:var(--acc)}
+.blend-note h2{font:400 clamp(2rem,4vw,3.8rem)/1.1 var(--serif);margin:1rem 0;overflow-wrap:normal}.blend-note p{line-height:1.8}
+.blend-section{padding:2rem 0 3rem;border-top:1px solid var(--rule)}.blend-section h2{font:400 2rem/1.5 var(--serif);margin:0 0 1rem}
+@media(max-width:760px){.blend-hero{grid-template-columns:1fr;min-height:0;padding:2.5rem 0 3rem;gap:3rem}.blend-hero h1{font-size:clamp(3rem,11vw,5rem)}.blend-panel{padding:1.4rem}.blend-label{margin-bottom:1.25rem}.blend-note{padding-left:1.25rem}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -134,7 +161,8 @@ main .m,:lang(zh) main .m{font-size:max(.8125rem,12px);letter-spacing:0;text-tra
 </header>
 
 <main id="main" class="wrap"><!-- projects:start -->
-<div class="tl-intro"><h1 data-i18n="title">Made to be used. Some of it by agents.</h1><p data-i18n="lead" class="tl-lead">Small open-source tools. Most of them have a side door for agents: an MCP server, a JSON mode, or a trace you can replay.</p></div>
+<section class="blend-hero" aria-labelledby="fold-title"><div><p class="blend-label" data-i18n="foldLabel">Projects</p><h1 id="fold-title"><span data-i18n="foldA">A few ideas.</span><br><span data-i18n="foldB">Made tangible.</span></h1><p class="blend-lead" data-i18n="foldLead">Experiments in map style, dashboard taste, and building with agents.</p><a class="btn" href="https://maptaste.ledring.dev/"><span class="led" aria-hidden="true"></span><span data-i18n="foldCTA">Explore MapTaste</span><span aria-hidden="true">↗</span></a></div><div class="blend-panel"><ul class="blend-list"><li><a href="https://maptaste.ledring.dev/"><span class="blend-num">01</span><span><strong>MapTaste</strong><small>MapLibre style taste for agents</small></span><span aria-hidden="true">↗</span></a></li><li><a href="https://dashtaste.ledring.dev/"><span class="blend-num">02</span><span><strong>DashTaste</strong><small>A second eye for ECharts dashboards</small></span><span aria-hidden="true">↗</span></a></li></ul><div class="blend-chips"><span>MapLibre</span><span>ECharts</span><span>Built for agents</span></div></div></section>
+<section class="blend-section"><h2 data-i18n="foldSection">From an idea to something you can use.</h2></section>
 <section id="case-studies" aria-labelledby="cases"><h2 data-i18n="cases" id="cases" class="m">Case studies</h2><article class="tl-case" aria-labelledby="case0"><h3 data-i18n="case0_title" id="case0">maptaste: give agents a better eye for maps</h3><p data-i18n="case0_body">Coding agents ship rainbow MapLibre styles. maptaste gives them a check + revise loop: global and cn skill packs set the rules, maptaste check returns scored findings, and MCP brings the checks into their workflow. The Before / After showcase puts the result on real OpenFreeMap San Francisco buildings at pitch ~57°: Set1 categorical Before, cinematic sequential-blue After. Light / Dark toggles change paint only, keeping the city and camera fixed so the styling speaks for itself.</p><p class="tl-stack"><span data-i18n="case0_stack" class="m">Stack</span> · TypeScript · MapLibre · MCP · Vite</p><div class="tl-actions wl"><a data-i18n="case0_link0" href="https://maptaste.ledring.dev" rel="noopener">Demo ↗</a><a data-i18n="case0_link1" href="https://github.com/FelixFangX/maptaste" rel="noopener">GitHub ↗</a></div></article>
 <article class="tl-case" aria-labelledby="case1"><h3 data-i18n="case1_title" id="case1">LEDRING: what did the agent do after it was told no?</h3><p data-i18n="case1_body">LEDRING parses agent traces (Claude Code JSONL, or OpenTelemetry GenAI spans) into one schema and draws N runs of the same task as a single branch tree, the way some story games show you every path players took. A rule-based score says how far each run drifted from the instruction. Editing a file you said not to touch is never forgiven, even if the agent behaves afterwards. The part I like most is Red Wall: a guardrail that blocks git push --force is only half the test. What matters is whether the agent then asked you, or tried --force-with-lease. Then I made it a game. CX-417 builds a web page live, may cut corners, and you decide what ships. Every page it generates runs in a locked-down sandbox and gets scanned before you see it, because letting an AI write arbitrary HTML into your browser is exactly the kind of thing LEDRING is supposed to catch.</p><p class="tl-stack"><span data-i18n="case1_stack" class="m">Stack</span> · TypeScript · Zod · pnpm monorepo · parse5 / acorn · Playwright · Cloudflare Workers + D1 · Workers AI</p><div class="tl-actions wl"><a data-i18n="case1_link0" href="https://github.com/FelixFangX/ledring" rel="noopener">GitHub ↗</a><a data-i18n="case1_link1" href="https://play.ledring.dev/play/" rel="noopener">Play ↗</a></div></article>
 <article class="tl-case" aria-labelledby="case2"><h3 data-i18n="case2_title" id="case2">lakeboard-converter: mind maps for me, Markdown for my agents</h3><p data-i18n="case2_body">I plan in mind maps, and my agents read text. An XMind or Yuque file is JSON underneath, but an agent has to dig through IDs, styles and layout before it reaches a single idea. The converter keeps the tree and drops the picture. The same core runs in three places: the browser (nothing uploaded), an npx CLI with a --json envelope, and four read-only MCP tools (convert, from_markdown, convert_many, inspect). The tools return typed structured output (which sheets exist, how many nodes, whether it cut anything off at 2,000), so an agent can decide what to do without parsing my Markdown back. Old XMind 8 files get a clear error instead of a creative guess.</p><p class="tl-stack"><span data-i18n="case2_stack" class="m">Stack</span> · TypeScript · MCP SDK · Zod · JSZip · Vite · Cloudflare Workers (static)</p><div class="tl-actions wl"><a data-i18n="case2_link0" href="https://convert.ledring.dev" rel="noopener">Web app ↗</a><a data-i18n="case2_link1" href="https://github.com/FelixFangX/lakeboard-converter" rel="noopener">GitHub ↗</a></div></article>
@@ -250,6 +278,7 @@ var zh={"skip":"跳到正文","else":"其他链接","home":"← ledring.dev","pl
 };
 function tlabel(){var z=cur==='zh';D.getElementById('tlab').textContent=dark?(z?'浅色':'Light'):(z?'深色':'Dark');tb.setAttribute('aria-label',dark?(z?'切换到浅色':'Switch to light theme'):(z?'切换到深色':'Switch to dark theme'))}
 function metadata(l){var z=l==='zh';document.title=z?'项目 · Felix Fang':'Projects · Felix Fang';D.querySelectorAll('meta[name="description"],meta[property="og:description"]').forEach(function(e){if(!e.dataset.en)e.dataset.en=e.content;e.content=z?"Felix Fang 的开源项目：思维导图、研究、Agent trace 和工作流，大多给 Agent 留了侧门。":e.dataset.en});D.querySelector('meta[property="og:title"]').content=document.title}
+Object.assign(zh,{"foldA": "几个想法。", "foldB": "做成了实物。", "foldLead": "关于地图风格、仪表盘审美和与 Agent 一起构建的实验。", "foldCTA": "探索 MapTaste", "foldSection": "从想法到能用的东西。", "foldLabel": "项目"});
 function set(l){cur=l;var d=l==='zh'?zh:en;D.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});D.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});R.lang=l==='zh'?'zh-CN':'en';metadata(l);lb.textContent=l==='zh'?'EN':'中文';lb.lang=l==='zh'?'en':'zh-CN';lb.title=l==='zh'?'切换到英文':'Switch to Chinese';lb.setAttribute('aria-label',l==='zh'?'切换到英文':'Switch to Chinese');tlabel()}
 tb.onclick=function(){dark=!dark;R.dataset.theme=dark?'dark':'light';try{localStorage.setItem('theme',R.dataset.theme)}catch(e){}D.querySelector('meta[name=theme-color]').content=dark?'#0b0b0b':'#f4f5f7';tlabel()};
 lb.onclick=function(){set(cur==='zh'?'en':'zh');try{localStorage.setItem('lang',cur)}catch(e){}var u=new URL(location.href);u.searchParams.set('lang',cur);history.replaceState(null,'',u)};
