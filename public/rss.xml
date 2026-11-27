@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ledring.dev notes</title>
+    <link>https://ledring.dev/notes/</link>
+    <description>Field notes from building with agents. What survives, what breaks, what I would change.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://ledring.dev/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Harness notes — Part 1</title>
+      <link>https://ledring.dev/notes/harness-notes-part-1/</link>
+      <guid isPermaLink="true">https://ledring.dev/notes/harness-notes-part-1/</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Seven products and what each owns outside the model. Pick by the job.</description>
+    </item>
+  </channel>
+</rss>

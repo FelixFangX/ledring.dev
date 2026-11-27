@@ -4,9 +4,9 @@
 
 ## Projects
 
-- [maptaste](https://maptaste.ledring.dev) ([source](https://github.com/FelixFangX/maptaste)): MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
-- [lakeboard-converter](https://convert.ledring.dev): Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
-- [dashtaste](https://github.com/FelixFangX/dashtaste): Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
+- [maptaste](https://maptaste.ledring.dev) ([source](https://github.com/FelixFangX/maptaste)): MapLibre style taste for coding agents: 6 named tastes, 15 check rules, and a loop that turns rainbow buildings into cinematic sequential blues. Source: [GitHub](https://github.com/FelixFangX/maptaste). MCP: maptaste-mcp
+- [lakeboard-converter](https://convert.ledring.dev): Turns 9 mind-map formats — Yuque Lakeboard, XMind, XMind 8, OPML, FreeMind, MindManager, iThoughts, SimpleMind, and CSV — into Markdown, so ideas stop being trapped in a picture. Source: [GitHub](https://github.com/FelixFangX/lakeboard-converter). MCP: npx -y lakeboard-converter mcp
+- [dashtaste](https://dashtaste.ledring.dev): Dashboard taste as a skill + check loop: 6 named tastes and 38 rules to shape ECharts dashboards, check the result, and revise. Source: [GitHub](https://github.com/FelixFangX/dashtaste)
 - [Research](https://research.ledring.dev): For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan. Source: [GitHub](https://github.com/FelixFangX/research-thinking-ai)
 - [LEDRING / LEDRING Play](https://play.ledring.dev/play/): Status lights for agents, plus a browser game where an AI builds a web page and you decide what ships. Source: [GitHub](https://github.com/FelixFangX/ledring)
 - [dev-work-grok-bot-skill](https://github.com/FelixFangX/dev-work-grok-bot-skill): An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room. Source: [GitHub](https://github.com/FelixFangX/dev-work-grok-bot-skill)
@@ -29,6 +29,7 @@
 ## Machine-readable
 
 - [Projects JSON](https://ledring.dev/projects.json)
+- [Notes RSS](https://ledring.dev/rss.xml)
 
 ## Elsewhere
 

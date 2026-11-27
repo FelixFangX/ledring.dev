@@ -100,3 +100,33 @@ for (const path of ['/llms.txt', '/projects.json']) {
   }
 }
 console.log('Discovery assets: /llms.txt and /projects.json pass through ASSETS unchanged with 200');
+
+// RSS feed must be valid RSS 2.0 with self-link, wired into HTML, and served as application/rss+xml.
+const rss = readFileSync('public/rss.xml', 'utf8');
+assert(rss.startsWith('<?xml version="1.0" encoding="UTF-8"?>'));
+assert(rss.includes('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'));
+assert(rss.includes('<atom:link href="https://ledring.dev/rss.xml" rel="self" type="application/rss+xml"/>'));
+assert(rss.includes('<link>https://ledring.dev/notes/harness-notes-part-1/</link>'));
+assert(rss.includes('<pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>'));
+assert(rss.trim().endsWith('</rss>'));
+const rssLink = '<link rel="alternate" type="application/rss+xml" title="ledring.dev notes" href="/rss.xml">';
+for (const page of ['public/index.html', 'public/notes/index.html']) {
+  assert(readFileSync(page, 'utf8').includes(rssLink), `${page}: missing RSS link`);
+}
+for (const method of ['GET', 'HEAD']) {
+  let fetched = false;
+  const assets = { ASSETS: { async fetch(request) {
+    assert.equal(new URL(request.url).pathname, '/rss.xml');
+    assert.equal(request.method, 'GET');
+    fetched = true;
+    return new Response(rss, { status: 200, headers: { 'Content-Type': 'application/xml', 'Cache-Control': 'public, max-age=3600' } });
+  } } };
+  const response = await worker.fetch(new Request('https://ledring.dev/rss.xml', { method, headers: { 'Accept-Language': 'zh-CN' } }), assets);
+  assert(fetched);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('Content-Type'), 'application/rss+xml; charset=utf-8');
+  assert.equal(response.headers.get('Cache-Control'), 'public, max-age=3600');
+  assert.equal(response.headers.get('Vary'), null);
+  assert.equal(await response.text(), method === 'HEAD' ? '' : rss);
+}
+console.log('RSS feed: /rss.xml valid RSS 2.0, autodiscovery wired, served as application/rss+xml; charset=utf-8');

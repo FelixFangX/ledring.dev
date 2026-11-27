@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check generated projects and feeds
+        run: node scripts/build-projects.mjs --check
+      - name: Check i18n and worker
+        run: node scripts/check-i18n.mjs
+      - name: Check routes, sitemap, and discovery assets
+        run: node scripts/check-routes.mjs

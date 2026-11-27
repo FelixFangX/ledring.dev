@@ -8,8 +8,8 @@ Source for **https://ledring.dev**, Felix Fang's personal site and the home of [
 - **About**: path (frontend → full-stack → AI-native), principles, and how I build with agents.
 - **LEDRING**: how to play, AI modes, content packs (EN dev pack and 中文 pack), the trace toolkit, and live links (Play, sample reports, concept demo).
 - **Tools page**: [/tools/](https://ledring.dev/tools/) lists Convert and Research, with live links, source and manually maintained status.
-- **Projects page**: [/projects/](https://ledring.dev/projects/) presents three case studies and seven projects from `data/projects.json`. `scripts/build-projects.mjs` also generates [/llms.txt](https://ledring.dev/llms.txt) and [/projects.json](https://ledring.dev/projects.json).
-- **Notes page**: [/notes/](https://ledring.dev/notes/) is a bilingual index, initially empty.
+- **Projects page**: [/projects/](https://ledring.dev/projects/) presents four case studies and eight projects from `data/projects.json`. `scripts/build-projects.mjs` also generates [/llms.txt](https://ledring.dev/llms.txt), [/projects.json](https://ledring.dev/projects.json), and [/rss.xml](https://ledring.dev/rss.xml).
+- **Notes page**: [/notes/](https://ledring.dev/notes/) is a bilingual index (featuring *Harness notes — Part 1*), with an RSS 2.0 feed at [/rss.xml](https://ledring.dev/rss.xml).
 - **Selected work**: maptaste, research-thinking-ai, lakeboard-converter, dashtaste, n8n-workflow-collection, dev-work-grok-bot-skill and the profile control room, each with its key features, stack and links.
 - **Open source**: GitHub achievements and accepted answers.
 - **Now / Stack**: Become Human and the tools I use.
@@ -36,6 +36,7 @@ Everything on it comes from the public repos and the profile README.
 | `/tools` | 301 to `/tools/`, preserving the query string; `/tools/` and `/tools/index.html` serve the bilingual tools directory with private, no-store, no-transform caching |
 | `/projects`, `/notes` | 301 to the trailing slash, preserving query; slash and `index.html` routes serve bilingual HTML with private, no-store, no-transform caching |
 | `/sitemap.xml`, `/robots.txt` | Search discovery for home, tools, projects and notes, including language alternates |
+| `/rss.xml` | RSS 2.0 feed for `/notes/`, served with `Content-Type: application/rss+xml; charset=utf-8` |
 | `/play` | Redirects to https://play.ledring.dev/play/ and keeps the query string (`?src=` content-pack tracking) |
 | `/x`, `/github` (`/gh`) | Redirect to X @ColeFangX and GitHub FelixFangX |
 | everything else | Static assets from `public/` (including `og.png`) |
@@ -61,7 +62,7 @@ npx wrangler@3 deploy                             # production: ledring.dev (wor
 1. Copy `templates/note.html` to `public/notes/<slug>/index.html`. The source template stays outside `public/` and is not deployed.
 2. Replace `SLUG`, `TITLE_EN`, `TITLE_ZH`, `DESCRIPTION_EN`, `DESCRIPTION_ZH`, `DATE_ISO`, `DATE_EN` and `DATE_ZH`. Keep the canonical and all three hreflang URLs consistent. Add the article body at the placeholder comment, using static English markup and matching `data-i18n` keys in the Chinese dictionary (English values are collected from the markup).
 3. Add an entry to `var NOTES=[]` in `public/notes/index.html`: `{date: 'YYYY-MM-DD', url: '/notes/<slug>/', en: {title: '...', summary: '...'}, zh: {title: '...', summary: '...'}}`. Place entries in the intended display order. The renderer clones `#note-item` and updates when the language changes.
-4. Add the note's clean URL and its `en`, `zh-CN` and `x-default` alternates to `public/sitemap.xml`.
+4. Add the note's clean URL and its `en`, `zh-CN` and `x-default` alternates to `public/sitemap.xml`, then run `node scripts/build-projects.mjs` to update `public/rss.xml` and `public/llms.txt`.
 5. Run the offline checks above and preview both languages, light/dark themes, and mobile/desktop layouts. The route check uses a minimal HTMLRewriter stub; Cloudflare streaming behavior still requires the Worker runtime.
 
 ## License

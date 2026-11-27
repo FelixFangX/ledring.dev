@@ -12,6 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://ledring.dev/?lang=en">
 <link rel="alternate" hreflang="zh-CN" href="https://ledring.dev/?lang=zh">
 <link rel="alternate" hreflang="x-default" href="https://ledring.dev/">
+<link rel="alternate" type="application/rss+xml" title="ledring.dev notes" href="/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ledring.dev/">
 <meta property="og:title" content="Felix Fang">
@@ -391,17 +392,19 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 @media(max-width:400px){.tools{gap:.3rem}.tools button,.tools a{padding:0 .5rem}#theme{padding:0 .5rem;gap:.3rem}.mark{gap:.35rem;font-size:11px;letter-spacing:.04em}.mark canvas{width:18px;height:18px}}
 @media(max-width:48rem){.bar .nav-secondary{display:none}.bar .wrap,.bar .tools{flex-wrap:nowrap;white-space:nowrap}.bar .tools{flex-shrink:0;gap:.3rem}.bar .tools a,.bar .tools button{padding:0 .5rem}.bar #theme{padding:0 .5rem;gap:.3rem}}
 </style>
-<style>html,body,body *{pointer-events:none!important;cursor:default!important;user-select:none}#cur,.term,#topen,.toast{display:none!important}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}</style><link rel="stylesheet" href="/atelier.css">
-</head>
+<link rel="stylesheet" href="/atelier.css">
+<link rel="stylesheet" href="/nav-transition.css">
+<script src="/nav-transition.js"></script>
+<style>html,body,body *{pointer-events:none!important;cursor:default!important;user-select:none}#cur,.term,#topen,.toast{display:none!important}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}</style></head>
 <body>
 <div class="lights" id="lights" aria-hidden="true"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
-<a class="skip" href="#work" data-i18n="skip">Skip to work</a>
+<a class="skip"  data-i18n="skip">Skip to work</a>
 <header class="bar">
   <div class="wrap">
     <a class="mark m"  aria-label="ledring.dev"><canvas id="mini" width="44" height="44" aria-hidden="true"></canvas>ledring.dev</a>
     <div class="tools">
-      <a href="/notes/" data-i18n="navnotes">Notes</a><a class="nav-secondary" data-i18n="toolsN">Tools</a><a class="nav-secondary" href="/projects/" data-i18n="navprojects">Projects</a>
+      <a href="/notes/" data-i18n="navnotes">Notes</a><a class="nav-secondary"  data-i18n="toolsN">Tools</a><a class="nav-secondary" href="/projects/" data-i18n="navprojects">Projects</a>
       <button id="theme" class="mag" type="button" aria-label="Switch to dark theme"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg><span id="tlab">Dark</span></button>
       <button id="lang" class="mag" type="button" lang="zh-CN" aria-label="Switch to Chinese">中文</button>
     </div>
@@ -426,7 +429,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
       <p class="split" data-i18n="ab1">Felix. I build with AI agents and like making things that are fun to use. LEDRING started as status lights for agents and turned into a game where you try to stop one.</p>
       <div class="craft-path"><span data-i18n="craftHuman">Human intent</span><i aria-hidden="true">→</i><span data-i18n="craftAgent">Agent code</span><i aria-hidden="true">→</i><span data-i18n="craftCare">Care in every detail</span></div>
       <p class="split ab2" data-i18n="ab2">Craft still matters, even with machines in the room.</p>
-      <a class="craft-note lnk" href="/notes/harness-notes-part-1/" data-i18n="craftNote">From the notebook: Harness notes — Part 1 ↗</a>
+      <a class="craft-note lnk"  data-i18n="craftNote">From the notebook: Harness notes — Part 1 ↗</a>
     </div>
   </div>
 </section>
@@ -473,10 +476,12 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
   <div class="wrap g12">
     <h2 class="lab m" id="h-sel" data-i18n="selL">Work</h2>
     <ol class="work body">
+      <li class="fade"><a class="nm" >maptaste</a><div class="meta"><p data-i18n="w7">MapLibre style taste for coding Agents: 6 named tastes, 15 rules, and a loop that turns rainbow buildings into cinematic sequential blues.</p><ul class="kf"><li data-i18n="w7a">`maptaste check` (v0.0.2) with 15 rules + `hsl()` and a 0–100 score.</li><li data-i18n="w7b">6 named tastes across global and cn packs, plus MCP check_taste / validate_style / preview_info.</li><li data-i18n="w7c">Showcase: OpenFreeMap San Francisco buildings at pitch ~57°, Set1 Before / cinematic sequential-blue After; paint-only Light / Dark toggles.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>MapLibre</li><li>MCP</li><li data-i18n="skillTag">Agent skill</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a  data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" >research-thinking-ai</a><div class="meta"><p data-i18n="w1">For when you have a vague research itch. You get ranked directions backed by real papers, plus a 7-day plan.</p><ul class="kf"><li data-i18n="w1a">HIGH or LOW involvement; four stages, streamed.</li><li data-i18n="w1b">Evidence tiered T1–T3, and every citation gets checked.</li><li data-i18n="w1c">Comes with an MCP server and a weekly OpenAlex watch.</li></ul><ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Cloudflare Workers</li><li>D1</li><li>Workers AI</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a  data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" >lakeboard-converter</a><div class="meta"><p data-i18n="w2">Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.</p><ul class="kf"><li data-i18n="w2a">CLI, guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Four read-only MCP tools — convert, from_markdown, convert_many, and inspect — so agents get typed structure, not a wall of text.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li data-i18n="webTag">Web</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a  data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" >lakeboard-converter</a><div class="meta"><p data-i18n="w2">Turns 9 mind-map formats (Yuque, XMind, XMind 8, OPML, FreeMind, MindManager, iThoughts, SimpleMind, CSV) into Markdown.</p><ul class="kf"><li data-i18n="w2a">v0.6.0: CLI, guided TUI, or drag and drop in the browser.</li><li data-i18n="w2b">Keeps text, hierarchy, notes and links.</li><li data-i18n="w2c">Four MCP tools — convert, convert_many, inspect (read-only) and from_markdown (writes .xmind) — so agents get typed structure, not a wall of text.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>TUI</li><li data-i18n="webTag">Web</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a  data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" >dashtaste</a><div class="meta"><p data-i18n="w6">Dashboard taste as a skill + check loop: 6 named tastes and 38 rules for ECharts dashboards, with global and cn packs.</p><ul class="kf"><li data-i18n="w6a">`dashtaste check` (v0.0.8) with 38 rules for configs or rendered dashboards.</li><li data-i18n="w6b">6 named tastes across global and cn Agent skill packs.</li><li data-i18n="w6c">Live demo and gallery before/after on the same seeded data.</li></ul><ul class="tags"><li>TypeScript</li><li>CLI</li><li>ECharts</li><li data-i18n="skillTag">Agent skill</li></ul></div><div class="wl"><a  data-i18n="demo">Demo ↗</a><a >npm ↗</a><a >Gallery ↗</a><a  data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" >n8n-workflow-collection</a><div class="meta"><p data-i18n="w3">Import-ready n8n workflows, secrets scrubbed: Lark/Feishu bot → Bitable records and PRD drafts, and social metrics.</p><ul class="kf"><li data-i18n="w3a">Global (Lark + OpenAI) and China (Feishu + DeepSeek) editions.</li><li data-i18n="w3b">Each one ships a manifest, so agents can run it through n8n MCP.</li><li data-i18n="w3c">A redaction check runs on every commit, just in case.</li></ul><ul class="tags"><li>n8n</li><li data-i18n="feishuTag">Feishu / Lark</li><li data-i18n="bitableTag">Bitable</li></ul></div><div class="wl"><a  data-i18n="code">Code ↗</a></div></li>
-      <li class="fade"><a class="nm" >dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.</p><ul class="kf"><li data-i18n="w4a">Drafts first. Nothing goes out until you say so.</li><li data-i18n="w4b">20 safety scenarios, 20/20 rule coverage in CI.</li><li data-i18n="w4c">Checks for secrets and PII without ever printing what it found.</li></ul><ul class="tags"><li data-i18n="skillTag">Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a  data-i18n="code">Code ↗</a></div></li>
+      <li class="fade"><a class="nm" >dev-work-grok-bot-skill</a><div class="meta"><p data-i18n="w4">An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.</p><ul class="kf"><li data-i18n="w4a">Drafts first. Nothing goes out until you say so.</li><li data-i18n="w4b">v1.0.0: 42/42 rule-string coverage, 50/50 authority fixtures, 12/20 eval on glm-4.7-flash.</li><li data-i18n="w4c">Checks for secrets and PII without ever printing what it found.</li></ul><ul class="tags"><li data-i18n="skillTag">Agent skill</li><li>GitHub</li><li>Linear</li><li>MCP</li></ul></div><div class="wl"><a  data-i18n="code">Code ↗</a></div></li>
       <li class="fade"><a class="nm" >control-room</a><div class="meta"><p data-i18n="w5">My GitHub profile, rebuilt every day from real runs and evals.</p><ul class="kf"><li data-i18n="w5a">GitHub Actions rebuilds it daily from real runs and evals.</li><li data-i18n="w5b">Red means red. Agents can read llms.txt and status.json.</li></ul><ul class="tags"><li>GitHub Actions</li><li>SVG</li><li>JavaScript</li></ul></div><div class="wl"><a  data-i18n="code">Code ↗</a></div></li>
     </ol>
   </div>
@@ -531,7 +536,7 @@ h1 .ncap #stv{color:var(--led);transition:color .6s}
 <section class="blk" id="path" aria-labelledby="h-path">
   <div class="wrap g12">
     <h2 class="lab m" id="h-path" data-i18n="pathL">Path</h2>
-    <div class="body"><p class="pths" data-i18n="pathS">Every section you visit lights up. Like any flowchart, some branches only open if you make a choice.</p><div class="flow fade" id="flow"></div></div>
+    <div class="body"><p class="pths" data-i18n="pathS">Every section you visit lights up. Like any flowchart, some branches only open if you make a choice.</p><div class="path-ruler" id="path-ruler" aria-hidden="true"></div><div class="flow fade" id="flow"></div></div>
   </div>
 </section>
 
@@ -574,7 +579,7 @@ line:"给 AI Agent 装的状态灯。顺手做成了一个网页游戏：你负�
 howL:"怎么玩",h1:"点开始，给 CX-417（一个搭网页的 AI）出个点子。",h2:"它当着你的面现场开写，中途可能偷懒。",h3:"放行、打回，或者直接拔电源。一共 7 个结局。",
 featL:"底下是什么",f1:"把 Claude Code、OpenTelemetry GenAI 的运行记录 摊成一棵分支树。",f2:"给每次运行打个分：跑偏了多远。",f3:"有 CLI 和 GitHub Actions，游戏也跑在这套引擎上。",f4:"自带免费 AI，不用 API 密钥，不用注册。中英都有。",
 linkL:"链接",l1:"浏览器里直接玩",l2:"示例报告",l3:"概念演示",
-selL:"作品",w1:"有个模模糊糊的研究念头时用。给你几条排好序、有真论文撑腰的方向，外加一份 7 天计划。",w2:"把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",w3:"导入就能用的 n8n 工作流，敏感信息已清理：飞书/Lark 机器人消息转成多维表格记录和 PRD 草稿，外加社媒数据追踪。",w4:"一个 Agent skill，把聊天机器人调教成谨慎的开发助手：先出草稿，什么东西要发出去都先问你。",demo:"试试 ↗",code:"代码 ↗",
+selL:"作品",w1:"有个模模糊糊的研究念头时用。给你几条排好序、有真论文撑腰的方向，外加一份 7 天计划。",w2:"把 9 种思维导图格式（语雀、XMind、XMind 8、OPML、FreeMind、MindManager、iThoughts、SimpleMind、CSV）转成 Markdown。",w3:"导入就能用的 n8n 工作流，敏感信息已清理：飞书/Lark 机器人消息转成多维表格记录和 PRD 草稿，外加社媒数据追踪。",w4:"一个 Agent skill，把聊天机器人调教成谨慎的开发助手：先出草稿，什么东西要发出去都先问你。",demo:"试试 ↗",code:"代码 ↗",
 ossL:"开源",ach:"GitHub 成就",acc:"答案被采纳 ↗",acc2:"答案被采纳 ↗",
 nowL:"近况",
 contact:"联系",else:"其他链接",caught:"拦住",esc:"溜了",hint1:"光点溜到闸门，就拦它",hint2:"点一下",mhint:"光点进闸门时点一下",term:"终端"};
@@ -583,10 +588,11 @@ modeL:"用哪个 AI",m1:"LEDRING 免费 AI：不用 API 密钥，不用注册，
 packL:"内容包",k1:"开发者包（英文）：贪吃蛇、番茄钟、画板这些。",k2:"中文包：已读不回、摸鱼被抓、AI 删库……结尾送一张分享卡。",k3:"做完的作品能发到 api.ledring.dev，和别人的摆在一起。",
 kitL:"工具箱",t1:"flowchart：N 次运行合成一棵树，一个离线 HTML 就能看。",t2:"instability：0–100 的跑偏分，加 --fail-above 能直接卡住 CI。",t3:"trust / card / Red Wall：权限规则、A2A 卡片、护栏测试。",
 w1a:"高 / 低两档参与度，四个阶段流式出结果。",w1b:"证据分 T1–T3，引用一条条核过。",w1c:"带 MCP，每周还去 OpenAlex 看看有啥新的。",
-w2a:"命令行、TUI、浏览器拖拽，三选一。",w2b:"文字、层级、备注、链接都留着。",w2c:"四个只读 MCP 工具：convert、from_markdown、convert_many、inspect，Agent 拿到的是带类型的结构，不是一大坨文本。",
+w2a:"v0.6.0：命令行、TUI、浏览器拖拽，三选一。",w2b:"文字、层级、备注、链接都留着。",w2c:"四个 MCP 工具：convert、convert_many、inspect 为只读，from_markdown 写出 .xmind，Agent 拿到的是带类型的结构，不是一大坨文本。",
 w3a:"国际版 Lark + OpenAI，国内版飞书 + DeepSeek。",w3b:"每个都带清单文件，Agent 能通过 n8n MCP 调。",w3c:"每次提交都过一遍脱敏检查，以防万一。",
-w4a:"先出草稿，你点头才发。",w4b:"20 个安全场景，CI 里规则覆盖 20/20。",w4c:"查密钥和隐私信息，查到了也不打印出来。",
+w4a:"先出草稿，你点头才发。",w4b:"v1.0.0：42/42 规则文本覆盖、50/50 确定性权限夹具测试，以及 glm-4.7-flash 上 12/20 模型评测。",w4c:"查密钥和隐私信息，查到了也不打印出来。",
 w5:"我的 GitHub 主页，每天用真实的运行和评测结果重新生成。",w5a:"GitHub Actions 每天按真实运行和评测结果重画一遍。",w5b:"挂了就显示挂了。Agent 可以读 llms.txt 和 status.json。",
+w6:"把仪表盘审美做成 skill + check 闭环：面向 ECharts 的 6 套命名风格与 38 条规则，含 global 和 cn 两套包。",w6a:"`dashtaste check`（v0.0.8），38 条规则检查配置或渲染后的看板。",w6b:"覆盖 global 和 cn 两套 Agent skill 的 6 套命名风格。",w6c:"在线演示与画廊用同一份种子数据做 before/after。",w7:"给写地图样式的 Agent 用的 MapLibre 品味检查：6 套命名风格、15 条规则，把彩虹建筑变成电影感顺序蓝。",w7a:"`maptaste check`（v0.0.2），15 条规则 + `hsl()`，0–100 分。",w7b:"覆盖 global 和 cn 两套技能包的 6 套命名风格，外加 MCP：check_taste / validate_style / preview_info。",w7c:"Showcase：OpenFreeMap 旧金山建筑、俯仰约 57°，Set1 Before / 电影感顺序蓝 After；Light / Dark 切换只改 paint。",
 now0:"主线是 maptaste——给 Agent 用的 MapLibre 样式品味（check + skill packs + MCP + showcase）。Dashtaste 降为次要。Become Human 还在打磨：归你自己的 Agent 记忆（纯文本文件）。",
 sg1:"语言和前端",sg2:"跑在哪",sg3:"Agent 和 AI"});
 Object.assign(zh,{curL:"此刻",humL:"别处",hu0:"可以叫我 Felix，也可以叫我小熊仔。",
@@ -819,7 +825,7 @@ var CMDS={
  tools:function(){return cur==='zh'?'正在打开工具…':'Opening tools…'},
  help:function(){return '<code translate="no">about  projects  tools  play  oss  stack  email  github  x  theme  lang  score\ncoffee  cats  gym  live  bear  wall  whoami  clear  exit</code>'},
  about:function(){return cur==='zh'?zh.ab1+zh.ab2:en.ab1+' '+en.ab2},
- projects:function(){return ['ledring','research-thinking-ai','lakeboard-converter','n8n-workflow-collection','dev-work-grok-bot-skill'].map(function(p){return '<a  translate="no">'+p+'</a>'}).join('\n')},
+ projects:function(){return ['maptaste','ledring','research-thinking-ai','lakeboard-converter','dashtaste','n8n-workflow-collection','dev-work-grok-bot-skill'].map(function(p){return '<a  translate="no">'+p+'</a>'}).join('\n')},
  play:function(){return cur==='zh'?'正在打开 LEDRING Play…':'opening LEDRING Play…'},
  oss:function(){return '<span lang="en">Pull Shark · Galaxy Brain · Pair Extraordinaire · Quickdraw · YOLO</span>\n'+(cur==='zh'?'已采纳：':'accepted: ')+'PrefectHQ/fastmcp#3209, withastro/community-support#12'},
  stack:function(){return '<code translate="no">TypeScript React Node.js Vite Supabase OpenTelemetry Cloudflare-Workers n8n MCP</code>'},
@@ -884,6 +890,7 @@ var flow=D.getElementById('flow');
   flow.querySelectorAll('.nd').forEach(function(n){var id=n.dataset.n,go=function(){var t=id==='top'?D.body:D.getElementById(id);t&&t.scrollIntoView({behavior:RM.matches?'auto':'smooth'})};n.onclick=go;n.onkeydown=function(e){if(e.key==='Enter')go()}})})();
 window.flowSet=function(){if(!flow.firstChild)return;var c=0;flow.querySelectorAll('.nd').forEach(function(n){var on=!!VIS[n.dataset.n]||(n.dataset.n==='human'&&VIS.dev);n.classList.toggle('on',on);if(on)c++});
   flow.querySelectorAll('.ed').forEach(function(e){e.classList.toggle('on',e.dataset.b==='obey'?(VIS.human&&!VIS.dev):e.dataset.a==='wall'?!!VIS.dev:!!(VIS[e.dataset.a]&&VIS[e.dataset.b]))});
+  var pr=D.getElementById('path-ruler');if(pr)pr.style.setProperty('--progress',(c/FN.length*100)+'%');
   D.getElementById('fpct').textContent=(cur==='zh'?'已探索 ':'EXPLORED ')+Math.round(c/FN.length*100)+'%'+(VIS.dev?(cur==='zh'?' · 你偏离了指令':' · YOU DEVIATED'):'')};
 var fio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){VIS[e.target.id==='hero'||e.target.classList.contains('hero')?'top':e.target.id]=1}});flowSet()},{threshold:.15});
 fio.observe(hero);FN.forEach(function(f){var el=D.getElementById(f[0]);if(el&&f[0]!=='top')fio.observe(el)});
