@@ -56,9 +56,39 @@ const projectLine = p => {
   if (demo) return `- [${p.name}](${demo.url}) ([source](${p.source})): ${tail}`;
   return `- [${p.name}](${p.url}): ${tail}`;
 };
-const llms = ['# ledring.dev','',`> ${data.meta.en}`,'','## Projects','',...data.projects.map(projectLine),'','## Pages','','- [Projects](https://ledring.dev/projects/)','- [Notes](https://ledring.dev/notes/)',...notes.map(n => `- [${n.en.title}](https://ledring.dev${n.url})`),'- [Tools](https://ledring.dev/tools/)','','## Tools','','- [Convert](https://convert.ledring.dev)','- [Research](https://research.ledring.dev)','- [LEDRING Play](https://play.ledring.dev/play/)','','## Machine-readable','','- [Projects JSON](https://ledring.dev/projects.json)','','## Elsewhere','','- [GitHub](https://github.com/FelixFangX)',''].join('\n');
+const escapeXml = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+const rfc822 = isoDate => new Date(`${isoDate}T00:00:00Z`).toUTCString();
+const latestDate = notes.length ? notes.map(n => n.date).sort().at(-1) : null;
+const rssItems = notes.map(n => {
+  const link = `https://ledring.dev${n.url}`;
+  return [
+    '    <item>',
+    `      <title>${escapeXml(n.en.title)}</title>`,
+    `      <link>${escapeXml(link)}</link>`,
+    `      <guid isPermaLink="true">${escapeXml(link)}</guid>`,
+    `      <pubDate>${rfc822(n.date)}</pubDate>`,
+    `      <description>${escapeXml(n.en.summary)}</description>`,
+    '    </item>',
+  ].join('\n');
+});
+const rss = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+  '  <channel>',
+  '    <title>ledring.dev notes</title>',
+  '    <link>https://ledring.dev/notes/</link>',
+  '    <description>Field notes from building with agents. What survives, what breaks, what I would change.</description>',
+  '    <language>en</language>',
+  ...(latestDate ? [`    <lastBuildDate>${rfc822(latestDate)}</lastBuildDate>`] : []),
+  '    <atom:link href="https://ledring.dev/rss.xml" rel="self" type="application/rss+xml"/>',
+  ...rssItems,
+  '  </channel>',
+  '</rss>',
+  '',
+].join('\n');
+const llms = ['# ledring.dev','',`> ${data.meta.en}`,'','## Projects','',...data.projects.map(projectLine),'','## Pages','','- [Projects](https://ledring.dev/projects/)','- [Notes](https://ledring.dev/notes/)',...notes.map(n => `- [${n.en.title}](https://ledring.dev${n.url})`),'- [Tools](https://ledring.dev/tools/)','','## Tools','','- [Convert](https://convert.ledring.dev)','- [Research](https://research.ledring.dev)','- [LEDRING Play](https://play.ledring.dev/play/)','','## Machine-readable','','- [Projects JSON](https://ledring.dev/projects.json)','- [Notes RSS](https://ledring.dev/rss.xml)','','## Elsewhere','','- [GitHub](https://github.com/FelixFangX)',''].join('\n');
 let stale = false;
-for (const [path, output] of [['public/projects/index.html',html],['public/projects.json',JSON.stringify(machine,null,2)+'\n'],['public/llms.txt',llms]]) {
+for (const [path, output] of [['public/projects/index.html',html],['public/projects.json',JSON.stringify(machine,null,2)+'\n'],['public/llms.txt',llms],['public/rss.xml',rss]]) {
   if (process.argv.includes('--check')) {
     let current; try { current = readFileSync(path,'utf8'); } catch {}
     if (current !== output) { console.error(`Stale generated output: ${path}`); stale = true; }

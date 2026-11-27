@@ -79,7 +79,13 @@ async function handle(request, env) {
     return localizedAsset(request, env, url);
   }
   const asset = await env.ASSETS.fetch(request);
-  return asset.status === 404 ? localizedAsset(request, env, url, true, true) : asset;
+  if (asset.status === 404) return localizedAsset(request, env, url, true, true);
+  if (url.pathname === "/rss.xml") {
+    const headers = new Headers(asset.headers);
+    headers.set("Content-Type", "application/rss+xml; charset=utf-8");
+    return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers });
+  }
+  return asset;
 }
 
 export default {

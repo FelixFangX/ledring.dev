@@ -4,7 +4,7 @@
     {
       "name": "maptaste",
       "slug": "maptaste",
-      "url": "https://github.com/FelixFangX/maptaste",
+      "url": "https://maptaste.ledring.dev",
       "source": "https://github.com/FelixFangX/maptaste",
       "links": [
         {
@@ -24,16 +24,17 @@
         "MapLibre",
         "MCP",
         "Agent skill",
+        "v0.0.2",
         "MIT"
       ],
       "mcp": "maptaste-mcp",
       "en": {
-        "pitch": "MapLibre style taste for coding agents: check, load a pack, and turn rainbow buildings into cinematic sequential blues.",
-        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check`, revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
+        "pitch": "MapLibre style taste for coding agents: 6 named tastes, 15 check rules, and a loop that turns rainbow buildings into cinematic sequential blues.",
+        "forAgents": "Install `maptaste-global` or `maptaste-cn` from the repo skills. Run `maptaste check` (v0.0.2, 15 rules + `hsl()`), revise from JSON findings with rule IDs and a 0–100 score. MCP tools: `check_taste`, `validate_style`, `preview_info`."
       },
       "zh": {
-        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：跑 check、加载技能包，把彩虹建筑变成电影感顺序蓝。",
-        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`，根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
+        "pitch": "给写地图样式的 Agent 用的 MapLibre 品味检查：6 套命名风格、15 条检查规则，把彩虹建筑变成电影感顺序蓝。",
+        "forAgents": "从仓库 skills 安装 `maptaste-global` 或 `maptaste-cn`。跑 `maptaste check`（v0.0.2，15 条规则 + `hsl()`），根据带规则 ID 和 0–100 分的 JSON 结果改。MCP 工具：`check_taste`、`validate_style`、`preview_info`。"
       }
     },
     {
@@ -64,25 +65,30 @@
         "TUI",
         "MCP",
         "Web",
-        "v0.5.0",
+        "v0.6.0",
         "MIT"
       ],
       "mcp": "npx -y lakeboard-converter mcp",
       "en": {
-        "pitch": "Turns Yuque Lakeboard and XMind mind maps into Markdown, so the ideas stop being trapped in a picture.",
-        "forAgents": "Four read-only MCP tools — `convert`, `from_markdown`, `convert_many`, and `inspect` — returning typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama. npm 0.5.0."
+        "pitch": "Turns 9 mind-map formats — Yuque Lakeboard, XMind, XMind 8, OPML, FreeMind, MindManager, iThoughts, SimpleMind, and CSV — into Markdown, so ideas stop being trapped in a picture.",
+        "forAgents": "Four MCP tools — `convert`, `convert_many`, and `inspect` are read-only, while `from_markdown` writes `.xmind` — returning typed structured output (sheets, node counts, a truncation flag) instead of a wall of text. Listed on Glama. npm 0.6.0."
       },
       "zh": {
-        "pitch": "把语雀 Lakeboard 和 XMind 思维导图转成 Markdown，想法不用再锁在一张图里。",
-        "forAgents": "四个只读 MCP 工具：`convert`、`from_markdown`、`convert_many`、`inspect`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.5.0。"
+        "pitch": "把 9 种思维导图格式（语雀 Lakeboard、XMind、XMind 8、OPML、FreeMind、MindManager、iThoughts、SimpleMind、CSV）转成 Markdown，想法不用再锁在一张图里。",
+        "forAgents": "四个 MCP 工具：`convert`、`convert_many`、`inspect` 为只读，`from_markdown` 写出 `.xmind`，返回带类型的结构化结果（画布、节点数、是否截断），不是一大坨文本。已经上了 Glama。npm 0.6.0。"
       }
     },
     {
       "name": "dashtaste",
       "slug": "dashtaste",
-      "url": "https://github.com/FelixFangX/dashtaste",
+      "url": "https://dashtaste.ledring.dev",
       "source": "https://github.com/FelixFangX/dashtaste",
       "links": [
+        {
+          "url": "https://dashtaste.ledring.dev",
+          "en": "Demo ↗",
+          "zh": "Demo ↗"
+        },
         {
           "url": "https://www.npmjs.com/package/dashtaste",
           "en": "npm ↗",
@@ -104,16 +110,16 @@
         "CLI",
         "ECharts",
         "Agent skill",
-        "v0.0.7",
+        "v0.0.8",
         "MIT"
       ],
       "en": {
-        "pitch": "Dashboard taste as a skill + check loop: shape ECharts charts, check the result, and revise.",
-        "forAgents": "Install `dashtaste-global` or `dashtaste-cn` with `npx skills add FelixFangX/dashtaste`. Apply the skill, run the check, and revise from JSON findings with rule IDs, fixes, and a 0–100 score. Carry local rules in `--pack-file` overlays; use `docs/cases` to narrate gallery changes."
+        "pitch": "Dashboard taste as a skill + check loop: 6 named tastes and 38 rules to shape ECharts dashboards, check the result, and revise.",
+        "forAgents": "Install `dashtaste-global` or `dashtaste-cn` with `npx skills add FelixFangX/dashtaste`. Pick from 6 named tastes, run the 38-rule check (v0.0.8), and revise from JSON findings with rule IDs, fixes, and a 0–100 score. Carry local rules in `--pack-file` overlays; use `docs/cases` to narrate gallery changes."
       },
       "zh": {
-        "pitch": "把仪表盘审美做成 skill + check 闭环：用 skill 调整 ECharts 图表，检查结果，再修改。",
-        "forAgents": "用 `npx skills add FelixFangX/dashtaste` 安装 `dashtaste-global` 或 `dashtaste-cn`。先按 skill 调整，再运行检查，根据带规则 ID、修复建议和 0–100 分的 JSON 结果继续修改。用 `--pack-file` 叠加本地规则，用 `docs/cases` 讲解画廊中的变化。"
+        "pitch": "把仪表盘审美做成 skill + check 闭环：6 套命名风格与 38 条规则，调整 ECharts 看板、检查结果，再修改。",
+        "forAgents": "用 `npx skills add FelixFangX/dashtaste` 安装 `dashtaste-global` 或 `dashtaste-cn`。从 6 套命名风格中选择，运行 38 条规则检查（v0.0.8），根据带规则 ID、修复建议和 0–100 分的 JSON 结果继续修改。用 `--pack-file` 叠加本地规则，用 `docs/cases` 讲解画廊中的变化。"
       }
     },
     {
@@ -202,15 +208,16 @@
         "GitHub",
         "Linear",
         "MCP",
-        "Node test"
+        "Node test",
+        "v1.0.0"
       ],
       "en": {
         "pitch": "An Agent skill that turns a chat bot into a careful dev assistant. It drafts first and asks before anything leaves the room.",
-        "forAgents": "20 safety scenarios (relayed approvals, pasted tokens, prompt injection in repo files and web pages). CI checks the skill still states every rule they depend on. That's 20/20 today. Whether a model actually obeys them is a separate eval, and it hasn't been run yet."
+        "forAgents": "v1.0.0 safety verification: 42/42 rule-string coverage in CI, 50/50 deterministic authority fixtures, and 12/20 on the model eval against `glm-4.7-flash` (relayed approvals, pasted tokens, and prompt injection in repo files and web pages)."
       },
       "zh": {
         "pitch": "一个 Agent skill，把聊天机器人调教成谨慎的开发助手：先出草稿，什么东西要发出去都先问你。",
-        "forAgents": "20 个安全场景（转述的授权、贴进来的 token、藏在仓库文件和网页里的提示注入）。CI 会检查 skill 里是否还写着每条场景依赖的规则，目前 20/20。模型到底听不听话是另一个评测，还没跑。"
+        "forAgents": "v1.0.0 安全验证：CI 中 42/42 规则文本覆盖、50/50 确定性权限夹具测试，以及 `glm-4.7-flash` 上 12/20 的模型评测（覆盖转述授权、贴入 token 及藏在仓库文件和网页里的提示注入）。"
       }
     },
     {
